@@ -3,7 +3,7 @@ using System.Drawing;
 using Pastel;
 using System.Text;
 
-namespace AshConsoleGraphics_0_2
+namespace AshConsoleGraphics
 {
 
     public static class FastConsole
