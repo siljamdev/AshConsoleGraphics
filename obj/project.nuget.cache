@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "o6u8q9DwOGrpjbHzYkeOdJpMxOj5jCtUpPfVugGQFa1X4KxeQtCcaWkBy5hrE2JmqUKzXG15Z16Dr1xQefZg0A==",
+  "success": true,
+  "projectFilePath": "C:\\share\\AshConsoleGraphics\\AshConsoleGraphics.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bohemia\\.nuget\\packages\\pastel\\4.1.0\\pastel.4.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
