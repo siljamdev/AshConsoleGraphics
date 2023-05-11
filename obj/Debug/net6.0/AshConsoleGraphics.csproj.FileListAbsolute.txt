@@ -1,0 +1,12 @@
+C:\share\AshConsoleGraphics\bin\Debug\net6.0\AshConsoleGraphics.deps.json
+C:\share\AshConsoleGraphics\bin\Debug\net6.0\AshConsoleGraphics.dll
+C:\share\AshConsoleGraphics\bin\Debug\net6.0\AshConsoleGraphics.pdb
+C:\share\AshConsoleGraphics\obj\Debug\net6.0\AshConsoleGraphics.csproj.AssemblyReference.cache
+C:\share\AshConsoleGraphics\obj\Debug\net6.0\AshConsoleGraphics.GeneratedMSBuildEditorConfig.editorconfig
+C:\share\AshConsoleGraphics\obj\Debug\net6.0\AshConsoleGraphics.AssemblyInfoInputs.cache
+C:\share\AshConsoleGraphics\obj\Debug\net6.0\AshConsoleGraphics.AssemblyInfo.cs
+C:\share\AshConsoleGraphics\obj\Debug\net6.0\AshConsoleGraphics.csproj.CoreCompileInputs.cache
+C:\share\AshConsoleGraphics\obj\Debug\net6.0\AshConsoleGraphics.dll
+C:\share\AshConsoleGraphics\obj\Debug\net6.0\refint\AshConsoleGraphics.dll
+C:\share\AshConsoleGraphics\obj\Debug\net6.0\AshConsoleGraphics.pdb
+C:\share\AshConsoleGraphics\obj\Debug\net6.0\ref\AshConsoleGraphics.dll

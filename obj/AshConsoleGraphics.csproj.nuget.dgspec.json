@@ -5,10 +5,10 @@
   },
   "projects": {
     "C:\\share\\AshConsoleGraphics\\AshConsoleGraphics.csproj": {
-      "version": "1.0.0",
+      "version": "0.2.0",
       "restore": {
         "projectUniqueName": "C:\\share\\AshConsoleGraphics\\AshConsoleGraphics.csproj",
-        "projectName": "AshConsoleGraphics",
+        "projectName": "ashConsoleGraphics",
         "projectPath": "C:\\share\\AshConsoleGraphics\\AshConsoleGraphics.csproj",
         "packagesPath": "C:\\Users\\bohemia\\.nuget\\packages\\",
         "outputPath": "C:\\share\\AshConsoleGraphics\\obj\\",
@@ -17,6 +17,7 @@
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+          "C:\\share\\AshConsoleGraphics\\NuGet.Config",
           "C:\\Users\\bohemia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -25,8 +26,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://nuget.pkg.github.com/Dumbelfo08/index.json": {}
         },
         "frameworks": {
           "net6.0": {
