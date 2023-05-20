@@ -26,8 +26,9 @@ namespace AshConsoleGraphics
             str.Write(rgb, 0, rgb.Length);
     }
 
-    public static void Flush() { lock (str) str.Flush(); }
-};
+    public static void Flush() { 
+	lock (str) str.Flush(); }
+}
 
     public class GuiScreen
     {
@@ -37,6 +38,8 @@ namespace AshConsoleGraphics
         int length;
         int height;
         protected Color defCol;
+		int consoleStartX = 0;
+		int consoleStartY = 0;
 
         public GuiScreen(List<GuiElement> e, int l, int h, Color d)
         {
@@ -45,6 +48,16 @@ namespace AshConsoleGraphics
             this.height = h;
             this.defCol = d;
         }
+		
+		/*public GuiScreen(List<GuiElement> e, int l, int h, int cX, int cY, Color d)
+        {
+            this.elements = e;
+            this.length = l;
+            this.height = h;
+            this.defCol = d;
+			this.consoleStartX = cX;
+			this.consoleStartY = cY;
+        }*/
 
         public void preparePrint()
         {
@@ -67,7 +80,9 @@ namespace AshConsoleGraphics
                     for (int k = 0; k < e.getXsize(); k++)
                     {
                         this.draw[e.getY() + j, e.getX() + k] = e.print()[j, k];
-                        this.dColor[e.getY() + j, e.getX() + k] = e.pCol()[j, k];
+						if(e.pCol()[j, k] != null){
+							this.dColor[e.getY() + j, e.getX() + k] = (Color) e.pCol()[j, k];
+						}
                     }
                 }
             }
@@ -75,24 +90,33 @@ namespace AshConsoleGraphics
 
         public void doPrint()
         {
-            preparePrint();
+            
+			preparePrint();
             StringBuilder final = new StringBuilder();
+			StringBuilder acum = new StringBuilder();
             for (int i = 0; i < this.height; i++)
             {
-                for (int j = 0; j < this.length; j++)
+                final.Append(new string('\u2003',this.consoleStartX));
+				for (int j = 0; j < this.length; j++)
                 {
                     if (this.draw[i, j] == ' '){
-						final.Append(this.draw[i, j].ToString());
+						final.Append(acum+this.draw[i, j].ToString());
+						acum.Clear();
+					} else if(j+1 == this.dColor.GetLength(1)){
+						final.Append((acum+this.draw[i, j].ToString()).Pastel(this.dColor[i, j]));
+						acum.Clear();
+					}else if(this.dColor[i, j] == this.dColor[i, j+1] && this.draw[i, j+1] != ' '){
+						acum.Append(this.draw[i, j].ToString());
 					} else {
-						final.Append(this.draw[i, j].ToString().Pastel(this.dColor[i, j]));
+						final.Append((acum+this.draw[i, j].ToString()).Pastel(this.dColor[i, j]));
+						acum.Clear();
 					}
 					
                 }
                 final.AppendLine("");
             }
-            Console.SetCursorPosition(0, 0);
+            Console.SetCursorPosition(0, this.consoleStartY);
 			FastConsole.Write(final.ToString());
-            //Console.Out.WriteLine(final.ToString());
 			FastConsole.Flush();
         }
 
@@ -104,27 +128,41 @@ namespace AshConsoleGraphics
 		public GuiElement getElem(int index){
 			return this.elements[index];
 		}
+		
+		public void addElem(GuiElement e){
+			this.elements.Add(e);
+		}
     }
 
     public class GuiScreenB : GuiScreen{
 		protected int bSelected = 0;
-		protected int[,] bNav;
+		protected int[,] bMatrix;
 		protected int bX;
 		protected int bY;
-		protected Dictionary<int, Action> bFunctions = new Dictionary<int, Action>();
+		protected Dictionary<int, Action<GuiElement>> bFunctions = new Dictionary<int, Action<GuiElement>>();
 		
 		public GuiScreenB(List<GuiElement> e, int l, int h, int[,] bn, int startX, int startY, Color c) : base(e,l,h, c){
-			this.bNav = bn;
+			this.bMatrix = bn;
 			this.bX = startX;
 			this.bY = startY;
-			if (this.elements[getIndexOfB(bNav[this.bX,this.bY])] is GuiSelectable){
-				this.bSelected = getIndexOfB(bNav[this.bX,this.bY]);
+			if (this.elements[getIndexOfB(bMatrix[this.bY,this.bX])] is GuiSelectable){
+				this.bSelected = getIndexOfB(bMatrix[this.bY,this.bX]);
 				setSel(true);
-			}
+			} 
 		}
 		
+		/*public GuiScreenB(List<GuiElement> e, int l, int h, int cX, int cY, int[,] bn, int startX, int startY, Color c) : base(e,l,h,cX,cY,c){
+			this.bMatrix = bn;
+			this.bX = startX;
+			this.bY = startY;
+			if (this.elements[getIndexOfB(bMatrix[this.bY,this.bX])] is GuiSelectable){
+				this.bSelected = getIndexOfB(bMatrix[this.bY,this.bX]);
+				setSel(true);
+			} 
+		}*/
 		
-		public void subBevent(int bIndex, Action bFunction)
+		
+		public void subBevent(int bIndex, Action<GuiElement> bFunction)
 		{
 			bFunctions[bIndex] = bFunction;
 		}
@@ -133,38 +171,38 @@ namespace AshConsoleGraphics
 		{
 			if (bFunctions.ContainsKey(bIndex))
 			{
-				Action bFunction = bFunctions[bIndex];
-				bFunction.Invoke();
+				Action<GuiElement> bFunction = bFunctions[bIndex];
+				bFunction.Invoke(this.elements[bSelected]);
 			}
 		}
 		
 		public void move(int dir){
 			if (dir==0){
-				if(this.bX+1 < bNav.GetLength(1)){
+				if(this.bX+1 < bMatrix.GetLength(1)){
 					setSel(false);
 					this.bX++;
-					this.bSelected = getIndexOfB(bNav[this.bY,this.bX]);
+					this.bSelected = getIndexOfB(bMatrix[this.bY,this.bX]);
 					setSel(true);
 				}
 			} else if (dir==1){
 				if(this.bX != 0){
 					setSel(false);
 					this.bX--;
-					this.bSelected = getIndexOfB(bNav[this.bY,this.bX]);
+					this.bSelected = getIndexOfB(bMatrix[this.bY,this.bX]);
 					setSel(true);
 				}
 			} else if (dir==3){
-				if(this.bY+1 < bNav.GetLength(0)){
+				if(this.bY+1 < bMatrix.GetLength(0)){
 					setSel(false);
 					this.bY++;
-					this.bSelected = getIndexOfB(bNav[this.bY,this.bX]);
+					this.bSelected = getIndexOfB(bMatrix[this.bY,this.bX]);
 					setSel(true);
 				}
 			} else if (dir==2){
 				if(this.bY != 0){
 					setSel(false);
 					this.bY--;
-					this.bSelected = getIndexOfB(bNav[this.bY,this.bX]);
+					this.bSelected = getIndexOfB(bMatrix[this.bY,this.bX]);
 					setSel(true);
 				}
 			}
@@ -194,6 +232,7 @@ namespace AshConsoleGraphics
 					continue;
 				}
 			}
+			throw new Exception("No button with Index of "+n+" was found");
 			return 0;
 		}
 		
@@ -264,7 +303,7 @@ namespace AshConsoleGraphics
         protected int Xsize;
         protected int Ysize;
         protected char[,] draw;
-        protected Color[,] dColor;
+        protected Color?[,] dColor;
 
         public int getX()
         {
@@ -289,10 +328,10 @@ namespace AshConsoleGraphics
 		public void checkForExceptions()
 		{
 			if(this.X < 0 || this.Y < 0){
-				throw new Exception("GuiElements position must be non-negative");
+				throw new Exception("GuiElements position must be non-negative, and it is X:"+this.X+" Y:"+this.Y);
 			}
 			if(this.Xsize < 1 || this.Ysize < 1){
-				throw new Exception("GuiElements size must be non-negative and bigger than 0");
+				throw new Exception("GuiElements size must be non-negative and bigger than 0, and it is X:"+this.Xsize+" Y:"+this.Ysize);
 			}
 		}
 
@@ -301,7 +340,7 @@ namespace AshConsoleGraphics
             return this.draw;
         }
 
-        public Color[,] pCol()
+        public Color?[,] pCol()
         {
             return this.dColor;
         }
@@ -316,14 +355,27 @@ namespace AshConsoleGraphics
             this.Xsize = text.Length;
             this.Ysize = 1;
             this.draw = new char[1, text.Length];
-            this.dColor = new Color[1, text.Length];
+            this.dColor = new Color?[1, text.Length];
             for (int i = 0; i < text.Length; i++)
             {
                 this.draw[0, i] = text[i];
+				dColor[0, i] = c;
             }
-            for (int i = 0; i < Xsize; i++)
+			this.checkForExceptions();
+        }
+		
+		public GuiLabel(string text, int X, int Y)
+        {
+            this.X = X;
+            this.Y = Y;
+            this.Xsize = text.Length;
+            this.Ysize = 1;
+            this.draw = new char[1, text.Length];
+            this.dColor = new Color?[1, text.Length];
+            for (int i = 0; i < text.Length; i++)
             {
-                dColor[0, i] = c;
+                this.draw[0, i] = text[i];
+				dColor[0, i] = null;
             }
 			this.checkForExceptions();
         }
@@ -337,19 +389,31 @@ namespace AshConsoleGraphics
             this.Xsize = Xsize;
             this.Ysize = Ysize;
             this.draw = new char[Ysize, Xsize];
-            this.dColor = new Color[Ysize, Xsize];
+            this.dColor = new Color?[Ysize, Xsize];
             for (int i = 0; i < Ysize; i++)
             {
                 for (int j = 0; j < Xsize; j++)
                 {
                     this.draw[i, j] = t;
+					dColor[i, j] = c;
                 }
             }
+			this.checkForExceptions();
+        }
+		public GuiRectangle(char t, int X, int Y, int Xsize, int Ysize)
+        {
+            this.X = X;
+            this.Y = Y;
+            this.Xsize = Xsize;
+            this.Ysize = Ysize;
+            this.draw = new char[Ysize, Xsize];
+            this.dColor = new Color?[Ysize, Xsize];
             for (int i = 0; i < Ysize; i++)
             {
                 for (int j = 0; j < Xsize; j++)
                 {
-                    dColor[i, j] = c;
+                    this.draw[i, j] = t;
+					dColor[i, j] = null;
                 }
             }
 			this.checkForExceptions();
@@ -359,6 +423,9 @@ namespace AshConsoleGraphics
 	public class GuiSquare : GuiRectangle
 	{
 		public GuiSquare(char t, int X, int Y, int size, Color c) : base(t,X,Y,size,size,c){
+			
+		}
+		public GuiSquare(char t, int X, int Y, int size) : base(t,X,Y,size,size){
 			
 		}
 	}
@@ -374,13 +441,53 @@ namespace AshConsoleGraphics
             this.Ysize = Ysize;
 			
 			this.draw = new char[Ysize, Xsize];
-			this.dColor = new Color[Ysize, Xsize];
+			this.dColor = new Color?[Ysize, Xsize];
 			
 			for (int j = 0; j < Ysize; j++)
             {
                 for (int k = 0; k < Xsize; k++)
                 {
                     dColor[j, k] = C;
+					draw[j, k] = ' ';
+                }
+            }
+			
+			this.draw[0, 0] = u;
+            for (int i = 1; i < Xsize - 1; i++)
+            {
+                this.draw[0, i] = t;
+            }
+            this.draw[0, Xsize - 1] = u;
+			
+			for (int i=0; i < Ysize-1; i++){
+				this.draw[i+1, 0] = t;
+				this.draw[i+1, Xsize-1] = t;
+			}
+			
+			this.draw[Ysize-1, 0] = u;
+            for (int i = 1; i < Xsize - 1; i++)
+            {
+                this.draw[Ysize-1, i] = t;
+            }
+            this.draw[Ysize-1, Xsize - 1] = u;
+			this.checkForExceptions();
+        }
+		
+		public GuiFrame(char t,char u,int X, int Y, int Xsize, int Ysize)
+        {
+            this.X = X;
+            this.Y = Y;
+            this.Xsize = Xsize;
+            this.Ysize = Ysize;
+			
+			this.draw = new char[Ysize, Xsize];
+			this.dColor = new Color?[Ysize, Xsize];
+			
+			for (int j = 0; j < Ysize; j++)
+            {
+                for (int k = 0; k < Xsize; k++)
+                {
+                    dColor[j, k] = null;
 					draw[j, k] = ' ';
                 }
             }
@@ -418,7 +525,7 @@ namespace AshConsoleGraphics
             this.Ysize = Ysize;
 			
 			this.draw = new char[Ysize, Xsize];
-			this.dColor = new Color[Ysize, Xsize];
+			this.dColor = new Color?[Ysize, Xsize];
 			
 			for (int j = 0; j < Ysize; j++)
             {
@@ -449,13 +556,53 @@ namespace AshConsoleGraphics
             this.draw[Ysize-1, Xsize - 1] = '┘';
 			this.checkForExceptions();
         }
+		
+		public GuiLinedFrame(int X, int Y, int Xsize, int Ysize)
+        {
+            this.X = X;
+            this.Y = Y;
+            this.Xsize = Xsize;
+            this.Ysize = Ysize;
+			
+			this.draw = new char[Ysize, Xsize];
+			this.dColor = new Color?[Ysize, Xsize];
+			
+			for (int j = 0; j < Ysize; j++)
+            {
+                for (int k = 0; k < Xsize; k++)
+                {
+                    dColor[j, k] = null;
+					draw[j, k] = ' ';
+                }
+            }
+			
+			this.draw[0, 0] = '┌';
+            for (int i = 1; i < Xsize - 1; i++)
+            {
+                this.draw[0, i] = '─';
+            }
+            this.draw[0, Xsize - 1] = '┐';
+			
+			for (int i=0; i < Ysize-1; i++){
+				this.draw[i+1, 0] = '│';
+				this.draw[i+1, Xsize-1] = '│';
+			}
+			
+			this.draw[Ysize-1, 0] = '└';
+            for (int i = 1; i < Xsize - 1; i++)
+            {
+                this.draw[Ysize-1, i] = '─';
+            }
+            this.draw[Ysize-1, Xsize - 1] = '┘';
+			this.checkForExceptions();
+        }
     }
 
     public abstract class GuiSelectable : GuiElement
     {
         protected int index;
         protected bool selected = false;
-        protected Color col;
+        protected Color? col;
 
         public GuiSelectable(int ind, int X, int Y, Color C)
         {
@@ -463,6 +610,14 @@ namespace AshConsoleGraphics
             this.X = X;
             this.Y = Y;
             this.col = C;
+        }
+		
+		public GuiSelectable(int ind, int X, int Y)
+        {
+            this.index = ind;
+            this.X = X;
+            this.Y = Y;
+            this.col = null;
         }
 
         public void setSel(bool s)
@@ -500,6 +655,14 @@ namespace AshConsoleGraphics
 			updateText();
 			this.checkForExceptions();
         }
+		public GuiButton(int ind, string text, int X, int Y) : base(ind, X, Y)
+        {
+            this.text = text;
+            this.Xsize = text.Length;
+            this.Ysize = 1;
+			updateText();
+			this.checkForExceptions();
+        }
 
         override public void updateDraw()
         {
@@ -522,7 +685,7 @@ namespace AshConsoleGraphics
             if (this.selected)
             {
                 this.draw = new char[1, Xsize];
-                this.dColor = new Color[1, Xsize];
+                this.dColor = new Color?[1, Xsize];
 
                 this.draw[0, 0] = '>';
                 for (int i = 1; i < text.Length + 1; i++)
@@ -538,7 +701,7 @@ namespace AshConsoleGraphics
             else
             {
                 this.draw = new char[1, Xsize];
-                this.dColor = new Color[1, Xsize];
+                this.dColor = new Color?[1, Xsize];
 
                 for (int i = 0; i < text.Length; i++)
                 {
@@ -572,7 +735,20 @@ namespace AshConsoleGraphics
         {
             if (startText.Length > len)
             {
-                throw new Exception("Start text for textBox can't be longer than length");
+                throw new Exception("Start text for textBox, that has a length of:"+startText.Length+" can't be longer than length, wich is:"+len);
+            }
+            this.text = startText;
+            this.Xsize = len + 2;
+            this.Ysize = 3;
+            updateText();
+			this.checkForExceptions();
+        }
+		
+		public GuiFramedTextBox(int ind, string startText, int X, int Y, int len) : base(ind, X, Y)
+        {
+            if (startText.Length > len)
+            {
+                throw new Exception("Start text for textBox, that has a length of:"+startText.Length+" can't be longer than length, wich is:"+len);
             }
             this.text = startText;
             this.Xsize = len + 2;
@@ -610,7 +786,7 @@ namespace AshConsoleGraphics
             if (this.selected)
             {
                 this.draw = new char[Ysize, Xsize];
-                this.dColor = new Color[Ysize, Xsize];
+                this.dColor = new Color?[Ysize, Xsize];
 
                 this.draw[0, 0] = ' ';
                 this.draw[0, 1] = '┌';
@@ -658,7 +834,7 @@ namespace AshConsoleGraphics
             {
 
                 this.draw = new char[Ysize, Xsize];
-                this.dColor = new Color[Ysize, Xsize];
+                this.dColor = new Color?[Ysize, Xsize];
 
                 this.draw[0, 0] = '┌';
                 for (int i = 1; i < Xsize - 1; i++)
