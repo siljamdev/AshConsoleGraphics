@@ -23,11 +23,11 @@ namespace MatrixExample{
 				{
 					for (int i = 0; i < heigth; i++) //Nested for loops to loop trough every character
 					{
-						MatrixElements.Add(new AshConsoleGraphics.GuiLabel(RandomCharacter(), j, i, Color.FromArgb(0, 255, 0)));
+						MatrixElements.Add(new AshConsoleGraphics.GuiLabel(RandomCharacter(), j, i, new AshConsoleGraphics.Col(0, 255, 0)));
 						//We add a new GuiLabel that is a random charachter, in the correct postition(j and i), with a green color
 					}
 				}
-				MatrixScreen = new AshConsoleGraphics.GuiScreen(MatrixElements, width, heigth, Color.FromArgb(255, 255, 255)); //We initialize the GuiScreen using the elemnts, the size(width and height), and the default color, that here isn't used
+				MatrixScreen = new AshConsoleGraphics.GuiScreen(MatrixElements, width, heigth, new AshConsoleGraphics.Col(255, 255, 255)); //We initialize the GuiScreen using the elemnts, the size(width and height), and the default color, that here isn't used
 				MatrixScreen.doPrint(); //We print the GuiScreen
 				MatrixElements.Clear(); //We clear the Elements list
 			}

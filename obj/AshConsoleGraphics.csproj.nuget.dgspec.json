@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\share\\AshConsoleGraphics\\AshConsoleGraphics.csproj": {}
+    "C:\\treespace\\AshConsoleGraphics\\AshConsoleGraphics.csproj": {}
   },
   "projects": {
-    "C:\\share\\AshConsoleGraphics\\AshConsoleGraphics.csproj": {
-      "version": "1.1.0",
+    "C:\\treespace\\AshConsoleGraphics\\AshConsoleGraphics.csproj": {
+      "version": "1.2.0",
       "restore": {
-        "projectUniqueName": "C:\\share\\AshConsoleGraphics\\AshConsoleGraphics.csproj",
+        "projectUniqueName": "C:\\treespace\\AshConsoleGraphics\\AshConsoleGraphics.csproj",
         "projectName": "ashConsoleGraphics",
-        "projectPath": "C:\\share\\AshConsoleGraphics\\AshConsoleGraphics.csproj",
-        "packagesPath": "C:\\Users\\bohemia\\.nuget\\packages\\",
-        "outputPath": "C:\\share\\AshConsoleGraphics\\obj\\",
+        "projectPath": "C:\\treespace\\AshConsoleGraphics\\AshConsoleGraphics.csproj",
+        "packagesPath": "C:\\Users\\estebanGH\\.nuget\\packages\\",
+        "outputPath": "C:\\treespace\\AshConsoleGraphics\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\share\\AshConsoleGraphics\\NuGet.Config",
-          "C:\\Users\\bohemia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\estebanGH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +25,8 @@
           "net6.0"
         ],
         "sources": {
-          "https://nuget.pkg.github.com/Dumbelfo08/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

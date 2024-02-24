@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7WEmc+nR58eA0pax5Nb4+mJOFj9EBKkMDdPtJ7kR67sYPw1cykvUe2Qsr8ErO30kchqzaquGyuj1QTfuVG0t0Q==",
+  "dgSpecHash": "xF1/ZJI6hI+IoNU1P1tbNB+AR3XslVv2LzOiZxt+CpdC3wSfOZqenxyvsaSCxc0BP8Mw8BSHpY1F95L1o7anQw==",
   "success": true,
-  "projectFilePath": "C:\\share\\AshConsoleGraphics\\AshConsoleGraphics.csproj",
+  "projectFilePath": "C:\\treespace\\AshConsoleGraphics\\AshConsoleGraphics.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\bohemia\\.nuget\\packages\\pastel\\4.1.0\\pastel.4.1.0.nupkg.sha512"
+    "C:\\Users\\estebanGH\\.nuget\\packages\\pastel\\4.1.0\\pastel.4.1.0.nupkg.sha512"
   ],
   "logs": []
 }
