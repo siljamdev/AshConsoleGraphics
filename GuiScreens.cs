@@ -106,7 +106,7 @@ namespace AshConsoleGraphics
 		protected bool controller = false;
 		
 		protected Dictionary<int, Action<GuiElement, GuiScreenB>> bFunctions = new Dictionary<int, Action<GuiElement, GuiScreenB>>();
-		protected Dictionary<ConsoleKey, Action<GuiScreenB>> keyFunctions = new Dictionary<ConsoleKey, Action<GuiScreenB>>();
+		protected Dictionary<ConsoleKey, Action<GuiScreenB, ConsoleKey>> keyFunctions = new Dictionary<ConsoleKey, Action<GuiScreenB, ConsoleKey>>();
 		
 		protected bool waitForKey = true;
 		protected Action<GuiScreenB>? finishPlayCycleEvent = null;
@@ -128,7 +128,7 @@ namespace AshConsoleGraphics
 			bFunctions[bIndex] = bFunction;
 		}
 		
-		public void subKeyEvent(ConsoleKey bIndex, Action<GuiScreenB> keyFunction)
+		public void subKeyEvent(ConsoleKey bIndex, Action<GuiScreenB, ConsoleKey> keyFunction)
 		{
 			keyFunctions[bIndex] = keyFunction;
 		}
@@ -202,8 +202,8 @@ namespace AshConsoleGraphics
 				
 				if (keyFunctions.ContainsKey(keyInfo.Key))
 				{
-					Action<GuiScreenB> keyFunction = keyFunctions[keyInfo.Key];
-					keyFunction.Invoke(this);
+					Action<GuiScreenB, ConsoleKey> keyFunction = keyFunctions[keyInfo.Key];
+					keyFunction.Invoke(this, keyInfo.Key);
 				}
 				
 				if(!(finishPlayCycleEvent is null)){
@@ -222,15 +222,15 @@ namespace AshConsoleGraphics
 			}
 		}
 		
-		public void pressCurrentB(GuiScreenB s){
+		public void pressCurrentB(GuiScreenB s, ConsoleKey ck){
 			this.bPressed(this.bGetInd());
 		}
 		
-		public void stopPlay(GuiScreenB s){
+		public void stopPlay(GuiScreenB s, ConsoleKey ck){
 			this.controller = false;
 		}
 		
-		public void moveRight(GuiScreenB s){
+		public void moveRight(GuiScreenB s, ConsoleKey ck){
 			if(this.bX+1 < bMatrix.GetLength(1)){
 				setSel(false);
 				this.bX++;
@@ -239,7 +239,7 @@ namespace AshConsoleGraphics
 			}
 		}
 		
-		public void moveLeft(GuiScreenB s){
+		public void moveLeft(GuiScreenB s, ConsoleKey ck){
 			if(this.bX != 0){
 				setSel(false);
 				this.bX--;
@@ -248,7 +248,7 @@ namespace AshConsoleGraphics
 			}
 		}
 		
-		public void moveUp(GuiScreenB s){
+		public void moveUp(GuiScreenB s, ConsoleKey ck){
 			if(this.bY+1 < bMatrix.GetLength(0)){
 				setSel(false);
 				this.bY++;
@@ -257,7 +257,7 @@ namespace AshConsoleGraphics
 			}
 		}
 		
-		public void moveDown(GuiScreenB s){
+		public void moveDown(GuiScreenB s, ConsoleKey ck){
 			if(this.bY != 0){
 					setSel(false);
 					this.bY--;
