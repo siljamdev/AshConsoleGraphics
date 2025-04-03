@@ -1,4 +1,5 @@
 # AshConsoleGraphics
+<img src="res/icon.png" width="200"/>
 GUIs and user interfaces in your console!
 
 ## Installation
@@ -12,5 +13,5 @@ Additionally, there are selectable elements for using with interactive screens. 
 The Color struct used is from the library [AshLib](https://github.com/siljamdev/AshLib)
 
 ## Documentation and Examples
-There is a very complete API documentation and tutorials available at {work in progress}  
+There is a very complete API documentation and tutorials made with DocFx available at {work in progress}  
 There are also examples in [here](./examples)
