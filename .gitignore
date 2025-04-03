@@ -1,4 +1,8 @@
+/desktop.ini
 .git/
+/.gitignore
 obj/
 bin/
+releases/
 /nuget.config
+docfx/
