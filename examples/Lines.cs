@@ -1,5 +1,6 @@
 using System;
-using AshLib;
+using AshLib; //For Colors
+using AshLib.Formatting; //For CharFormat
 using AshConsoleGraphics;
 
 class Program{
@@ -17,7 +18,7 @@ class Program{
 				new TuiFrame(13, 14, Placement.Center, 0, 0)},
 			null, null);
 		
-		TuiScreen screen = new TuiScreen(100, 20, null, new Color3(30, 0, 0), lines);
+		TuiScreen screen = new TuiScreen(100, 20, new CharFormat(null, new Color3(30, 0, 0)), lines);
 		
 		screen.Print();
 		

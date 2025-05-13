@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using AshLib; //For colors
+using AshLib.Formatting; //For CharFormat
 using AshConsoleGraphics;
 using AshConsoleGraphics.Interactive;
 
@@ -10,10 +11,10 @@ class Program{
 		Console.CursorVisible = false; //That way we wont see the cursor flashing
 		
 		//The input box
-		TuiFramedScrollingTextBox input = new TuiFramedScrollingTextBox("", 256, 32, Placement.BottomCenter, 0, 1, new Color3(255, 100, 0), null, new Color3(255, 100, 0), null, new Color3(255, 100, 0), null, Color3.Yellow, null, Color3.Yellow, null);
+		TuiFramedScrollingTextBox input = new TuiFramedScrollingTextBox("", 256, 32, Placement.BottomCenter, 0, 1, new CharFormat(new Color3(255, 100, 0)), new CharFormat(new Color3(255, 100, 0)), new CharFormat(new Color3(255, 100, 0)), new CharFormat(Color3.Yellow), new CharFormat(Color3.Yellow));
 		
 		//The output log
-		TuiLog output = new TuiLog(98, 9, Placement.TopCenter, 0, 1, new Color3(255, 100, 0), Color3.Black);
+		TuiLog output = new TuiLog(98, 9, Placement.TopCenter, 0, 1, new CharFormat(new Color3(255, 100, 0), Color3.Black));
 		
 		//The matrix, that only has one element
 		TuiSelectable[,] elements = new TuiSelectable[,]{
@@ -21,7 +22,7 @@ class Program{
 		};
 		
 		//The interactive screen
-		TuiScreenInteractive screen = new TuiScreenInteractive(100, 20, elements, 0, 0, null, new Color3(30, 0, 0), output);
+		TuiScreenInteractive screen = new TuiScreenInteractive(100, 20, elements, 0, 0, new CharFormat(null, new Color3(30, 0, 0)), output);
 		
 		screen.AutoResize = true; //If the console window resizes, so will the screen to fit all
 		

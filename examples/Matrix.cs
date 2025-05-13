@@ -1,5 +1,6 @@
 using System;
 using AshLib; //For colors
+using AshLib.Formatting; //For CharFormat
 using AshConsoleGraphics;
 using AshConsoleGraphics.Interactive;
 
@@ -9,7 +10,7 @@ class Program{
 	
 	static void Main(){
 		//We declare the Screen that will be used with null colors and no elements
-		TuiScreenInteractive MatrixScreen = new TuiScreenInteractive(0, 0, null, 0, 0, null, null, null);
+		TuiScreenInteractive MatrixScreen = new TuiScreenInteractive(0, 0, null, 0, 0, null, null);
 		
 		//We set the screen to resize to the window size
 		MatrixScreen.AutoResize = true;
@@ -32,7 +33,7 @@ class Program{
 			
 			for(int i = 0; i < MatrixScreen.Xsize; i++){
 				if(random.Next(4) == 0){
-					MatrixScreen.Elements.Add(new TuiLabel(RandomChar(), Placement.TopLeft, i, 0, new Color3(0, (byte) (100 + random.Next(155)), 0), null));
+					MatrixScreen.Elements.Add(new TuiLabel(RandomChar(), Placement.TopLeft, i, 0, new CharFormat(new Color3(0, (byte) (100 + random.Next(155)), 0))));
 				}
 			}
 		});

@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using AshLib.Formatting;
 using AshLib;
 
 namespace AshConsoleGraphics;
@@ -43,18 +44,9 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 	}}
 	
 	/// <summary>
-	/// Deafult foreground color
+	/// Deafult char format
 	/// </summary>
-    public Color3? DefFgColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Deafult background color
-	/// </summary>
-    public Color3? DefBgColor {get;
+    public CharFormat? DefFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -65,18 +57,16 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 	/// </summary>
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="e">The elements</param>
-    public TuiScreen(uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b, params TuiElement[] e) : base(p, x, y){
+    public TuiScreen(uint xs, uint ys, Placement p, int x, int y, CharFormat? f, params TuiElement[] e) : base(p, x, y){
 		if(e == null){
 			Elements = new List<TuiElement>();
 		}else{
-			Elements = new List<TuiElement>(e.Where(x => x != null));
+			Elements = new List<TuiElement>(e.Where(x => x != null).Distinct());
 		}
 		
-		DefFgColor = f;
-		DefBgColor = b;
+		DefFormat = f;
 		
 		Xsize = xs;
 		Ysize = ys;
@@ -87,10 +77,9 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 	/// </summary>
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="e">The elements</param>
-	public TuiScreen(uint xs, uint ys, Color3? f, Color3? b, params TuiElement[] e) : this(xs, ys, Placement.TopLeft, 0, 0, f, b, e){}
+	public TuiScreen(uint xs, uint ys, CharFormat? f, params TuiElement[] e) : this(xs, ys, Placement.TopLeft, 0, 0, f, e){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, Ysize);
@@ -139,7 +128,7 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 			}
 			b.AddBuffer(x, y, eb);
 		}
-		b.ReplaceNull(DefFgColor, DefBgColor);
+		b.ReplaceNull(DefFormat);
 		SetAllNoNeedGenerateBuffer();
 		return b;
 	}
@@ -161,9 +150,11 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 	/// </summary>
     public void Print(){
 		//Console.Clear();
-        Console.SetCursorPosition(0, 0);
+		try{
+			Console.SetCursorPosition(0, 0);
+		}catch(Exception e){}
 		//Console.Write("\x1b[0;0H");
-		FastConsole.Write(Buffer.ToString(' ', DefFgColor, DefBgColor));
+		FastConsole.Write(Buffer.ToString(' ', DefFormat));
 		FastConsole.Flush();
     }
 	
@@ -172,11 +163,13 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 			return true;
 		}
 		
-		if(AutoResize && (Console.WindowWidth != Xsize || Console.WindowHeight - 1 != Ysize)){
-			Xsize = (uint) Console.WindowWidth;
-			Ysize = (uint) Console.WindowHeight - 1;
-			return true;
-		}
+		try{ //If terminals is not interactive it will throw exception
+			if(AutoResize && (Console.WindowWidth != Xsize || Console.WindowHeight - 1 != Ysize)){
+				Xsize = (uint) Console.WindowWidth;
+				Ysize = (uint) Console.WindowHeight - 1;
+				return true;
+			}
+		}catch(Exception e){} //What can we do? Nothing.
 		
 		foreach(TuiElement e in Elements){
 			if(e.ScreenNeedsToBeGenerated()){
@@ -246,11 +239,10 @@ public class TuiConnectedLinesScreen : TuiScreen{
 	/// <param name="chars">The line charachters</param>
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="i">The lined elements</param>
 	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 16 chars long</exception>
-	public TuiConnectedLinesScreen(string chars, uint xs, uint ys, IEnumerable<ILineElement> i, Placement p, int x, int y, Color3? f, Color3? b) : base(xs, ys, p, x, y, f, b, i.Cast<TuiElement>().ToArray()){
+	public TuiConnectedLinesScreen(string chars, uint xs, uint ys, IEnumerable<ILineElement> i, Placement p, int x, int y, CharFormat? f) : base(xs, ys, p, x, y, f, i.Cast<TuiElement>().ToArray()){
 		if(chars == null || chars.Length != 16){
 			throw new ArgumentException("String must be 16 chars long");
 		}
@@ -266,11 +258,10 @@ public class TuiConnectedLinesScreen : TuiScreen{
 	/// <param name="chars">The line charachters</param>
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="i">The lined elements</param>
 	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 16 chars long</exception>
-	public TuiConnectedLinesScreen(string chars, uint xs, uint ys, IEnumerable<ILineElement> i, Color3? f, Color3? b) : base(xs, ys, f, b, i.Cast<TuiElement>().ToArray()){
+	public TuiConnectedLinesScreen(string chars, uint xs, uint ys, IEnumerable<ILineElement> i, CharFormat? f) : base(xs, ys, f, i.Cast<TuiElement>().ToArray()){
 		if(chars == null || chars.Length != 16){
 			throw new ArgumentException("String must be 16 chars long");
 		}
@@ -285,10 +276,9 @@ public class TuiConnectedLinesScreen : TuiScreen{
 	/// </summary>
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="i">The lined elements</param>
-	public TuiConnectedLinesScreen(uint xs, uint ys, IEnumerable<ILineElement> i, Placement p, int x, int y, Color3? f, Color3? b) : base(xs, ys, p, x, y, f, b, i.Cast<TuiElement>().ToArray()){
+	public TuiConnectedLinesScreen(uint xs, uint ys, IEnumerable<ILineElement> i, Placement p, int x, int y, CharFormat? f) : base(xs, ys, p, x, y, f, i.Cast<TuiElement>().ToArray()){
 		LinedElements = new List<ILineElement>(i);
 		
 		Chars = "·───│┌┐┬│└┘┴│├┤┼".ToCharArray();
@@ -299,10 +289,9 @@ public class TuiConnectedLinesScreen : TuiScreen{
 	/// </summary>
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="i">The lined elements</param>
-	public TuiConnectedLinesScreen(uint xs, uint ys, IEnumerable<ILineElement> i, Color3? f, Color3? b) : base(xs, ys, f, b, i.Cast<TuiElement>().ToArray()){
+	public TuiConnectedLinesScreen(uint xs, uint ys, IEnumerable<ILineElement> i, CharFormat? f) : base(xs, ys, f, i.Cast<TuiElement>().ToArray()){
 		LinedElements = new List<ILineElement>(i);
 		
 		Chars = "·───│┌┐┬│└┘┴│├┤┼".ToCharArray();
@@ -358,6 +347,6 @@ public class TuiConnectedLinesScreen : TuiScreen{
 			b.AddBuffer(x, y, eb);
 		}
 		
-		return b.ToBuffer(Chars, DefFgColor, DefBgColor);
+		return b.ToBuffer(Chars, DefFormat);
 	}
 }

@@ -1,5 +1,6 @@
 using System;
 using AshLib;
+using AshLib.Formatting;
 
 namespace AshConsoleGraphics.Interactive;
 
@@ -72,11 +73,10 @@ public class TuiScreenInteractive : TuiScreen{
 	/// <param name="sm">Selectable matrix</param>
 	/// <param name="startX">Start X index in the selectable matrix</param>
 	/// <param name="startY">Start Y index in the selectable matrix</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="e">Additional elements</param>
-	public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, Placement p, int x, int y, Color3? f, Color3? b, params TuiElement[] e)
-								: base(xs, ys, p, x, y, f, b, (e != null ? (sm != null ? e.Concat(sm.Cast<TuiSelectable>().ToArray()).ToArray() : e) : (sm != null ? sm.Cast<TuiSelectable>().ToArray() : e))){
+	public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, Placement p, int x, int y, CharFormat? f, params TuiElement[] e)
+								: base(xs, ys, p, x, y, f, (e != null ? (sm != null ? e.Concat(sm.Cast<TuiSelectable>().ToArray()).ToArray() : e) : (sm != null ? sm.Cast<TuiSelectable>().ToArray() : e))){
 		if(sm == null){
 			SelectionMatrix = new TuiSelectable[1,1];
 		}else{
@@ -99,11 +99,10 @@ public class TuiScreenInteractive : TuiScreen{
 	/// <param name="sm">Selectable matrix</param>
 	/// <param name="startX">Start X index in the selectable matrix</param>
 	/// <param name="startY">Start Y index in the selectable matrix</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="e">Additional elements</param>
-	public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, Color3? f, Color3? b, params TuiElement[] e)
-								: base(xs, ys, f, b, (e != null ? (sm != null ? e.Concat(sm.Cast<TuiSelectable>().ToArray()).ToArray() : e) : (sm != null ? sm.Cast<TuiSelectable>().ToArray() : e))){
+	public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, CharFormat? f, params TuiElement[] e)
+								: base(xs, ys, f, (e != null ? (sm != null ? e.Concat(sm.Cast<TuiSelectable>().ToArray()).ToArray() : e) : (sm != null ? sm.Cast<TuiSelectable>().ToArray() : e))){
 		if(sm == null){
 			SelectionMatrix = new TuiSelectable[1,1];
 		}else{
@@ -164,12 +163,20 @@ public class TuiScreenInteractive : TuiScreen{
 		while(Playing){
 			Print();
 			
-			if(!WaitForKey && !Console.KeyAvailable){
-				CallFinishCycleEvent();
-				continue;
-			}
+			try{ //Sometimes in non interactive terminals Console.KeyAvailable gets error
+				if(!WaitForKey && !Console.KeyAvailable){
+					CallFinishCycleEvent();
+					continue;
+				}
+			}catch(Exception e){}
 			
-			ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+			ConsoleKeyInfo keyInfo;
+			try{
+				keyInfo = Console.ReadKey(true);
+			}catch(Exception e){
+				char c = (char) Console.Read();
+				keyInfo = new ConsoleKeyInfo(c, (ConsoleKey)Enum.Parse(typeof(ConsoleKey), c.ToString(), true), false, false, false);
+			}
 			
 			HandleKey(keyInfo);
 			
@@ -294,11 +301,10 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
 	/// <param name="ss">All the interactive screens</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="e">Additional elements</param>
-	public MultipleTuiScreenInteractive(uint xs, uint ys, IEnumerable<TuiScreenInteractive> ss, Placement p, int x, int y, Color3? f, Color3? b, params TuiElement[] e)
-										: base(xs, ys, p, x, y, f, b, (e != null ? (ss != null ? e.Concat(ss).ToArray() : e) : (ss != null ? ss.ToArray() : e))){
+	public MultipleTuiScreenInteractive(uint xs, uint ys, IEnumerable<TuiScreenInteractive> ss, Placement p, int x, int y, CharFormat? f, params TuiElement[] e)
+										: base(xs, ys, p, x, y, f, (e != null ? (ss != null ? e.Concat(ss).ToArray() : e) : (ss != null ? ss.ToArray() : e))){
 		if(ss == null){
 			ScreenList = new List<TuiScreenInteractive>();
 		}else{
@@ -318,11 +324,10 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
 	/// <param name="ss">All the interactive screens</param>
-	/// <param name="f">The default foreground color</param>
-	/// <param name="b">The default background color</param>
+	/// <param name="f">The default format</param>
 	/// <param name="e">Additional elements</param>
-	public MultipleTuiScreenInteractive(uint xs, uint ys, IEnumerable<TuiScreenInteractive> ss, Color3? f, Color3? b, params TuiElement[] e)
-										: base(xs, ys, f, b, (e != null ? (ss != null ? e.Concat(ss).ToArray() : e) : (ss != null ? ss.ToArray() : e))){
+	public MultipleTuiScreenInteractive(uint xs, uint ys, IEnumerable<TuiScreenInteractive> ss, CharFormat? f, params TuiElement[] e)
+										: base(xs, ys, f, (e != null ? (ss != null ? e.Concat(ss).ToArray() : e) : (ss != null ? ss.ToArray() : e))){
 		if(ss == null){
 			ScreenList = new List<TuiScreenInteractive>();
 		}else{
@@ -368,12 +373,21 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 		while(Playing){
 			Print();
 			
-			if(!WaitForKey && !Console.KeyAvailable){
-				CallFinishCycleEvent();
-				continue;
-			}
+			try{ //Sometimes in non interactive terminals Console.KeyAvailable gets error
+				if(!WaitForKey && !Console.KeyAvailable){
+					CallFinishCycleEvent();
+					continue;
+				}
+			}catch(Exception e){}
 			
-			ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+			ConsoleKeyInfo keyInfo;
+			
+			try{
+				keyInfo = Console.ReadKey(true);
+			}catch(Exception e){
+				char c = (char) Console.Read();
+				keyInfo = new ConsoleKeyInfo(c, (ConsoleKey)Enum.Parse(typeof(ConsoleKey), c.ToString(), true), false, false, false);
+			}
 			
 			if(SelectedScreen != null){
 				if(!SelectedScreen.HandleKey(keyInfo) && keyFunctions.ContainsKey((keyInfo.Key, keyInfo.Modifiers))){

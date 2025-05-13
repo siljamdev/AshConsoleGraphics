@@ -1,5 +1,6 @@
 using System;
 using AshLib;
+using AshLib.Formatting;
 
 namespace AshConsoleGraphics.Interactive;
 
@@ -50,6 +51,8 @@ public abstract class TuiWritable : TuiSelectable{
 		if(char.IsControl(c)){
 			if(keyInfo.Key == ConsoleKey.Backspace){
 				b = DelChar();
+			}else if(keyInfo.Key == ConsoleKey.Enter){
+				b = WriteChar('\n');
 			}
 		}else{
 			b = WriteChar(c);
@@ -72,8 +75,11 @@ public abstract class TuiWritable : TuiSelectable{
 	/// <param name="c">Char to write</param>
 	/// <returns>If it was posible to write</returns>
 	public virtual bool WriteChar(char c){
+		if(c == '\n'){
+			return false;
+		}
 		if(Text.Length + 1 > Length){
-			return true;
+			return false;
 		}
 		Text = Text + c;
 		return true;
@@ -98,90 +104,45 @@ public abstract class TuiWritable : TuiSelectable{
 public class TuiFramedTextBox : TuiWritable{
 	
 	/// <summary>
-	/// Foreground frame color when not selected
+	/// Not selected frame charachter format
 	/// </summary>
-	public Color3? FgFrameColor {get;
+	public CharFormat? FrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when not selected
+	/// Selected frame charachter format
 	/// </summary>
-	public Color3? BgFrameColor {get;
+	public CharFormat? SelectedFrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground frame color when selected
+	/// Not selected text charachter format
 	/// </summary>
-	public Color3? FgFrameSelectedColor {get;
+	public CharFormat? TextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when selected
+	/// Selected text charachter format
 	/// </summary>
-	public Color3? BgFrameSelectedColor {get;
+	public CharFormat? SelectedTextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground text color when not selected
+	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
 	/// </summary>
-	public Color3? FgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when not selected
-	/// </summary>
-	public Color3? BgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground text color when selected
-	/// </summary>
-	public Color3? FgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when selected
-	/// </summary>
-	public Color3? BgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? FgSelectorColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? BgSelectorColor {get;
+	public CharFormat? SelectorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -205,35 +166,22 @@ public class TuiFramedTextBox : TuiWritable{
 	/// <param name="chars">Frame charchters</param>
 	/// <param name="t">Initial text</param>
 	/// <param name="l">Textbox length</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 8 chars long</exception>
-	public TuiFramedTextBox(string chars, string t, uint l, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedTextBox(string chars, string t, uint l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
 							: base(t, l, p, x, y){
 		if(chars == null || chars.Length != 8){
-			throw new ArgumentException("String must be 8 chars long");
+			chars = "┌┐└┘──││";
 		}
 		
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
-		
-		FgTextColor = tf;
-		BgTextColor = tb;
-		FgTextSelectedColor = tsf;
-		BgTextSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
+		FrameFormat = ff;
+		SelectedFrameFormat = sff;
+		TextFormat = tf;
+		SelectedTextFormat = stf;
+		SelectorFormat = pf;
 		
 		FrameChars = chars.ToCharArray();
 	}
@@ -244,238 +192,85 @@ public class TuiFramedTextBox : TuiWritable{
 	/// <param name="chars">Frame charchters</param>
 	/// <param name="t">Initial text</param>
 	/// <param name="l">Textbox length</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedTextBox(string chars, string t, uint l, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(chars, t, l, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new textbox with the same colors for frame and text
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedTextBox(string chars, string t, uint l, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(chars, t, l, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new textbox with general colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiFramedTextBox(string chars, string t, uint l, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(chars, t, l, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new textbox with null colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	public TuiFramedTextBox(string chars, string t, uint l, Placement p, int x, int y)
-							: this(chars, t, l, p, x, y, null, null){}
-	
-	/// <summary>
-	/// Initializes a new textbox with each individual frame char
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb) : base(t, l, p, x, y){
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
-		
-		FgTextColor = tf;
-		BgTextColor = tb;
-		FgTextSelectedColor = tsf;
-		BgTextSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
-		
-		FrameChars = new char[]{topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right};
-	}
-	
-	/// <summary>
-	/// Initializes a new textbox with each individual frame char and same colors for selected and not selected
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new textbox with each individual frame char and same color for frame and text
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, Placement p, int x, int y,
-							Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new textbox with each individual frame char with general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, Placement p, int x, int y,
-							Color3? f, Color3? b)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new textbox with each individual frame char and null colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	public TuiFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, Placement p, int x, int y)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedTextBox(string chars, string t, uint l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(chars, t, l, p, x, y, ff, ff, tf, tf, pf){}
 	
 	/// <summary>
 	/// Initializes a new textbox with default frame chars ('┌┐└┘──││')
 	/// </summary>
 	/// <param name="t">Initial text</param>
 	/// <param name="l">Textbox length</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedTextBox(string t, uint l, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)
-							: this('┌', '┐', '└', '┘', '─', '─', '│', '│', t, l, p, x, y, ff, fb, fsf, fsb, tf, tb, tsf, tsb, sf, sb){}
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedTextBox(string t, uint l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
+							: this(null, t, l, p, x, y, ff, sff, tf, stf, pf){}
 	
 	/// <summary>
 	/// Initializes a new textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected
 	/// </summary>
 	/// <param name="t">Initial text</param>
 	/// <param name="l">Textbox length</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedTextBox(string t, uint l, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(t, l, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new textbox with default frame chars ('┌┐└┘──││') and same color for frame and text
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedTextBox(string t, uint l, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(t, l, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new textbox with default frame chars ('┌┐└┘──││') and general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiFramedTextBox(string t, uint l, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(t, l, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new textbox with default frame chars ('┌┐└┘──││') and null colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Textbox length</param>
-	public TuiFramedTextBox(string t, uint l, Placement p, int x, int y) : this(t, l, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedTextBox(string t, uint l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(t, l, p, x, y, ff,ff, tf, tf, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
 		if(Selected){
 			b = new Buffer(Length + 4, 3);
-			b.SetChar(0, 1, '>', FgSelectorColor, BgSelectorColor);
-			b.SetChar((int) Length + 3, 1, '<', FgSelectorColor, BgSelectorColor);
+			b.SetChar(0, 1, '>', SelectorFormat);
+			b.SetChar((int) Length + 3, 1, '<', SelectorFormat);
 			
 			for(int i = 2; i < Length + 2; i++){
-				b.SetChar(i, 0, FrameChars[4], FgFrameSelectedColor, BgFrameSelectedColor);
-				b.SetChar(i, 2, FrameChars[5], FgFrameSelectedColor, BgFrameSelectedColor);
+				b.SetChar(i, 0, FrameChars[4], SelectedFrameFormat);
+				b.SetChar(i, 2, FrameChars[5], SelectedFrameFormat);
 			}
 			
-			b.SetChar(1, 1, FrameChars[6], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) Length + 2, 1, FrameChars[7], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(1, 1, FrameChars[6], SelectedFrameFormat);
+			b.SetChar((int) Length + 2, 1, FrameChars[7], SelectedFrameFormat);
 			
-			b.SetChar(1, 0, FrameChars[0], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) Length + 2, 0, FrameChars[1], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(1, 2, FrameChars[2], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) Length + 2, 2, FrameChars[3], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(1, 0, FrameChars[0], SelectedFrameFormat);
+			b.SetChar((int) Length + 2, 0, FrameChars[1], SelectedFrameFormat);
+			b.SetChar(1, 2, FrameChars[2], SelectedFrameFormat);
+			b.SetChar((int) Length + 2, 2, FrameChars[3], SelectedFrameFormat);
 			
 			for(int i = 0; i < Text.Length; i++){
-				b.SetChar(2 + i, 1, Text[i], FgTextSelectedColor, BgTextSelectedColor);
+				b.SetChar(2 + i, 1, Text[i], SelectedTextFormat);
 			}
 			
 			for(int i = Text.Length; i < Length; i++){
-				b.SetChar(2 + i, 1, ' ', null, BgTextSelectedColor);
+				b.SetChar(2 + i, 1, ' ', SelectedTextFormat);
 			}
 		}else{
 			b = new Buffer(Length + 2, 3);
 			
 			for(int i = 1; i < Length + 1; i++){
-				b.SetChar(i, 0, FrameChars[4], FgFrameColor, BgFrameColor);
-				b.SetChar(i, 2, FrameChars[5], FgFrameColor, BgFrameColor);
+				b.SetChar(i, 0, FrameChars[4], FrameFormat);
+				b.SetChar(i, 2, FrameChars[5], FrameFormat);
 			}
 			
-			b.SetChar(0, 1, FrameChars[6], FgFrameColor, BgFrameColor);
-			b.SetChar((int) Length + 1, 1, FrameChars[7], FgFrameColor, BgFrameColor);
+			b.SetChar(0, 1, FrameChars[6], FrameFormat);
+			b.SetChar((int) Length + 1, 1, FrameChars[7], FrameFormat);
 			
-			b.SetChar(0, 0, FrameChars[0], FgFrameColor, BgFrameColor);
-			b.SetChar((int) Length + 1, 0, FrameChars[1], FgFrameColor, BgFrameColor);
-			b.SetChar(0, 2, FrameChars[2], FgFrameColor, BgFrameColor);
-			b.SetChar((int) Length + 1, 2, FrameChars[3], FgFrameColor, BgFrameColor);
+			b.SetChar(0, 0, FrameChars[0], FrameFormat);
+			b.SetChar((int) Length + 1, 0, FrameChars[1], FrameFormat);
+			b.SetChar(0, 2, FrameChars[2], FrameFormat);
+			b.SetChar((int) Length + 1, 2, FrameChars[3], FrameFormat);
 			
 			for(int i = 0; i < Text.Length; i++){
-				b.SetChar(1 + i, 1, Text[i], FgTextColor, BgTextColor);
+				b.SetChar(1 + i, 1, Text[i], TextFormat);
 			}
 			
 			for(int i = Text.Length; i < Length; i++){
-				b.SetChar(1 + i, 1, ' ', null, BgTextColor);
+				b.SetChar(1 + i, 1, ' ', TextFormat);
 			}
 		}
 		return b;
@@ -488,90 +283,45 @@ public class TuiFramedTextBox : TuiWritable{
 public class TuiFramedScrollingTextBox : TuiWritable{
 	
 	/// <summary>
-	/// Foreground frame color when not selected
+	/// Not selected frame charachter format
 	/// </summary>
-	public Color3? FgFrameColor {get;
+	public CharFormat? FrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when not selected
+	/// Selected frame charachter format
 	/// </summary>
-	public Color3? BgFrameColor {get;
+	public CharFormat? SelectedFrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground frame color when selected
+	/// Not selected text charachter format
 	/// </summary>
-	public Color3? FgFrameSelectedColor {get;
+	public CharFormat? TextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when selected
+	/// Selected text charachter format
 	/// </summary>
-	public Color3? BgFrameSelectedColor {get;
+	public CharFormat? SelectedTextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground text color when not selected
+	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
 	/// </summary>
-	public Color3? FgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when not selected
-	/// </summary>
-	public Color3? BgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground text color when selected
-	/// </summary>
-	public Color3? FgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when selected
-	/// </summary>
-	public Color3? BgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? FgSelectorColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? BgSelectorColor {get;
+	public CharFormat? SelectorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -604,33 +354,21 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="l">Max text length</param>
 	/// <param name="bl">Visible textbox length</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 8 chars long</exception>
-	public TuiFramedScrollingTextBox(string chars, string t, uint l, uint bl, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb) : base(t, l, p, x, y){
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedScrollingTextBox(string chars, string t, uint l, uint bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf) : base(t, l, p, x, y){
 		if(chars == null || chars.Length != 8){
-			throw new ArgumentException("String must be 8 chars long");
+			chars = "┌┐└┘──││";
 		}
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
 		
-		FgTextColor = tf;
-		BgTextColor = tb;
-		FgTextSelectedColor = tsf;
-		BgTextSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
+		FrameFormat = ff;
+		SelectedFrameFormat = sff;
+		TextFormat = tf;
+		SelectedTextFormat = stf;
+		SelectorFormat = pf;
 		
 		BoxXsize = bl;
 		
@@ -644,137 +382,11 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="l">Max text length</param>
 	/// <param name="bl">Visible textbox length</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedScrollingTextBox(string chars, string t, uint l, uint bl, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(chars, t, l, bl, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with the same colors for frame and text
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedScrollingTextBox(string chars, string t, uint l, uint bl, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(chars, t, l, bl, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with general colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiFramedScrollingTextBox(string chars, string t, uint l, uint bl, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(chars, t, l, bl, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with null colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	public TuiFramedScrollingTextBox(string chars, string t, uint l, uint bl, Placement p, int x, int y)
-							: this(chars, t, l, bl, p, x, y, null, null){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with each individual frame char
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedScrollingTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint bl, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb) : base(t, l, p, x, y){
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
-		
-		FgTextColor = tf;
-		BgTextColor = tb;
-		FgTextSelectedColor = tsf;
-		BgTextSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
-		
-		BoxXsize = bl;
-		
-		FrameChars = new char[]{topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right};
-	}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with each individual frame char and same colors for selected and not selected
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedScrollingTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint bl, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, bl, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with each individual frame char and same color for frame and text
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedScrollingTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint bl, Placement p, int x, int y,
-							Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, bl, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with each individual frame char with general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiFramedScrollingTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint bl, Placement p, int x, int y,
-							Color3? f, Color3? b)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, bl, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with each individual frame char with null colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	public TuiFramedScrollingTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint bl, Placement p, int x, int y)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, bl, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedScrollingTextBox(string chars, string t, uint l, uint bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(chars, t, l, bl, p, x, y, ff, ff, tf, tf, pf){}
 	
 	/// <summary>
 	/// Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││')
@@ -782,18 +394,13 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="l">Max text length</param>
 	/// <param name="bl">Visible textbox length</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedScrollingTextBox(string t, uint l, uint bl, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)
-							: this('┌', '┐', '└', '┘', '─', '─', '│', '│', t, l, bl, p, x, y, ff, fb, fsf, fsb, tf, tb, tsf, tsb, sf, sb){}
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedScrollingTextBox(string t, uint l, uint bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
+							: this(null, t, l, bl, p, x, y, ff, sff, tf, stf, pf){}
 	
 	/// <summary>
 	/// Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected
@@ -801,46 +408,11 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="l">Max text length</param>
 	/// <param name="bl">Visible textbox length</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedScrollingTextBox(string t, uint l, uint bl, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(t, l, bl, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││') and same color for frame and text
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedScrollingTextBox(string t, uint l, uint bl, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(t, l, bl, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││') and general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiFramedScrollingTextBox(string t, uint l, uint bl, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(t, l, bl, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││') and null colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="l">Max text length</param>
-	/// <param name="bl">Visible textbox length</param>
-	public TuiFramedScrollingTextBox(string t, uint l, uint bl, Placement p, int x, int y) : this(t, l, bl, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedScrollingTextBox(string t, uint l, uint bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(t, l, bl, p, x, y, ff, ff, tf, tf, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
@@ -854,51 +426,51 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 		
 		if(Selected){
 			b = new Buffer(BoxXsize + 4, 3);
-			b.SetChar(0, 1, '>', FgSelectorColor, BgSelectorColor);
-			b.SetChar((int) BoxXsize + 3, 1, '<', FgSelectorColor, BgSelectorColor);
+			b.SetChar(0, 1, '>', SelectorFormat);
+			b.SetChar((int) BoxXsize + 3, 1, '<', SelectorFormat);
 			
 			for(int i = 2; i < BoxXsize + 2; i++){
-				b.SetChar(i, 0, FrameChars[4], FgFrameSelectedColor, BgFrameSelectedColor);
-				b.SetChar(i, 2, FrameChars[5], FgFrameSelectedColor, BgFrameSelectedColor);
+				b.SetChar(i, 0, FrameChars[4], SelectedFrameFormat);
+				b.SetChar(i, 2, FrameChars[5], SelectedFrameFormat);
 			}
 			
-			b.SetChar(1, 1, FrameChars[6], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) BoxXsize + 2, 1, FrameChars[7], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(1, 1, FrameChars[6], SelectedFrameFormat);
+			b.SetChar((int) BoxXsize + 2, 1, FrameChars[7], SelectedFrameFormat);
 			
-			b.SetChar(1, 0, FrameChars[0], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) BoxXsize + 2, 0, FrameChars[1], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(1, 2, FrameChars[2], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) BoxXsize + 2, 2, FrameChars[3], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(1, 0, FrameChars[0], SelectedFrameFormat);
+			b.SetChar((int) BoxXsize + 2, 0, FrameChars[1], SelectedFrameFormat);
+			b.SetChar(1, 2, FrameChars[2], SelectedFrameFormat);
+			b.SetChar((int) BoxXsize + 2, 2, FrameChars[3], SelectedFrameFormat);
 			
 			for(int i = 0; i < te.Length; i++){
-				b.SetChar(2 + i, 1, te[i], FgTextSelectedColor, BgTextSelectedColor);
+				b.SetChar(2 + i, 1, te[i], SelectedTextFormat);
 			}
 			
 			for(int i = te.Length; i < BoxXsize; i++){
-				b.SetChar(2 + i, 1, ' ', null, BgTextSelectedColor);
+				b.SetChar(2 + i, 1, ' ', SelectedTextFormat);
 			}
 		}else{
 			b = new Buffer(BoxXsize + 2, 3);
 			
 			for(int i = 1; i < BoxXsize + 1; i++){
-				b.SetChar(i, 0, FrameChars[4], FgFrameColor, BgFrameColor);
-				b.SetChar(i, 2, FrameChars[5], FgFrameColor, BgFrameColor);
+				b.SetChar(i, 0, FrameChars[4], FrameFormat);
+				b.SetChar(i, 2, FrameChars[5], FrameFormat);
 			}
 			
-			b.SetChar(0, 1, FrameChars[6], FgFrameColor, BgFrameColor);
-			b.SetChar((int) BoxXsize + 1, 1, FrameChars[7], FgFrameColor, BgFrameColor);
+			b.SetChar(0, 1, FrameChars[6], FrameFormat);
+			b.SetChar((int) BoxXsize + 1, 1, FrameChars[7], FrameFormat);
 			
-			b.SetChar(0, 0, FrameChars[0], FgFrameColor, BgFrameColor);
-			b.SetChar((int) BoxXsize + 1, 0, FrameChars[1], FgFrameColor, BgFrameColor);
-			b.SetChar(0, 2, FrameChars[2], FgFrameColor, BgFrameColor);
-			b.SetChar((int) BoxXsize + 1, 2, FrameChars[3], FgFrameColor, BgFrameColor);
+			b.SetChar(0, 0, FrameChars[0], FrameFormat);
+			b.SetChar((int) BoxXsize + 1, 0, FrameChars[1], FrameFormat);
+			b.SetChar(0, 2, FrameChars[2], FrameFormat);
+			b.SetChar((int) BoxXsize + 1, 2, FrameChars[3], FrameFormat);
 			
 			for(int i = 0; i < te.Length; i++){
-				b.SetChar(1 + i, 1, te[i], FgTextColor, BgTextColor);
+				b.SetChar(1 + i, 1, te[i], TextFormat);
 			}
 			
 			for(int i = te.Length; i < BoxXsize; i++){
-				b.SetChar(1 + i, 1, ' ', null, BgTextColor);
+				b.SetChar(1 + i, 1, ' ', TextFormat);
 			}
 		}
 		return b;
@@ -911,90 +483,45 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 public class TuiMultiLineFramedTextBox : TuiWritable{
 	
 	/// <summary>
-	/// Foreground frame color when not selected
+	/// Not selected frame charachter format
 	/// </summary>
-	public Color3? FgFrameColor {get;
+	public CharFormat? FrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when not selected
+	/// Selected frame charachter format
 	/// </summary>
-	public Color3? BgFrameColor {get;
+	public CharFormat? SelectedFrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground frame color when selected
+	/// Not selected text charachter format
 	/// </summary>
-	public Color3? FgFrameSelectedColor {get;
+	public CharFormat? TextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when selected
+	/// Selected text charachter format
 	/// </summary>
-	public Color3? BgFrameSelectedColor {get;
+	public CharFormat? SelectedTextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground text color when not selected
+	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
 	/// </summary>
-	public Color3? FgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when not selected
-	/// </summary>
-	public Color3? BgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground text color when selected
-	/// </summary>
-	public Color3? FgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when selected
-	/// </summary>
-	public Color3? BgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? FgSelectorColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? BgSelectorColor {get;
+	public CharFormat? SelectorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -1039,33 +566,21 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="xs">Box X size</param>
 	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 8 chars long</exception>
-	public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb) : base(t, xs * ys, p, x, y){
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf) : base(t, xs * ys, p, x, y){
 		if(chars == null || chars.Length != 8){
-			throw new ArgumentException("String must be 8 chars long");
+			chars = "┌┐└┘──││";
 		}
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
 		
-		FgTextColor = tf;
-		BgTextColor = tb;
-		FgTextSelectedColor = tsf;
-		BgTextSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
+		FrameFormat = ff;
+		SelectedFrameFormat = sff;
+		TextFormat = tf;
+		SelectedTextFormat = stf;
+		SelectorFormat = pf;
 		
 		BoxXsize = xs;
 		BoxYsize = ys;
@@ -1082,140 +597,11 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="xs">Box X size</param>
 	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(chars, t, xs, ys, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with the same colors for frame and text
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(chars, t, xs, ys, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with general colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(chars, t, xs, ys, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with null colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y)
-							: this(chars, t, xs, ys, p, x, y, null, null){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb) : base(t, xs * ys, p, x, y){
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
-		
-		FgTextColor = tf;
-		BgTextColor = tb;
-		FgTextSelectedColor = tsf;
-		BgTextSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
-		
-		BoxXsize = xs;
-		BoxYsize = ys;
-		
-		Text = t;
-		
-		FrameChars = new char[]{topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right};
-	}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char and same colors for selected and not selected
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, xs, ys, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char and same color for frame and text
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y,
-							Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, xs, ys, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char with general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y,
-							Color3? f, Color3? b)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, xs, ys, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char with null colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, xs, ys, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(chars, t, xs, ys, p, x, y, ff, ff, tf, tf, pf){}
 	
 	/// <summary>
 	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││')
@@ -1223,18 +609,13 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="xs">Box X size</param>
 	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)
-							: this('┌', '┐', '└', '┘', '─', '─', '│', '│', t, xs, ys, p, x, y, ff, fb, fsf, fsb, tf, tb, tsf, tsb, sf, sb){}
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
+							: this(null, t, xs, ys, p, x, y, ff, sff, tf, stf, pf){}
 	
 	/// <summary>
 	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected
@@ -1242,107 +623,84 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="xs">Box X size</param>
 	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(t, xs, ys, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and same color for frame and text
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(t, xs, ys, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(t, xs, ys, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y) : this(t, xs, ys, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(t, xs, ys, p, x, y, ff, ff, tf, tf, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
 		if(Selected){
 			b = new Buffer(BoxXsize + 4, BoxYsize + 2);
-			b.SetChar(0, (int) BoxYsize / 2, '>', FgSelectorColor, BgSelectorColor);
-			b.SetChar((int) BoxXsize + 3, (int) BoxYsize / 2, '<', FgSelectorColor, BgSelectorColor);
+			b.SetChar(0, (int) BoxYsize / 2, '>', SelectorFormat);
+			b.SetChar((int) BoxXsize + 3, (int) BoxYsize / 2, '<', SelectorFormat);
 			
 			for(int i = 2; i < BoxXsize + 2; i++){
-				b.SetChar(i, 0, FrameChars[4], FgFrameSelectedColor, BgFrameSelectedColor);
-				b.SetChar(i, (int) BoxYsize + 1, FrameChars[5], FgFrameSelectedColor, BgFrameSelectedColor);
+				b.SetChar(i, 0, FrameChars[4], SelectedFrameFormat);
+				b.SetChar(i, (int) BoxYsize + 1, FrameChars[5], SelectedFrameFormat);
 			}
 			
 			for(int i = 1; i < BoxYsize + 1; i++){
-				b.SetChar(1, i, FrameChars[6], FgFrameSelectedColor, BgFrameSelectedColor);
-				b.SetChar((int) BoxXsize + 2, i, FrameChars[7], FgFrameSelectedColor, BgFrameSelectedColor);
+				b.SetChar(1, i, FrameChars[6], SelectedFrameFormat);
+				b.SetChar((int) BoxXsize + 2, i, FrameChars[7], SelectedFrameFormat);
 			}
 			
-			b.SetChar(1, 0, FrameChars[0], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) BoxXsize + 2, 0, FrameChars[1], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(1, (int) BoxYsize + 1, FrameChars[2], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) BoxXsize + 2, (int) BoxYsize + 1, FrameChars[3], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(1, 0, FrameChars[0], SelectedFrameFormat);
+			b.SetChar((int) BoxXsize + 2, 0, FrameChars[1], SelectedFrameFormat);
+			b.SetChar(1, (int) BoxYsize + 1, FrameChars[2], SelectedFrameFormat);
+			b.SetChar((int) BoxXsize + 2, (int) BoxYsize + 1, FrameChars[3], SelectedFrameFormat);
 			
 			for(int i = 2; i < BoxXsize + 2; i++){
 				for(int j = 1; j < BoxYsize + 1; j++){
-					b.SetChar(i, j, ' ', null, BgTextSelectedColor);
+					b.SetChar(i, j, ' ', SelectedTextFormat);
 				}
 			}
 			
 			for(int i = 0; i < Text.Length; i++){
-				b.SetChar(2 + (i % (int) BoxXsize), 1 + (i / (int) BoxXsize), Text[i], FgTextSelectedColor, BgTextSelectedColor);
+				b.SetChar(2 + (i % (int) BoxXsize), 1 + (i / (int) BoxXsize), Text[i], SelectedTextFormat);
 			}
 		}else{
 			b = new Buffer(BoxXsize + 2, BoxYsize + 2);
 			
 			for(int i = 1; i < BoxXsize + 1; i++){
-				b.SetChar(i, 0, FrameChars[4], FgFrameColor, BgFrameColor);
-				b.SetChar(i, (int) BoxYsize + 1, FrameChars[5], FgFrameColor, BgFrameColor);
+				b.SetChar(i, 0, FrameChars[4], FrameFormat);
+				b.SetChar(i, (int) BoxYsize + 1, FrameChars[5], FrameFormat);
 			}
 			
 			for(int i = 1; i < BoxYsize + 1; i++){
-				b.SetChar(0, i, FrameChars[6], FgFrameColor, BgFrameColor);
-				b.SetChar((int) BoxXsize + 1, i, FrameChars[7], FgFrameColor, BgFrameColor);
+				b.SetChar(0, i, FrameChars[6], FrameFormat);
+				b.SetChar((int) BoxXsize + 1, i, FrameChars[7], FrameFormat);
 			}
 			
-			b.SetChar(0, 0, FrameChars[0], FgFrameColor, BgFrameColor);
-			b.SetChar((int) BoxXsize + 1, 0, FrameChars[1], FgFrameColor, BgFrameColor);
-			b.SetChar(0, (int) BoxYsize + 1, FrameChars[2], FgFrameColor, BgFrameColor);
-			b.SetChar((int) BoxXsize + 1, (int) BoxYsize + 1, FrameChars[3], FgFrameColor, BgFrameColor);
+			b.SetChar(0, 0, FrameChars[0], FrameFormat);
+			b.SetChar((int) BoxXsize + 1, 0, FrameChars[1], FrameFormat);
+			b.SetChar(0, (int) BoxYsize + 1, FrameChars[2], FrameFormat);
+			b.SetChar((int) BoxXsize + 1, (int) BoxYsize + 1, FrameChars[3], FrameFormat);
 			
 			for(int i = 1; i < BoxXsize + 1; i++){
 				for(int j = 1; j < BoxYsize + 1; j++){
-					b.SetChar(i, j, ' ', null, BgTextColor);
+					b.SetChar(i, j, ' ', TextFormat);
 				}
 			}
 			
 			for(int i = 0; i < Text.Length; i++){
-				b.SetChar(1 + (i % (int) BoxXsize), 1 + (i / (int) BoxXsize), Text[i], FgTextColor, BgTextColor);
+				b.SetChar(1 + (i % (int) BoxXsize), 1 + (i / (int) BoxXsize), Text[i], TextFormat);
 			}
 		}
 		return b;
+	}
+	
+	public override bool WriteChar(char c){
+		if(Text.Length + 1 > Length){
+			return false;
+		}
+		if(c == '\n'){
+			Text = Text + new string(' ', (int) BoxXsize - ((Text.Length - 1) % (int) BoxXsize) - 1);
+			return true;
+		}
+		Text = Text + c;
+		return true;
 	}
 }
 
@@ -1352,90 +710,45 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	
 	/// <summary>
-	/// Foreground frame color when not selected
+	/// Not selected frame charachter format
 	/// </summary>
-	public Color3? FgFrameColor {get;
+	public CharFormat? FrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when not selected
+	/// Selected frame charachter format
 	/// </summary>
-	public Color3? BgFrameColor {get;
+	public CharFormat? SelectedFrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground frame color when selected
+	/// Not selected text charachter format
 	/// </summary>
-	public Color3? FgFrameSelectedColor {get;
+	public CharFormat? TextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when selected
+	/// Selected text charachter format
 	/// </summary>
-	public Color3? BgFrameSelectedColor {get;
+	public CharFormat? SelectedTextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground text color when not selected
+	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
 	/// </summary>
-	public Color3? FgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when not selected
-	/// </summary>
-	public Color3? BgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground text color when selected
-	/// </summary>
-	public Color3? FgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when selected
-	/// </summary>
-	public Color3? BgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? FgSelectorColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? BgSelectorColor {get;
+	public CharFormat? SelectorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -1480,34 +793,22 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="xs">Box X size</param>
 	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 8 chars long</exception>
-	public TuiMultiLineScrollingFramedTextBox(string chars, string t, uint l, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiMultiLineScrollingFramedTextBox(string chars, string t, uint l, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
 											: base(t, l, p, x, y){
 		if(chars == null || chars.Length != 8){
-			throw new ArgumentException("String must be 8 chars long");
+			chars = "┌┐└┘──││";
 		}
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
 		
-		FgTextColor = tf;
-		BgTextColor = tb;
-		FgTextSelectedColor = tsf;
-		BgTextSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
+		FrameFormat = ff;
+		SelectedFrameFormat = sff;
+		TextFormat = tf;
+		SelectedTextFormat = stf;
+		SelectorFormat = pf;
 		
 		BoxXsize = xs;
 		BoxYsize = ys;
@@ -1526,142 +827,11 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="xs">Box X size</param>
 	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineScrollingFramedTextBox(string chars, string t, uint l, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(chars, t, l, xs, ys, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with the same colors for frame and text
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineScrollingFramedTextBox(string chars, string t, uint l, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(chars, t, l, xs, ys, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with general colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiMultiLineScrollingFramedTextBox(string chars, string t, uint l, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(chars, t, l, xs, ys, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with null colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	public TuiMultiLineScrollingFramedTextBox(string chars, string t, uint l, uint xs, uint ys, Placement p, int x, int y)
-							: this(chars, t, l, xs, ys, p, x, y, null, null){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineScrollingFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint xs, uint ys, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb) : base(t, l, p, x, y){
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
-		
-		FgTextColor = tf;
-		BgTextColor = tb;
-		FgTextSelectedColor = tsf;
-		BgTextSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
-		
-		BoxXsize = xs;
-		BoxYsize = ys;
-		
-		Length = l;
-		
-		Text = t;
-		
-		FrameChars = new char[]{topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right};
-	}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char and same colors for selected and not selected
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineScrollingFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint xs, uint ys, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, xs, ys, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char and same color for frame and text
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineScrollingFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint xs, uint ys, Placement p, int x, int y,
-							Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, xs, ys, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char with general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiMultiLineScrollingFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint xs, uint ys, Placement p, int x, int y,
-							Color3? f, Color3? b)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, xs, ys, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with each individual frame char with null colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	public TuiMultiLineScrollingFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint l, uint xs, uint ys, Placement p, int x, int y)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, t, l, xs, ys, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiMultiLineScrollingFramedTextBox(string chars, string t, uint l, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(chars, t, l, xs, ys, p, x, y, ff, ff, tf, tf, pf){}
 	
 	/// <summary>
 	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││')
@@ -1669,18 +839,13 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="xs">Box X size</param>
 	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected text color</param>
-	/// <param name="tb">Background not selected text color</param>
-	/// <param name="tsf">Foreground selected text color</param>
-	/// <param name="tsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineScrollingFramedTextBox(string t, uint l, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)
-							: this('┌', '┐', '└', '┘', '─', '─', '│', '│', t, l, xs, ys, p, x, y, ff, fb, fsf, fsb, tf, tb, tsf, tsb, sf, sb){}
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiMultiLineScrollingFramedTextBox(string t, uint l, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
+							: this(null, t, l, xs, ys, p, x, y, ff, sff, tf, stf, pf){}
 	
 	/// <summary>
 	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected
@@ -1688,47 +853,11 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	/// <param name="t">Initial text</param>
 	/// <param name="xs">Box X size</param>
 	/// <param name="ys">Box Y size</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground text color</param>
-	/// <param name="tb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineScrollingFramedTextBox(string t, uint l, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(t, l, xs, ys, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and same color for frame and text
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame and text color</param>
-	/// <param name="b">Background frame and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiMultiLineScrollingFramedTextBox(string t, uint l, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-									: this(t, l, xs, ys, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	/// <param name="f">Foreground frame color</param>
-	/// <param name="b">Background frame color</param>
-	public TuiMultiLineScrollingFramedTextBox(string t, uint l, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b)
-									: this(t, l, xs, ys, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and general colors
-	/// </summary>
-	/// <param name="t">Initial text</param>
-	/// <param name="xs">Box X size</param>
-	/// <param name="ys">Box Y size</param>
-	public TuiMultiLineScrollingFramedTextBox(string t, uint l, uint xs, uint ys, Placement p, int x, int y)
-									: this(t, l, xs, ys, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiMultiLineScrollingFramedTextBox(string t, uint l, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(t, l, xs, ys, p, x, y, ff, ff, tf, tf, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
@@ -1742,59 +871,59 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 		
 		if(Selected){
 			b = new Buffer(BoxXsize + 4, BoxYsize + 2);
-			b.SetChar(0, (int) BoxYsize / 2, '>', FgSelectorColor, BgSelectorColor);
-			b.SetChar((int) BoxXsize + 3, (int) BoxYsize / 2, '<', FgSelectorColor, BgSelectorColor);
+			b.SetChar(0, (int) BoxYsize / 2, '>', SelectorFormat);
+			b.SetChar((int) BoxXsize + 3, (int) BoxYsize / 2, '<', SelectorFormat);
 			
 			for(int i = 2; i < BoxXsize + 2; i++){
-				b.SetChar(i, 0, FrameChars[4], FgFrameSelectedColor, BgFrameSelectedColor);
-				b.SetChar(i, (int) BoxYsize + 1, FrameChars[5], FgFrameSelectedColor, BgFrameSelectedColor);
+				b.SetChar(i, 0, FrameChars[4], SelectedFrameFormat);
+				b.SetChar(i, (int) BoxYsize + 1, FrameChars[5], SelectedFrameFormat);
 			}
 			
 			for(int i = 1; i < BoxYsize + 1; i++){
-				b.SetChar(1, i, FrameChars[6], FgFrameSelectedColor, BgFrameSelectedColor);
-				b.SetChar((int) BoxXsize + 2, i, FrameChars[7], FgFrameSelectedColor, BgFrameSelectedColor);
+				b.SetChar(1, i, FrameChars[6], SelectedFrameFormat);
+				b.SetChar((int) BoxXsize + 2, i, FrameChars[7], SelectedFrameFormat);
 			}
 			
-			b.SetChar(1, 0, FrameChars[0], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) BoxXsize + 2, 0, FrameChars[1], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(1, (int) BoxYsize + 1, FrameChars[2], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) BoxXsize + 2, (int) BoxYsize + 1, FrameChars[3], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(1, 0, FrameChars[0], SelectedFrameFormat);
+			b.SetChar((int) BoxXsize + 2, 0, FrameChars[1], SelectedFrameFormat);
+			b.SetChar(1, (int) BoxYsize + 1, FrameChars[2], SelectedFrameFormat);
+			b.SetChar((int) BoxXsize + 2, (int) BoxYsize + 1, FrameChars[3], SelectedFrameFormat);
 			
 			for(int i = 2; i < BoxXsize + 2; i++){
 				for(int j = 1; j < BoxYsize + 1; j++){
-					b.SetChar(i, j, ' ', null, BgTextSelectedColor);
+					b.SetChar(i, j, ' ', SelectedTextFormat);
 				}
 			}
 			
 			for(int i = 0; i < te.Length; i++){
-				b.SetChar(2 + (i % (int) BoxXsize), 1 + (i / (int) BoxXsize), te[i], FgTextSelectedColor, BgTextSelectedColor);
+				b.SetChar(2 + (i % (int) BoxXsize), 1 + (i / (int) BoxXsize), te[i], SelectedTextFormat);
 			}
 		}else{
 			b = new Buffer(BoxXsize + 2, BoxYsize + 2);
 			
 			for(int i = 1; i < BoxXsize + 1; i++){
-				b.SetChar(i, 0, FrameChars[4], FgFrameColor, BgFrameColor);
-				b.SetChar(i, (int) BoxYsize + 1, FrameChars[5], FgFrameColor, BgFrameColor);
+				b.SetChar(i, 0, FrameChars[4], FrameFormat);
+				b.SetChar(i, (int) BoxYsize + 1, FrameChars[5], FrameFormat);
 			}
 			
 			for(int i = 1; i < BoxYsize + 1; i++){
-				b.SetChar(0, i, FrameChars[6], FgFrameColor, BgFrameColor);
-				b.SetChar((int) BoxXsize + 1, i, FrameChars[7], FgFrameColor, BgFrameColor);
+				b.SetChar(0, i, FrameChars[6], FrameFormat);
+				b.SetChar((int) BoxXsize + 1, i, FrameChars[7], FrameFormat);
 			}
 			
-			b.SetChar(0, 0, FrameChars[0], FgFrameColor, BgFrameColor);
-			b.SetChar((int) BoxXsize + 1, 0, FrameChars[1], FgFrameColor, BgFrameColor);
-			b.SetChar(0, (int) BoxYsize + 1, FrameChars[2], FgFrameColor, BgFrameColor);
-			b.SetChar((int) BoxXsize + 1, (int) BoxYsize + 1, FrameChars[3], FgFrameColor, BgFrameColor);
+			b.SetChar(0, 0, FrameChars[0], FrameFormat);
+			b.SetChar((int) BoxXsize + 1, 0, FrameChars[1], FrameFormat);
+			b.SetChar(0, (int) BoxYsize + 1, FrameChars[2], FrameFormat);
+			b.SetChar((int) BoxXsize + 1, (int) BoxYsize + 1, FrameChars[3], FrameFormat);
 			
 			for(int i = 1; i < BoxXsize + 1; i++){
 				for(int j = 1; j < BoxYsize + 1; j++){
-					b.SetChar(i, j, ' ', null, BgTextColor);
+					b.SetChar(i, j, ' ', TextFormat);
 				}
 			}
 			
 			for(int i = 0; i < te.Length; i++){
-				b.SetChar(1 + (i % (int) BoxXsize), 1 + (i / (int) BoxXsize), te[i], FgTextColor, BgTextColor);
+				b.SetChar(1 + (i % (int) BoxXsize), 1 + (i / (int) BoxXsize), te[i], TextFormat);
 			}
 		}
 		return b;

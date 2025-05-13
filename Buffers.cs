@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using System.Collections;
+using System.Runtime.InteropServices;
 using AshLib;
 using AshLib.Formatting;
 
@@ -10,17 +11,38 @@ namespace AshConsoleGraphics;
 /// Char and color buffer used for generating elements
 /// </summary>
 public class Buffer{
+	
+	private const int  STD_OUTPUT_HANDLE = -11;
+    private const uint ENABLE_PROCESSED_OUTPUT = 0x0001;
+    private const uint ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004;
+	
+	[DllImport("kernel32")]
+	private static extern bool GetConsoleMode(IntPtr hConsoleHandle, out uint lpMode);
+
+	[DllImport("kernel32")]
+	private static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
+
+	[DllImport("kernel32")]
+	private static extern IntPtr GetStdHandle(int nStdHandle);
+	
+	static Buffer(){
+		if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows)){ //The console needs to be prepared becayuse else the NoColor wont work
+			var iStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+			var _ = GetConsoleMode(iStdOut, out var outConsoleMode)
+			&& SetConsoleMode(iStdOut, outConsoleMode | ENABLE_PROCESSED_OUTPUT | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+		}
+	}
+	
 	/// <summary>
-	/// Global directive to stop generating buffers with color. Useful for terminals that dont support ansi escape sequences
+	/// Global directive to stop generating buffers with format. Useful for terminals that dont support ansi escape sequences
 	/// </summary>
-	public static bool NoColor = false;
+	public static bool NoFormat = false;
 	
 	public uint Xsize{get; private set;}
 	public uint Ysize{get; private set;}
 	
 	char?[] charBuffer;
-	Color3?[] fgColorBuffer;
-	Color3?[] bgColorBuffer;
+	public CharFormat?[] formatBuffer;
 	
 	string built;
 	
@@ -33,8 +55,7 @@ public class Buffer{
 		Xsize = x;
 		Ysize = y;
 		charBuffer = new char?[Xsize * Ysize];
-		fgColorBuffer = new Color3?[Xsize * Ysize];
-		bgColorBuffer = new Color3?[Xsize * Ysize];
+		formatBuffer = new CharFormat?[Xsize * Ysize];
 	}
 	
 	public Buffer(int x, int y) : this((uint) x, (uint) y){}
@@ -45,9 +66,8 @@ public class Buffer{
 	/// <param name="x">The x position of the char</param>
 	/// <param name="y">The y position of the char</param>
 	/// <param name="c">The char</param>
-	/// <param name="fg">The foreground color</param>
-	/// <param name="bg">The background color</param>
-	public void SetChar(int x, int y, char? c, Color3? fg, Color3? bg){
+	/// <param name="f">The char format</param>
+	public void SetChar(int x, int y, char? c, CharFormat? f){
 		if(x >= Xsize || x < 0 || y >= Ysize || y < 0){
 			return;
 		}
@@ -57,34 +77,8 @@ public class Buffer{
 		if(c != null){
 			charBuffer[i] = c;
 		}
-		if(fg != null){
-			fgColorBuffer[i] = fg;
-		}
-		if(bg != null){
-			bgColorBuffer[i] = bg;
-		}
-		needToBuild = true;
-	}
-	
-	/// <summary>
-	/// Sets a char
-	/// </summary>
-	/// <param name="x">The x position of the char</param>
-	/// <param name="y">The y position of the char</param>
-	/// <param name="c">The char</param>
-	/// <param name="fg">The foreground color</param>
-	public void SetChar(int x, int y, char? c, Color3? fg){
-		if(x >= Xsize || x < 0 || y >= Ysize || y < 0){
-			return;
-		}
-		
-		int i = y * (int) Xsize + x;
-		
-		if(c != null){
-			charBuffer[i] = c;
-		}
-		if(fg != null){
-			fgColorBuffer[i] = fg;
+		if(f != null){
+			formatBuffer[i] = f;
 		}
 		needToBuild = true;
 	}
@@ -102,6 +96,7 @@ public class Buffer{
 		
 		int i = y * (int) Xsize + x;
 		charBuffer[i] = c;
+		formatBuffer[i] = null;
 		needToBuild = true;
 	}
 	
@@ -115,7 +110,7 @@ public class Buffer{
 		int i = 0;
 		for(int yr = 0; yr < b.Ysize; yr++){
 			for(int xr = 0; xr < b.Xsize; xr++, i++){
-				SetChar(x + xr, y + yr, b.charBuffer[i], b.fgColorBuffer[i], b.bgColorBuffer[i]);
+				SetChar(x + xr, y + yr, b.charBuffer[i], b.formatBuffer[i]);
 			}
 		}
 		needToBuild = true;
@@ -124,16 +119,10 @@ public class Buffer{
 	/// <summary>
 	/// Replaces the null colors for printing
 	/// </summary>
-	/// <param name="defFgColor">The default foreground color</param>
-	/// <param name="defBgColor">The default background color</param>
-	public void ReplaceNull(Color3? defFgColor, Color3? defBgColor){
+	/// <param name="def">The default format</param>
+	public void ReplaceNull(CharFormat? def){
 		for(int i = 0; i < Xsize * Ysize; i++){
-			if(fgColorBuffer[i] == null){
-				fgColorBuffer[i] = defFgColor;
-			}
-			if(bgColorBuffer[i] == null){
-				bgColorBuffer[i] = defBgColor;
-			}
+			formatBuffer[i] = combine(formatBuffer[i], def);
 		}
 		needToBuild = true;
 	}
@@ -142,19 +131,18 @@ public class Buffer{
 	/// Generates the string representation
 	/// </summary>
 	/// <param name="defChar">The default char, usually space</param>
-	/// <param name="defFgColor">The default foreground color</param>
-	/// <param name="defBgColor">The default background color</param>
-	public string ToString(char defChar, Color3? defFgColor, Color3? defBgColor){
+	/// <param name="def">The default format</param>
+	public string ToString(char defChar, CharFormat? def){
 		if(!needToBuild){
 			return built;
 		}
 		
-		if(NoColor){
+		if(NoFormat){
 			StringBuilder sb = new StringBuilder();
 			int i = 0;
 			for(int yr = 0; yr < Ysize; yr++){
 				for(int xr = 0; xr < Xsize; xr++, i++){
-					sb.Append(charBuffer[i] != null ? charBuffer[i] : defChar);
+					sb.Append(charBuffer[i] ?? defChar);
 				}
 				sb.Append(Environment.NewLine);
 			}
@@ -162,11 +150,9 @@ public class Buffer{
 		}else{
 			FormatString fs = new FormatString();
 			int i = 0;
-			bool f = (defFgColor == null);
-			bool b = (defBgColor == null);
 			for(int yr = 0; yr < Ysize; yr++){
 				for(int xr = 0; xr < Xsize; xr++, i++){
-					fs.Append((charBuffer[i] != null ? charBuffer[i] : defChar), new CharFormat((fgColorBuffer[i] != null ? fgColorBuffer[i] : defFgColor), (fgColorBuffer[i] == null && f), (bgColorBuffer[i] != null ? bgColorBuffer[i] : defBgColor), (bgColorBuffer[i] == null && b)));
+					fs.Append((charBuffer[i] ?? defChar), fix(combine(formatBuffer[i], def)));
 				}
 				fs.Append(Environment.NewLine);
 			}
@@ -174,6 +160,25 @@ public class Buffer{
 		}
 		needToBuild = false;
 		return built;
+	}
+	
+	static CharFormat? fix(CharFormat? a){
+		CharFormat r = CharFormat.ResetAll;
+		if(a == null){
+			return r;
+		}
+		return new CharFormat(a.density ?? r.density, a.italic ?? r.italic, a.underline ?? r.underline, a.strikeThrough ?? r.strikeThrough, a.foreground, a.foreground == null, a.background, a.background == null);
+	}
+	
+	static CharFormat? combine(CharFormat? a, CharFormat? b){
+		if(a == null){
+			return b;
+		}
+		if(b == null){
+			return a;
+		}
+		
+		return new CharFormat(a.density ?? b.density, a.italic ?? b.italic, a.underline ?? b.underline, a.strikeThrough ?? b.strikeThrough, a.foreground ?? b.foreground, false, a.background ?? b.background, false);
 	}
 }
 
@@ -279,15 +284,14 @@ public class BitBuffer{
 	/// Transforms itself to a normal buffer of connected lines
 	/// </summary>
 	/// <param name="chars">16 charachters that are the coneccted line. An example would be "·───│┌┐┬│└┘┴│├┤┼"</param>
-	/// <param name="fgColor">The foreground color</param>
-	/// <param name="bgColor">The background color</param>
-	public Buffer ToBuffer(char[] chars, Color3? fgColor, Color3? bgColor){
+	/// <param name="def">The default format</param>
+	public Buffer ToBuffer(char[] chars, CharFormat? def){
 		Buffer b = new Buffer(Xsize, Ysize);
 		int i = 0;
 		for(int yr = 0; yr < Ysize; yr++){
 			for(int xr = 0; xr < Xsize; xr++, i++){
 				if(buffer[i]){
-					b.SetChar(xr, yr, GetConnectedChar(xr, yr, chars), fgColor, bgColor);
+					b.SetChar(xr, yr, GetConnectedChar(xr, yr, chars), def);
 				}
 			}
 		}

@@ -1,5 +1,6 @@
 using System;
 using AshLib;
+using AshLib.Formatting;
 
 namespace AshConsoleGraphics;
 
@@ -104,18 +105,9 @@ public class TuiLabel : TuiElement{
 	}}
 	
 	/// <summary>
-	/// Foreground color
+	/// Charachter format
 	/// </summary>
-	public Color3? FgColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color
-	/// </summary>
-	public Color3? BgColor {get;
+	public CharFormat? Format {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -125,24 +117,16 @@ public class TuiLabel : TuiElement{
 	/// Initializes a new label
 	/// </summary>
 	/// <param name="text">The text</param>
-	/// <param name="f">The foreground color</param>
-	/// <param name="b">The background color</param>
-	public TuiLabel(string text, Placement p, int x, int y, Color3? f, Color3? b) : base(p, x, y){
-		FgColor = f;
-		BgColor = b;
+	/// <param name="f">The format</param>
+	public TuiLabel(string text, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+		Format = f;
 		Text = text;
 	}
-	
-	/// <summary>
-	/// Initializes a new label with null colors
-	/// </summary>
-	/// <param name="text">The text</param>
-	public TuiLabel(string text, Placement p, int x, int y) : this(text, p, x, y, null, null){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Text.Length, 1);
 		for(int i = 0; i < Text.Length; i++){
-			b.SetChar(i, 0, Text[i], FgColor, BgColor);
+			b.SetChar(i, 0, Text[i], Format);
 		}
 		return b;
 	}
@@ -174,18 +158,9 @@ public class TuiRectangle : TuiElement{
 	}}
 	
 	/// <summary>
-	/// Foreground color
+	/// Charachter format
 	/// </summary>
-	public Color3? FgColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color
-	/// </summary>
-	public Color3? BgColor {get;
+	public CharFormat? Format {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -197,31 +172,19 @@ public class TuiRectangle : TuiElement{
 	/// <param name="c">The charachter</param>
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
-	/// <param name="f">The foreground color</param>
-	/// <param name="b">The background color</param>
-	public TuiRectangle(char c, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b) : base(p, x, y){
-		FgColor = f;
-		BgColor = b;
+	/// <param name="f">The format</param>
+	public TuiRectangle(char c, uint xs, uint ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+		Format = f;
 		Char = c;
 		Xsize = xs;
 		Ysize = ys;
 	}
 	
-	/// <summary>
-	/// Initializes a new rectangle with null colors
-	/// </summary>
-	/// <param name="c">The charachter</param>
-	/// <param name="xs">The x size</param>
-	/// <param name="ys">The y size</param>
-	/// <param name="f">The foreground color</param>
-	/// <param name="b">The background color</param>
-	public TuiRectangle(char c, uint xs, uint ys, Placement p, int x, int y) : this(c, xs, ys, p, x, y, null, null){}
-	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, Ysize);
 		for(int i = 0; i < Ysize; i++){
 			for(int j = 0; j < Xsize; j++){
-				b.SetChar(j, i, Char, FgColor, BgColor);
+				b.SetChar(j, i, Char, Format);
 			}
 		}
 		return b;
@@ -236,13 +199,7 @@ public class TuiSquare : TuiRectangle{
 	/// Initializes a new square
 	/// </summary>
 	/// <param name="s">The x and y size</param>
-	public TuiSquare(char c, uint s, Placement p, int x, int y, Color3? f, Color3? b) : base(c, s, s, p, x, y, f, b){}
-	
-	/// <summary>
-	/// Initializes a new square with null colors
-	/// </summary>
-	/// <param name="s">The x and y size</param>
-	public TuiSquare(char c, uint s, Placement p, int x, int y) : this(c, s, p, x, y, null, null){}
+	public TuiSquare(char c, uint s, Placement p, int x, int y, CharFormat? f = null) : base(c, s, s, p, x, y, f){}
 }
 
 /// <summary>
@@ -262,18 +219,9 @@ public class TuiFrame : TuiElement, ILineElement{
 	}}
 	
 	/// <summary>
-	/// Foreground color
+	/// Charachter format
 	/// </summary>
-	public Color3? FgColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color
-	/// </summary>
-	public Color3? BgColor {get;
+	public CharFormat? Format {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -297,16 +245,13 @@ public class TuiFrame : TuiElement, ILineElement{
 	/// <param name="chars">The 8 needed chars</param>
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
-	/// <param name="f">The foreground color</param>
-	/// <param name="b">The background color</param>
-	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 8 chars long</exception>
-	public TuiFrame(string chars, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b) : base(p, x, y){
+	/// <param name="f">The format</param>
+	public TuiFrame(string chars, uint xs, uint ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
 		if(chars == null || chars.Length != 8){
-			throw new ArgumentException("String must be 8 chars long");
+			chars = "┌┐└┘──││";
 		}
 		
-		FgColor = f;
-		BgColor = b;
+		Format = f;
 		Xsize = xs;
 		Ysize = ys;
 		
@@ -314,69 +259,30 @@ public class TuiFrame : TuiElement, ILineElement{
 	}
 	
 	/// <summary>
-	/// Initializes a new frame with null colors
-	/// </summary>
-	/// <param name="chars">The 8 needed chars</param>
-	/// <param name="xs">The x size</param>
-	/// <param name="ys">The y size</param>
-	public TuiFrame(string chars, uint xs, uint ys, Placement p, int x, int y) : this(chars, xs, ys, p, x, y, null, null){}
-	
-	/// <summary>
-	/// Initializes a new frame with the 8 chars directly
-	/// </summary>
-	/// <param name="xs">The x size</param>
-	/// <param name="ys">The y size</param>
-	/// <param name="f">The foreground color</param>
-	/// <param name="b">The background color</param>
-	public TuiFrame(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b) : base(p, x, y){
-		FgColor = f;
-		BgColor = b;
-		Xsize = xs;
-		Ysize = ys;
-		
-		Chars = new char[]{topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right};
-	}
-	
-	/// <summary>
-	/// Initializes a new frame with the 8 chars directly and null colors
-	/// </summary>
-	/// <param name="xs">The x size</param>
-	/// <param name="ys">The y size</param>
-	public TuiFrame(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, uint xs, uint ys, Placement p, int x, int y) : this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, xs, ys, p, x, y, null, null){}
-	
-	/// <summary>
 	/// Initializes a new frame with the 8 default chars (single line)
 	/// </summary>
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
-	/// <param name="f">The foreground color</param>
-	/// <param name="b">The background color</param>
-	public TuiFrame(uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b) : this('┌', '┐', '└', '┘', '─', '─', '│', '│', xs, ys, p, x, y, f, b){}
-	
-	/// <summary>
-	/// Initializes a new frame with the 8 default chars (single line) and null colors
-	/// </summary>
-	/// <param name="xs">The x size</param>
-	/// <param name="ys">The y size</param>
-	public TuiFrame(uint xs, uint ys, Placement p, int x, int y) : this(xs, ys, p, x, y, null, null){}
+	/// <param name="f">The format</param>
+	public TuiFrame(uint xs, uint ys, Placement p, int x, int y, CharFormat? f = null) : this(null, xs, ys, p, x, y, f){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, Ysize);
 		
 		for(int i = 1; i < Xsize - 1; i++){
-			b.SetChar(i, 0, Chars[4], FgColor, BgColor);
-			b.SetChar(i, (int) Ysize - 1, Chars[5], FgColor, BgColor);
+			b.SetChar(i, 0, Chars[4], Format);
+			b.SetChar(i, (int) Ysize - 1, Chars[5], Format);
 		}
 		
 		for(int i = 1; i < Ysize - 1; i++){
-			b.SetChar(0, i, Chars[6], FgColor, BgColor);
-			b.SetChar((int) Xsize - 1, i, Chars[7], FgColor, BgColor);
+			b.SetChar(0, i, Chars[6], Format);
+			b.SetChar((int) Xsize - 1, i, Chars[7], Format);
 		}
 		
-		b.SetChar(0, 0, Chars[0], FgColor, BgColor);
-		b.SetChar((int) Xsize - 1, 0, Chars[1], FgColor, BgColor);
-		b.SetChar(0, (int) Ysize - 1, Chars[2], FgColor, BgColor);
-		b.SetChar((int) Xsize - 1, (int) Ysize - 1, Chars[3], FgColor, BgColor);
+		b.SetChar(0, 0, Chars[0], Format);
+		b.SetChar((int) Xsize - 1, 0, Chars[1], Format);
+		b.SetChar(0, (int) Ysize - 1, Chars[2], Format);
+		b.SetChar((int) Xsize - 1, (int) Ysize - 1, Chars[3], Format);
 		
 		return b;
 	}
@@ -418,18 +324,9 @@ public class TuiHorizontalLine : TuiElement, ILineElement{
 	}}
 	
 	/// <summary>
-	/// Foreground color
+	/// Charachter format
 	/// </summary>
-	public Color3? FgColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color
-	/// </summary>
-	public Color3? BgColor {get;
+	public CharFormat? Format {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -440,26 +337,17 @@ public class TuiHorizontalLine : TuiElement, ILineElement{
 	/// </summary>
 	/// <param name="xs">The x size</param>
 	/// <param name="c">The char</param>
-	/// <param name="f">The foreground color</param>
-	/// <param name="b">The background color</param>
-	public TuiHorizontalLine(uint xs, char c, Placement p, int x, int y, Color3? f, Color3? b) : base(p, x, y){
-		FgColor = f;
-		BgColor = b;
+	/// <param name="f">The format</param>
+	public TuiHorizontalLine(uint xs, char c, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+		Format = f;
 		Xsize = xs;
 		Char = c;
 	}
 	
-	/// <summary>
-	/// Initializes a new line with null colors
-	/// </summary>
-	/// <param name="xs">The x size</param>
-	/// <param name="c">The char</param>
-	public TuiHorizontalLine(uint xs, char c, Placement p, int x, int y) : this(xs, c, p, x, y, null, null){}
-	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, 1);
 		for(int i = 0; i < Xsize; i++){
-			b.SetChar(i, 0, Char, FgColor, BgColor);
+			b.SetChar(i, 0, Char, Format);
 		}
 		return b;
 	}
@@ -489,18 +377,9 @@ public class TuiVerticalLine : TuiElement, ILineElement{
 	}}
 	
 	/// <summary>
-	/// Foreground color
+	/// Charachter format
 	/// </summary>
-	public Color3? FgColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color
-	/// </summary>
-	public Color3? BgColor {get;
+	public CharFormat? Format {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -511,26 +390,17 @@ public class TuiVerticalLine : TuiElement, ILineElement{
 	/// </summary>
 	/// <param name="ys">The y size</param>
 	/// <param name="c">The char</param>
-	/// <param name="f">The foreground color</param>
-	/// <param name="b">The background color</param>
-	public TuiVerticalLine(uint ys, char c, Placement p, int x, int y, Color3? f, Color3? b) : base(p, x, y){
-		FgColor = f;
-		BgColor = b;
+	/// <param name="f">The format</param>
+	public TuiVerticalLine(uint ys, char c, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+		Format = f;
 		Ysize = ys;
 		Char = c;
 	}
 	
-	/// <summary>
-	/// Initializes a new line with null colors
-	/// </summary>
-	/// <param name="ys">The y size</param>
-	/// <param name="c">The char</param>
-	public TuiVerticalLine(uint ys, char c, Placement p, int x, int y) : this(ys, c, p, x, y, null, null){}
-	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(1, Ysize);
 		for(int i = 0; i < Ysize; i++){
-			b.SetChar(0, i, Char, FgColor, BgColor);
+			b.SetChar(0, i, Char, Format);
 		}
 		return b;
 	}
@@ -581,36 +451,18 @@ public class TuiProgressBar : TuiElement{
 	}}
 	
 	/// <summary>
-	/// Foreground color of the filled part
+	/// Complete Charachter format
 	/// </summary>
-	public Color3? FgCompleteColor {get;
+	public CharFormat? CompleteFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background color of the filled part
+	/// Incomplete Charachter format
 	/// </summary>
-	public Color3? BgCompleteColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the not filled part
-	/// </summary>
-	public Color3? FgIncompleteColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the not filled part
-	/// </summary>
-	public Color3? BgIncompleteColor {get;
+	public CharFormat? IncompleteFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -622,15 +474,11 @@ public class TuiProgressBar : TuiElement{
 	/// <param name="xs">The x size</param>
 	/// <param name="c">The filled char</param>
 	/// <param name="u">The not filled char</param>
-	/// <param name="cf">The filled foreground color</param>
-	/// <param name="cb">The filled background color</param>
-	/// <param name="uf">The not filled foreground color</param>
-	/// <param name="ub">The not filled background color</param>
-	public TuiProgressBar(uint xs, char c, char u, Placement p, int x, int y, Color3? cf, Color3? cb, Color3? uf, Color3? ub) : base(p, x, y){
-		FgCompleteColor = cf;
-		BgCompleteColor = cb;
-		FgIncompleteColor = uf;
-		BgIncompleteColor = ub;
+	/// <param name="cf">The filled char format</param>
+	/// <param name="uf">The not filled char format</param>
+	public TuiProgressBar(uint xs, char c, char u, Placement p, int x, int y, CharFormat? cf, CharFormat? uf) : base(p, x, y){
+		CompleteFormat = cf;
+		IncompleteFormat = uf;
 		
 		Xsize = xs;
 		CompleteChar = c;
@@ -638,22 +486,13 @@ public class TuiProgressBar : TuiElement{
 	}
 	
 	/// <summary>
-	/// Initializes a new progress bar with the same color for filled and not filled
+	/// Initializes a new progress bar with the same format for filled and not filled
 	/// </summary>
 	/// <param name="xs">The x size</param>
 	/// <param name="c">The filled char</param>
 	/// <param name="u">The not filled char</param>
-	/// <param name="f">The foreground color</param>
-	/// <param name="b">The background color</param>
-	public TuiProgressBar(uint xs, char c, char u, Placement p, int x, int y, Color3? f, Color3? b) : this(xs, c, u, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new progress bar with null colors
-	/// </summary>
-	/// <param name="xs">The x size</param>
-	/// <param name="c">The filled char</param>
-	/// <param name="u">The not filled char</param>
-	public TuiProgressBar(uint xs, char c, char u, Placement p, int x, int y) : this(xs, c, u, p, x, y, null, null){}
+	/// <param name="f">The format</param>
+	public TuiProgressBar(uint xs, char c, char u, Placement p, int x, int y, CharFormat? f = null) : this(xs, c, u, p, x, y, f, f){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, 1);
@@ -661,10 +500,10 @@ public class TuiProgressBar : TuiElement{
 		int completeChars = Percentage * (int) Xsize / 100;
 		
 		for(int i = 0; i < completeChars; i++){
-			b.SetChar(i, 0, CompleteChar, FgCompleteColor, BgCompleteColor);
+			b.SetChar(i, 0, CompleteChar, CompleteFormat);
 		}
 		for(int i = completeChars; i < Xsize; i++){
-			b.SetChar(i, 0, IncompleteChar, FgIncompleteColor, BgIncompleteColor);
+			b.SetChar(i, 0, IncompleteChar, IncompleteFormat);
 		}
 		return b;
 	}
@@ -696,18 +535,9 @@ public class TuiLog : TuiElement{
 	}}
 	
 	/// <summary>
-	/// Foreground color
+	/// Charachter format
 	/// </summary>
-	public Color3? FgColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color
-	/// </summary>
-	public Color3? BgColor {get;
+	public CharFormat? Format {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -716,20 +546,14 @@ public class TuiLog : TuiElement{
 	/// <summary>
 	/// Initializes a new log
 	/// </summary>
-	public TuiLog(uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b) : base(p, x, y){
-		FgColor = f;
-		BgColor = b;
+	public TuiLog(uint xs, uint ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+		Format = f;
 		
 		Xsize = xs;
 		Ysize = ys;
 		
 		Text = "";
 	}
-	
-	/// <summary>
-	/// Initializes a new log with null colors
-	/// </summary>
-	public TuiLog(uint xs, uint ys, Placement p, int x, int y) : this(xs, ys, p, x, y, null, null){}
 	
 	/// <summary>
 	/// Appends some text. Analog of Console.Write
@@ -760,13 +584,13 @@ public class TuiLog : TuiElement{
 		
 		for(int i = 0; i < Xsize; i++){
 			for(int j = 0; j < Ysize; j++){
-				b.SetChar(i, j, null, null, BgColor);
+				b.SetChar(i, j, null, Format);
 			}
 		}
 		
 		for(int i = 0; i < pars.Length; i++){
 			for(int j = 0; j < pars[i].Length; j++){
-				b.SetChar(j, i, pars[i][j], FgColor, BgColor);
+				b.SetChar(j, i, pars[i][j], Format);
 			}
 		}
 		

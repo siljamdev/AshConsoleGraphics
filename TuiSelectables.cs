@@ -1,5 +1,6 @@
 using System;
 using AshLib;
+using AshLib.Formatting;
 
 namespace AshConsoleGraphics.Interactive;
 
@@ -39,8 +40,9 @@ public abstract class TuiSelectable : TuiElement{
 	/// <param name="k">The key pressed</param>
 	/// <param name="m">The key modifiers (cntrl, shift)</param>
 	/// <param name="keyFunction">The action to call</param>
-	public void SubKeyEvent(ConsoleKey k, ConsoleModifiers m, Action<TuiSelectable, ConsoleKeyInfo> keyFunction){
+	public TuiSelectable SubKeyEvent(ConsoleKey k, ConsoleModifiers m, Action<TuiSelectable, ConsoleKeyInfo> keyFunction){
 		keyFunctions[(k, m)] = keyFunction;
+		return this;
 	}
 	
 	/// <summary>
@@ -48,8 +50,9 @@ public abstract class TuiSelectable : TuiElement{
 	/// </summary>
 	/// <param name="k">The key pressed</param>
 	/// <param name="keyFunction">The action to call</param>
-	public void SubKeyEvent(ConsoleKey k, Action<TuiSelectable, ConsoleKeyInfo> keyFunction){
+	public TuiSelectable SubKeyEvent(ConsoleKey k, Action<TuiSelectable, ConsoleKeyInfo> keyFunction){
 		keyFunctions[(k, ConsoleModifiers.None)] = keyFunction;
+		return this;
 	}
 	
 	/// <summary>
@@ -85,54 +88,27 @@ public class TuiButton : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Foreground text color
+	/// Not selected text charachter format
 	/// </summary>
-	public Color3? FgTextColor {get;
+	public CharFormat? TextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background text color
+	/// Selected text charachter format
 	/// </summary>
-	public Color3? BgTextColor {get;
+	public CharFormat? SelectedTextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground text color when selected
+	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
 	/// </summary>
-	public Color3? FgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when selected
-	/// </summary>
-	public Color3? BgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? FgSelectorColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? BgSelectorColor {get;
+	public CharFormat? SelectorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -142,19 +118,13 @@ public class TuiButton : TuiSelectable{
 	/// Initializes a new button with all colors
 	/// </summary>
 	/// <param name="t">Text to display</param>
-	/// <param name="f">Not selected text foreground color</param>
-	/// <param name="b">Not selected text background color</param>
-	/// <param name="sf">Selected text foreground color</param>
-	/// <param name="sb">Selected text background color</param>
-	/// <param name="pf">Selector foreground color</param>
-	/// <param name="pb">Selector background color</param>
-	public TuiButton(string t, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb, Color3? pf, Color3? pb) : base(p, x, y){
-		FgTextColor = f;
-		BgTextColor = b;
-		FgTextSelectedColor = sf;
-		BgTextSelectedColor = sb;
-		FgSelectorColor = pf;
-		BgSelectorColor = pb;
+	/// <param name="f">Not selected text format</param>
+	/// <param name="sf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiButton(string t, Placement p, int x, int y, CharFormat? f, CharFormat? sf, CharFormat? pf) : base(p, x, y){
+		TextFormat = f;
+		SelectedTextFormat = sf;
+		SelectorFormat = pf;
 		Text = t;
 	}
 	
@@ -162,25 +132,9 @@ public class TuiButton : TuiSelectable{
 	/// Initializes a new button with the same text color when selected and when not
 	/// </summary>
 	/// <param name="t">Text to display</param>
-	/// <param name="f">Text foreground color</param>
-	/// <param name="b">Text background color</param>
-	/// <param name="pf">Selector foreground color</param>
-	/// <param name="pb">Selector background color</param>
-	public TuiButton(string t, Placement p, int x, int y, Color3? f, Color3? b, Color3? pf, Color3? pb) : this(t, p, x, y, f, b, f, b, pf, pb){}
-	
-	/// <summary>
-	/// Initializes a new button with general colors
-	/// </summary>
-	/// <param name="t">Text to display</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiButton(string t, Placement p, int x, int y, Color3? f, Color3? b) : this(t, p, x, y, f, b, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new button with null colors
-	/// </summary>
-	/// <param name="t">Text to display</param>
-	public TuiButton(string t, Placement p, int x, int y) : this(t, p, x, y, null, null, null, null, null, null){}
+	/// <param name="f">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiButton(string t, Placement p, int x, int y, CharFormat? f = null, CharFormat? pf = null) : this(t, p, x, y, f, f, pf){}
 	
 	/// <summary>
 	/// Sets the enter action of the button
@@ -195,15 +149,15 @@ public class TuiButton : TuiSelectable{
 		Buffer b;
 		if(Selected){
 			b = new Buffer(Text.Length + 2, 1);
-			b.SetChar(0, 0, '>', FgSelectorColor, BgSelectorColor);
-			b.SetChar(Text.Length + 1, 0, '<', FgSelectorColor, BgSelectorColor);
+			b.SetChar(0, 0, '>', SelectorFormat);
+			b.SetChar(Text.Length + 1, 0, '<', SelectorFormat);
 			for(int i = 0; i < Text.Length; i++){
-				b.SetChar(1 + i, 0, Text[i], FgTextSelectedColor, BgTextSelectedColor);
+				b.SetChar(1 + i, 0, Text[i], SelectedTextFormat);
 			}
 		}else{
 			b = new Buffer(Text.Length, 1);
 			for(int i = 0; i < Text.Length; i++){
-				b.SetChar(i, 0, Text[i], FgTextColor, BgTextColor);
+				b.SetChar(i, 0, Text[i], TextFormat);
 			}
 		}
 		return b;
@@ -239,54 +193,27 @@ public class TuiOptionPicker : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Foreground text color
+	/// Not selected text charachter format
 	/// </summary>
-	public Color3? FgTextColor {get;
+	public CharFormat? TextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background text color
+	/// Selected text charachter format
 	/// </summary>
-	public Color3? BgTextColor {get;
+	public CharFormat? SelectedTextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground text color when selected
+	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
 	/// </summary>
-	public Color3? FgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when selected
-	/// </summary>
-	public Color3? BgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? FgSelectorColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? BgSelectorColor {get;
+	public CharFormat? SelectorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -297,24 +224,18 @@ public class TuiOptionPicker : TuiSelectable{
 	/// </summary>
 	/// <param name="t">All options</param>
 	/// <param name="so">Index of the selected option</param>
-	/// <param name="f">Not selected text foreground color</param>
-	/// <param name="b">Not selected text background color</param>
-	/// <param name="sf">Selected text foreground color</param>
-	/// <param name="sb">Selected text background color</param>
-	/// <param name="pf">Selector foreground color</param>
-	/// <param name="pb">Selector background color</param>
+	/// <param name="f">Not selected text format</param>
+	/// <param name="sf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
 	/// <exception cref="System.ArgumentException">Thrown when t is null or no option was provided (length 0)</exception>
-	public TuiOptionPicker(string[] t, uint so, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb, Color3? pf, Color3? pb) : base(p, x, y){
+	public TuiOptionPicker(string[] t, uint so, Placement p, int x, int y, CharFormat? f, CharFormat? sf, CharFormat? pf) : base(p, x, y){
 		if(t == null || t.Length == 0){
 			throw new ArgumentException("At least one option needs to be provided");
 		}
 		
-		FgTextColor = f;
-		BgTextColor = b;
-		FgTextSelectedColor = sf;
-		BgTextSelectedColor = sb;
-		FgSelectorColor = pf;
-		BgSelectorColor = pb;
+		TextFormat = f;
+		SelectedTextFormat = sf;
+		SelectorFormat = pf;
 		
 		Options = t;
 		SelectedOptionIndex = so;
@@ -327,85 +248,44 @@ public class TuiOptionPicker : TuiSelectable{
 	/// Initializes a new option picker with selected option 0 with all colors
 	/// </summary>
 	/// <param name="t">All options</param>
-	/// <param name="f">Not selected text foreground color</param>
-	/// <param name="b">Not selected text background color</param>
-	/// <param name="sf">Selected text foreground color</param>
-	/// <param name="sb">Selected text background color</param>
-	/// <param name="pf">Selector foreground color</param>
-	/// <param name="pb">Selector background color</param>
-	public TuiOptionPicker(string[] t, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb, Color3? pf, Color3? pb)
-						: this(t, 0, p, x, y, f, b, sf, sb, pf, pb){}
+	/// <param name="f">Not selected text format</param>
+	/// <param name="sf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiOptionPicker(string[] t, Placement p, int x, int y, CharFormat? f, CharFormat? sf, CharFormat? pf)
+						: this(t, 0, p, x, y, f, sf, pf){}
 	
 	/// <summary>
 	/// Initializes a new option picker with the same text color when selected and when not
 	/// </summary>
 	/// <param name="t">All options</param>
 	/// <param name="so">Index of the selected option</param>
-	/// <param name="f">Text foreground color</param>
-	/// <param name="b">Text background color</param>
-	/// <param name="pf">Selector foreground color</param>
-	/// <param name="pb">Selector background color</param>
-	public TuiOptionPicker(string[] t, uint so, Placement p, int x, int y, Color3? f, Color3? b, Color3? pf, Color3? pb)
-						: this(t, so, p, x, y, f, b, f, b, pf, pb){}
+	/// <param name="f">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiOptionPicker(string[] t, uint so, Placement p, int x, int y, CharFormat? f = null, CharFormat? pf = null)
+						: this(t, so, p, x, y, f, f, pf){}
 	
 	/// <summary>
 	/// Initializes a new option picker with selected option 0 with the same text color when selected and when not
 	/// </summary>
 	/// <param name="t">All options</param>
-	/// <param name="f">Text foreground color</param>
-	/// <param name="b">Text background color</param>
-	/// <param name="pf">Selector foreground color</param>
-	/// <param name="pb">Selector background color</param>
-	public TuiOptionPicker(string[] t, Placement p, int x, int y, Color3? f, Color3? b, Color3? pf, Color3? pb)
-						: this(t, 0, p, x, y, f, b, f, b, pf, pb){}
-	
-	/// <summary>
-	/// Initializes a new option picker with general colors
-	/// </summary>
-	/// <param name="t">All options</param>
-	/// <param name="so">Index of the selected option</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiOptionPicker(string[] t, uint so, Placement p, int x, int y, Color3? f, Color3? b)
-						: this(t, so, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new option picker with selected option 0 with general colors
-	/// </summary>
-	/// <param name="t">All options</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiOptionPicker(string[] t, Placement p, int x, int y, Color3? f, Color3? b)
-						: this(t, 0, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new option picker with null colors
-	/// </summary>
-	/// <param name="t">All options</param>
-	/// <param name="so">Index of the selected option</param>
-	public TuiOptionPicker(string[] t, uint so, Placement p, int x, int y)
-						: this(t, so, p, x, y, null, null){}
-	
-	/// <summary>
-	/// Initializes a new option picker with selected option 0 with all colors
-	/// </summary>
-	/// <param name="t">All options</param>
-	public TuiOptionPicker(string[] t, Placement p, int x, int y)
-						: this(t, 0, p, x, y, null, null){}
+	/// <param name="f">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiOptionPicker(string[] t, Placement p, int x, int y, CharFormat? f = null, CharFormat? pf = null)
+						: this(t, 0, p, x, y, f, f, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
 		if(Selected){
 			b = new Buffer(SelectedOption.Length + 2, 1);
-			b.SetChar(0, 0, '<', FgSelectorColor, BgSelectorColor);
-			b.SetChar(SelectedOption.Length + 1, 0, '>', FgSelectorColor, BgSelectorColor);
+			b.SetChar(0, 0, '<', SelectorFormat);
+			b.SetChar(SelectedOption.Length + 1, 0, '>', SelectorFormat);
 			for(int i = 0; i < SelectedOption.Length; i++){
-				b.SetChar(1 + i, 0, SelectedOption[i], FgTextSelectedColor, BgTextSelectedColor);
+				b.SetChar(1 + i, 0, SelectedOption[i], SelectedTextFormat);
 			}
 		}else{
 			b = new Buffer(SelectedOption.Length, 1);
 			for(int i = 0; i < SelectedOption.Length; i++){
-				b.SetChar(i, 0, SelectedOption[i], FgTextColor, BgTextColor);
+				b.SetChar(i, 0, SelectedOption[i], TextFormat);
 			}
 		}
 		return b;
@@ -473,54 +353,27 @@ public class TuiNumberPicker : TuiSelectable{
 	public int Interval;
 	
 	/// <summary>
-	/// Foreground text color
+	/// Not selected text charachter format
 	/// </summary>
-	public Color3? FgTextColor {get;
+	public CharFormat? TextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background text color
+	/// Selected text charachter format
 	/// </summary>
-	public Color3? BgTextColor {get;
+	public CharFormat? SelectedTextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground text color when selected
+	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
 	/// </summary>
-	public Color3? FgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when selected
-	/// </summary>
-	public Color3? BgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? FgSelectorColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? BgSelectorColor {get;
+	public CharFormat? SelectorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -533,24 +386,18 @@ public class TuiNumberPicker : TuiSelectable{
 	/// <param name="upper">Upper bound</param>
 	/// <param name="interval">Increment interval</param>
 	/// <param name="num">Initial selected number</param>
-	/// <param name="f">Not selected text foreground color</param>
-	/// <param name="b">Not selected text background color</param>
-	/// <param name="sf">Selected text foreground color</param>
-	/// <param name="sb">Selected text background color</param>
-	/// <param name="pf">Selector foreground color</param>
-	/// <param name="pb">Selector background color</param>
+	/// <param name="f">Not selected text format</param>
+	/// <param name="sf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
 	/// <exception cref="System.ArgumentException">Thrown when lower isgreater than upper</exception>
-	public TuiNumberPicker(int lower, int upper, int interval, int num, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb, Color3? pf, Color3? pb) : base(p, x, y){
+	public TuiNumberPicker(int lower, int upper, int interval, int num, Placement p, int x, int y, CharFormat? f, CharFormat? sf, CharFormat? pf) : base(p, x, y){
 		if(lower > upper){
 			throw new ArgumentException("Lower limit cant be greater than upper");
 		}
 		
-		FgTextColor = f;
-		BgTextColor = b;
-		FgTextSelectedColor = sf;
-		BgTextSelectedColor = sb;
-		FgSelectorColor = pf;
-		BgSelectorColor = pb;
+		TextFormat = f;
+		SelectedTextFormat = sf;
+		SelectorFormat = pf;
 		
 		UpperLimit = upper;
 		LowerLimit = lower;
@@ -568,34 +415,10 @@ public class TuiNumberPicker : TuiSelectable{
 	/// <param name="upper">Upper bound</param>
 	/// <param name="interval">Increment interval</param>
 	/// <param name="num">Initial selected number</param>
-	/// <param name="f">Text foreground color</param>
-	/// <param name="b">Text background color</param>
-	/// <param name="pf">Selector foreground color</param>
-	/// <param name="pb">Selector background color</param>
-	public TuiNumberPicker(int lower, int upper, int interval, int num, Placement p, int x, int y, Color3? f, Color3? b, Color3? pf, Color3? pb)
-						: this(lower, upper, interval, num, p, x, y, f, b, f, b, pf, pb){}
-	
-	/// <summary>
-	/// Initializes a new number picker with general colors
-	/// </summary>
-	/// <param name="lower">Lower bound</param>
-	/// <param name="upper">Upper bound</param>
-	/// <param name="interval">Increment interval</param>
-	/// <param name="num">Initial selected number</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiNumberPicker(int lower, int upper, int interval, int num, Placement p, int x, int y, Color3? f, Color3? b)
-						: this(lower, upper, interval, num, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new number picker with null colors
-	/// </summary>
-	/// <param name="lower">Lower bound</param>
-	/// <param name="upper">Upper bound</param>
-	/// <param name="interval">Increment interval</param>
-	/// <param name="num">Initial selected number</param>
-	public TuiNumberPicker(int lower, int upper, int interval, int num, Placement p, int x, int y)
-						: this(lower, upper, interval, num, p, x, y, null, null){}
+	/// <param name="f">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiNumberPicker(int lower, int upper, int interval, int num, Placement p, int x, int y, CharFormat? f = null, CharFormat? pf = null)
+						: this(lower, upper, interval, num, p, x, y, f, f, pf){}
 	
 	/// <summary>
 	/// Increments the number by the interval
@@ -616,15 +439,15 @@ public class TuiNumberPicker : TuiSelectable{
 		string s = Number.ToString();
 		if(Selected){
 			b = new Buffer(s.Length + 2, 1);
-			b.SetChar(0, 0, '<', FgSelectorColor, BgSelectorColor);
-			b.SetChar(s.Length + 1, 0, '>', FgSelectorColor, BgSelectorColor);
+			b.SetChar(0, 0, '<', SelectorFormat);
+			b.SetChar(s.Length + 1, 0, '>', SelectorFormat);
 			for(int i = 0; i < s.Length; i++){
-				b.SetChar(1 + i, 0, s[i], FgTextSelectedColor, BgTextSelectedColor);
+				b.SetChar(1 + i, 0, s[i], SelectedTextFormat);
 			}
 		}else{
 			b = new Buffer(s.Length, 1);
 			for(int i = 0; i < s.Length; i++){
-				b.SetChar(i, 0, s[i], FgTextColor, BgTextColor);
+				b.SetChar(i, 0, s[i], TextFormat);
 			}
 		}
 		return b;
@@ -646,90 +469,45 @@ public class TuiFramedCheckBox : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Foreground frame color when not selected
+	/// Not selected frame charachter format
 	/// </summary>
-	public Color3? FgFrameColor {get;
+	public CharFormat? FrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when not selected
+	/// Selected frame charachter format
 	/// </summary>
-	public Color3? BgFrameColor {get;
+	public CharFormat? SelectedFrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground frame color when selected
+	/// Not selected check charachter format
 	/// </summary>
-	public Color3? FgFrameSelectedColor {get;
+	public CharFormat? CheckFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when selected
+	/// Selected check charachter format
 	/// </summary>
-	public Color3? BgFrameSelectedColor {get;
+	public CharFormat? SelectedCheckFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground color of the check when not selected
+	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
 	/// </summary>
-	public Color3? FgCheckColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the check when not selected
-	/// </summary>
-	public Color3? BgCheckColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the check when selected
-	/// </summary>
-	public Color3? FgCheckSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the check when selected
-	/// </summary>
-	public Color3? BgCheckSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? FgSelectorColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? BgSelectorColor {get;
+	public CharFormat? SelectorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -772,33 +550,21 @@ public class TuiFramedCheckBox : TuiSelectable{
 	/// <param name="u">Unchecked char</param>
 	/// <param name="c">Checked char</param>
 	/// <param name="b">If the checkbox is initially checked or not</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected check color</param>
-	/// <param name="tb">Background not selected check color</param>
-	/// <param name="tsf">Foreground selected check color</param>
-	/// <param name="tsb">Background selected check color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 8 chars long</exception>
-	public TuiFramedCheckBox(string chars, char u, char c, bool b, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb) : base(p, x, y){
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="cf">Not selected check format</param>
+	/// <param name="scf">Selected check format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedCheckBox(string chars, char u, char c, bool b, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? cf, CharFormat? scf, CharFormat? pf) : base(p, x, y){
 		if(chars == null || chars.Length != 8){
-			throw new ArgumentException("String must be 8 chars long");
+			chars = "┌┐└┘──││";
 		}
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
 		
-		FgCheckColor = tf;
-		BgCheckColor = tb;
-		FgCheckSelectedColor = tsf;
-		BgCheckSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
+		FrameFormat = ff;
+		SelectedFrameFormat = sff;
+		CheckFormat = cf;
+		SelectedCheckFormat = scf;
+		SelectorFormat = pf;
 		
 		UnCheckedChar = u;
 		CheckedChar = c;
@@ -816,141 +582,11 @@ public class TuiFramedCheckBox : TuiSelectable{
 	/// <param name="u">Unchecked char</param>
 	/// <param name="c">Checked char</param>
 	/// <param name="b">If the checkbox is initially checked or not</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground check color</param>
-	/// <param name="tb">Background check color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedCheckBox(string chars, char u, char c, bool b, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(chars, u, c, b, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with the same colors for frame and check char
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="bo">If the checkbox is initially checked or not</param>
-	/// <param name="f">Foreground frame and check color</param>
-	/// <param name="b">Background frame and check color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedCheckBox(string chars, char u, char c, bool bo, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(chars, u, c, bo, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with general colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="bo">If the checkbox is initially checked or not</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiFramedCheckBox(string chars, char u, char c, bool bo, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(chars, u, c, bo, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with null colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="b">If the checkbox is initially checked or not</param>
-	public TuiFramedCheckBox(string chars, char u, char c, bool b, Placement p, int x, int y)
-							: this(chars, u, c, b, p, x, y, null, null){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with each specific frame char
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="b">If the checkbox is initially checked or not</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected check color</param>
-	/// <param name="tb">Background not selected check color</param>
-	/// <param name="tsf">Foreground selected check color</param>
-	/// <param name="tsb">Background selected check color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedCheckBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, bool b, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb) : base(p, x, y){
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
-		
-		FgCheckColor = tf;
-		BgCheckColor = tb;
-		FgCheckSelectedColor = tsf;
-		BgCheckSelectedColor = tsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
-		
-		UnCheckedChar = u;
-		CheckedChar = c;
-		Checked = b;
-		
-		FrameChars = new char[]{topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right};
-		
-		SubKeyEvent(ConsoleKey.Enter, (s, ck) => {Checked = !Checked;});
-	}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with each specific frame char and the same colors when selected and not selected
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="b">If the checkbox is initially checked or not</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground check color</param>
-	/// <param name="tb">Background check color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedCheckBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, bool b, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, u, c, b, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with each specific frame char and the same colors for frame and check char
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="bo">If the checkbox is initially checked or not</param>
-	/// <param name="f">Foreground frame and check color</param>
-	/// <param name="b">Background frame and check color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedCheckBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, bool bo, Placement p, int x, int y,
-							Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, u, c, bo, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with each specific frame char and general colors
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="bo">If the checkbox is initially checked or not</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiFramedCheckBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, bool bo, Placement p, int x, int y,
-							Color3? f, Color3? b)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, u, c, bo, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with each specific frame char and null colors
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="b">If the checkbox is initially checked or not</param>
-	public TuiFramedCheckBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, bool b, Placement p, int x, int y)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, u, c, b, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="cf">Check format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedCheckBox(string chars, char u, char c, bool b, Placement p, int x, int y, CharFormat? ff = null, CharFormat? cf = null, CharFormat? pf = null)
+							: this(chars, u, c, b, p, x, y, ff, ff, cf, cf, pf){}
 	
 	/// <summary>
 	/// Initializes a new framed checkbox with default frame chars ('┌┐└┘──││')
@@ -958,18 +594,13 @@ public class TuiFramedCheckBox : TuiSelectable{
 	/// <param name="u">Unchecked char</param>
 	/// <param name="c">Checked char</param>
 	/// <param name="b">If the checkbox is initially checked or not</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected check color</param>
-	/// <param name="tb">Background not selected check color</param>
-	/// <param name="tsf">Foreground selected check color</param>
-	/// <param name="tsb">Background selected check color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedCheckBox(char u, char c, bool b, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)
-							: this('┌', '┐', '└', '┘', '─', '─', '│', '│', u, c, b, p, x, y, ff, fb, fsf, fsb, tf, tb, tsf, tsb, sf, sb){}
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="cf">Not selected check format</param>
+	/// <param name="scf">Selected check format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedCheckBox(char u, char c, bool b, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? cf, CharFormat? scf, CharFormat? pf)
+							: this(null, u, c, b, p, x, y, ff, sff, cf, scf, pf){}
 	
 	/// <summary>
 	/// Initializes a new framed checkbox with defaut frame chars and the same colors when selected and not selected
@@ -977,96 +608,53 @@ public class TuiFramedCheckBox : TuiSelectable{
 	/// <param name="u">Unchecked char</param>
 	/// <param name="c">Checked char</param>
 	/// <param name="b">If the checkbox is initially checked or not</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground check color</param>
-	/// <param name="tb">Background check color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedCheckBox(char u, char c, bool b, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)
-							: this(u, c, b, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with default frame chars the same colors for frame and check char
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="bo">If the checkbox is initially checked or not</param>
-	/// <param name="f">Foreground frame and check color</param>
-	/// <param name="b">Background frame and check color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedCheckBox(char u, char c, bool bo, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(u, c, bo, p, x, y, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with default frame chars and general colors
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="bo">If the checkbox is initially checked or not</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiFramedCheckBox(char u, char c, bool bo, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(u, c, bo, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new framed checkbox with default frame chars and null colors
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="b">If the checkbox is initially checked or not</param>
-	public TuiFramedCheckBox(char u, char c, bool b, Placement p, int x, int y) : this(u, c, b, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="cf">Check format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedCheckBox(char u, char c, bool b, Placement p, int x, int y, CharFormat? ff = null, CharFormat? cf = null, CharFormat? pf = null)
+							: this(u, c, b, p, x, y, ff, ff, cf, cf, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
 		if(Selected){
 			b = new Buffer(5, 3);
-			b.SetChar(0, 1, '>', FgSelectorColor, BgSelectorColor);
-			b.SetChar((int) 4, 1, '<', FgSelectorColor, BgSelectorColor);
+			b.SetChar(0, 1, '>', SelectorFormat);
+			b.SetChar((int) 4, 1, '<', SelectorFormat);
 			
-			b.SetChar(2, 0, FrameChars[4], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(2, 2, FrameChars[5], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(2, 0, FrameChars[4], SelectedFrameFormat);
+			b.SetChar(2, 2, FrameChars[5], SelectedFrameFormat);
 			
-			b.SetChar(1, 1, FrameChars[6], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) 3, 1, FrameChars[7], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(1, 1, FrameChars[6], SelectedFrameFormat);
+			b.SetChar((int) 3, 1, FrameChars[7], SelectedFrameFormat);
 			
-			b.SetChar(1, 0, FrameChars[0], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) 3, 0, FrameChars[1], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(1, 2, FrameChars[2], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar((int) 3, 2, FrameChars[3], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(1, 0, FrameChars[0], SelectedFrameFormat);
+			b.SetChar((int) 3, 0, FrameChars[1], SelectedFrameFormat);
+			b.SetChar(1, 2, FrameChars[2], SelectedFrameFormat);
+			b.SetChar((int) 3, 2, FrameChars[3], SelectedFrameFormat);
 			
-			if(Checked){
-				b.SetChar(2, 1, CheckedChar, FgCheckSelectedColor, BgCheckSelectedColor);
-			}else{
-				b.SetChar(2, 1, UnCheckedChar, FgCheckSelectedColor, BgCheckSelectedColor);
-			}
+			b.SetChar(2, 1, Checked ? CheckedChar : UnCheckedChar, SelectedCheckFormat);
 		}else{
 			b = new Buffer(3, 3);
 			
-			b.SetChar(1, 0, FrameChars[4], FgFrameColor, BgFrameColor);
-			b.SetChar(1, 2, FrameChars[5], FgFrameColor, BgFrameColor);
+			b.SetChar(1, 0, FrameChars[4], FrameFormat);
+			b.SetChar(1, 2, FrameChars[5], FrameFormat);
 			
-			b.SetChar(0, 1, FrameChars[6], FgFrameColor, BgFrameColor);
-			b.SetChar((int) 2, 1, FrameChars[7], FgFrameColor, BgFrameColor);
+			b.SetChar(0, 1, FrameChars[6], FrameFormat);
+			b.SetChar((int) 2, 1, FrameChars[7], FrameFormat);
 			
-			b.SetChar(0, 0, FrameChars[0], FgFrameColor, BgFrameColor);
-			b.SetChar((int) 2, 0, FrameChars[1], FgFrameColor, BgFrameColor);
-			b.SetChar(0, 2, FrameChars[2], FgFrameColor, BgFrameColor);
-			b.SetChar((int) 2, 2, FrameChars[3], FgFrameColor, BgFrameColor);
+			b.SetChar(0, 0, FrameChars[0], FrameFormat);
+			b.SetChar((int) 2, 0, FrameChars[1], FrameFormat);
+			b.SetChar(0, 2, FrameChars[2], FrameFormat);
+			b.SetChar((int) 2, 2, FrameChars[3], FrameFormat);
 			
-			if(Checked){
-				b.SetChar(1, 1, CheckedChar, FgCheckColor, BgCheckColor);
-			}else{
-				b.SetChar(1, 1, UnCheckedChar, FgCheckColor, BgCheckColor);
-			}
+			b.SetChar(1, 1, Checked ? CheckedChar : UnCheckedChar, CheckFormat);
 		}
 		return b;
 	}
 }
 
 /// <summary>
-/// Radio button: two options, either one of the other
+/// Radio button: two options, either one or the other
 /// </summary>
 public class TuiFramedRadio : TuiSelectable{
 	/// <summary>
@@ -1079,126 +667,63 @@ public class TuiFramedRadio : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Foreground frame color when not selected
+	/// Not selected frame charachter format
 	/// </summary>
-	public Color3? FgFrameColor {get;
+	public CharFormat? FrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when not selected
+	/// Selected frame charachter format
 	/// </summary>
-	public Color3? BgFrameColor {get;
+	public CharFormat? SelectedFrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground frame color when selected
+	/// Not selected check charachter format
 	/// </summary>
-	public Color3? FgFrameSelectedColor {get;
+	public CharFormat? CheckFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background frame color when selected
+	/// Selected check charachter format
 	/// </summary>
-	public Color3? BgFrameSelectedColor {get;
+	public CharFormat? SelectedCheckFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground check color when not selected
+	/// Not selected text charachter format
 	/// </summary>
-	public Color3? FgCheckColor {get;
+	public CharFormat? TextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Background check color when not selected
+	/// Selected text charachter format
 	/// </summary>
-	public Color3? BgCheckColor {get;
+	public CharFormat? SelectedTextFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
 	/// <summary>
-	/// Foreground check color when selected
+	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
 	/// </summary>
-	public Color3? FgCheckSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background check color when not selected
-	/// </summary>
-	public Color3? BgCheckSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground text color when not selected
-	/// </summary>
-	public Color3? FgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when not selected
-	/// </summary>
-	public Color3? BgTextColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground text color when selected
-	/// </summary>
-	public Color3? FgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background text color when selected
-	/// </summary>
-	public Color3? BgTextSelectedColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? FgSelectorColor {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted
-	/// </summary>
-	public Color3? BgSelectorColor {get;
+	public CharFormat? SelectorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -1260,44 +785,26 @@ public class TuiFramedRadio : TuiSelectable{
 	/// <param name="c">Checked char</param>
 	/// <param name="lo">Left option</param>
 	/// <param name="ro">Right option</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected check color</param>
-	/// <param name="tb">Background not selected check color</param>
-	/// <param name="tsf">Foreground selected check color</param>
-	/// <param name="tsb">Background selected check color</param>
-	/// <param name="otf">Foreground not selected text color</param>
-	/// <param name="otb">Background not selected text color</param>
-	/// <param name="otsf">Foreground selected text color</param>
-	/// <param name="otsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 8 chars long</exception>
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="cf">Not selected check format</param>
+	/// <param name="scf">Selected check format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
 	public TuiFramedRadio(string chars, char u, char c, string lo, string ro, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? otf, Color3? otb, Color3? otsf, Color3? otsb, Color3? sf, Color3? sb)
+							CharFormat? ff, CharFormat? sff, CharFormat? cf, CharFormat? scf, CharFormat? tf, CharFormat? stf, CharFormat? pf)
 							: base(p, x, y){
 		if(chars == null || chars.Length != 8){
-			throw new ArgumentException("String must be 8 chars long");
+			chars = "┌┐└┘──││";
 		}
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
-		
-		FgCheckColor = tf;
-		BgCheckColor = tb;
-		FgCheckSelectedColor = tsf;
-		BgCheckSelectedColor = tsb;
-		
-		FgTextColor = otf;
-		BgTextColor = otb;
-		FgTextSelectedColor = otsf;
-		BgTextSelectedColor = otsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
+		FrameFormat = ff;
+		SelectedFrameFormat = sff;
+		CheckFormat = cf;
+		SelectedCheckFormat = scf;
+		TextFormat = tf;
+		SelectedTextFormat = stf;
+		SelectorFormat = pf;
 		
 		UnCheckedChar = u;
 		CheckedChar = c;
@@ -1318,164 +825,12 @@ public class TuiFramedRadio : TuiSelectable{
 	/// <param name="c">Checked char</param>
 	/// <param name="lo">Left option</param>
 	/// <param name="ro">Right option</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground check color</param>
-	/// <param name="tb">Background check color</param>
-	/// <param name="otf">Foreground text color</param>
-	/// <param name="otb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedRadio(string chars, char u, char c, string lo, string ro, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? otf, Color3? otb, Color3? sf, Color3? sb)
-							: this(chars, u, c, lo, ro, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, otf, otb, otf, otb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new radio button with the same colors for frame, check and text
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	/// <param name="f">Foreground frame, check and text color</param>
-	/// <param name="b">Background frame, check and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedRadio(string chars, char u, char c, string lo, string ro, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(chars, u, c, lo, ro, p, x, y, f, b, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new radio button with general colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiFramedRadio(string chars, char u, char c, string lo, string ro, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(chars, u, c, lo, ro, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new radio button with null colors
-	/// </summary>
-	/// <param name="chars">Frame charchters</param>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	public TuiFramedRadio(string chars, char u, char c, string lo, string ro, Placement p, int x, int y)
-							: this(chars, u, c, lo, ro, p, x, y, null, null){}
-	
-	/// <summary>
-	/// Initializes a new radio button with each specific frame char
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected check color</param>
-	/// <param name="tb">Background not selected check color</param>
-	/// <param name="tsf">Foreground selected check color</param>
-	/// <param name="tsb">Background selected check color</param>
-	/// <param name="otf">Foreground not selected text color</param>
-	/// <param name="otb">Background not selected text color</param>
-	/// <param name="otsf">Foreground selected text color</param>
-	/// <param name="otsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedRadio(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, string lo, string ro, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? otf, Color3? otb, Color3? otsf, Color3? otsb, Color3? sf, Color3? sb) : base(p, x, y){
-		FgFrameColor = ff;
-		BgFrameColor = fb;
-		FgFrameSelectedColor = fsf;
-		BgFrameSelectedColor = fsb;
-		
-		FgCheckColor = tf;
-		BgCheckColor = tb;
-		FgCheckSelectedColor = tsf;
-		BgCheckSelectedColor = tsb;
-		
-		FgTextColor = otf;
-		BgTextColor = otb;
-		FgTextSelectedColor = otsf;
-		BgTextSelectedColor = otsb;
-		
-		FgSelectorColor = sf;
-		BgSelectorColor = sb;
-		
-		UnCheckedChar = u;
-		CheckedChar = c;
-		
-		LeftOption = lo;
-		RightOption = ro;
-		
-		FrameChars = new char[]{topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right};
-		
-		SubKeyEvent(ConsoleKey.Enter, (s, ck) => {RightOptionChecked = !RightOptionChecked;});
-	}
-	
-	/// <summary>
-	/// Initializes a new radio button with each specific frame char and the same colors for selected and not selected
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground check color</param>
-	/// <param name="tb">Background check color</param>
-	/// <param name="otf">Foreground text color</param>
-	/// <param name="otb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedRadio(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, string lo, string ro, Placement p, int x, int y,
-							Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? otf, Color3? otb, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, u, c, lo, ro, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, otf, otb, otf, otb, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new radio button with each specific frame char and same colors for frame, check and text
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	/// <param name="f">Foreground frame, check and text color</param>
-	/// <param name="b">Background frame, check and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedRadio(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, string lo, string ro, Placement p, int x, int y,
-							Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, u, c, lo, ro, p, x, y, f, b, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new radio button with general colors
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiFramedRadio(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, string lo, string ro, Placement p, int x, int y,
-							Color3? f, Color3? b)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, u, c, lo, ro, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new radio button with null colors
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	public TuiFramedRadio(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, char u, char c, string lo, string ro, Placement p, int x, int y)
-							: this(topLeft, topRight, bottomLeft, bottomRight, top, bottom, left, right, u, c, lo, ro, p, x, y, null, null){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="cf">Check format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedRadio(string chars, char u, char c, string lo, string ro, Placement p, int x, int y, CharFormat? ff = null, CharFormat? cf = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(chars, u, c, lo, ro, p, x, y, ff, ff, cf, cf, tf, tf, pf){}
 	
 	/// <summary>
 	/// Initializes a new radio button with default frame chars ('┌┐└┘──││')
@@ -1484,22 +839,15 @@ public class TuiFramedRadio : TuiSelectable{
 	/// <param name="c">Checked char</param>
 	/// <param name="lo">Left option</param>
 	/// <param name="ro">Right option</param>
-	/// <param name="ff">Foreground not selected frame color</param>
-	/// <param name="fb">Background not selected frame color</param>
-	/// <param name="fsf">Foreground selected frame color</param>
-	/// <param name="fsb">Background selected frame color</param>
-	/// <param name="tf">Foreground not selected check color</param>
-	/// <param name="tb">Background not selected check color</param>
-	/// <param name="tsf">Foreground selected check color</param>
-	/// <param name="tsb">Background selected check color</param>
-	/// <param name="otf">Foreground not selected text color</param>
-	/// <param name="otb">Background not selected text color</param>
-	/// <param name="otsf">Foreground selected text color</param>
-	/// <param name="otsb">Background selected text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedRadio(char u, char c, string lo, string ro, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? otf, Color3? otb, Color3? otsf, Color3? otsb, Color3? sf, Color3? sb)
-							: this('┌', '┐', '└', '┘', '─', '─', '│', '│', u, c, lo, ro, p, x, y, ff, fb, fsf, fsb, tf, tb, tsf, tsb, otf, otb, otsf, otsb, sf, sb){}
+	/// <param name="ff">Not selected frame format</param>
+	/// <param name="sff">Selected frame format</param>
+	/// <param name="cf">Not selected check format</param>
+	/// <param name="scf">Selected check format</param>
+	/// <param name="tf">Not selected text format</param>
+	/// <param name="stf">Selected text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedRadio(char u, char c, string lo, string ro, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? cf, CharFormat? scf, CharFormat? tf, CharFormat? stf, CharFormat? pf)
+							: this(null, u, c, lo, ro, p, x, y, ff, sff, cf, scf, tf, stf, pf){}
 	
 	/// <summary>
 	/// Initializes a new radio button with default frame chars ('┌┐└┘──││') and the same colors for selected and not selected
@@ -1508,172 +856,118 @@ public class TuiFramedRadio : TuiSelectable{
 	/// <param name="c">Checked char</param>
 	/// <param name="lo">Left option</param>
 	/// <param name="ro">Right option</param>
-	/// <param name="ff">Foreground frame color</param>
-	/// <param name="fb">Background frame color</param>
-	/// <param name="tf">Foreground check color</param>
-	/// <param name="tb">Background check color</param>
-	/// <param name="otf">Foreground text color</param>
-	/// <param name="otb">Background text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedRadio(char u, char c, string lo, string ro, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? otf, Color3? otb, Color3? sf, Color3? sb)
-							: this(u, c, lo, ro, p, x, y, ff, fb, ff, fb, tf, tb, tf, tb, otf, otb, otf, otb, sf, sb){}
+	/// <param name="ff">Frame format</param>
+	/// <param name="cf">Check format</param>
+	/// <param name="tf">Text format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiFramedRadio(char u, char c, string lo, string ro, Placement p, int x, int y, CharFormat? ff = null, CharFormat? cf = null, CharFormat? tf = null, CharFormat? pf = null)
+							: this(u, c, lo, ro, p, x, y, ff, ff, cf, cf, tf, tf, pf){}
 	
-	/// <summary>
-	/// Initializes a new radio button with default frame chars ('┌┐└┘──││') and the same colors for frame, check and text
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	/// <param name="f">Foreground frame, check and text color</param>
-	/// <param name="b">Background frame, check and text color</param>
-	/// <param name="sf">Foreground selector color</param>
-	/// <param name="sb">Background selector color</param>
-	public TuiFramedRadio(char u, char c, string lo, string ro, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)
-							: this(u, c, lo, ro, p, x, y, f, b, f, b, f, b, sf, sb){}
-	
-	/// <summary>
-	/// Initializes a new radio button with default frame chars ('┌┐└┘──││') and general colors
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	/// <param name="f">Foreground color</param>
-	/// <param name="b">Background color</param>
-	public TuiFramedRadio(char u, char c, string lo, string ro, Placement p, int x, int y, Color3? f, Color3? b)
-							: this(u, c, lo, ro, p, x, y, f, b, f, b){}
-	
-	/// <summary>
-	/// Initializes a new radio button with default frame chars ('┌┐└┘──││') and null colors
-	/// </summary>
-	/// <param name="u">Unchecked char</param>
-	/// <param name="c">Checked char</param>
-	/// <param name="lo">Left option</param>
-	/// <param name="ro">Right option</param>
-	public TuiFramedRadio(char u, char c, string lo, string ro, Placement p, int x, int y) : this(u, c, lo, ro, p, x, y, null, null){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
 		if(Selected){
 			b = new Buffer(9 + LeftOption.Length + RightOption.Length, 3);
-			b.SetChar(0, 1, '>', FgSelectorColor, BgSelectorColor);
-			b.SetChar((int) b.Xsize - 1, 1, '<', FgSelectorColor, BgSelectorColor);
+			b.SetChar(0, 1, '>', SelectorFormat);
+			b.SetChar((int) b.Xsize - 1, 1, '<', SelectorFormat);
 			
 			int i;
 			for(i = 1; i < LeftOption.Length + 1; i++){
-				b.SetChar(i, 1, LeftOption[i - 1], FgTextSelectedColor, BgTextSelectedColor);
+				b.SetChar(i, 1, LeftOption[i - 1], SelectedTextFormat);
 			}
 			
-			b.SetChar(i, 1, FrameChars[6], FgFrameSelectedColor, BgFrameSelectedColor); //Left edge
-			b.SetChar(i, 0, FrameChars[0], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(i, 2, FrameChars[2], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(i, 1, FrameChars[6], SelectedFrameFormat); //Left edge
+			b.SetChar(i, 0, FrameChars[0], SelectedFrameFormat);
+			b.SetChar(i, 2, FrameChars[2], SelectedFrameFormat);
 			
 			i++;
 			
-			b.SetChar(i, 0, FrameChars[4], FgFrameSelectedColor, BgFrameSelectedColor); //Upper and lower edges
-			b.SetChar(i, 2, FrameChars[5], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(i, 0, FrameChars[4], SelectedFrameFormat); //Upper and lower edges
+			b.SetChar(i, 2, FrameChars[5], SelectedFrameFormat);
 			
-			if(!RightOptionChecked){
-				b.SetChar(i, 1, CheckedChar, FgCheckSelectedColor, BgCheckSelectedColor);
-			}else{
-				b.SetChar(i, 1, UnCheckedChar, FgCheckSelectedColor, BgCheckSelectedColor);
-			}
+			b.SetChar(i, 1, RightOptionChecked ? UnCheckedChar : CheckedChar, SelectedCheckFormat);
 			
 			i++;
 			
-			b.SetChar(i, 1, FrameChars[7], FgFrameSelectedColor, BgFrameSelectedColor); //Right edge
+			b.SetChar(i, 1, FrameChars[7], SelectedFrameFormat); //Right edge
 			
-			b.SetChar(i, 0, FrameChars[1], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(i, 2, FrameChars[3], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(i, 0, FrameChars[1], SelectedFrameFormat);
+			b.SetChar(i, 2, FrameChars[3], SelectedFrameFormat);
 			
 			i++;
 			i++;
 			
 			for(int j = 0; j < RightOption.Length; j++, i++){
-				b.SetChar(i, 1, RightOption[j], FgTextSelectedColor, BgTextSelectedColor);
+				b.SetChar(i, 1, RightOption[j], SelectedTextFormat);
 			}
 			
-			b.SetChar(i, 1, FrameChars[6], FgFrameSelectedColor, BgFrameSelectedColor); //Left edge
-			b.SetChar(i, 0, FrameChars[0], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(i, 2, FrameChars[2], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(i, 1, FrameChars[6], SelectedFrameFormat); //Left edge
+			b.SetChar(i, 0, FrameChars[0], SelectedFrameFormat);
+			b.SetChar(i, 2, FrameChars[2], SelectedFrameFormat);
 			
 			i++;
 			
-			b.SetChar(i, 0, FrameChars[4], FgFrameSelectedColor, BgFrameSelectedColor); //Upper and lower edges
-			b.SetChar(i, 2, FrameChars[5], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(i, 0, FrameChars[4], SelectedFrameFormat); //Upper and lower edges
+			b.SetChar(i, 2, FrameChars[5], SelectedFrameFormat);
 			
-			if(RightOptionChecked){
-				b.SetChar(i, 1, CheckedChar, FgCheckSelectedColor, BgCheckSelectedColor);
-			}else{
-				b.SetChar(i, 1, UnCheckedChar, FgCheckSelectedColor, BgCheckSelectedColor);
-			}
+			b.SetChar(i, 1, RightOptionChecked ? CheckedChar : UnCheckedChar, SelectedCheckFormat);
 			
 			i++;
 			
-			b.SetChar(i, 1, FrameChars[7], FgFrameSelectedColor, BgFrameSelectedColor); //Right edge
+			b.SetChar(i, 1, FrameChars[7], SelectedFrameFormat); //Right edge
 			
-			b.SetChar(i, 0, FrameChars[1], FgFrameSelectedColor, BgFrameSelectedColor);
-			b.SetChar(i, 2, FrameChars[3], FgFrameSelectedColor, BgFrameSelectedColor);
+			b.SetChar(i, 0, FrameChars[1], SelectedFrameFormat);
+			b.SetChar(i, 2, FrameChars[3], SelectedFrameFormat);
 		}else{
 			b = new Buffer(7 + LeftOption.Length + RightOption.Length, 3);
 			
 			int i;
 			for(i = 0; i < LeftOption.Length; i++){
-				b.SetChar(i, 1, LeftOption[i], FgTextColor, BgTextColor);
+				b.SetChar(i, 1, LeftOption[i], TextFormat);
 			}
 			
-			b.SetChar(i, 1, FrameChars[6], FgFrameColor, BgFrameColor); //Left edge
-			b.SetChar(i, 0, FrameChars[0], FgFrameColor, BgFrameColor);
-			b.SetChar(i, 2, FrameChars[2], FgFrameColor, BgFrameColor);
+			b.SetChar(i, 1, FrameChars[6], FrameFormat); //Left edge
+			b.SetChar(i, 0, FrameChars[0], FrameFormat);
+			b.SetChar(i, 2, FrameChars[2], FrameFormat);
 			
 			i++;
 			
-			b.SetChar(i, 0, FrameChars[4], FgFrameColor, BgFrameColor); //Upper and lower edges
-			b.SetChar(i, 2, FrameChars[5], FgFrameColor, BgFrameColor);
+			b.SetChar(i, 0, FrameChars[4], FrameFormat); //Upper and lower edges
+			b.SetChar(i, 2, FrameChars[5], FrameFormat);
 			
-			if(!RightOptionChecked){
-				b.SetChar(i, 1, CheckedChar, FgCheckColor, BgCheckColor);
-			}else{
-				b.SetChar(i, 1, UnCheckedChar, FgCheckColor, BgCheckColor);
-			}
+			b.SetChar(i, 1, RightOptionChecked ? UnCheckedChar : CheckedChar, CheckFormat);
 			
 			i++;
 			
-			b.SetChar(i, 1, FrameChars[7], FgFrameColor, BgFrameColor); //Right edge
+			b.SetChar(i, 1, FrameChars[7], FrameFormat); //Right edge
 			
-			b.SetChar(i, 0, FrameChars[1], FgFrameColor, BgFrameColor);
-			b.SetChar(i, 2, FrameChars[3], FgFrameColor, BgFrameColor);
+			b.SetChar(i, 0, FrameChars[1], FrameFormat);
+			b.SetChar(i, 2, FrameChars[3], FrameFormat);
 			
 			i++;
 			i++;
 			
 			for(int j = 0; j < RightOption.Length; j++, i++){
-				b.SetChar(i, 1, RightOption[j], FgTextColor, BgTextColor);
+				b.SetChar(i, 1, RightOption[j], TextFormat);
 			}
 			
-			b.SetChar(i, 1, FrameChars[6], FgFrameColor, BgFrameColor); //Left edge
-			b.SetChar(i, 0, FrameChars[0], FgFrameColor, BgFrameColor);
-			b.SetChar(i, 2, FrameChars[2], FgFrameColor, BgFrameColor);
+			b.SetChar(i, 1, FrameChars[6], FrameFormat); //Left edge
+			b.SetChar(i, 0, FrameChars[0], FrameFormat);
+			b.SetChar(i, 2, FrameChars[2], FrameFormat);
 			
 			i++;
 			
-			b.SetChar(i, 0, FrameChars[4], FgFrameColor, BgFrameColor); //Upper and lower edges
-			b.SetChar(i, 2, FrameChars[5], FgFrameColor, BgFrameColor);
+			b.SetChar(i, 0, FrameChars[4], FrameFormat); //Upper and lower edges
+			b.SetChar(i, 2, FrameChars[5], FrameFormat);
 			
-			if(RightOptionChecked){
-				b.SetChar(i, 1, CheckedChar, FgCheckColor, BgCheckColor);
-			}else{
-				b.SetChar(i, 1, UnCheckedChar, FgCheckColor, BgCheckColor);
-			}
+			b.SetChar(i, 1, RightOptionChecked ? CheckedChar : UnCheckedChar, CheckFormat);
 			
 			i++;
 			
-			b.SetChar(i, 1, FrameChars[7], FgFrameColor, BgFrameColor); //Right edge
+			b.SetChar(i, 1, FrameChars[7], FrameFormat); //Right edge
 			
-			b.SetChar(i, 0, FrameChars[1], FgFrameColor, BgFrameColor);
-			b.SetChar(i, 2, FrameChars[3], FgFrameColor, BgFrameColor);
+			b.SetChar(i, 0, FrameChars[1], FrameFormat);
+			b.SetChar(i, 2, FrameChars[3], FrameFormat);
 		}
 		return b;
 	}
