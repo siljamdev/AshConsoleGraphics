@@ -90,13 +90,13 @@
 <p>Interactive screens manage selectables in a very easy way. First, they are placed inside a grid (2 dimensional array) so the user can navigate between them using the arrows(defaut behaviours, can be changed).
 Then, it handles key presses as necessary.</p>
 <p>Let's create an interactive screen.</p>
-<pre><code class="lang-csharp">TuiScreenInteractive sb = new TuiScreen(100, 20, new TuiSelectable[,]{{new TuiButton(&quot;Button 1&quot;, Placement.Center, 0, -2)}, {new TuiButton(&quot;Button 2&quot;, Placement.Center, 0, 2)}}, 0, 0, Color3.White, Color3.Black, new TuiLabel(&quot;Corner&quot;, Placement.TopLeft, 0, 0));
+<pre><code class="lang-csharp">TuiScreenInteractive sb = new TuiScreen(100, 20, new TuiSelectable[,]{{new TuiButton(&quot;Button 1&quot;, Placement.Center, 0, -2)}, {new TuiButton(&quot;Button 2&quot;, Placement.Center, 0, 2)}}, 0, 0, new CharFormat(Color3.White, Color3.Black), new TuiLabel(&quot;Corner&quot;, Placement.TopLeft, 0, 0));
 </code></pre>
 <p>Lets explain the arguments:<br>
 First, two integers for the screen size.
 Then, the two dimensional array with the selectables.
 After that, the x and y index in the 2d array for the starting element, the one that starts out selected.
-Then, two colors(null is valid too) for the default foreground and background color, respectively.<br>
+Then, a format for the default format, respectively.<br>
 Last, additional elements that are inside of the screen. This is a <code>params</code> argument, and you can specify as many as you want.</p>
 <p>Now, to play the screen interactively, we simply:</p>
 <pre><code class="lang-csharp">s.Play();

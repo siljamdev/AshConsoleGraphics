@@ -90,9 +90,9 @@
 <h2 id="tuilabel">TuiLabel</h2>
 <p>This is the simplest of all elements. Its just text.<br>
 We can initialize a new one like this:</p>
-<pre><code class="lang-csharp">TuiLabel l = new TuiLabel(&quot;Hello, World!&quot;, Placement.Center, 0, 0, new Color3(&quot;FF00FF&quot;), null);
+<pre><code class="lang-csharp">TuiLabel l = new TuiLabel(&quot;Hello, World!&quot;, Placement.Center, 0, 0, new CharFormat(new Color3(&quot;FF00FF&quot;)));
 </code></pre>
-<p>Here, all arguments are pretty self-explanatory. The last two are the foreground(charachter) and background colors. A null colors means that the color will be whatever the screen dictates as default, and if that is null as well, the terminal default.<br>
+<p>Here, all arguments are pretty self-explanatory. The last is the format. A null format means that the format will be whatever the screen dictates as default, and if that is null as well, the terminal default.<br>
 Please note that element properties are not immutable, we can do the following:</p>
 <pre><code class="lang-csharp">l.Text = &quot;Bye, World!&quot;;
 </code></pre>
@@ -102,24 +102,24 @@ Please note that element properties are not immutable, we can do the following:<
 We can initialize a new one like this:</p>
 <pre><code class="lang-csharp">TuiHorizontalLine hl = new TuiHorizontalLine(10, '-', Placement.Center, 0, 0);
 </code></pre>
-<p>You might notice no colors were specified here. Most elements have constructors without colors, that just initialize them to null.
+<p>You might notice no colors were specified here. Most elements have constructors without format, that just initialize them to null.
 We can, however, change this:</p>
 <pre><code class="lang-csharp">hl.FgColor = Color3.Red;
 </code></pre>
 <h2 id="tuiprogressbar">TuiProgressBar</h2>
 <p>This is similar to a horizontal line, but as a simple progress bar.
 We can initialize a new one like this:</p>
-<pre><code class="lang-csharp">TuiProgressBar pb = new TuiProgressBar(16, '@', '-', Placement.Center, 0, 0, Color3.Yellow, null, Color3.White, null);
+<pre><code class="lang-csharp">TuiProgressBar pb = new TuiProgressBar(16, '@', '-', Placement.Center, 0, 0, new CharFormat(Color3.Yellow), new CharFormat(Color3.White));
 </code></pre>
 <p>Here, 16 is the size, and the next charachters are for the completed and the uncompleted part, respectively.
-Then, the 4 colors, the first two(foreground and background) are for the completed part, and the last two(foreground and background) are for the uncompleted part.<br>
+Then, the 2 formats, the first is for the completed part, and the second are the uncompleted part.<br>
 We can change its percentage of completion whenever we want:</p>
 <pre><code class="lang-csharp">pb.Percentage = 50;
 </code></pre>
 <p>This would set it to be 50% full. It goes from 0% to 100%.</p>
 <h2 id="other-elements">Other elements</h2>
 <p>There are many more elements, like squares, rectanges, frames, vertical lines and more. Check the <a href="../api/AshConsoleGraphics.html">API</a> for all the possibilities!<br>
-The notions learnt here (mutable properties of elements, colors, constructors, etc.) apply to most elements and tend to be consistent. Don't be afraid to experiment!</p>
+The notions learnt here (mutable properties of elements, formats, constructors, etc.) apply to most elements and tend to be consistent. Don't be afraid to experiment!</p>
 
 </article>
 

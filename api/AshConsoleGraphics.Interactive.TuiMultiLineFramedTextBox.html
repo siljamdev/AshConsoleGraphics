@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox" class="text-break">
-Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L911"><i class="bi bi-code-slash"></i></a>
+Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L483"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -132,9 +132,6 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_HandleKey_System_ConsoleKeyInfo_">TuiWritable.HandleKey(ConsoleKeyInfo)</a>
-    </div>
-    <div>
-      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_WriteChar_System_Char_">TuiWritable.WriteChar(char)</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_DelChar">TuiWritable.DelChar()</a>
@@ -209,542 +206,9 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
 
   <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32)">
-  TuiMultiLineFramedTextBox(char, char, char, char, char, char, char, char, string, uint, uint, Placement, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1217"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with each individual frame char with null colors</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>topLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>topRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>top</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>left</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(char, char, char, char, char, char, char, char, string, uint, uint, Placement, int, int, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1207"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with each individual frame char with general colors</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>topLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>topRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>top</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>left</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground frame color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background frame color</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(char, char, char, char, char, char, char, char, string, uint, uint, Placement, int, int, Color3?, Color3?, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1195"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with each individual frame char and same color for frame and text</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>topLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>topRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>top</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>left</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground frame and text color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background frame and text color</p>
-</dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selector color</p>
-</dd>
-    <dt><code>sb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selector color</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(char, char, char, char, char, char, char, char, string, uint, uint, Placement, int, int, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1181"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with each individual frame char and same colors for selected and not selected</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>topLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>topRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>top</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>left</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground frame color</p>
-</dd>
-    <dt><code>fb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background frame color</p>
-</dd>
-    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground text color</p>
-</dd>
-    <dt><code>tb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background text color</p>
-</dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selector color</p>
-</dd>
-    <dt><code>sb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selector color</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_Char_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.Char,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(char, char, char, char, char, char, char, char, string, uint, uint, Placement, int, int, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1146"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with each individual frame char</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(char topLeft, char topRight, char bottomLeft, char bottomRight, char top, char bottom, char left, char right, string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>topLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>topRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomLeft</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottomRight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>top</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>bottom</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>left</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>right</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground not selected frame color</p>
-</dd>
-    <dt><code>fb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background not selected frame color</p>
-</dd>
-    <dt><code>fsf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selected frame color</p>
-</dd>
-    <dt><code>fsb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selected frame color</p>
-</dd>
-    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground not selected text color</p>
-</dd>
-    <dt><code>tb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background not selected text color</p>
-</dd>
-    <dt><code>tsf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selected text color</p>
-</dd>
-    <dt><code>tsb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selected text color</p>
-</dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selector color</p>
-</dd>
-    <dt><code>sb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selector color</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32)">
-  TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1127"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with null colors</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Frame charchters</p>
-</dd>
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1117"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with general colors</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Frame charchters</p>
-</dd>
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground frame color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background frame color</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, Color3?, Color3?, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1105"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with the same colors for frame and text</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Frame charchters</p>
-</dd>
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground frame and text color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background frame and text color</p>
-</dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selector color</p>
-</dd>
-    <dt><code>sb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selector color</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1091"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L603"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new multiline textbox with the same colors when selected and not selected</p>
@@ -752,7 +216,7 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -775,23 +239,14 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground frame color</p>
+    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Frame format</p>
 </dd>
-    <dt><code>fb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background frame color</p>
+    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Text format</p>
 </dd>
-    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground text color</p>
-</dd>
-    <dt><code>tb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background text color</p>
-</dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selector color</p>
-</dd>
-    <dt><code>sb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selector color</p>
+    <dt><code>pf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Selector format</p>
 </dd>
   </dl>
 
@@ -808,9 +263,9 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
 
   <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1053"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L574"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new multiline textbox</p>
@@ -818,7 +273,7 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string chars, string t, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -841,137 +296,20 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground not selected frame color</p>
+    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Not selected frame format</p>
 </dd>
-    <dt><code>fb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background not selected frame color</p>
+    <dt><code>sff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Selected frame format</p>
 </dd>
-    <dt><code>fsf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selected frame color</p>
+    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Not selected text format</p>
 </dd>
-    <dt><code>fsb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selected frame color</p>
+    <dt><code>stf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Selected text format</p>
 </dd>
-    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground not selected text color</p>
-</dd>
-    <dt><code>tb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background not selected text color</p>
-</dd>
-    <dt><code>tsf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selected text color</p>
-</dd>
-    <dt><code>tsb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selected text color</p>
-</dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selector color</p>
-</dd>
-    <dt><code>sb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selector color</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
-    <dd><p>Thrown when chars is null or it is not 8 chars long</p>
-</dd>
-  </dl>
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32)">
-  TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1284"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and general colors</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1275"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and general colors</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground frame color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background frame color</p>
+    <dt><code>pf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Selector format</p>
 </dd>
   </dl>
 
@@ -988,66 +326,9 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
 
   <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, Color3?, Color3?, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1264"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and same color for frame and text</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b, Color3? sf, Color3? sb)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Initial text</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box X size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>Box Y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground frame and text color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background frame and text color</p>
-</dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selector color</p>
-</dd>
-    <dt><code>sb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selector color</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1251"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L629"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected</p>
@@ -1055,7 +336,7 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? tf, Color3? tb, Color3? sf, Color3? sb)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1075,23 +356,14 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground frame color</p>
+    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Frame format</p>
 </dd>
-    <dt><code>fb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background frame color</p>
+    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Text format</p>
 </dd>
-    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground text color</p>
-</dd>
-    <dt><code>tb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background text color</p>
-</dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selector color</p>
-</dd>
-    <dt><code>sb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selector color</p>
+    <dt><code>pf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Selector format</p>
 </dd>
   </dl>
 
@@ -1108,9 +380,9 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
 
   <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1236"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L617"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new multiline textbox with default frame chars ('┌┐└┘──││')</p>
@@ -1118,7 +390,7 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, Color3? ff, Color3? fb, Color3? fsf, Color3? fsb, Color3? tf, Color3? tb, Color3? tsf, Color3? tsb, Color3? sf, Color3? sb)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiMultiLineFramedTextBox(string t, uint xs, uint ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1138,35 +410,20 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground not selected frame color</p>
+    <dt><code>ff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Not selected frame format</p>
 </dd>
-    <dt><code>fb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background not selected frame color</p>
+    <dt><code>sff</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Selected frame format</p>
 </dd>
-    <dt><code>fsf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selected frame color</p>
+    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Not selected text format</p>
 </dd>
-    <dt><code>fsb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selected frame color</p>
+    <dt><code>stf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Selected text format</p>
 </dd>
-    <dt><code>tf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground not selected text color</p>
-</dd>
-    <dt><code>tb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background not selected text color</p>
-</dd>
-    <dt><code>tsf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selected text color</p>
-</dd>
-    <dt><code>tsb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selected text color</p>
-</dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Foreground selector color</p>
-</dd>
-    <dt><code>sb</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>Background selector color</p>
+    <dt><code>pf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Selector format</p>
 </dd>
   </dl>
 
@@ -1185,171 +442,11 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
 </h2>
 
 
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgFrameColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgFrameColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgFrameColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgFrameColor">
-  BgFrameColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L925"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Background frame color when not selected</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? BgFrameColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgFrameSelectedColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgFrameSelectedColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgFrameSelectedColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgFrameSelectedColor">
-  BgFrameSelectedColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L943"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Background frame color when selected</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? BgFrameSelectedColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgSelectorColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgSelectorColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgSelectorColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgSelectorColor">
-  BgSelectorColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L997"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Background color of the selector pads '&gt;' '&lt;' that surround the element when selcted</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? BgSelectorColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgTextColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgTextColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgTextColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgTextColor">
-  BgTextColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L961"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Background text color when not selected</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? BgTextColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgTextSelectedColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgTextSelectedColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BgTextSelectedColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BgTextSelectedColor">
-  BgTextSelectedColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L979"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Background text color when selected</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? BgTextSelectedColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BoxXsize_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BoxXsize*"></a>
 
   <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BoxXsize" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BoxXsize">
   BoxXsize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1018"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L545"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The visible X size of the box. Length is xsize * ysize</p>
@@ -1381,7 +478,7 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
 
   <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BoxYsize" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BoxYsize">
   BoxYsize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1028"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L555"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The visible Y size of the box. Length is xsize * ysize</p>
@@ -1409,171 +506,11 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
 
 
 
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgFrameColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgFrameColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgFrameColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgFrameColor">
-  FgFrameColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L916"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Foreground frame color when not selected</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? FgFrameColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgFrameSelectedColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgFrameSelectedColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgFrameSelectedColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgFrameSelectedColor">
-  FgFrameSelectedColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L934"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Foreground frame color when selected</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? FgFrameSelectedColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgSelectorColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgSelectorColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgSelectorColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgSelectorColor">
-  FgSelectorColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L988"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Foreground color of the selector pads '&gt;' '&lt;' that surround the element when selcted</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? FgSelectorColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgTextColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgTextColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgTextColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgTextColor">
-  FgTextColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L952"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Foreground text color when not selected</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? FgTextColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgTextSelectedColor_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgTextSelectedColor*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FgTextSelectedColor" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FgTextSelectedColor">
-  FgTextSelectedColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L970"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Foreground text color when selected</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? FgTextSelectedColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FrameChars_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FrameChars*"></a>
 
   <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FrameChars" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FrameChars">
   FrameChars
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1006"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L533"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Frame charachters. An example would be '┌┐└┘──││'</p>
@@ -1601,6 +538,166 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
 
 
 
+  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FrameFormat_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FrameFormat*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FrameFormat" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FrameFormat">
+  FrameFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L488"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not selected frame charachter format</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CharFormat? FrameFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_SelectedFrameFormat_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.SelectedFrameFormat*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_SelectedFrameFormat" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.SelectedFrameFormat">
+  SelectedFrameFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L497"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selected frame charachter format</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CharFormat? SelectedFrameFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_SelectedTextFormat_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.SelectedTextFormat*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_SelectedTextFormat" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.SelectedTextFormat">
+  SelectedTextFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L515"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selected text charachter format</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CharFormat? SelectedTextFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_SelectorFormat_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.SelectorFormat*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_SelectorFormat" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.SelectorFormat">
+  SelectorFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L524"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Format of the selector pads '&gt;' '&lt;' that surround the element when selcted</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CharFormat? SelectorFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_TextFormat_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TextFormat*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_TextFormat" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TextFormat">
+  TextFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L506"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Not selected text charachter format</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CharFormat? TextFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -1609,7 +706,7 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
 
   <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_GenerateBuffer" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L1286"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L632"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>
@@ -1625,6 +722,45 @@ Class TuiMultiLineFramedTextBox  <a class="header-action link-secondary" title="
   <dl class="parameters">
     <dt><a class="xref" href="AshConsoleGraphics.Buffer.html">Buffer</a></dt>
     <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_WriteChar_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.WriteChar*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_WriteChar_System_Char_" data-uid="AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.WriteChar(System.Char)">
+  WriteChar(char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L694"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attempts to write a char to the end of the text</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool WriteChar(char c)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>Char to write</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If it was posible to write</p>
+</dd>
   </dl>
 
 

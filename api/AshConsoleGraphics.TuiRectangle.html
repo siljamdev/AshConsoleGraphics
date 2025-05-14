@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_TuiRectangle" data-uid="AshConsoleGraphics.TuiRectangle" class="text-break">
-Class TuiRectangle  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L154"><i class="bi bi-code-slash"></i></a>
+Class TuiRectangle  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L196"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -183,54 +183,9 @@ Class TuiRectangle  <a class="header-action link-secondary" title="View source" 
 
   <a id="AshConsoleGraphics_TuiRectangle__ctor_" data-uid="AshConsoleGraphics.TuiRectangle.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiRectangle__ctor_System_Char_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_" data-uid="AshConsoleGraphics.TuiRectangle.#ctor(System.Char,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32)">
-  TuiRectangle(char, uint, uint, Placement, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L218"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new rectangle with null colors</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiRectangle(char c, uint xs, uint ys, Placement p, int x, int y)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd><p>The charachter</p>
-</dd>
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>The x size</p>
-</dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>The y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_TuiRectangle__ctor_" data-uid="AshConsoleGraphics.TuiRectangle.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_TuiRectangle__ctor_System_Char_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.TuiRectangle.#ctor(System.Char,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiRectangle(char, uint, uint, Placement, int, int, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L202"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiRectangle__ctor_System_Char_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiRectangle.#ctor(System.Char,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)">
+  TuiRectangle(char, uint, uint, Placement, int, int, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L234"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new rectangle</p>
@@ -238,7 +193,7 @@ Class TuiRectangle  <a class="header-action link-secondary" title="View source" 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiRectangle(char c, uint xs, uint ys, Placement p, int x, int y, Color3? f, Color3? b)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiRectangle(char c, uint xs, uint ys, Placement p, int x, int y, CharFormat? f = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -258,11 +213,8 @@ Class TuiRectangle  <a class="header-action link-secondary" title="View source" 
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The foreground color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The background color</p>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The format</p>
 </dd>
   </dl>
 
@@ -281,43 +233,11 @@ Class TuiRectangle  <a class="header-action link-secondary" title="View source" 
 </h2>
 
 
-  <a id="AshConsoleGraphics_TuiRectangle_BgColor_" data-uid="AshConsoleGraphics.TuiRectangle.BgColor*"></a>
-
-  <h3 id="AshConsoleGraphics_TuiRectangle_BgColor" data-uid="AshConsoleGraphics.TuiRectangle.BgColor">
-  BgColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L188"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Background color</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? BgColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="AshConsoleGraphics_TuiRectangle_Char_" data-uid="AshConsoleGraphics.TuiRectangle.Char*"></a>
 
   <h3 id="AshConsoleGraphics_TuiRectangle_Char" data-uid="AshConsoleGraphics.TuiRectangle.Char">
   Char
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L212"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The charachter of the whole rectangle</p>
@@ -345,19 +265,19 @@ Class TuiRectangle  <a class="header-action link-secondary" title="View source" 
 
 
 
-  <a id="AshConsoleGraphics_TuiRectangle_FgColor_" data-uid="AshConsoleGraphics.TuiRectangle.FgColor*"></a>
+  <a id="AshConsoleGraphics_TuiRectangle_Format_" data-uid="AshConsoleGraphics.TuiRectangle.Format*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiRectangle_FgColor" data-uid="AshConsoleGraphics.TuiRectangle.FgColor">
-  FgColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiRectangle_Format" data-uid="AshConsoleGraphics.TuiRectangle.Format">
+  Format
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L221"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Foreground color</p>
+  <div class="markdown level1 summary"><p>Charachter format</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? FgColor { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public CharFormat? Format { get; set; }</code></pre>
   </div>
 
 
@@ -366,7 +286,7 @@ Class TuiRectangle  <a class="header-action link-secondary" title="View source" 
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
+    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
     <dd></dd>
   </dl>
 
@@ -381,7 +301,7 @@ Class TuiRectangle  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="AshConsoleGraphics_TuiRectangle_Xsize" data-uid="AshConsoleGraphics.TuiRectangle.Xsize">
   Xsize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L197"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -412,7 +332,7 @@ Class TuiRectangle  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="AshConsoleGraphics_TuiRectangle_Ysize" data-uid="AshConsoleGraphics.TuiRectangle.Ysize">
   Ysize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -447,7 +367,7 @@ Class TuiRectangle  <a class="header-action link-secondary" title="View source" 
 
   <h3 id="AshConsoleGraphics_TuiRectangle_GenerateBuffer" data-uid="AshConsoleGraphics.TuiRectangle.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L220"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L241"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>

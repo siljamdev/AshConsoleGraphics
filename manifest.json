@@ -126,7 +126,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AshConsoleGraphics.Interactive.TuiFramedRadio",
-      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiFramedRadio.yml\" sourcestartlinenumber=\"1\">Radio button: two options, either one of the other</p>\n"
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiFramedRadio.yml\" sourcestartlinenumber=\"1\">Radio button: two options, either one or the other</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -424,6 +424,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiTwoLabels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiTwoLabels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiTwoLabels",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiTwoLabels.yml\" sourcestartlinenumber=\"1\">Two labels side by side, left and right text</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AshConsoleGraphics.TuiVerticalLine.yml",
       "output": {
         ".html": {
@@ -469,16 +483,6 @@
       "output": {
         ".html": {
           "relative_path": "docs/basic_elements.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "docs/getting-started.md",
-      "output": {
-        ".html": {
-          "relative_path": "docs/getting-started.html"
         }
       },
       "version": ""

@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_TuiSquare" data-uid="AshConsoleGraphics.TuiSquare" class="text-break">
-Class TuiSquare  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L234"><i class="bi bi-code-slash"></i></a>
+Class TuiSquare  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L255"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -133,10 +133,7 @@ Class TuiSquare  <a class="header-action link-secondary" title="View source" hre
       <a class="xref" href="AshConsoleGraphics.TuiRectangle.html#AshConsoleGraphics_TuiRectangle_Char">TuiRectangle.Char</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.TuiRectangle.html#AshConsoleGraphics_TuiRectangle_FgColor">TuiRectangle.FgColor</a>
-    </div>
-    <div>
-      <a class="xref" href="AshConsoleGraphics.TuiRectangle.html#AshConsoleGraphics_TuiRectangle_BgColor">TuiRectangle.BgColor</a>
+      <a class="xref" href="AshConsoleGraphics.TuiRectangle.html#AshConsoleGraphics_TuiRectangle_Format">TuiRectangle.Format</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.TuiRectangle.html#AshConsoleGraphics_TuiRectangle_GenerateBuffer">TuiRectangle.GenerateBuffer()</a>
@@ -196,50 +193,9 @@ Class TuiSquare  <a class="header-action link-secondary" title="View source" hre
 
   <a id="AshConsoleGraphics_TuiSquare__ctor_" data-uid="AshConsoleGraphics.TuiSquare.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiSquare__ctor_System_Char_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_" data-uid="AshConsoleGraphics.TuiSquare.#ctor(System.Char,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32)">
-  TuiSquare(char, uint, Placement, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L245"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new square with null colors</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiSquare(char c, uint s, Placement p, int x, int y)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
-    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd><p>The x and y size</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_TuiSquare__ctor_" data-uid="AshConsoleGraphics.TuiSquare.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_TuiSquare__ctor_System_Char_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.TuiSquare.#ctor(System.Char,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiSquare(char, uint, Placement, int, int, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L239"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiSquare__ctor_System_Char_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiSquare.#ctor(System.Char,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)">
+  TuiSquare(char, uint, Placement, int, int, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L260"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new square</p>
@@ -247,7 +203,7 @@ Class TuiSquare  <a class="header-action link-secondary" title="View source" hre
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiSquare(char c, uint s, Placement p, int x, int y, Color3? f, Color3? b)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiSquare(char c, uint s, Placement p, int x, int y, CharFormat? f = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -263,9 +219,7 @@ Class TuiSquare  <a class="header-action link-secondary" title="View source" hre
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
     <dd></dd>
   </dl>
 

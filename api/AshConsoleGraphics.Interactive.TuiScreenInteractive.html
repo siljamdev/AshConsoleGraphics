@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_Interactive_TuiScreenInteractive" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive" class="text-break">
-Class TuiScreenInteractive  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class TuiScreenInteractive  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -146,10 +146,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
       <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_AutoResize">TuiScreen.AutoResize</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_DefFgColor">TuiScreen.DefFgColor</a>
-    </div>
-    <div>
-      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_DefBgColor">TuiScreen.DefBgColor</a>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_DefFormat">TuiScreen.DefFormat</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_GenerateBuffer">TuiScreen.GenerateBuffer()</a>
@@ -215,8 +212,8 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},AshConsoleGraphics.TuiElement[])">
-  TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, Placement, int, int, Color3?, Color3?, params TuiElement[])
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])">
+  TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
   <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -225,7 +222,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, Placement p, int x, int y, Color3? f, Color3? b, params TuiElement[] e)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, Placement p, int x, int y, CharFormat? f, params TuiElement[] e)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -251,11 +248,8 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default foreground color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default background color</p>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The default format</p>
 </dd>
     <dt><code>e</code> <a class="xref" href="AshConsoleGraphics.TuiElement.html">TuiElement</a>[]</dt>
     <dd><p>Additional elements</p>
@@ -275,9 +269,9 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3},AshConsoleGraphics.TuiElement[])">
-  TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, Color3?, Color3?, params TuiElement[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])">
+  TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, CharFormat?, params TuiElement[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L104"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new interactive screen</p>
@@ -285,7 +279,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, Color3? f, Color3? b, params TuiElement[] e)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, CharFormat? f, params TuiElement[] e)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -305,11 +299,8 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
     <dt><code>startY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
     <dd><p>Start Y index in the selectable matrix</p>
 </dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default foreground color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default background color</p>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The default format</p>
 </dd>
     <dt><code>e</code> <a class="xref" href="AshConsoleGraphics.TuiElement.html">TuiElement</a>[]</dt>
     <dd><p>Additional elements</p>
@@ -334,7 +325,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_WaitForKey" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.WaitForKey">
   WaitForKey
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If the screen will wait for a key press before updating</p>
@@ -365,7 +356,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_keyFunctions" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.keyFunctions">
   keyFunctions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L56"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The key actions</p>
@@ -401,7 +392,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_FinishPlayCycleEvent" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.FinishPlayCycleEvent">
   FinishPlayCycleEvent
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Action called at the end of each play cycle</p>
@@ -433,7 +424,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MatrixPointerX" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MatrixPointerX">
   MatrixPointerX
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>X index of the selected element in the matrix</p>
@@ -465,7 +456,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MatrixPointerY" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MatrixPointerY">
   MatrixPointerY
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Y index of the selected element in the matrix</p>
@@ -497,7 +488,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Playing" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Playing">
   Playing
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If the screen is playing or not</p>
@@ -529,7 +520,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Selected" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Selected">
   Selected
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Currently selected element</p>
@@ -561,7 +552,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_SelectionMatrix" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.SelectionMatrix">
   SelectionMatrix
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>2d matrix of the elements, ordered and positioned in the way it is wanted</p>
@@ -597,7 +588,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_DeleteAllKeyEvents" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.DeleteAllKeyEvents">
   DeleteAllKeyEvents()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L144"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Clears all existent key events. Useful because there are some default ones</p>
@@ -624,7 +615,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_HandleKey_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.HandleKey(System.ConsoleKeyInfo)">
   HandleKey(ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L190"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Handle a key press</p>
@@ -661,7 +652,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveDown_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveDown(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
   MoveDown(TuiScreenInteractive, ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L240"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Move the selected pointer down (y positive)</p>
@@ -695,7 +686,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveLeft_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveLeft(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
   MoveLeft(TuiScreenInteractive, ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L233"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Move the selected pointer left (x negative)</p>
@@ -729,7 +720,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveRight_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveRight(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
   MoveRight(TuiScreenInteractive, ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L226"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Move the selected pointer right (x positive)</p>
@@ -763,7 +754,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveUp_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveUp(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
   MoveUp(TuiScreenInteractive, ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L247"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Move the selected pointer up (y negative)</p>
@@ -797,7 +788,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Play" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Play">
   Play()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L159"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L158"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Plays the interactive screen. Handles all key presses</p>
@@ -824,7 +815,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Stop" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Stop">
   Stop()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L205"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L212"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stop playing</p>
@@ -851,7 +842,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_StopPlaying_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.StopPlaying(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
   StopPlaying(TuiScreenInteractive, ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L219"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stop a screen playing</p>
@@ -885,7 +876,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_SubKeyEvent_System_ConsoleKey_System_Action_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo__" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.SubKeyEvent(System.ConsoleKey,System.Action{AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo})">
   SubKeyEvent(ConsoleKey, Action&lt;TuiScreenInteractive, ConsoleKeyInfo&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L136"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a new key event with no modifiers</p>
@@ -919,7 +910,7 @@ Class TuiScreenInteractive  <a class="header-action link-secondary" title="View 
 
   <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_SubKeyEvent_System_ConsoleKey_System_ConsoleModifiers_System_Action_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo__" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.SubKeyEvent(System.ConsoleKey,System.ConsoleModifiers,System.Action{AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo})">
   SubKeyEvent(ConsoleKey, ConsoleModifiers, Action&lt;TuiScreenInteractive, ConsoleKeyInfo&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a new key event</p>

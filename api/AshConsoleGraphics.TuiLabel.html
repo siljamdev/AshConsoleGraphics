@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_TuiLabel" data-uid="AshConsoleGraphics.TuiLabel" class="text-break">
-Class TuiLabel  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L99"><i class="bi bi-code-slash"></i></a>
+Class TuiLabel  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -177,48 +177,9 @@ Class TuiLabel  <a class="header-action link-secondary" title="View source" href
 
   <a id="AshConsoleGraphics_TuiLabel__ctor_" data-uid="AshConsoleGraphics.TuiLabel.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiLabel__ctor_System_String_AshConsoleGraphics_Placement_System_Int32_System_Int32_" data-uid="AshConsoleGraphics.TuiLabel.#ctor(System.String,AshConsoleGraphics.Placement,System.Int32,System.Int32)">
-  TuiLabel(string, Placement, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L140"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new label with null colors</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiLabel(string text, Placement p, int x, int y)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The text</p>
-</dd>
-    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
-    <dd></dd>
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_TuiLabel__ctor_" data-uid="AshConsoleGraphics.TuiLabel.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_TuiLabel__ctor_System_String_AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.TuiLabel.#ctor(System.String,AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiLabel(string, Placement, int, int, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiLabel__ctor_System_String_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiLabel.#ctor(System.String,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)">
+  TuiLabel(string, Placement, int, int, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L121"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new label</p>
@@ -226,7 +187,7 @@ Class TuiLabel  <a class="header-action link-secondary" title="View source" href
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiLabel(string text, Placement p, int x, int y, Color3? f, Color3? b)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiLabel(string text, Placement p, int x, int y, CharFormat? f = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -240,11 +201,8 @@ Class TuiLabel  <a class="header-action link-secondary" title="View source" href
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The foreground color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The background color</p>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The format</p>
 </dd>
   </dl>
 
@@ -263,19 +221,19 @@ Class TuiLabel  <a class="header-action link-secondary" title="View source" href
 </h2>
 
 
-  <a id="AshConsoleGraphics_TuiLabel_BgColor_" data-uid="AshConsoleGraphics.TuiLabel.BgColor*"></a>
+  <a id="AshConsoleGraphics_TuiLabel_Format_" data-uid="AshConsoleGraphics.TuiLabel.Format*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiLabel_BgColor" data-uid="AshConsoleGraphics.TuiLabel.BgColor">
-  BgColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiLabel_Format" data-uid="AshConsoleGraphics.TuiLabel.Format">
+  Format
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Background color</p>
+  <div class="markdown level1 summary"><p>Charachter format</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? BgColor { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public CharFormat? Format { get; set; }</code></pre>
   </div>
 
 
@@ -284,39 +242,7 @@ Class TuiLabel  <a class="header-action link-secondary" title="View source" href
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_TuiLabel_FgColor_" data-uid="AshConsoleGraphics.TuiLabel.FgColor*"></a>
-
-  <h3 id="AshConsoleGraphics_TuiLabel_FgColor" data-uid="AshConsoleGraphics.TuiLabel.FgColor">
-  FgColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L109"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Foreground color</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Color3? FgColor { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
+    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
     <dd></dd>
   </dl>
 
@@ -331,7 +257,7 @@ Class TuiLabel  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="AshConsoleGraphics_TuiLabel_Text" data-uid="AshConsoleGraphics.TuiLabel.Text">
   Text
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -366,7 +292,7 @@ Class TuiLabel  <a class="header-action link-secondary" title="View source" href
 
   <h3 id="AshConsoleGraphics_TuiLabel_GenerateBuffer" data-uid="AshConsoleGraphics.TuiLabel.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L126"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>

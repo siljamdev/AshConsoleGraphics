@@ -97,11 +97,11 @@ s.SubKeyEvent(ConsoleKey.A, ConsoleModifiers.None, (sel, ck) =&gt; {doSomething(
 <h2 id="tuibutton">TuiButton</h2>
 <p>This is the simplest of all selectables. It is like a label, but when selected is surrounded by &gt; &lt;. This feature is common to most Selectables, and it is called internally Selectors.<br>
 We can initialize a new button like this:</p>
-<pre><code class="lang-csharp">TuiButton l = new TuiButton(&quot;Press me&quot;, Placement.Center, 0, 0, new Color3(&quot;FF00FF&quot;), null, new Color3(&quot;FF00FF&quot;), null, Color3.Yellow, null);
+<pre><code class="lang-csharp">TuiButton l = new TuiButton(&quot;Press me&quot;, Placement.Center, 0, 0, new CharFormat(new Color3(&quot;FF00FF&quot;)), new CharFormat(new Color3(&quot;FF00FF&quot;)), new CharFormat(Color3.Yellow));
 </code></pre>
-<p>Here, the first 4 are pretty self-explanatory. The last 6 are (in order) the foreground and background color of the text when not selected, the foreground and background color of the text when selected and the foreground and background color of the selector(obviously when selected).<br>
-This constructor is the one that has the most colors, but there are other that provide with less colors and just put the same everywhere or things like that. Please refer to the <a href="../api/AshConsoleGraphics.html">API</a>.<br>
-This is common among many selectables, to have many constructors providing a lot of options for how many colors. Sometimes there is up to 12 colors so it can get pretty confusing. In those cases, please check the <a href="../api/AshConsoleGraphics.html">API</a> for all the possible constructors and the order of their color arguments.</p>
+<p>Here, the first 4 are pretty self-explanatory. The last 3 are (in order) the format of the text when not selected, the format of the text when selected and the format of the selector(obviously when selected).<br>
+This constructor is the one that has the most formats, but there are other that provide with less formats and just put the same everywhere or things like that. Please refer to the <a href="../api/AshConsoleGraphics.Interactive.html">API</a>.<br>
+This is common among many selectables, to have many constructors providing a lot of options for how many formats. Sometimes there is up to 6 formats so it can get pretty confusing. In those cases, please check the <a href="../api/AshConsoleGraphics.Interactive.html">API</a> for all the possible constructors and the order of their format arguments.</p>
 <p>The particularity with buttons is you can set actions triggered with Enter:</p>
 <pre><code class="lang-csharp">l.SetAction((sel, ck) =&gt; {doSomething();});
 </code></pre>
@@ -109,11 +109,11 @@ This is common among many selectables, to have many constructors providing a lot
 <h2 id="tuiframedcheckbox">TuiFramedCheckBox</h2>
 <p>This is a simple checkbox with a frame around it. It is toggled by the use of Enter<br>
 We can initialize a new one like this:</p>
-<pre><code class="lang-csharp">TuiFramedCheckBox cb = new TuiFramedCheckBox(' ', 'X', false, Placement.Center, 0, 0, new Color3.(255, 0, 100), null, Color3.Yellow, null);
+<pre><code class="lang-csharp">TuiFramedCheckBox cb = new TuiFramedCheckBox(' ', 'X', false, Placement.Center, 0, 0, new CharFormat(new Color3.(255, 0, 100)), new CharFormat(Color3.Yellow));
 </code></pre>
-<p>The first two args are the charachters to siplay when the checkbox is not active(first) and active(second).
+<p>The first two args are the charachters to diplay when the checkbox is not active(first) and active(second).
 Next, the initial activation state, and the position as usual.
-Last, two colors (foreground and background) for the frame and the check and two other for the selectors. This is not the constructor with the most color arguments, there are many more options.</p>
+Last, two formats for the frame and the check and two other for the selectors. This is not the constructor with the most format arguments, there are many more options.</p>
 <h2 id="other-selectable-elements">Other selectable elements</h2>
 <p>There are many more selectables, like option pickers, number pickers, radio buttons and more. Check the <a href="../api/AshConsoleGraphics.Interactive.html">API</a> for all the possibilities!<br>
 There are also Writable elements, that let the user input text in many different ways. Check the base class <a href="../api/AshConsoleGraphics.Interactive.TuiWritable.html">here</a></p>

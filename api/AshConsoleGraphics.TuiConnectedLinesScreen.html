@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_TuiConnectedLinesScreen" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen" class="text-break">
-Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L228"><i class="bi bi-code-slash"></i></a>
+Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L221"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -146,10 +146,7 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
       <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_AutoResize">TuiScreen.AutoResize</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_DefFgColor">TuiScreen.DefFgColor</a>
-    </div>
-    <div>
-      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_DefBgColor">TuiScreen.DefBgColor</a>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_DefFormat">TuiScreen.DefFormat</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_GetEnumerator">TuiScreen.GetEnumerator()</a>
@@ -212,9 +209,9 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
 
   <a id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_String_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiConnectedLinesScreen(string, uint, uint, IEnumerable&lt;ILineElement&gt;, Placement, int, int, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L253"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_String_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)">
+  TuiConnectedLinesScreen(string, uint, uint, IEnumerable&lt;ILineElement&gt;, Placement, int, int, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L245"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new line screen</p>
@@ -222,7 +219,7 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiConnectedLinesScreen(string chars, uint xs, uint ys, IEnumerable&lt;ILineElement&gt; i, Placement p, int x, int y, Color3? f, Color3? b)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiConnectedLinesScreen(string chars, uint xs, uint ys, IEnumerable&lt;ILineElement&gt; i, Placement p, int x, int y, CharFormat? f)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -245,11 +242,8 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default foreground color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default background color</p>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The default format</p>
 </dd>
   </dl>
 
@@ -272,9 +266,9 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
 
   <a id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_String_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiConnectedLinesScreen(string, uint, uint, IEnumerable&lt;ILineElement&gt;, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_String_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)">
+  TuiConnectedLinesScreen(string, uint, uint, IEnumerable&lt;ILineElement&gt;, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L264"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new line screen with top left position</p>
@@ -282,7 +276,7 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiConnectedLinesScreen(string chars, uint xs, uint ys, IEnumerable&lt;ILineElement&gt; i, Color3? f, Color3? b)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiConnectedLinesScreen(string chars, uint xs, uint ys, IEnumerable&lt;ILineElement&gt; i, CharFormat? f)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -299,11 +293,8 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
     <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="AshConsoleGraphics.ILineElement.html">ILineElement</a>&gt;</dt>
     <dd><p>The lined elements</p>
 </dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default foreground color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default background color</p>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The default format</p>
 </dd>
   </dl>
 
@@ -326,9 +317,9 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
 
   <a id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiConnectedLinesScreen(uint, uint, IEnumerable&lt;ILineElement&gt;, Placement, int, int, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L291"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)">
+  TuiConnectedLinesScreen(uint, uint, IEnumerable&lt;ILineElement&gt;, Placement, int, int, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L281"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new line screen with default chars</p>
@@ -336,7 +327,7 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiConnectedLinesScreen(uint xs, uint ys, IEnumerable&lt;ILineElement&gt; i, Placement p, int x, int y, Color3? f, Color3? b)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiConnectedLinesScreen(uint xs, uint ys, IEnumerable&lt;ILineElement&gt; i, Placement p, int x, int y, CharFormat? f)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -356,11 +347,8 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default foreground color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default background color</p>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The default format</p>
 </dd>
   </dl>
 
@@ -377,9 +365,9 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
 
   <a id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__System_Nullable_AshLib_Color3__System_Nullable_AshLib_Color3__" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},System.Nullable{AshLib.Color3},System.Nullable{AshLib.Color3})">
-  TuiConnectedLinesScreen(uint, uint, IEnumerable&lt;ILineElement&gt;, Color3?, Color3?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L305"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)">
+  TuiConnectedLinesScreen(uint, uint, IEnumerable&lt;ILineElement&gt;, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L294"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new line screen with top left position and default chars</p>
@@ -387,7 +375,7 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiConnectedLinesScreen(uint xs, uint ys, IEnumerable&lt;ILineElement&gt; i, Color3? f, Color3? b)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiConnectedLinesScreen(uint xs, uint ys, IEnumerable&lt;ILineElement&gt; i, CharFormat? f)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -401,11 +389,8 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
     <dt><code>i</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="AshConsoleGraphics.ILineElement.html">ILineElement</a>&gt;</dt>
     <dd><p>The lined elements</p>
 </dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default foreground color</p>
-</dd>
-    <dt><code>b</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">Color3</a>?</dt>
-    <dd><p>The default background color</p>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The default format</p>
 </dd>
   </dl>
 
@@ -428,7 +413,7 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
 
   <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen_Chars" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.Chars">
   Chars
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L232"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L225"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The 16 connected line charachters. An example would be &quot;·───│┌┐┬│└┘┴│├┤┼&quot;</p>
@@ -464,7 +449,7 @@ Class TuiConnectedLinesScreen  <a class="header-action link-secondary" title="Vi
 
   <h3 id="AshConsoleGraphics_TuiConnectedLinesScreen_GenerateBuffer" data-uid="AshConsoleGraphics.TuiConnectedLinesScreen.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L311"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L300"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>

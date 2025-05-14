@@ -89,7 +89,7 @@
 
 <p>Screens are the elements that control drawing. They have elements inside of them (potentially other screens!) and are responsible for drawing and controlling them.</p>
 <p>Let's create a screen.</p>
-<pre><code class="lang-csharp">TuiScreen s = new TuiScreen(100, 20, Color3.White, Color3.Black, new TuiLabel(&quot;Hello, World!&quot;, Placement.Center, 0, 0, new Color3(&quot;FF00FF&quot;), null), new TuiLabel(&quot;How are you, World?&quot;, Placement.Center, 0, 2, new Color3(&quot;FF0000&quot;), null));
+<pre><code class="lang-csharp">TuiScreen s = new TuiScreen(100, 20, new CharFormat(Color3.White, Color3.Black), new TuiLabel(&quot;Hello, World!&quot;, Placement.Center, 0, 0, new CharFormat(new Color3(&quot;FF00FF&quot;))), new TuiLabel(&quot;How are you, World?&quot;, Placement.Center, 0, 2, new CharFormat(new Color3(&quot;FF0000&quot;))));
 </code></pre>
 <p>Lets explain the arguments:<br>
 First, two integers for the screen size. In most terminals charachters are not square, and that is the reason for the difference in height and width.<br>
