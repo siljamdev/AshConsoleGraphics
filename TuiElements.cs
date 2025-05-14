@@ -133,6 +133,64 @@ public class TuiLabel : TuiElement{
 }
 
 /// <summary>
+/// Two labels side by side, left and right text
+/// </summary>
+public class TuiTwoLabels : TuiElement{
+	public string LeftText {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	public string RightText {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Left label format format
+	/// </summary>
+	public CharFormat? LeftFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Right label format format
+	/// </summary>
+	public CharFormat? RightFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Initializes a new label
+	/// </summary>
+	/// <param name="text">The text</param>
+	/// <param name="f">The format</param>
+	public TuiTwoLabels(string textl, string textr, Placement p, int x, int y, CharFormat? lf = null, CharFormat? rf = null) : base(p, x, y){
+		LeftFormat = lf;
+		RightFormat = rf;
+		LeftText = textl;
+		RightText = textr;
+	}
+	
+	override protected Buffer GenerateBuffer(){
+		Buffer b = new Buffer(LeftText.Length + RightText.Length, 1);
+		for(int i = 0; i < LeftText.Length; i++){
+			b.SetChar(i, 0, LeftText[i], LeftFormat);
+		}
+		for(int i = LeftText.Length; i < LeftText.Length + RightText.Length; i++){
+			b.SetChar(i, 0, RightText[i - LeftText.Length], RightFormat);
+		}
+		return b;
+	}
+}
+
+/// <summary>
 /// A solid rectangle of a single charachter
 /// </summary>
 public class TuiRectangle : TuiElement{

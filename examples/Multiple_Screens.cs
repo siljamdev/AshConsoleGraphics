@@ -17,7 +17,7 @@ class Program{
 			"hello", "never", "no", "yes", "bacon", "pig", "gloria", "order", "emperor", "hierarchy", "path", "file", "folder",
 			"project", "hub", "ship", "space", "king", "rifle", "ammunition", "soldier", "war", "krieg", "windows", "linux",
 			"version", "failed", "corrupted", "cancelled", "affirmative", "propose", "answer", "client", "connect", "server",
-			"slave", "worker", "state", "washer", "century", "millisecond", "double", "broker", "crypto", "exception", "lord",
+			"slave", "worker", "state", "viktor", "century", "millisecond", "double", "broker", "tsoy", "exception", "lord",
 			"medieval", "partition", "resistance", "adder", "assembler", "type", "first", "second", "third", "fourth", "fifth"
 		};
 		
@@ -26,24 +26,26 @@ class Program{
 		TuiScreenInteractive RightScreen = null;
 		MultipleTuiScreenInteractive BigScreen = null;
 		
+		CharFormat selected = new CharFormat(null, null, 1, null, null, false, null, false); //underlined
+		
 		TuiSelectable[,] LeftElements = null;
 		LeftElements = new TuiSelectable[,]{
-			{new TuiFramedTextBox("", 16, Placement.Center, 0, -3, new CharFormat(new Color3(255, 100, 0)), new CharFormat(new Color3(255, 100, 0)), new CharFormat(new Color3(255, 100, 0)), new CharFormat(Color3.Yellow), new CharFormat(Color3.Yellow))},
-			{new TuiButton("Set color", Placement.Center, 0, 1, new CharFormat(new Color3(255, 100, 0)), new CharFormat(Color3.Yellow)).SetAction(setColor)},
-			{new TuiButton("Change screen", Placement.Center, 0, 4, new CharFormat(new Color3(255, 100, 0)), new CharFormat(Color3.Yellow)).SetAction(goToOther2)}
+			{new TuiFramedTextBox("", 16, Placement.Center, 0, -3, null, null, null, new CharFormat(null, null, 1, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
+			{new TuiButton("Set color", Placement.Center, 0, 1, null, selected, new CharFormat(Color3.Yellow)).SetAction(setColor)},
+			{new TuiButton("Change screen", Placement.Center, 0, 4, null, selected, new CharFormat(Color3.Yellow)).SetAction(goToOther2)}
 		};
 		
 		TuiSelectable[,] RightElements = null;
 		RightElements = new TuiSelectable[,]{
-			{new TuiButton("Change screen", Placement.Center, 0, 1, new CharFormat(new Color3(150, 0, 255)), new CharFormat(Color3.Yellow)).SetAction(goToOther)},
-			{new TuiButton("Useless button that does nothing", Placement.Center, 0, 4, new CharFormat(new Color3(150, 0, 255)), new CharFormat(Color3.Yellow)).SetAction(joke)},
-			{new TuiFramedCheckBox(' ', 'X', false, Placement.Center, 9, 7, new CharFormat(new Color3(150, 0, 255)), new CharFormat(new Color3(150, 0, 255)), new CharFormat(new Color3(150, 0, 255)), new CharFormat(Color3.Yellow), new CharFormat(Color3.Yellow))},
+			{new TuiButton("Change screen", Placement.Center, 0, 1, null, selected, new CharFormat(Color3.Yellow)).SetAction(goToOther)},
+			{new TuiButton("Useless button that does nothing", Placement.Center, 0, 4, null, selected, new CharFormat(Color3.Yellow)).SetAction(joke)},
+			{new TuiFramedCheckBox(' ', 'X', false, Placement.Center, 9, 7, null, null, null, new CharFormat(null, null, 1, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
 		};
 		
-		LeftScreen = new TuiScreenInteractive(50,20, LeftElements, 0, 1, new CharFormat(null, new Color3(30, 0, 0)), new TuiLabel("Enter color:", Placement.Center, -2, -5, new CharFormat(new Color3(255, 100, 0))));
-		RightScreen = new TuiScreenInteractive(50,20, RightElements, 0, 0, Placement.TopRight, 0, 0, new CharFormat(null, new Color3(0, 0, 30)),
+		LeftScreen = new TuiScreenInteractive(50,20, LeftElements, 0, 1, new CharFormat(new Color3(255, 100, 0), new Color3(30, 0, 0)), new TuiLabel("Enter color:", Placement.Center, -2, -5, null));
+		RightScreen = new TuiScreenInteractive(50,20, RightElements, 0, 0, Placement.TopRight, 0, 0, new CharFormat(new Color3(150, 0, 255), new Color3(0, 0, 30)),
 												new TuiLog(48, 9, Placement.TopCenter, 0, 1, new CharFormat(Color3.White, Color3.Black)),
-												new TuiLabel("Stop generating:", Placement.Center, -2, 7, new CharFormat(new Color3(150, 0, 255))));
+												new TuiLabel("Stop generating:", Placement.Center, -2, 7, null));
 		
 		BigScreen = new MultipleTuiScreenInteractive(101, 20, new TuiScreenInteractive[]{RightScreen, LeftScreen}, null, null, new TuiVerticalLine(20, '│', Placement.TopCenter, 0, 0, new CharFormat(Color3.Yellow)));
 		

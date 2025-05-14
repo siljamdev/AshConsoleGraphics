@@ -696,7 +696,8 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 			return false;
 		}
 		if(c == '\n'){
-			Text = Text + new string(' ', (int) BoxXsize - ((Text.Length - 1) % (int) BoxXsize) - 1);
+			int m = (int) BoxXsize - ((Text.Length - 1) % (int) BoxXsize) - 1;
+			Text = Text + new string(' ', m == 0 ? (int) BoxXsize : m);
 			return true;
 		}
 		Text = Text + c;
