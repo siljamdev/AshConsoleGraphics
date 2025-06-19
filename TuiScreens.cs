@@ -158,11 +158,7 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 		FastConsole.Flush();
     }
 	
-	protected override bool BufferNeedsToBeGenerated(){
-		if(needToGenBuffer){
-			return true;
-		}
-		
+	protected override bool BufferNeedsToBeGenerated(){	
 		try{ //If terminals is not interactive it will throw exception
 			if(AutoResize && (Console.WindowWidth != Xsize || Console.WindowHeight - 1 != Ysize)){
 				Xsize = (uint) Console.WindowWidth;
@@ -170,6 +166,10 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 				return true;
 			}
 		}catch(Exception e){} //What can we do? Nothing.
+		
+		if(needToGenBuffer){
+			return true;
+		}
 		
 		foreach(TuiElement e in Elements){
 			if(e.ScreenNeedsToBeGenerated()){
