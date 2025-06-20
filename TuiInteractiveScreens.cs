@@ -376,6 +376,11 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 			try{ //Sometimes in non interactive terminals Console.KeyAvailable gets error
 				if(!WaitForKey && !Console.KeyAvailable){
 					CallFinishCycleEvent();
+					
+					foreach(TuiScreenInteractive sb in ScreenList){
+						sb.CallFinishCycleEvent();
+					}
+					
 					continue;
 				}
 			}catch(Exception e){}
