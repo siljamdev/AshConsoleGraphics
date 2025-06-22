@@ -273,7 +273,7 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 	/// <summary>
 	/// All the interactive screens
 	/// </summary>
-	protected List<TuiScreenInteractive> ScreenList;
+	public List<TuiScreenInteractive> ScreenList {get; private set;}
 	
 	/// <summary>
 	/// If this screen is playing
