@@ -387,7 +387,14 @@ references:
 - uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.ScreenList
   name: ScreenList
   href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_ScreenList
-  commentId: F:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.ScreenList
+  commentId: P:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.ScreenList
+  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.ScreenList
+  nameWithType: MultipleTuiScreenInteractive.ScreenList
+- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.ScreenList*
+  name: ScreenList
+  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_ScreenList_
+  commentId: Overload:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.ScreenList
+  isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.ScreenList
   nameWithType: MultipleTuiScreenInteractive.ScreenList
 - uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.SelectedScreen
