@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Example with Many Elements | AshConsoleGraphics </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Example with Many Elements | AshConsoleGraphics ">
+      
+      
+      <link rel="icon" href="../icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/AshConsoleGraphics/blob/main/docfx/examples/manyElements.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../icon.svg" alt="AshConsoleGraphics">
+            AshConsoleGraphics
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="example-with-many-elements">Example with Many Elements</h1>
+
+<p>This is a bit chaotic, it's just to demonstrate the way to use many different elements. DeltaHelper is used, a utility from <a href="https://github.com/siljamdev/AshLib">AshLib</a>.</p>
+<pre><code class="lang-csharp">using System;
+using AshLib;
+using AshLib.Time; //For DeltaHelper
+using AshLib.Formatting; //For CharFormat
+using AshConsoleGraphics;
+using AshConsoleGraphics.Interactive;
+
+class Program{
+    
+    static Random rand = new Random();
+
+    static void Main(){
+        
+        TuiElement[] Elements = {
+            new TuiLabel(&quot;FPS: 0&quot;, Placement.TopLeft, 0, 0, new CharFormat(Color3.Yellow)), //Fps counter
+            new TuiLabel(&quot;aaa&quot;, Placement.BottomCenter, 0, 0, new CharFormat(new Color3(255, 120, 0))),
+            new TuiButton(&quot;Hello!!&quot;, Placement.TopLeft, 30, 2, new CharFormat(new Color3(23, 70, 255))),
+            new TuiLabel(&quot;TestTestTest&quot;, Placement.TopLeft, 30, 13),
+            new TuiFrame(20, 10, Placement.TopLeft, 50, 7, new CharFormat(new Color3(0, 255, 0))),
+            new TuiFramedTextBox(&quot;subi&quot;, 5, Placement.TopLeft, 80, 10, new CharFormat(Color3.Cyan), new CharFormat(Color3.Magenta)),
+            new TuiHorizontalLine(20, 'ñ', Placement.TopLeft, 5, 15, null) //Proof that charachters outside of ascii work as well
+        };
+        
+        AshConsoleGraphics.TuiScreen SmallScreen = new AshConsoleGraphics.TuiScreen(100, 30, new CharFormat(null,  Color3.Black), Elements);
+        AshConsoleGraphics.TuiScreen BigScreen = new AshConsoleGraphics.TuiScreen(100, 20, null, null, SmallScreen);
+        
+        DeltaHelper dh = new DeltaHelper(); //AshLib utility, used for calculating times. Here is used for FPS
+        dh.Start();
+        
+        while(true){
+            BigScreen.Print();
+            ((TuiLabel) Elements[0]).Text = &quot;FPS: &quot; + dh.stableFps; //Update FPS
+            
+            if(Console.KeyAvailable){
+                ConsoleKey k = Console.ReadKey(true).Key;
+                if(k == ConsoleKey.A){
+                    SmallScreen.Xsize = (uint) (1 + rand.Next(90)); //Randomize internal screen size
+                    SmallScreen.Ysize = (uint) (1 + rand.Next(16));
+                    //Add another element
+                    BigScreen.Elements.Add(new AshConsoleGraphics.TuiLabel(&quot;bbb&quot;, Placement.TopLeft, rand.Next(100), 1 + rand.Next(19), new CharFormat(new Color3((byte) rand.Next(256), (byte) rand.Next(256), (byte) rand.Next(256)))));
+                }else if(k == ConsoleKey.Escape){
+                    break;
+                }
+            }
+            
+            dh.Frame();
+        }
+    }
+}
+</code></pre>
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Example with Multiple Interactive Screens | AshConsoleGraphics </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Example with Multiple Interactive Screens | AshConsoleGraphics ">
+      
+      
+      <link rel="icon" href="../icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/AshConsoleGraphics/blob/main/docfx/examples/multipleScreens.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../icon.svg" alt="AshConsoleGraphics">
+            AshConsoleGraphics
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="example-with-multiple-interactive-screens">Example with Multiple Interactive Screens</h1>
+
+<p>This is a bit chaotic, it's just to demonstrate the way to use more than one interactive screen at once.</p>
+<pre><code class="lang-csharp">using System;
+using System.Text;
+using AshLib; //For Colors
+using AshLib.Formatting; //For CharFormat
+using AshConsoleGraphics;
+using AshConsoleGraphics.Interactive;
+
+class Program{
+    
+    static Random rand = new Random();
+    
+    static void Main(){
+
+        Console.CursorVisible = false;
+
+        string[] words = { //Some words for random generation
+            &quot;hello&quot;, &quot;never&quot;, &quot;no&quot;, &quot;yes&quot;, &quot;bacon&quot;, &quot;pig&quot;, &quot;gloria&quot;, &quot;order&quot;, &quot;emperor&quot;, &quot;hierarchy&quot;, &quot;path&quot;, &quot;file&quot;, &quot;folder&quot;,
+            &quot;project&quot;, &quot;hub&quot;, &quot;ship&quot;, &quot;space&quot;, &quot;king&quot;, &quot;rifle&quot;, &quot;ammunition&quot;, &quot;soldier&quot;, &quot;war&quot;, &quot;krieg&quot;, &quot;windows&quot;, &quot;linux&quot;,
+            &quot;version&quot;, &quot;failed&quot;, &quot;corrupted&quot;, &quot;cancelled&quot;, &quot;affirmative&quot;, &quot;propose&quot;, &quot;answer&quot;, &quot;client&quot;, &quot;connect&quot;, &quot;server&quot;,
+            &quot;slave&quot;, &quot;worker&quot;, &quot;state&quot;, &quot;viktor&quot;, &quot;century&quot;, &quot;millisecond&quot;, &quot;double&quot;, &quot;broker&quot;, &quot;tsoy&quot;, &quot;exception&quot;, &quot;lord&quot;,
+            &quot;medieval&quot;, &quot;partition&quot;, &quot;resistance&quot;, &quot;adder&quot;, &quot;assembler&quot;, &quot;type&quot;, &quot;first&quot;, &quot;second&quot;, &quot;third&quot;, &quot;fourth&quot;, &quot;fifth&quot;
+        };
+        
+        //Declarations needed because the actions use them
+        TuiScreenInteractive LeftScreen = null;
+        TuiScreenInteractive RightScreen = null;
+        MultipleTuiScreenInteractive BigScreen = null;
+        
+        CharFormat selected = new CharFormat(null, null, 1, null, null, false, null, false); //underlined
+        
+        TuiSelectable[,] LeftElements = null;
+        LeftElements = new TuiSelectable[,]{
+            {new TuiFramedTextBox(&quot;&quot;, 16, Placement.Center, 0, -3, null, null, null, new CharFormat(null, null, 1, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
+            {new TuiButton(&quot;Set color&quot;, Placement.Center, 0, 1, null, selected, new CharFormat(Color3.Yellow)).SetAction(setColor)},
+            {new TuiButton(&quot;Change screen&quot;, Placement.Center, 0, 4, null, selected, new CharFormat(Color3.Yellow)).SetAction(goToOther2)}
+        };
+        
+        TuiSelectable[,] RightElements = null;
+        RightElements = new TuiSelectable[,]{
+            {new TuiButton(&quot;Change screen&quot;, Placement.Center, 0, 1, null, selected, new CharFormat(Color3.Yellow)).SetAction(goToOther)},
+            {new TuiButton(&quot;Useless button that does nothing&quot;, Placement.Center, 0, 4, null, selected, new CharFormat(Color3.Yellow)).SetAction(joke)},
+            {new TuiFramedCheckBox(' ', 'X', false, Placement.Center, 9, 7, null, null, null, new CharFormat(null, null, 1, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
+        };
+        
+        LeftScreen = new TuiScreenInteractive(50,20, LeftElements, 0, 1, new CharFormat(new Color3(255, 100, 0), new Color3(30, 0, 0)), new TuiLabel(&quot;Enter color:&quot;, Placement.Center, -2, -5, null));
+        RightScreen = new TuiScreenInteractive(50,20, RightElements, 0, 0, Placement.TopRight, 0, 0, new CharFormat(new Color3(150, 0, 255), new Color3(0, 0, 30)),
+                                                new TuiLog(48, 9, Placement.TopCenter, 0, 1, new CharFormat(Color3.White, Color3.Black)),
+                                                new TuiLabel(&quot;Stop generating:&quot;, Placement.Center, -2, 7, null));
+        
+        BigScreen = new MultipleTuiScreenInteractive(101, 20, new TuiScreenInteractive[]{RightScreen, LeftScreen}, null, null, new TuiVerticalLine(20, '│', Placement.TopCenter, 0, 0, new CharFormat(Color3.Yellow)));
+        
+        //Need to set the first because default is none
+        BigScreen.SelectedScreen = LeftScreen;
+        
+        BigScreen.AutoResize = true;
+        //Resize logic is most elements resize accordingly
+        BigScreen.OnResize = (gs) =&gt; {
+            Console.CursorVisible = false;
+            
+            LeftScreen.Xsize = BigScreen.Xsize / 2 - 1;
+            LeftScreen.Ysize = BigScreen.Ysize;
+            
+            RightScreen.Xsize = BigScreen.Xsize / 2 - 1;
+            RightScreen.Ysize = BigScreen.Ysize;
+            
+            ((TuiLog) RightScreen.Elements[0]).Xsize = RightScreen.Xsize - 2;
+            ((TuiLog) RightScreen.Elements[0]).Ysize = RightScreen.Ysize / 2 - 1;
+            
+            ((TuiVerticalLine) BigScreen.Elements[0]).Ysize = BigScreen.Ysize;
+        };
+        
+        int j = 0;
+        
+        //Add words to the log
+        BigScreen.FinishPlayCycleEvent = (sb) =&gt; {
+            if(((TuiFramedCheckBox) RightElements[2,0]).Checked){
+                return;
+            }
+            
+            j++;
+            if(j == 10){
+                j = 0;
+                ((TuiLog) RightScreen.Elements[0]).Append(generateContent(rand));
+            }
+        };
+        
+        BigScreen.Play();
+        
+        void setColor(TuiSelectable e, ConsoleKeyInfo ck){
+            string t = ((TuiWritable) LeftElements[0,0]).Text;
+            dynamic g = e;
+            if(t == &quot;random&quot;){
+                g.TextFormat = new CharFormat(new Color3((byte) rand.Next(256), (byte) rand.Next(256), (byte) rand.Next(256)));
+                g.SelectedTextFormat = g.TextFormat;
+            }else if(Color3.TryParse(t, out Color3 c)){
+                g.TextFormat = new CharFormat(c);
+                g.SelectedTextFormat = g.TextFormat;
+            }
+        }
+        
+        void joke(TuiSelectable e, ConsoleKeyInfo ck){
+            ((TuiWritable) LeftElements[0,0]).Text = &quot;SIKE!&quot;;
+        }
+        
+        void goToOther(TuiSelectable e, ConsoleKeyInfo cki){
+            BigScreen.SelectedScreen = LeftScreen;
+        }
+        
+        void goToOther2(TuiSelectable e, ConsoleKeyInfo ck){
+            BigScreen.SelectedScreen = RightScreen;
+        }
+        
+        string generateContent(Random ran){
+            StringBuilder sb = new StringBuilder();
+            
+            int m = 1;
+            for(int i = 0; i &lt; m; i++){
+                sb.Append(words[ran.Next(words.Length)]);
+                int h = ran.Next(24);
+                if(h == 0){
+                    sb.Append(Environment.NewLine);
+                    continue;
+                }else if(h == 1){
+                    sb.Append(&quot;, &quot;);
+                    continue;
+                }else if(h == 2){
+                    sb.Append(&quot;. &quot;);
+                    continue;
+                }
+                else if(h == 3){
+                    sb.Append(&quot;.&quot; + Environment.NewLine);
+                    continue;
+                }
+                sb.Append(&quot; &quot;);
+            }
+            
+            return sb.ToString();
+        }
+    }
+}
+</code></pre>
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Selectable elements | AshConsoleGraphics </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Selectable elements | AshConsoleGraphics ">
+      
+      
+      <link rel="icon" href="../icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/AshConsoleGraphics/blob/main/docfx/docs/selectable_elements.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../icon.svg" alt="AshConsoleGraphics">
+            AshConsoleGraphics
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="selectable-elements">Selectable elements</h1>
+
+<p>Selectable elements are elements that provide some type of interactivity. They have a property called <code>Selected</code>, managed by interactive screens, that can modify their appareance.<br>
+They can also provide key functionality, doing something when a key is pressed. Using this, there are <code>TuiWritable</code> elements that let you input text.<br>
+You set up key actions like this:</p>
+<pre><code class="lang-csharp">TuiSelectable s;
+s.SubKeyEvent(ConsoleKey.A, ConsoleModifiers.None, (sel, ck) =&gt; {doSomething();});
+</code></pre>
+<p>Lets see the most basic selectable, the button.</p>
+<h2 id="tuibutton">TuiButton</h2>
+<p>This is the simplest of all selectables. It is like a label, but when selected is surrounded by &gt; &lt;. This feature is common to most Selectables, and it is called internally Selectors.<br>
+We can initialize a new button like this:</p>
+<pre><code class="lang-csharp">TuiButton l = new TuiButton(&quot;Press me&quot;, Placement.Center, 0, 0, new CharFormat(new Color3(&quot;FF00FF&quot;)), new CharFormat(new Color3(&quot;FF00FF&quot;)), new CharFormat(Color3.Yellow));
+</code></pre>
+<p>Here, the first 4 are pretty self-explanatory. The last 3 are (in order) the format of the text when not selected, the format of the text when selected and the format of the selector(obviously when selected).<br>
+This constructor is the one that has the most formats, but there are other that provide with less formats and just put the same everywhere or things like that. Please refer to the <a href="../api/AshConsoleGraphics.Interactive.html">API</a>.<br>
+This is common among many selectables, to have many constructors providing a lot of options for how many formats. Sometimes there is up to 6 formats so it can get pretty confusing. In those cases, please check the <a href="../api/AshConsoleGraphics.Interactive.html">API</a> for all the possible constructors and the order of their format arguments.</p>
+<p>The particularity with buttons is you can set actions triggered with Enter:</p>
+<pre><code class="lang-csharp">l.SetAction((sel, ck) =&gt; {doSomething();});
+</code></pre>
+<p>This is an <code>Action&lt;TuiSelectable, ConsoleKeyInfo&gt;</code>, where the selectable is the caller (in this case the button) and the key is the key pressed (in this case enter with no modifers).</p>
+<h2 id="tuiframedcheckbox">TuiFramedCheckBox</h2>
+<p>This is a simple checkbox with a frame around it. It is toggled by the use of Enter<br>
+We can initialize a new one like this:</p>
+<pre><code class="lang-csharp">TuiFramedCheckBox cb = new TuiFramedCheckBox(' ', 'X', false, Placement.Center, 0, 0, new CharFormat(new Color3.(255, 0, 100)), new CharFormat(Color3.Yellow));
+</code></pre>
+<p>The first two args are the charachters to diplay when the checkbox is not active(first) and active(second).
+Next, the initial activation state, and the position as usual.
+Last, two formats for the frame and the check and two other for the selectors. This is not the constructor with the most format arguments, there are many more options.</p>
+<h2 id="other-selectable-elements">Other selectable elements</h2>
+<p>There are many more selectables, like option pickers, number pickers, radio buttons and more. Check the <a href="../api/AshConsoleGraphics.Interactive.html">API</a> for all the possibilities!<br>
+There are also Writable elements, that let the user input text in many different ways. Check the base class <a href="../api/AshConsoleGraphics.Interactive.TuiWritable.html">here</a></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

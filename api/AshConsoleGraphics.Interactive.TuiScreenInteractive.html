@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class TuiScreenInteractive | AshConsoleGraphics </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TuiScreenInteractive | AshConsoleGraphics ">
+      
+      <meta name="description" content="Interactive screen with selectables and key actions">
+      <link rel="icon" href="../icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/AshConsoleGraphics/new/main/apiSpec/new?filename=AshConsoleGraphics_Interactive_TuiScreenInteractive.md&amp;value=---%0Auid%3A%20AshConsoleGraphics.Interactive.TuiScreenInteractive%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../icon.svg" alt="AshConsoleGraphics">
+            AshConsoleGraphics
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive">
+
+
+
+  <h1 id="AshConsoleGraphics_Interactive_TuiScreenInteractive" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive" class="text-break">
+Class TuiScreenInteractive  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AshConsoleGraphics.html">AshConsoleGraphics</a>.<a class="xref" href="AshConsoleGraphics.Interactive.html">Interactive</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>AshConsoleGraphics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Interactive screen with selectables and key actions</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class TuiScreenInteractive : TuiScreen, IEnumerable&lt;TuiElement&gt;, IEnumerable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="AshConsoleGraphics.TuiElement.html">TuiElement</a></div>
+      <div><a class="xref" href="AshConsoleGraphics.TuiScreen.html">TuiScreen</a></div>
+      <div><span class="xref">TuiScreenInteractive</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="AshConsoleGraphics.TuiElement.html">TuiElement</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_Elements">TuiScreen.Elements</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_Xsize">TuiScreen.Xsize</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_Ysize">TuiScreen.Ysize</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_OnResize">TuiScreen.OnResize</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_AutoResize">TuiScreen.AutoResize</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_DefFormat">TuiScreen.DefFormat</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_GenerateBuffer">TuiScreen.GenerateBuffer()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_GetEnumerator">TuiScreen.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_Print">TuiScreen.Print()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_BufferNeedsToBeGenerated">TuiScreen.BufferNeedsToBeGenerated()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OffsetX">TuiElement.OffsetX</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OffsetY">TuiElement.OffsetY</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_Placement">TuiElement.Placement</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_Buffer">TuiElement.Buffer</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_needToGenBuffer">TuiElement.needToGenBuffer</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OnParentResize">TuiElement.OnParentResize</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])">
+  TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new interactive screen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, Placement p, int x, int y, CharFormat? f, params TuiElement[] e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The x size</p>
+</dd>
+    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The y size</p>
+</dd>
+    <dt><code>sm</code> <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html">TuiSelectable</a>[,]</dt>
+    <dd><p>Selectable matrix</p>
+</dd>
+    <dt><code>startX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Start X index in the selectable matrix</p>
+</dd>
+    <dt><code>startY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Start Y index in the selectable matrix</p>
+</dd>
+    <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The default format</p>
+</dd>
+    <dt><code>e</code> <a class="xref" href="AshConsoleGraphics.TuiElement.html">TuiElement</a>[]</dt>
+    <dd><p>Additional elements</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])">
+  TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, CharFormat?, params TuiElement[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new interactive screen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TuiScreenInteractive(uint xs, uint ys, TuiSelectable[,] sm, uint startX, uint startY, CharFormat? f, params TuiElement[] e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The x size</p>
+</dd>
+    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The y size</p>
+</dd>
+    <dt><code>sm</code> <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html">TuiSelectable</a>[,]</dt>
+    <dd><p>Selectable matrix</p>
+</dd>
+    <dt><code>startX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Start X index in the selectable matrix</p>
+</dd>
+    <dt><code>startY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Start Y index in the selectable matrix</p>
+</dd>
+    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>The default format</p>
+</dd>
+    <dt><code>e</code> <a class="xref" href="AshConsoleGraphics.TuiElement.html">TuiElement</a>[]</dt>
+    <dd><p>Additional elements</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_WaitForKey" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.WaitForKey">
+  WaitForKey
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If the screen will wait for a key press before updating</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool WaitForKey</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_keyFunctions" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.keyFunctions">
+  keyFunctions
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The key actions</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Dictionary&lt;(ConsoleKey, ConsoleModifiers), Action&lt;TuiScreenInteractive, ConsoleKeyInfo&gt;&gt; keyFunctions</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekey">ConsoleKey</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolemodifiers">ConsoleModifiers</a>), <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="AshConsoleGraphics.Interactive.TuiScreenInteractive.html">TuiScreenInteractive</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_FinishPlayCycleEvent_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.FinishPlayCycleEvent*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_FinishPlayCycleEvent" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.FinishPlayCycleEvent">
+  FinishPlayCycleEvent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Action called at the end of each play cycle</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;TuiScreenInteractive&gt;? FinishPlayCycleEvent { set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="AshConsoleGraphics.Interactive.TuiScreenInteractive.html">TuiScreenInteractive</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MatrixPointerX_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MatrixPointerX*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MatrixPointerX" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MatrixPointerX">
+  MatrixPointerX
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>X index of the selected element in the matrix</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint MatrixPointerX { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MatrixPointerY_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MatrixPointerY*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MatrixPointerY" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MatrixPointerY">
+  MatrixPointerY
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Y index of the selected element in the matrix</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint MatrixPointerY { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Playing_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Playing*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Playing" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Playing">
+  Playing
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If the screen is playing or not</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Playing { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Selected_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Selected*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Selected" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Selected">
+  Selected
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Currently selected element</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TuiSelectable Selected { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html">TuiSelectable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_SelectionMatrix_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.SelectionMatrix*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_SelectionMatrix" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.SelectionMatrix">
+  SelectionMatrix
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>2d matrix of the elements, ordered and positioned in the way it is wanted</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TuiSelectable[,] SelectionMatrix { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html">TuiSelectable</a>[,]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_DeleteAllKeyEvents_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.DeleteAllKeyEvents*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_DeleteAllKeyEvents" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.DeleteAllKeyEvents">
+  DeleteAllKeyEvents()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears all existent key events. Useful because there are some default ones</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeleteAllKeyEvents()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_HandleKey_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.HandleKey*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_HandleKey_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.HandleKey(System.ConsoleKeyInfo)">
+  HandleKey(ConsoleKeyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Handle a key press</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HandleKey(ConsoleKeyInfo keyInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveDown_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveDown*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveDown_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveDown(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
+  MoveDown(TuiScreenInteractive, ConsoleKeyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L240"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Move the selected pointer down (y positive)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MoveDown(TuiScreenInteractive s, ConsoleKeyInfo ck)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="AshConsoleGraphics.Interactive.TuiScreenInteractive.html">TuiScreenInteractive</a></dt>
+    <dd></dd>
+    <dt><code>ck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveLeft_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveLeft*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveLeft_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveLeft(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
+  MoveLeft(TuiScreenInteractive, ConsoleKeyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L233"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Move the selected pointer left (x negative)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MoveLeft(TuiScreenInteractive s, ConsoleKeyInfo ck)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="AshConsoleGraphics.Interactive.TuiScreenInteractive.html">TuiScreenInteractive</a></dt>
+    <dd></dd>
+    <dt><code>ck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveRight_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveRight*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveRight_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveRight(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
+  MoveRight(TuiScreenInteractive, ConsoleKeyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Move the selected pointer right (x positive)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MoveRight(TuiScreenInteractive s, ConsoleKeyInfo ck)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="AshConsoleGraphics.Interactive.TuiScreenInteractive.html">TuiScreenInteractive</a></dt>
+    <dd></dd>
+    <dt><code>ck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveUp_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveUp*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_MoveUp_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveUp(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
+  MoveUp(TuiScreenInteractive, ConsoleKeyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Move the selected pointer up (y negative)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MoveUp(TuiScreenInteractive s, ConsoleKeyInfo ck)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="AshConsoleGraphics.Interactive.TuiScreenInteractive.html">TuiScreenInteractive</a></dt>
+    <dd></dd>
+    <dt><code>ck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Play_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Play*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Play" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Play">
+  Play()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Plays the interactive screen. Handles all key presses</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Play()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Stop_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Stop*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_Stop" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.Stop">
+  Stop()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L212"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stop playing</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_StopPlaying_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.StopPlaying*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_StopPlaying_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.StopPlaying(AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo)">
+  StopPlaying(TuiScreenInteractive, ConsoleKeyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stop a screen playing</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void StopPlaying(TuiScreenInteractive s, ConsoleKeyInfo ck)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>s</code> <a class="xref" href="AshConsoleGraphics.Interactive.TuiScreenInteractive.html">TuiScreenInteractive</a></dt>
+    <dd></dd>
+    <dt><code>ck</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_SubKeyEvent_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.SubKeyEvent*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_SubKeyEvent_System_ConsoleKey_System_Action_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo__" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.SubKeyEvent(System.ConsoleKey,System.Action{AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo})">
+  SubKeyEvent(ConsoleKey, Action&lt;TuiScreenInteractive, ConsoleKeyInfo&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new key event with no modifiers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SubKeyEvent(ConsoleKey k, Action&lt;TuiScreenInteractive, ConsoleKeyInfo&gt; keyFunction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekey">ConsoleKey</a></dt>
+    <dd></dd>
+    <dt><code>keyFunction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="AshConsoleGraphics.Interactive.TuiScreenInteractive.html">TuiScreenInteractive</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiScreenInteractive_SubKeyEvent_" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.SubKeyEvent*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiScreenInteractive_SubKeyEvent_System_ConsoleKey_System_ConsoleModifiers_System_Action_AshConsoleGraphics_Interactive_TuiScreenInteractive_System_ConsoleKeyInfo__" data-uid="AshConsoleGraphics.Interactive.TuiScreenInteractive.SubKeyEvent(System.ConsoleKey,System.ConsoleModifiers,System.Action{AshConsoleGraphics.Interactive.TuiScreenInteractive,System.ConsoleKeyInfo})">
+  SubKeyEvent(ConsoleKey, ConsoleModifiers, Action&lt;TuiScreenInteractive, ConsoleKeyInfo&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiInteractiveScreens.cs/#L129"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a new key event</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SubKeyEvent(ConsoleKey k, ConsoleModifiers m, Action&lt;TuiScreenInteractive, ConsoleKeyInfo&gt; keyFunction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>k</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekey">ConsoleKey</a></dt>
+    <dd></dd>
+    <dt><code>m</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolemodifiers">ConsoleModifiers</a></dt>
+    <dd></dd>
+    <dt><code>keyFunction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="AshConsoleGraphics.Interactive.TuiScreenInteractive.html">TuiScreenInteractive</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

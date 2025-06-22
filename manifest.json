@@ -1,0 +1,655 @@
+{
+  "source_base_path": "C:/treespace/AshConsoleGraphics/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../res/icon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "icon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../res/icon.svg",
+      "output": {
+        "resource": {
+          "relative_path": "icon.svg"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.BitBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.BitBuffer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.BitBuffer",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.BitBuffer.yml\" sourcestartlinenumber=\"1\">Buffer for elements that are connected lines</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Buffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Buffer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Buffer",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Buffer.yml\" sourcestartlinenumber=\"1\">Char and color buffer used for generating elements</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.ILineElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.ILineElement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.ILineElement",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.ILineElement.yml\" sourcestartlinenumber=\"1\">Elements that can work as connected lines</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.yml\" sourcestartlinenumber=\"1\">Screen aimed at handling having multiple interactive screens at the same time, and only controlling one</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiButton.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiButton",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiButton.yml\" sourcestartlinenumber=\"1\">A label pressable with enter</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiFramedCheckBox",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.yml\" sourcestartlinenumber=\"1\">Checkbox (on/off) with a frame</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiFramedRadio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiFramedRadio.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiFramedRadio",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiFramedRadio.yml\" sourcestartlinenumber=\"1\">Radio button: two options, either one or the other</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.yml\" sourcestartlinenumber=\"1\">A textbox where you can write inside a frame and it lets you write longer than the visible length of the box</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiFramedTextBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiFramedTextBox",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiFramedTextBox.yml\" sourcestartlinenumber=\"1\">A textbox where you can write inside a frame</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.yml\" sourcestartlinenumber=\"1\">A textbox where you can write inside a frame that can be several lines in height</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.yml\" sourcestartlinenumber=\"1\">A textbox where you can write inside a frame that can be several lines in height and scrolls</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiNumberPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiNumberPicker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiNumberPicker",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiNumberPicker.yml\" sourcestartlinenumber=\"1\">Lets you pick between a number range with the lateral arrows</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiOptionPicker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiOptionPicker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiOptionPicker",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiOptionPicker.yml\" sourcestartlinenumber=\"1\">Lets you pick options with the lateral arrows</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiScreenInteractive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiScreenInteractive",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiScreenInteractive.yml\" sourcestartlinenumber=\"1\">Interactive screen with selectables and key actions</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiSelectable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiSelectable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiSelectable",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiSelectable.yml\" sourcestartlinenumber=\"1\">An interactive element that can be selected and does things</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiWritable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiWritable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiWritable",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiWritable.yml\" sourcestartlinenumber=\"1\">Elements where you can write</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Placement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Placement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Placement",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Placement.yml\" sourcestartlinenumber=\"1\">The relative placement of TuiElements respect to its parent Screen</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiConnectedLinesScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiConnectedLinesScreen.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiConnectedLinesScreen",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiConnectedLinesScreen.yml\" sourcestartlinenumber=\"1\">Screen with elements that connect like lines</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiElement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiElement",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiElement.yml\" sourcestartlinenumber=\"1\">Element of a screen</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiFrame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiFrame.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiFrame",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiFrame.yml\" sourcestartlinenumber=\"1\">An empty on the inside frame with 8 different charachters</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiHorizontalLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiHorizontalLine.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiHorizontalLine",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiHorizontalLine.yml\" sourcestartlinenumber=\"1\">Straight horizontal line</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiLabel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiLabel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiLabel",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiLabel.yml\" sourcestartlinenumber=\"1\">Just some text</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiLog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiLog",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiLog.yml\" sourcestartlinenumber=\"1\">A rectangle for words that separates words into different lines and shows the last lines</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiProgressBar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiProgressBar.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiProgressBar",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiProgressBar.yml\" sourcestartlinenumber=\"1\">A progress bar with a percentage of filled</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiRectangle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiRectangle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiRectangle",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiRectangle.yml\" sourcestartlinenumber=\"1\">A solid rectangle of a single charachter</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiScreen.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiScreen",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiScreen.yml\" sourcestartlinenumber=\"1\">Element that has other elements and shows them all</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiSquare.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiSquare.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiSquare",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiSquare.yml\" sourcestartlinenumber=\"1\">A solid square of a single charachter</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiTwoLabels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiTwoLabels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiTwoLabels",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiTwoLabels.yml\" sourcestartlinenumber=\"1\">Two labels side by side, left and right text</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiVerticalLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiVerticalLine.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiVerticalLine",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiVerticalLine.yml\" sourcestartlinenumber=\"1\">Straight vertical line</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/basic_elements.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/basic_elements.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting_started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting_started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/interactive_screens.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/interactive_screens.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/screens.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/screens.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/selectable_elements.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/selectable_elements.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "examples/basic.md",
+      "output": {
+        ".html": {
+          "relative_path": "examples/basic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "examples/cmdRedirection.md",
+      "output": {
+        ".html": {
+          "relative_path": "examples/cmdRedirection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "examples/lines.md",
+      "output": {
+        ".html": {
+          "relative_path": "examples/lines.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "examples/manyElements.md",
+      "output": {
+        ".html": {
+          "relative_path": "examples/manyElements.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "examples/matrix.md",
+      "output": {
+        ".html": {
+          "relative_path": "examples/matrix.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "examples/multipleScreens.md",
+      "output": {
+        ".html": {
+          "relative_path": "examples/multipleScreens.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "examples/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "examples/toc.html"
+        },
+        ".json": {
+          "relative_path": "examples/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
