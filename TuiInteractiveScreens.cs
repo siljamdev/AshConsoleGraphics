@@ -20,7 +20,7 @@ public class TuiScreenInteractive : TuiScreen{
 	/// X index of the selected element in the matrix
 	/// </summary>
 	public uint MatrixPointerX {get; set{
-		if(value < SelectionMatrix.GetLength(1) && SelectionMatrix[MatrixPointerY, value] != null){
+		if(value < SelectionMatrix.GetLength(1) && MatrixPointerY < SelectionMatrix.GetLength(0) && SelectionMatrix[MatrixPointerY, value] != null){
 			SetSelected(false);
 			field = value;
 			SetSelected(true);
@@ -31,7 +31,7 @@ public class TuiScreenInteractive : TuiScreen{
 	/// Y index of the selected element in the matrix
 	/// </summary>
 	public uint MatrixPointerY {get; set{
-		if(value < SelectionMatrix.GetLength(0) && SelectionMatrix[value, MatrixPointerX] != null){
+		if(value < SelectionMatrix.GetLength(0) && MatrixPointerX < SelectionMatrix.GetLength(1) && SelectionMatrix[value, MatrixPointerX] != null){
 			SetSelected(false);
 			field = value;
 			SetSelected(true);
