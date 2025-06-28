@@ -42,6 +42,9 @@ public class TuiScreenInteractive : TuiScreen{
 	/// Currently selected element
 	/// </summary>
 	public TuiSelectable Selected{get{
+		if(MatrixPointerY >= SelectionMatrix.GetLength(0) || MatrixPointerX >= SelectionMatrix.GetLength(1)){
+			return null;
+		}
 		return SelectionMatrix[MatrixPointerY, MatrixPointerX];
 	}}
 	
