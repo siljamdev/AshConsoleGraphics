@@ -1,5 +1,5 @@
 {
-  "source_base_path": "D:/treespace/AshConsoleGraphics/docfx",
+  "source_base_path": "C:/treespace/AshConsoleGraphics/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -99,6 +99,20 @@
       "IsMRef": true,
       "Title": "AshConsoleGraphics.Interactive.TuiButton",
       "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiButton.yml\" sourcestartlinenumber=\"1\">A label pressable with enter</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiCheckBox.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiCheckBox.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiCheckBox",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiCheckBox.yml\" sourcestartlinenumber=\"1\">Checkbox (on/off)</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -228,6 +242,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.yml\" sourcestartlinenumber=\"1\">Interactive screen that scrolls if items are out of bounds</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AshConsoleGraphics.Interactive.TuiSelectable.yml",
       "output": {
         ".html": {
@@ -281,6 +309,20 @@
       "IsMRef": true,
       "Title": "AshConsoleGraphics.Placement",
       "Summary": "<p sourcefile=\"api/AshConsoleGraphics.Placement.yml\" sourcestartlinenumber=\"1\">The relative placement of TuiElements respect to its parent Screen</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.ResizeArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.ResizeArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.ResizeArgs",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -364,7 +406,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "AshConsoleGraphics.TuiLog",
-      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiLog.yml\" sourcestartlinenumber=\"1\">A rectangle for words that separates words into different lines and shows the last lines</p>\n"
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiLog.yml\" sourcestartlinenumber=\"1\">A rectangle for words that separates words into different lines</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiMultipleLabels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiMultipleLabels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiMultipleLabels",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiMultipleLabels.yml\" sourcestartlinenumber=\"1\">Two labels side by side, left and right text</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -602,10 +658,30 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "examples/matrix2.md",
+      "output": {
+        ".html": {
+          "relative_path": "examples/matrix2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "examples/multipleScreens.md",
       "output": {
         ".html": {
           "relative_path": "examples/multipleScreens.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "examples/scroll.md",
+      "output": {
+        ".html": {
+          "relative_path": "examples/scroll.html"
         }
       },
       "version": ""

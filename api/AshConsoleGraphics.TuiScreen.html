@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_TuiScreen" data-uid="AshConsoleGraphics.TuiScreen" class="text-break">
-Class TuiScreen  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class TuiScreen  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -156,6 +156,12 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OnParentResize">TuiElement.OnParentResize</a>
     </div>
     <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_TriggerUpdate">TuiElement.TriggerUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_GetTopLeftPosition_System_Int32_System_Int32_">TuiElement.GetTopLeftPosition(int, int)</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
     </div>
     <div>
@@ -189,9 +195,9 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <a id="AshConsoleGraphics_TuiScreen__ctor_" data-uid="AshConsoleGraphics.TuiScreen.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiScreen__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.TuiScreen.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])">
-  TuiScreen(uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiScreen__ctor_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.TuiScreen.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])">
+  TuiScreen(int, int, Placement, int, int, CharFormat?, params TuiElement[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new screen</p>
@@ -199,15 +205,15 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiScreen(uint xs, uint ys, Placement p, int x, int y, CharFormat? f, params TuiElement[] e)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiScreen(int xs, int ys, Placement p, int x, int y, CharFormat? f, params TuiElement[] e)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The x size</p>
 </dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The y size</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
@@ -237,9 +243,9 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <a id="AshConsoleGraphics_TuiScreen__ctor_" data-uid="AshConsoleGraphics.TuiScreen.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiScreen__ctor_System_UInt32_System_UInt32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.TuiScreen.#ctor(System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])">
-  TuiScreen(uint, uint, CharFormat?, params TuiElement[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiScreen__ctor_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___" data-uid="AshConsoleGraphics.TuiScreen.#ctor(System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])">
+  TuiScreen(int, int, CharFormat?, params TuiElement[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L95"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new screen with top left placement</p>
@@ -247,15 +253,15 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiScreen(uint xs, uint ys, CharFormat? f, params TuiElement[] e)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiScreen(int xs, int ys, CharFormat? f, params TuiElement[] e)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The x size</p>
 </dd>
-    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>ys</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The y size</p>
 </dd>
     <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
@@ -285,7 +291,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="AshConsoleGraphics_TuiScreen_AutoResize" data-uid="AshConsoleGraphics.TuiScreen.AutoResize">
   AutoResize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If set to true, the screen will auto resize to the whole console size</p>
@@ -317,7 +323,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="AshConsoleGraphics_TuiScreen_DefFormat" data-uid="AshConsoleGraphics.TuiScreen.DefFormat">
   DefFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deafult char format</p>
@@ -349,7 +355,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="AshConsoleGraphics_TuiScreen_Elements" data-uid="AshConsoleGraphics.TuiScreen.Elements">
   Elements
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>List of child elements</p>
@@ -357,7 +363,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;TuiElement&gt; Elements { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ReactiveList&lt;TuiElement&gt; Elements { get; }</code></pre>
   </div>
 
 
@@ -366,39 +372,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="AshConsoleGraphics.TuiElement.html">TuiElement</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_TuiScreen_OnResize_" data-uid="AshConsoleGraphics.TuiScreen.OnResize*"></a>
-
-  <h3 id="AshConsoleGraphics_TuiScreen_OnResize" data-uid="AshConsoleGraphics.TuiScreen.OnResize">
-  OnResize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L36"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Action that takes place when the screen resizes</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;TuiScreen&gt;? OnResize { set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="AshConsoleGraphics.TuiScreen.html">TuiScreen</a>&gt;</dt>
+    <dt><span class="xref">ReactiveList</span>&lt;<a class="xref" href="AshConsoleGraphics.TuiElement.html">TuiElement</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -413,14 +387,14 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="AshConsoleGraphics_TuiScreen_Xsize" data-uid="AshConsoleGraphics.TuiScreen.Xsize">
   Xsize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint Xsize { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Xsize { get; set; }</code></pre>
   </div>
 
 
@@ -429,7 +403,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -444,14 +418,14 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="AshConsoleGraphics_TuiScreen_Ysize" data-uid="AshConsoleGraphics.TuiScreen.Ysize">
   Ysize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint Ysize { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Ysize { get; set; }</code></pre>
   </div>
 
 
@@ -460,7 +434,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -479,7 +453,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="AshConsoleGraphics_TuiScreen_BufferNeedsToBeGenerated" data-uid="AshConsoleGraphics.TuiScreen.BufferNeedsToBeGenerated">
   BufferNeedsToBeGenerated()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L161"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L133"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>In most cases, the base implementation is enough</p>
@@ -511,7 +485,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="AshConsoleGraphics_TuiScreen_GenerateBuffer" data-uid="AshConsoleGraphics.TuiScreen.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>
@@ -543,7 +517,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="AshConsoleGraphics_TuiScreen_GetEnumerator" data-uid="AshConsoleGraphics.TuiScreen.GetEnumerator">
   GetEnumerator()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L109"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns an enumerator that iterates through the collection.</p>
@@ -576,7 +550,7 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
   <h3 id="AshConsoleGraphics_TuiScreen_Print" data-uid="AshConsoleGraphics.TuiScreen.Print">
   Print()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreens.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Prints the screen into the console</p>
@@ -592,6 +566,67 @@ Class TuiScreen  <a class="header-action link-secondary" title="View source" hre
 
 
 
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_TuiScreen_SetAllNoNeedGenerateBuffer_" data-uid="AshConsoleGraphics.TuiScreen.SetAllNoNeedGenerateBuffer*"></a>
+
+  <h3 id="AshConsoleGraphics_TuiScreen_SetAllNoNeedGenerateBuffer" data-uid="AshConsoleGraphics.TuiScreen.SetAllNoNeedGenerateBuffer">
+  SetAllNoNeedGenerateBuffer()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetAllNoNeedGenerateBuffer()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="AshConsoleGraphics_TuiScreen_OnResize" data-uid="AshConsoleGraphics.TuiScreen.OnResize">
+  OnResize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiScreen.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Action that takes place when the screen resizes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ResizeArgs&gt; OnResize</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="AshConsoleGraphics.ResizeArgs.html">ResizeArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
 
 
 

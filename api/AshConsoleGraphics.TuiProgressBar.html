@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_TuiProgressBar" data-uid="AshConsoleGraphics.TuiProgressBar" class="text-break">
-Class TuiProgressBar  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L474"><i class="bi bi-code-slash"></i></a>
+Class TuiProgressBar  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L486"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -141,7 +141,13 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OnParentResize">TuiElement.OnParentResize</a>
     </div>
     <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_TriggerUpdate">TuiElement.TriggerUpdate()</a>
+    </div>
+    <div>
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_BufferNeedsToBeGenerated">TuiElement.BufferNeedsToBeGenerated()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_GetTopLeftPosition_System_Int32_System_Int32_">TuiElement.GetTopLeftPosition(int, int)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -177,9 +183,9 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <a id="AshConsoleGraphics_TuiProgressBar__ctor_" data-uid="AshConsoleGraphics.TuiProgressBar.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiProgressBar__ctor_System_UInt32_System_Char_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiProgressBar.#ctor(System.UInt32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)">
-  TuiProgressBar(uint, char, char, Placement, int, int, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L553"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiProgressBar__ctor_System_Int32_System_Char_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiProgressBar.#ctor(System.Int32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)">
+  TuiProgressBar(int, char, char, Placement, int, int, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L565"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new progress bar with the same format for filled and not filled</p>
@@ -187,12 +193,12 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiProgressBar(uint xs, char c, char u, Placement p, int x, int y, CharFormat? f = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiProgressBar(int xs, char c, char u, Placement p, int x, int y, CharFormat? f = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The x size</p>
 </dd>
     <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
@@ -225,9 +231,9 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <a id="AshConsoleGraphics_TuiProgressBar__ctor_" data-uid="AshConsoleGraphics.TuiProgressBar.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_TuiProgressBar__ctor_System_UInt32_System_Char_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiProgressBar.#ctor(System.UInt32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiProgressBar(uint, char, char, Placement, int, int, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L537"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_TuiProgressBar__ctor_System_Int32_System_Char_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.TuiProgressBar.#ctor(System.Int32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiProgressBar(int, char, char, Placement, int, int, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L549"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new progress bar</p>
@@ -235,12 +241,12 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiProgressBar(uint xs, char c, char u, Placement p, int x, int y, CharFormat? cf, CharFormat? uf)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiProgressBar(int xs, char c, char u, Placement p, int x, int y, CharFormat? cf, CharFormat? uf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>xs</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The x size</p>
 </dd>
     <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
@@ -282,7 +288,7 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <h3 id="AshConsoleGraphics_TuiProgressBar_CompleteChar" data-uid="AshConsoleGraphics.TuiProgressBar.CompleteChar">
   CompleteChar
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L493"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L508"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The char of the filled part</p>
@@ -314,7 +320,7 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <h3 id="AshConsoleGraphics_TuiProgressBar_CompleteFormat" data-uid="AshConsoleGraphics.TuiProgressBar.CompleteFormat">
   CompleteFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L514"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L526"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Complete Charachter format</p>
@@ -346,7 +352,7 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <h3 id="AshConsoleGraphics_TuiProgressBar_IncompleteChar" data-uid="AshConsoleGraphics.TuiProgressBar.IncompleteChar">
   IncompleteChar
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L484"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L499"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The char of the not filled part</p>
@@ -378,7 +384,7 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <h3 id="AshConsoleGraphics_TuiProgressBar_IncompleteFormat" data-uid="AshConsoleGraphics.TuiProgressBar.IncompleteFormat">
   IncompleteFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L523"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L535"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Incomplete Charachter format</p>
@@ -410,7 +416,7 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <h3 id="AshConsoleGraphics_TuiProgressBar_Percentage" data-uid="AshConsoleGraphics.TuiProgressBar.Percentage">
   Percentage
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L502"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L517"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The percentage of the bar that is filled</p>
@@ -442,14 +448,14 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <h3 id="AshConsoleGraphics_TuiProgressBar_Xsize" data-uid="AshConsoleGraphics.TuiProgressBar.Xsize">
   Xsize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L475"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L487"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint Xsize { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Xsize { get; set; }</code></pre>
   </div>
 
 
@@ -458,7 +464,7 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -477,7 +483,7 @@ Class TuiProgressBar  <a class="header-action link-secondary" title="View source
 
   <h3 id="AshConsoleGraphics_TuiProgressBar_GenerateBuffer" data-uid="AshConsoleGraphics.TuiProgressBar.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiElements.cs/#L555"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Elements.cs/#L567"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>

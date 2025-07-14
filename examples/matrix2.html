@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Another Matrix-like falling text | AshConsoleGraphics </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Another Matrix-like falling text | AshConsoleGraphics ">
+      
+      
+      <link rel="icon" href="../icon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/AshConsoleGraphics/blob/main/docfx/examples/matrix2.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../icon.svg" alt="AshConsoleGraphics">
+            AshConsoleGraphics
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="another-matrix-like-falling-text">Another Matrix-like falling text</h1>
+
+<p>We are going to make another matrix-like falling text effect</p>
+<pre><code class="lang-csharp">using System;
+using AshLib; //For colors
+using AshLib.Time; //For DeltaHelper
+using AshLib.Formatting; //For CharFormat
+using AshConsoleGraphics;
+using AshConsoleGraphics.Interactive;
+
+//This example might be really slow, depending on the size of the console window. It could also probably be otimized
+class Program{
+    static Random random = new Random(); //Used for generating the random chars
+    
+    static DeltaHelper dh = new DeltaHelper();
+    
+    static void Main(){
+        //We declare the Screen that will be used with null colors and no elements
+        TuiScreen MatrixScreen = new TuiScreen(0, 0, null);
+        
+        //We set the screen to resize to the window size
+        MatrixScreen.AutoResize = true;
+        
+        List&lt;TuiLabel&gt; front = new();
+        List&lt;TuiLabel&gt; middle = new();
+        List&lt;TuiLabel&gt; back = new();
+        
+        //On resize, generate all elements again
+        MatrixScreen.OnResize += ((s, args) =&gt; {
+            MatrixScreen.Elements.Clear();
+            front.Clear();
+            middle.Clear();
+            back.Clear();
+        });
+        
+        dh.Start();
+        
+        //counter
+        int j = 0;
+        
+        while(true){
+            MatrixScreen.Print();
+            
+            //Each loop, move each charachter down and if some pass, delete them. Then, add a new row at the top
+            for(int i = 0; i &lt; front.Count; i++){
+                TuiLabel l = front[i];
+                l.OffsetY++;
+                if(l.OffsetY &gt;= MatrixScreen.Ysize){
+                    MatrixScreen.Elements.Remove(l);
+                    front.RemoveAt(i);
+                    i--;
+                }
+            }
+            
+            if(j % 3 == 0){
+                for(int i = 0; i &lt; middle.Count; i++){
+                    TuiLabel l = middle[i];
+                    l.OffsetY++;
+                    if(l.OffsetY &gt;= MatrixScreen.Ysize){
+                        MatrixScreen.Elements.Remove(l);
+                        middle.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+            
+            if(j % 5 == 0){
+                for(int i = 0; i &lt; back.Count; i++){
+                    TuiLabel l = back[i];
+                    l.OffsetY++;
+                    if(l.OffsetY &gt;= MatrixScreen.Ysize){
+                        MatrixScreen.Elements.Remove(l);
+                        back.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+            
+            //Generate new falling leters
+            for(int i = 0; i &lt; MatrixScreen.Xsize; i++){
+                switch(random.Next(500)){
+                    case 0:
+                    case 1:
+                    string c = RandomChar();
+                    TuiLabel l = new TuiLabel(c, Placement.TopLeft, i, 0, new CharFormat(new Color3(0, 230, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    front.Add(l);
+                    
+                    l = new TuiLabel(c, Placement.TopLeft, i, -1, new CharFormat(new Color3(0, 160, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    front.Add(l);
+                    
+                    l = new TuiLabel(c, Placement.TopLeft, i, -2, new CharFormat(new Color3(0, 90, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    front.Add(l);
+                    
+                    l = new TuiLabel(c, Placement.TopLeft, i, -3, new CharFormat(new Color3(0, 40, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    front.Add(l);
+                    break;
+                    
+                    case 2:
+                    c = RandomChar();
+                    l = new TuiLabel(c, Placement.TopLeft, i, 0, new CharFormat(new Color3(0, 200, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    middle.Add(l);
+                    
+                    l = new TuiLabel(c, Placement.TopLeft, i, -1, new CharFormat(new Color3(0, 130, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    middle.Add(l);
+                    
+                    l = new TuiLabel(c, Placement.TopLeft, i, -2, new CharFormat(new Color3(0, 80, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    middle.Add(l);
+                    
+                    l = new TuiLabel(c, Placement.TopLeft, i, -3, new CharFormat(new Color3(0, 30, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    middle.Add(l);
+                    break;
+                    
+                    case 3:
+                    c = RandomChar();
+                    l = new TuiLabel(c, Placement.TopLeft, i, 0, new CharFormat(new Color3(0, 180, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    back.Add(l);
+                    
+                    l = new TuiLabel(c, Placement.TopLeft, i, -1, new CharFormat(new Color3(0, 120, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    back.Add(l);
+                    
+                    l = new TuiLabel(c, Placement.TopLeft, i, -2, new CharFormat(new Color3(0, 70, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    back.Add(l);
+                    
+                    l = new TuiLabel(c, Placement.TopLeft, i, -3, new CharFormat(new Color3(0, 30, 0)));
+                    MatrixScreen.Elements.Add(l);
+                    back.Add(l);
+                    break;
+                }
+            }
+            
+            j++;
+            
+            dh.TargetLazy(20);
+            dh.Frame();
+        }
+    }
+    
+    static string RandomChar(){ //Little function to get a random charachter
+        return ((char)random.Next(33, 127)).ToString();
+    }
+}
+</code></pre>
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

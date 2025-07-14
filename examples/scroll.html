@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Example with Many Elements | AshConsoleGraphics </title>
+      <title>Example with Connected Lines Screen | AshConsoleGraphics </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Example with Many Elements | AshConsoleGraphics ">
+      <meta name="title" content="Example with Connected Lines Screen | AshConsoleGraphics ">
       
       
       <link rel="icon" href="../icon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/siljamdev/AshConsoleGraphics/blob/main/docfx/examples/manyElements.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/AshConsoleGraphics/blob/main/docfx/examples/scroll.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,56 +85,30 @@
         </div>
 
         <article data-uid="">
-<h1 id="example-with-many-elements">Example with Many Elements</h1>
+<h1 id="example-with-connected-lines-screen">Example with Connected Lines Screen</h1>
 
-<p>This is a bit chaotic, it's just to demonstrate the way to use many different elements. DeltaHelper is used, a utility from <a href="https://github.com/siljamdev/AshLib">AshLib</a>.</p>
+<p>In here, we can see a crolling screen with numbers</p>
 <pre><code class="lang-csharp">using System;
-using AshLib;
-using AshLib.Time; //For DeltaHelper
-using AshLib.Formatting; //For CharFormat
+using AshLib; //For colors
+using AshLib.Formatting; //For CharFormats
 using AshConsoleGraphics;
 using AshConsoleGraphics.Interactive;
 
 class Program{
-    
-    static Random rand = new Random();
-
     static void Main(){
+        Console.CursorVisible = false; //That way we wont see the cursor flashing
         
-        TuiElement[] Elements = {
-            new TuiLabel(&quot;FPS: 0&quot;, Placement.TopLeft, 0, 0, new CharFormat(Color3.Yellow)), //Fps counter
-            new TuiLabel(&quot;aaa&quot;, Placement.BottomCenter, 0, 0, new CharFormat(new Color3(255, 120, 0))),
-            new TuiButton(&quot;Hello!!&quot;, Placement.TopLeft, 30, 2, new CharFormat(new Color3(23, 70, 255))),
-            new TuiLabel(&quot;TestTestTest&quot;, Placement.TopLeft, 30, 13),
-            new TuiFrame(20, 10, Placement.TopLeft, 50, 7, new CharFormat(new Color3(0, 255, 0))),
-            new TuiFramedTextBox(&quot;subi&quot;, 5, Placement.TopLeft, 80, 10, new CharFormat(Color3.Cyan), new CharFormat(Color3.Magenta)),
-            new TuiHorizontalLine(20, 'ñ', Placement.TopLeft, 5, 15, null) //Proof that charachters outside of ascii work as well
-        };
+        TuiSelectable[,] temp = new TuiSelectable[100, 1]; //Pre-allocate the selectable matrix
         
-        AshConsoleGraphics.TuiScreen SmallScreen = new AshConsoleGraphics.TuiScreen(100, 30, new CharFormat(null,  Color3.Black), Elements);
-        AshConsoleGraphics.TuiScreen BigScreen = new AshConsoleGraphics.TuiScreen(100, 20, null, null, SmallScreen);
-        
-        DeltaHelper dh = new DeltaHelper(); //AshLib utility, used for calculating times. Here is used for FPS
-        dh.Start();
-        
-        while(true){
-            BigScreen.Print();
-            ((TuiLabel) Elements[0]).Text = &quot;FPS: &quot; + dh.stableFps; //Update FPS
-            
-            if(Console.KeyAvailable){
-                ConsoleKey k = Console.ReadKey(true).Key;
-                if(k == ConsoleKey.A){
-                    SmallScreen.Xsize = (1 + rand.Next(90)); //Randomize internal screen size
-                    SmallScreen.Ysize = (1 + rand.Next(16));
-                    //Add another element
-                    BigScreen.Elements.Add(new AshConsoleGraphics.TuiLabel(&quot;bbb&quot;, Placement.TopLeft, rand.Next(100), 1 + rand.Next(19), new CharFormat(new Color3((byte) rand.Next(256), (byte) rand.Next(256), (byte) rand.Next(256)))));
-                }else if(k == ConsoleKey.Escape){
-                    break;
-                }
-            }
-            
-            dh.Frame();
+        for(int i = 0; i &lt; 100; i++){ //Populate it
+            temp[i, 0] = new TuiButton(i.ToString(), Placement.TopLeft, 0, i);
         }
+        
+        TuiScrollingScreenInteractive screen = new TuiScrollingScreenInteractive(100, 20, temp, 0, 0, null, new TuiLabel(&quot;Hello&quot;, Placement.Center, 0, 0));
+        
+        screen.AutoResize = true; //If the console window resizes, so will the screen to fit all
+        
+        screen.Play();
     }
 }
 </code></pre>

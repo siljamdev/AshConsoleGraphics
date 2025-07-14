@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_Interactive_TuiOptionPicker" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker" class="text-break">
-Class TuiOptionPicker  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L170"><i class="bi bi-code-slash"></i></a>
+Class TuiOptionPicker  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L102"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -127,7 +127,10 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_Selected">TuiSelectable.Selected</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_keyFunctions">TuiSelectable.keyFunctions</a>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_OnSelection">TuiSelectable.OnSelection</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_KeyFunctions">TuiSelectable.KeyFunctions</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_SubKeyEvent_System_ConsoleKey_System_ConsoleModifiers_System_Action_AshConsoleGraphics_Interactive_TuiSelectable_System_ConsoleKeyInfo__">TuiSelectable.SubKeyEvent(ConsoleKey, ConsoleModifiers, Action&lt;TuiSelectable, ConsoleKeyInfo&gt;)</a>
@@ -160,7 +163,13 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OnParentResize">TuiElement.OnParentResize</a>
     </div>
     <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_TriggerUpdate">TuiElement.TriggerUpdate()</a>
+    </div>
+    <div>
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_BufferNeedsToBeGenerated">TuiElement.BufferNeedsToBeGenerated()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_GetTopLeftPosition_System_Int32_System_Int32_">TuiElement.GetTopLeftPosition(int, int)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -198,7 +207,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker__ctor_System_String___AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.#ctor(System.String[],AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
   TuiOptionPicker(string[], Placement, int, int, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L205"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new option picker with selected option 0 with the same text color when selected and when not</p>
@@ -243,7 +252,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker__ctor_System_String___AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.#ctor(System.String[],AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
   TuiOptionPicker(string[], Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L186"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new option picker with selected option 0 with all colors</p>
@@ -291,7 +300,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker__ctor_System_String___System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.#ctor(System.String[],System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
   TuiOptionPicker(string[], uint, Placement, int, int, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L264"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L196"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new option picker with the same text color when selected and when not</p>
@@ -339,7 +348,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker__ctor_System_String___System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.#ctor(System.String[],System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
   TuiOptionPicker(string[], uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L231"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L163"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new option picker with all colors</p>
@@ -400,7 +409,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker_Options" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.Options">
   Options
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L106"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The options</p>
@@ -432,7 +441,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker_SelectedOption" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.SelectedOption">
   SelectedOption
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L123"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The selected option. Get only</p>
@@ -464,7 +473,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker_SelectedOptionIndex" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.SelectedOptionIndex">
   SelectedOptionIndex
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The index in Options of the selected option</p>
@@ -496,7 +505,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker_SelectedTextFormat" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.SelectedTextFormat">
   SelectedTextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L207"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L139"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Selected text charachter format</p>
@@ -528,7 +537,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker_SelectorFormat" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.SelectorFormat">
   SelectorFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L148"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Format of the selector pads '&gt;' '&lt;' that surround the element when selcted</p>
@@ -560,7 +569,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker_TextFormat" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.TextFormat">
   TextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L130"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not selected text charachter format</p>
@@ -596,7 +605,7 @@ Class TuiOptionPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiOptionPicker_GenerateBuffer" data-uid="AshConsoleGraphics.Interactive.TuiOptionPicker.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L276"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L208"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>

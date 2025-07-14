@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox" class="text-break">
-Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L283"><i class="bi bi-code-slash"></i></a>
+Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L190"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -131,10 +131,13 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_Length">TuiWritable.Length</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_HandleKey_System_ConsoleKeyInfo_">TuiWritable.HandleKey(ConsoleKeyInfo)</a>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_CanWriteChar">TuiWritable.CanWriteChar</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_WriteChar_System_Char_">TuiWritable.WriteChar(char)</a>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_OnLengthChange">TuiWritable.OnLengthChange</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_HandleKey_System_ConsoleKeyInfo_">TuiWritable.HandleKey(ConsoleKeyInfo)</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_DelChar">TuiWritable.DelChar()</a>
@@ -143,7 +146,10 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_Selected">TuiSelectable.Selected</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_keyFunctions">TuiSelectable.keyFunctions</a>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_OnSelection">TuiSelectable.OnSelection</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_KeyFunctions">TuiSelectable.KeyFunctions</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_SubKeyEvent_System_ConsoleKey_System_ConsoleModifiers_System_Action_AshConsoleGraphics_Interactive_TuiSelectable_System_ConsoleKeyInfo__">TuiSelectable.SubKeyEvent(ConsoleKey, ConsoleModifiers, Action&lt;TuiSelectable, ConsoleKeyInfo&gt;)</a>
@@ -173,7 +179,10 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OnParentResize">TuiElement.OnParentResize</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_BufferNeedsToBeGenerated">TuiElement.BufferNeedsToBeGenerated()</a>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_TriggerUpdate">TuiElement.TriggerUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_GetTopLeftPosition_System_Int32_System_Int32_">TuiElement.GetTopLeftPosition(int, int)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -209,31 +218,28 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <a id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiFramedScrollingTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiFramedScrollingTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L329"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new scrolling textbox with the same colors when selected and not selected</p>
+  <div class="markdown level1 summary"><p>Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiFramedScrollingTextBox(string chars, string t, uint l, uint bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiFramedScrollingTextBox(string t, int l, int bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Frame charchters</p>
-</dd>
     <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Initial text</p>
 </dd>
-    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Max text length</p>
 </dd>
-    <dt><code>bl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>bl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Visible textbox length</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
@@ -266,31 +272,28 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <a id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiFramedScrollingTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L362"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiFramedScrollingTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L317"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new scrolling textbox</p>
+  <div class="markdown level1 summary"><p>Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││')</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiFramedScrollingTextBox(string chars, string t, uint l, uint bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiFramedScrollingTextBox(string t, int l, int bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Frame charchters</p>
-</dd>
     <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Initial text</p>
 </dd>
-    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Max text length</p>
 </dd>
-    <dt><code>bl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>bl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Visible textbox length</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
@@ -329,28 +332,31 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <a id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiFramedScrollingTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiFramedScrollingTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L303"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected</p>
+  <div class="markdown level1 summary"><p>Initializes a new scrolling textbox with the same colors when selected and not selected</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiFramedScrollingTextBox(string t, uint l, uint bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiFramedScrollingTextBox(string chars, string t, int l, int bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
+    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Frame charchters</p>
+</dd>
     <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Initial text</p>
 </dd>
-    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Max text length</p>
 </dd>
-    <dt><code>bl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>bl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Visible textbox length</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
@@ -383,28 +389,31 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <a id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiFramedScrollingTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L402"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiFramedScrollingTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L275"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││')</p>
+  <div class="markdown level1 summary"><p>Initializes a new scrolling textbox</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiFramedScrollingTextBox(string t, uint l, uint bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiFramedScrollingTextBox(string chars, string t, int l, int bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
+    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Frame charchters</p>
+</dd>
     <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Initial text</p>
 </dd>
-    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Max text length</p>
 </dd>
-    <dt><code>bl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>bl</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Visible textbox length</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
@@ -449,7 +458,7 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_BoxXsize" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BoxXsize">
   BoxXsize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L345"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L256"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The visible X size of the box</p>
@@ -457,7 +466,7 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint BoxXsize { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int BoxXsize { get; set; }</code></pre>
   </div>
 
 
@@ -466,7 +475,7 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -481,7 +490,7 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_FrameChars" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.FrameChars">
   FrameChars
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L219"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Frame charachters. An example would be '┌┐└┘──││'</p>
@@ -513,7 +522,7 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_FrameFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.FrameFormat">
   FrameFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L288"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L197"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not selected frame charachter format</p>
@@ -545,7 +554,7 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_SelectedFrameFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.SelectedFrameFormat">
   SelectedFrameFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L297"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L208"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Selected frame charachter format</p>
@@ -577,7 +586,7 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_SelectedTextFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.SelectedTextFormat">
   SelectedTextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L315"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L238"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Selected text charachter format</p>
@@ -609,7 +618,7 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_SelectorFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.SelectorFormat">
   SelectorFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L324"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L247"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Format of the selector pads '&gt;' '&lt;' that surround the element when selcted</p>
@@ -641,7 +650,7 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_TextFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.TextFormat">
   TextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L306"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L229"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not selected text charachter format</p>
@@ -673,11 +682,43 @@ Class TuiFramedScrollingTextBox  <a class="header-action link-secondary" title="
 </h2>
 
 
+  <a id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_BufferNeedsToBeGenerated_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BufferNeedsToBeGenerated*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_BufferNeedsToBeGenerated" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BufferNeedsToBeGenerated">
+  BufferNeedsToBeGenerated()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L373"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>In most cases, the base implementation is enough</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool BufferNeedsToBeGenerated()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_GenerateBuffer_" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.GenerateBuffer*"></a>
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_GenerateBuffer" data-uid="AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L417"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L332"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>

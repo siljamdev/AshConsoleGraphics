@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_Interactive_TuiNumberPicker" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker" class="text-break">
-Class TuiNumberPicker  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L298"><i class="bi bi-code-slash"></i></a>
+Class TuiNumberPicker  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L230"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -127,7 +127,10 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_Selected">TuiSelectable.Selected</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_keyFunctions">TuiSelectable.keyFunctions</a>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_OnSelection">TuiSelectable.OnSelection</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_KeyFunctions">TuiSelectable.KeyFunctions</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_SubKeyEvent_System_ConsoleKey_System_ConsoleModifiers_System_Action_AshConsoleGraphics_Interactive_TuiSelectable_System_ConsoleKeyInfo__">TuiSelectable.SubKeyEvent(ConsoleKey, ConsoleModifiers, Action&lt;TuiSelectable, ConsoleKeyInfo&gt;)</a>
@@ -160,7 +163,13 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OnParentResize">TuiElement.OnParentResize</a>
     </div>
     <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_TriggerUpdate">TuiElement.TriggerUpdate()</a>
+    </div>
+    <div>
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_BufferNeedsToBeGenerated">TuiElement.BufferNeedsToBeGenerated()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_GetTopLeftPosition_System_Int32_System_Int32_">TuiElement.GetTopLeftPosition(int, int)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -198,7 +207,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker__ctor_System_Int32_System_Int32_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
   TuiNumberPicker(int, int, int, int, Placement, int, int, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L420"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L352"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new number picker with the same text color when selected and when not</p>
@@ -252,7 +261,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker__ctor_System_Int32_System_Int32_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
   TuiNumberPicker(int, int, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L393"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L325"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new number picker with all colors</p>
@@ -318,7 +327,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_Interval" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.Interval">
   Interval
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L353"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L285"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>What the selected number will be incremented/decremented each time an arrow is pressed</p>
@@ -354,7 +363,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_LowerLimit" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.LowerLimit">
   LowerLimit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L303"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L235"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Lower bound on the number</p>
@@ -386,7 +395,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_Number" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.Number">
   Number
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L333"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L265"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Selected number</p>
@@ -418,7 +427,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_SelectedTextFormat" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.SelectedTextFormat">
   SelectedTextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L299"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Selected text charachter format</p>
@@ -450,7 +459,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_SelectorFormat" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.SelectorFormat">
   SelectorFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L376"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L308"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Format of the selector pads '&gt;' '&lt;' that surround the element when selcted</p>
@@ -482,7 +491,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_TextFormat" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.TextFormat">
   TextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L358"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L290"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not selected text charachter format</p>
@@ -514,7 +523,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_UpperLimit" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.UpperLimit">
   UpperLimit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L318"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L250"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Upper bound on the number</p>
@@ -550,7 +559,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_GenerateBuffer" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L437"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L369"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>
@@ -582,7 +591,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_NumberDown_AshConsoleGraphics_Interactive_TuiSelectable_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.NumberDown(AshConsoleGraphics.Interactive.TuiSelectable,System.ConsoleKeyInfo)">
   NumberDown(TuiSelectable, ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L433"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L365"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Decrements the number by the interval</p>
@@ -616,7 +625,7 @@ Class TuiNumberPicker  <a class="header-action link-secondary" title="View sourc
 
   <h3 id="AshConsoleGraphics_Interactive_TuiNumberPicker_NumberUp_AshConsoleGraphics_Interactive_TuiSelectable_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiNumberPicker.NumberUp(AshConsoleGraphics.Interactive.TuiSelectable,System.ConsoleKeyInfo)">
   NumberUp(TuiSelectable, ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiSelectables.cs/#L426"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L358"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Increments the number by the interval</p>

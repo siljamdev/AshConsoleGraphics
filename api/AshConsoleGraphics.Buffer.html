@@ -157,10 +157,11 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="AshConsoleGraphics_Buffer__ctor_System_Int32_System_Int32_" data-uid="AshConsoleGraphics.Buffer.#ctor(System.Int32,System.Int32)">
   Buffer(int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new empty buffer with its size</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -172,40 +173,6 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Buffer__ctor_" data-uid="AshConsoleGraphics.Buffer.#ctor*"></a>
-
-  <h3 id="AshConsoleGraphics_Buffer__ctor_System_UInt32_System_UInt32_" data-uid="AshConsoleGraphics.Buffer.#ctor(System.UInt32,System.UInt32)">
-  Buffer(uint, uint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L54"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new empty buffer with its size</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Buffer(uint x, uint y)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
-    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
     <dd></dd>
   </dl>
 
@@ -300,7 +267,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint Xsize { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Xsize { get; }</code></pre>
   </div>
 
 
@@ -309,7 +276,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -331,7 +298,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public uint Ysize { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Ysize { get; }</code></pre>
   </div>
 
 
@@ -340,7 +307,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -359,7 +326,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="AshConsoleGraphics_Buffer_AddBuffer_System_Int32_System_Int32_AshConsoleGraphics_Buffer_" data-uid="AshConsoleGraphics.Buffer.AddBuffer(System.Int32,System.Int32,AshConsoleGraphics.Buffer)">
   AddBuffer(int, int, Buffer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L107"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Adds a whole buffer</p>
@@ -398,7 +365,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="AshConsoleGraphics_Buffer_ReplaceNull_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Buffer.ReplaceNull(AshLib.Formatting.CharFormat)">
   ReplaceNull(CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Replaces the null colors for printing</p>
@@ -431,7 +398,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="AshConsoleGraphics_Buffer_SetChar_System_Int32_System_Int32_System_Nullable_System_Char__" data-uid="AshConsoleGraphics.Buffer.SetChar(System.Int32,System.Int32,System.Nullable{System.Char})">
   SetChar(int, int, char?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L92"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets a char</p>
@@ -470,7 +437,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="AshConsoleGraphics_Buffer_SetChar_System_Int32_System_Int32_System_Nullable_System_Char__AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Buffer.SetChar(System.Int32,System.Int32,System.Nullable{System.Char},AshLib.Formatting.CharFormat)">
   SetChar(int, int, char?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets a char</p>
@@ -512,7 +479,7 @@ Class Buffer  <a class="header-action link-secondary" title="View source" href="
 
   <h3 id="AshConsoleGraphics_Buffer_ToString_System_Char_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Buffer.ToString(System.Char,AshLib.Formatting.CharFormat)">
   ToString(char, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Buffers.cs/#L155"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Generates the string representation</p>

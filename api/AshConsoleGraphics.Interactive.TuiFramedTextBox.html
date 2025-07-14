@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_Interactive_TuiFramedTextBox" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox" class="text-break">
-Class TuiFramedTextBox  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L104"><i class="bi bi-code-slash"></i></a>
+Class TuiFramedTextBox  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -131,10 +131,13 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_Length">TuiWritable.Length</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_HandleKey_System_ConsoleKeyInfo_">TuiWritable.HandleKey(ConsoleKeyInfo)</a>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_CanWriteChar">TuiWritable.CanWriteChar</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_WriteChar_System_Char_">TuiWritable.WriteChar(char)</a>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_OnLengthChange">TuiWritable.OnLengthChange</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_HandleKey_System_ConsoleKeyInfo_">TuiWritable.HandleKey(ConsoleKeyInfo)</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_DelChar">TuiWritable.DelChar()</a>
@@ -143,7 +146,10 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_Selected">TuiSelectable.Selected</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_keyFunctions">TuiSelectable.keyFunctions</a>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_OnSelection">TuiSelectable.OnSelection</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_KeyFunctions">TuiSelectable.KeyFunctions</a>
     </div>
     <div>
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_SubKeyEvent_System_ConsoleKey_System_ConsoleModifiers_System_Action_AshConsoleGraphics_Interactive_TuiSelectable_System_ConsoleKeyInfo__">TuiSelectable.SubKeyEvent(ConsoleKey, ConsoleModifiers, Action&lt;TuiSelectable, ConsoleKeyInfo&gt;)</a>
@@ -173,7 +179,10 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OnParentResize">TuiElement.OnParentResize</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_BufferNeedsToBeGenerated">TuiElement.BufferNeedsToBeGenerated()</a>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_TriggerUpdate">TuiElement.TriggerUpdate()</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_GetTopLeftPosition_System_Int32_System_Int32_">TuiElement.GetTopLeftPosition(int, int)</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
@@ -209,28 +218,25 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <a id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_String_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiFramedTextBox(string, string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L198"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiFramedTextBox(string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L142"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new textbox with the same colors when selected and not selected</p>
+  <div class="markdown level1 summary"><p>Initializes a new textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiFramedTextBox(string chars, string t, uint l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiFramedTextBox(string t, int l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Frame charchters</p>
-</dd>
     <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Initial text</p>
 </dd>
-    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Textbox length</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
@@ -263,28 +269,25 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <a id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_String_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiFramedTextBox(string, string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiFramedTextBox(string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L131"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new textbox</p>
+  <div class="markdown level1 summary"><p>Initializes a new textbox with default frame chars ('┌┐└┘──││')</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiFramedTextBox(string chars, string t, uint l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiFramedTextBox(string t, int l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Frame charchters</p>
-</dd>
     <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Initial text</p>
 </dd>
-    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Textbox length</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
@@ -323,25 +326,28 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <a id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiFramedTextBox(string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L222"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiFramedTextBox(string, string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected</p>
+  <div class="markdown level1 summary"><p>Initializes a new textbox with the same colors when selected and not selected</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiFramedTextBox(string t, uint l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiFramedTextBox(string chars, string t, int l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
+    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Frame charchters</p>
+</dd>
     <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Initial text</p>
 </dd>
-    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Textbox length</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
@@ -374,25 +380,28 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <a id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiFramedTextBox(string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiFramedTextBox(string, string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L86"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new textbox with default frame chars ('┌┐└┘──││')</p>
+  <div class="markdown level1 summary"><p>Initializes a new textbox</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiFramedTextBox(string t, uint l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiFramedTextBox(string chars, string t, int l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
+    <dt><code>chars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Frame charchters</p>
+</dd>
     <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd><p>Initial text</p>
 </dd>
-    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dt><code>l</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Textbox length</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
@@ -437,7 +446,7 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox_FrameChars" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.FrameChars">
   FrameChars
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L154"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L41"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Frame charachters. An example would be '┌┐└┘──││'</p>
@@ -469,7 +478,7 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox_FrameFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.FrameFormat">
   FrameFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not selected frame charachter format</p>
@@ -501,7 +510,7 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox_SelectedFrameFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.SelectedFrameFormat">
   SelectedFrameFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Selected frame charachter format</p>
@@ -533,7 +542,7 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox_SelectedTextFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.SelectedTextFormat">
   SelectedTextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Selected text charachter format</p>
@@ -565,7 +574,7 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox_SelectorFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.SelectorFormat">
   SelectorFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Format of the selector pads '&gt;' '&lt;' that surround the element when selcted</p>
@@ -597,7 +606,7 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox_TextFormat" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.TextFormat">
   TextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Not selected text charachter format</p>
@@ -629,11 +638,43 @@ Class TuiFramedTextBox  <a class="header-action link-secondary" title="View sour
 </h2>
 
 
+  <a id="AshConsoleGraphics_Interactive_TuiFramedTextBox_BufferNeedsToBeGenerated_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.BufferNeedsToBeGenerated*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox_BufferNeedsToBeGenerated" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.BufferNeedsToBeGenerated">
+  BufferNeedsToBeGenerated()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>In most cases, the base implementation is enough</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool BufferNeedsToBeGenerated()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AshConsoleGraphics_Interactive_TuiFramedTextBox_GenerateBuffer_" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.GenerateBuffer*"></a>
 
   <h3 id="AshConsoleGraphics_Interactive_TuiFramedTextBox_GenerateBuffer" data-uid="AshConsoleGraphics.Interactive.TuiFramedTextBox.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/TuiWritables.cs/#L225"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Writables.cs/#L145"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>

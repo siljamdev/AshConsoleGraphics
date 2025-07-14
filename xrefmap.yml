@@ -22,15 +22,6 @@ references:
   fullName.vb: AshConsoleGraphics.BitBuffer.New(Integer, Integer)
   nameWithType: BitBuffer.BitBuffer(int, int)
   nameWithType.vb: BitBuffer.New(Integer, Integer)
-- uid: AshConsoleGraphics.BitBuffer.#ctor(System.UInt32,System.UInt32)
-  name: BitBuffer(uint, uint)
-  href: api/AshConsoleGraphics.BitBuffer.html#AshConsoleGraphics_BitBuffer__ctor_System_UInt32_System_UInt32_
-  commentId: M:AshConsoleGraphics.BitBuffer.#ctor(System.UInt32,System.UInt32)
-  name.vb: New(UInteger, UInteger)
-  fullName: AshConsoleGraphics.BitBuffer.BitBuffer(uint, uint)
-  fullName.vb: AshConsoleGraphics.BitBuffer.New(UInteger, UInteger)
-  nameWithType: BitBuffer.BitBuffer(uint, uint)
-  nameWithType.vb: BitBuffer.New(UInteger, UInteger)
 - uid: AshConsoleGraphics.BitBuffer.#ctor*
   name: BitBuffer
   href: api/AshConsoleGraphics.BitBuffer.html#AshConsoleGraphics_BitBuffer__ctor_
@@ -143,15 +134,6 @@ references:
   fullName.vb: AshConsoleGraphics.Buffer.New(Integer, Integer)
   nameWithType: Buffer.Buffer(int, int)
   nameWithType.vb: Buffer.New(Integer, Integer)
-- uid: AshConsoleGraphics.Buffer.#ctor(System.UInt32,System.UInt32)
-  name: Buffer(uint, uint)
-  href: api/AshConsoleGraphics.Buffer.html#AshConsoleGraphics_Buffer__ctor_System_UInt32_System_UInt32_
-  commentId: M:AshConsoleGraphics.Buffer.#ctor(System.UInt32,System.UInt32)
-  name.vb: New(UInteger, UInteger)
-  fullName: AshConsoleGraphics.Buffer.Buffer(uint, uint)
-  fullName.vb: AshConsoleGraphics.Buffer.New(UInteger, UInteger)
-  nameWithType: Buffer.Buffer(uint, uint)
-  nameWithType.vb: Buffer.New(UInteger, UInteger)
 - uid: AshConsoleGraphics.Buffer.#ctor*
   name: Buffer
   href: api/AshConsoleGraphics.Buffer.html#AshConsoleGraphics_Buffer__ctor_
@@ -304,24 +286,24 @@ references:
   commentId: T:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive
   fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive
   nameWithType: MultipleTuiScreenInteractive
-- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.Interactive.TuiScreenInteractive},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name: MultipleTuiScreenInteractive(uint, uint, IEnumerable<TuiScreenInteractive>, Placement, int, int, CharFormat?, params TuiElement[])
-  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive__ctor_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_Interactive_TuiScreenInteractive__AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
-  commentId: M:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.Interactive.TuiScreenInteractive},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name.vb: New(UInteger, UInteger, IEnumerable(Of TuiScreenInteractive), Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
-  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.MultipleTuiScreenInteractive(uint, uint, System.Collections.Generic.IEnumerable<AshConsoleGraphics.Interactive.TuiScreenInteractive>, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
-  fullName.vb: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.New(UInteger, UInteger, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.Interactive.TuiScreenInteractive), AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
-  nameWithType: MultipleTuiScreenInteractive.MultipleTuiScreenInteractive(uint, uint, IEnumerable<TuiScreenInteractive>, Placement, int, int, CharFormat?, params TuiElement[])
-  nameWithType.vb: MultipleTuiScreenInteractive.New(UInteger, UInteger, IEnumerable(Of TuiScreenInteractive), Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
-- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.Interactive.TuiScreenInteractive},AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name: MultipleTuiScreenInteractive(uint, uint, IEnumerable<TuiScreenInteractive>, CharFormat?, params TuiElement[])
-  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive__ctor_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_Interactive_TuiScreenInteractive__AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
-  commentId: M:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.Interactive.TuiScreenInteractive},AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name.vb: New(UInteger, UInteger, IEnumerable(Of TuiScreenInteractive), CharFormat, ParamArray TuiElement())
-  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.MultipleTuiScreenInteractive(uint, uint, System.Collections.Generic.IEnumerable<AshConsoleGraphics.Interactive.TuiScreenInteractive>, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
-  fullName.vb: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.New(UInteger, UInteger, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.Interactive.TuiScreenInteractive), AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
-  nameWithType: MultipleTuiScreenInteractive.MultipleTuiScreenInteractive(uint, uint, IEnumerable<TuiScreenInteractive>, CharFormat?, params TuiElement[])
-  nameWithType.vb: MultipleTuiScreenInteractive.New(UInteger, UInteger, IEnumerable(Of TuiScreenInteractive), CharFormat, ParamArray TuiElement())
+- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.#ctor(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.Interactive.TuiScreenInteractive},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name: MultipleTuiScreenInteractive(int, int, IEnumerable<TuiScreenInteractive>, Placement, int, int, CharFormat?, params TuiElement[])
+  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive__ctor_System_Int32_System_Int32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_Interactive_TuiScreenInteractive__AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
+  commentId: M:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.#ctor(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.Interactive.TuiScreenInteractive},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name.vb: New(Integer, Integer, IEnumerable(Of TuiScreenInteractive), Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
+  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.MultipleTuiScreenInteractive(int, int, System.Collections.Generic.IEnumerable<AshConsoleGraphics.Interactive.TuiScreenInteractive>, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
+  fullName.vb: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.New(Integer, Integer, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.Interactive.TuiScreenInteractive), AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
+  nameWithType: MultipleTuiScreenInteractive.MultipleTuiScreenInteractive(int, int, IEnumerable<TuiScreenInteractive>, Placement, int, int, CharFormat?, params TuiElement[])
+  nameWithType.vb: MultipleTuiScreenInteractive.New(Integer, Integer, IEnumerable(Of TuiScreenInteractive), Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
+- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.#ctor(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.Interactive.TuiScreenInteractive},AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name: MultipleTuiScreenInteractive(int, int, IEnumerable<TuiScreenInteractive>, CharFormat?, params TuiElement[])
+  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive__ctor_System_Int32_System_Int32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_Interactive_TuiScreenInteractive__AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
+  commentId: M:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.#ctor(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.Interactive.TuiScreenInteractive},AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name.vb: New(Integer, Integer, IEnumerable(Of TuiScreenInteractive), CharFormat, ParamArray TuiElement())
+  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.MultipleTuiScreenInteractive(int, int, System.Collections.Generic.IEnumerable<AshConsoleGraphics.Interactive.TuiScreenInteractive>, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
+  fullName.vb: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.New(Integer, Integer, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.Interactive.TuiScreenInteractive), AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
+  nameWithType: MultipleTuiScreenInteractive.MultipleTuiScreenInteractive(int, int, IEnumerable<TuiScreenInteractive>, CharFormat?, params TuiElement[])
+  nameWithType.vb: MultipleTuiScreenInteractive.New(Integer, Integer, IEnumerable(Of TuiScreenInteractive), CharFormat, ParamArray TuiElement())
 - uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.#ctor*
   name: MultipleTuiScreenInteractive
   href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive__ctor_
@@ -358,6 +340,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.FinishPlayCycleEvent
   nameWithType: MultipleTuiScreenInteractive.FinishPlayCycleEvent
+- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.KeyFunctions
+  name: KeyFunctions
+  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_KeyFunctions
+  commentId: P:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.KeyFunctions
+  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.KeyFunctions
+  nameWithType: MultipleTuiScreenInteractive.KeyFunctions
+- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.KeyFunctions*
+  name: KeyFunctions
+  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_KeyFunctions_
+  commentId: Overload:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.KeyFunctions
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.KeyFunctions
+  nameWithType: MultipleTuiScreenInteractive.KeyFunctions
 - uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.Play
   name: Play()
   href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_Play
@@ -454,12 +449,6 @@ references:
   commentId: F:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.WaitForKey
   fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.WaitForKey
   nameWithType: MultipleTuiScreenInteractive.WaitForKey
-- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.keyFunctions
-  name: keyFunctions
-  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_keyFunctions
-  commentId: F:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.keyFunctions
-  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.keyFunctions
-  nameWithType: MultipleTuiScreenInteractive.keyFunctions
 - uid: AshConsoleGraphics.Interactive.TuiButton
   name: TuiButton
   href: api/AshConsoleGraphics.Interactive.TuiButton.html
@@ -575,6 +564,131 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiButton.TextFormat
   nameWithType: TuiButton.TextFormat
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox
+  name: TuiCheckBox
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html
+  commentId: T:AshConsoleGraphics.Interactive.TuiCheckBox
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox
+  nameWithType: TuiCheckBox
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.#ctor(System.Char,System.Char,System.Boolean,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiCheckBox(char, char, bool, Placement, int, int, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox__ctor_System_Char_System_Char_System_Boolean_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiCheckBox.#ctor(System.Char,System.Char,System.Boolean,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(Char, Char, Boolean, Placement, Integer, Integer, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.TuiCheckBox(char, char, bool, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiCheckBox.New(Char, Char, Boolean, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiCheckBox.TuiCheckBox(char, char, bool, Placement, int, int, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiCheckBox.New(Char, Char, Boolean, Placement, Integer, Integer, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.#ctor(System.Char,System.Char,System.Boolean,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiCheckBox(char, char, bool, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox__ctor_System_Char_System_Char_System_Boolean_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiCheckBox.#ctor(System.Char,System.Char,System.Boolean,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(Char, Char, Boolean, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.TuiCheckBox(char, char, bool, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiCheckBox.New(Char, Char, Boolean, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiCheckBox.TuiCheckBox(char, char, bool, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiCheckBox.New(Char, Char, Boolean, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.#ctor*
+  name: TuiCheckBox
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox__ctor_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiCheckBox.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.TuiCheckBox
+  fullName.vb: AshConsoleGraphics.Interactive.TuiCheckBox.New
+  nameWithType: TuiCheckBox.TuiCheckBox
+  nameWithType.vb: TuiCheckBox.New
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.CheckFormat
+  name: CheckFormat
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_CheckFormat
+  commentId: P:AshConsoleGraphics.Interactive.TuiCheckBox.CheckFormat
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.CheckFormat
+  nameWithType: TuiCheckBox.CheckFormat
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.CheckFormat*
+  name: CheckFormat
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_CheckFormat_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiCheckBox.CheckFormat
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.CheckFormat
+  nameWithType: TuiCheckBox.CheckFormat
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.Checked
+  name: Checked
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_Checked
+  commentId: P:AshConsoleGraphics.Interactive.TuiCheckBox.Checked
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.Checked
+  nameWithType: TuiCheckBox.Checked
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.Checked*
+  name: Checked
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_Checked_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiCheckBox.Checked
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.Checked
+  nameWithType: TuiCheckBox.Checked
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.CheckedChar
+  name: CheckedChar
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_CheckedChar
+  commentId: P:AshConsoleGraphics.Interactive.TuiCheckBox.CheckedChar
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.CheckedChar
+  nameWithType: TuiCheckBox.CheckedChar
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.CheckedChar*
+  name: CheckedChar
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_CheckedChar_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiCheckBox.CheckedChar
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.CheckedChar
+  nameWithType: TuiCheckBox.CheckedChar
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.GenerateBuffer
+  name: GenerateBuffer()
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_GenerateBuffer
+  commentId: M:AshConsoleGraphics.Interactive.TuiCheckBox.GenerateBuffer
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.GenerateBuffer()
+  nameWithType: TuiCheckBox.GenerateBuffer()
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.GenerateBuffer*
+  name: GenerateBuffer
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_GenerateBuffer_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiCheckBox.GenerateBuffer
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.GenerateBuffer
+  nameWithType: TuiCheckBox.GenerateBuffer
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.SelectedCheckFormat
+  name: SelectedCheckFormat
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_SelectedCheckFormat
+  commentId: P:AshConsoleGraphics.Interactive.TuiCheckBox.SelectedCheckFormat
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.SelectedCheckFormat
+  nameWithType: TuiCheckBox.SelectedCheckFormat
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.SelectedCheckFormat*
+  name: SelectedCheckFormat
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_SelectedCheckFormat_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiCheckBox.SelectedCheckFormat
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.SelectedCheckFormat
+  nameWithType: TuiCheckBox.SelectedCheckFormat
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.SelectorFormat
+  name: SelectorFormat
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_SelectorFormat
+  commentId: P:AshConsoleGraphics.Interactive.TuiCheckBox.SelectorFormat
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.SelectorFormat
+  nameWithType: TuiCheckBox.SelectorFormat
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.SelectorFormat*
+  name: SelectorFormat
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_SelectorFormat_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiCheckBox.SelectorFormat
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.SelectorFormat
+  nameWithType: TuiCheckBox.SelectorFormat
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.UnCheckedChar
+  name: UnCheckedChar
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_UnCheckedChar
+  commentId: P:AshConsoleGraphics.Interactive.TuiCheckBox.UnCheckedChar
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.UnCheckedChar
+  nameWithType: TuiCheckBox.UnCheckedChar
+- uid: AshConsoleGraphics.Interactive.TuiCheckBox.UnCheckedChar*
+  name: UnCheckedChar
+  href: api/AshConsoleGraphics.Interactive.TuiCheckBox.html#AshConsoleGraphics_Interactive_TuiCheckBox_UnCheckedChar_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiCheckBox.UnCheckedChar
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiCheckBox.UnCheckedChar
+  nameWithType: TuiCheckBox.UnCheckedChar
 - uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox
   name: TuiFramedCheckBox
   href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html
@@ -627,45 +741,19 @@ references:
   fullName.vb: AshConsoleGraphics.Interactive.TuiFramedCheckBox.New
   nameWithType: TuiFramedCheckBox.TuiFramedCheckBox
   nameWithType.vb: TuiFramedCheckBox.New
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckFormat
-  name: CheckFormat
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_CheckFormat
-  commentId: P:AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckFormat
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckFormat
-  nameWithType: TuiFramedCheckBox.CheckFormat
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckFormat*
-  name: CheckFormat
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_CheckFormat_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckFormat
+- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.BufferNeedsToBeGenerated
+  name: BufferNeedsToBeGenerated()
+  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_BufferNeedsToBeGenerated
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedCheckBox.BufferNeedsToBeGenerated
+  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.BufferNeedsToBeGenerated()
+  nameWithType: TuiFramedCheckBox.BufferNeedsToBeGenerated()
+- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.BufferNeedsToBeGenerated*
+  name: BufferNeedsToBeGenerated
+  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_BufferNeedsToBeGenerated_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedCheckBox.BufferNeedsToBeGenerated
   isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckFormat
-  nameWithType: TuiFramedCheckBox.CheckFormat
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.Checked
-  name: Checked
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_Checked
-  commentId: P:AshConsoleGraphics.Interactive.TuiFramedCheckBox.Checked
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.Checked
-  nameWithType: TuiFramedCheckBox.Checked
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.Checked*
-  name: Checked
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_Checked_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedCheckBox.Checked
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.Checked
-  nameWithType: TuiFramedCheckBox.Checked
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckedChar
-  name: CheckedChar
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_CheckedChar
-  commentId: P:AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckedChar
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckedChar
-  nameWithType: TuiFramedCheckBox.CheckedChar
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckedChar*
-  name: CheckedChar
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_CheckedChar_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckedChar
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.CheckedChar
-  nameWithType: TuiFramedCheckBox.CheckedChar
+  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.BufferNeedsToBeGenerated
+  nameWithType: TuiFramedCheckBox.BufferNeedsToBeGenerated
 - uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.FrameChars
   name: FrameChars
   href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_FrameChars
@@ -705,19 +793,6 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.GenerateBuffer
   nameWithType: TuiFramedCheckBox.GenerateBuffer
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectedCheckFormat
-  name: SelectedCheckFormat
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_SelectedCheckFormat
-  commentId: P:AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectedCheckFormat
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectedCheckFormat
-  nameWithType: TuiFramedCheckBox.SelectedCheckFormat
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectedCheckFormat*
-  name: SelectedCheckFormat
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_SelectedCheckFormat_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectedCheckFormat
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectedCheckFormat
-  nameWithType: TuiFramedCheckBox.SelectedCheckFormat
 - uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectedFrameFormat
   name: SelectedFrameFormat
   href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_SelectedFrameFormat
@@ -731,32 +806,6 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectedFrameFormat
   nameWithType: TuiFramedCheckBox.SelectedFrameFormat
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectorFormat
-  name: SelectorFormat
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_SelectorFormat
-  commentId: P:AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectorFormat
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectorFormat
-  nameWithType: TuiFramedCheckBox.SelectorFormat
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectorFormat*
-  name: SelectorFormat
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_SelectorFormat_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectorFormat
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.SelectorFormat
-  nameWithType: TuiFramedCheckBox.SelectorFormat
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.UnCheckedChar
-  name: UnCheckedChar
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_UnCheckedChar
-  commentId: P:AshConsoleGraphics.Interactive.TuiFramedCheckBox.UnCheckedChar
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.UnCheckedChar
-  nameWithType: TuiFramedCheckBox.UnCheckedChar
-- uid: AshConsoleGraphics.Interactive.TuiFramedCheckBox.UnCheckedChar*
-  name: UnCheckedChar
-  href: api/AshConsoleGraphics.Interactive.TuiFramedCheckBox.html#AshConsoleGraphics_Interactive_TuiFramedCheckBox_UnCheckedChar_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedCheckBox.UnCheckedChar
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiFramedCheckBox.UnCheckedChar
-  nameWithType: TuiFramedCheckBox.UnCheckedChar
 - uid: AshConsoleGraphics.Interactive.TuiFramedRadio
   name: TuiFramedRadio
   href: api/AshConsoleGraphics.Interactive.TuiFramedRadio.html
@@ -809,6 +858,19 @@ references:
   fullName.vb: AshConsoleGraphics.Interactive.TuiFramedRadio.New
   nameWithType: TuiFramedRadio.TuiFramedRadio
   nameWithType.vb: TuiFramedRadio.New
+- uid: AshConsoleGraphics.Interactive.TuiFramedRadio.BufferNeedsToBeGenerated
+  name: BufferNeedsToBeGenerated()
+  href: api/AshConsoleGraphics.Interactive.TuiFramedRadio.html#AshConsoleGraphics_Interactive_TuiFramedRadio_BufferNeedsToBeGenerated
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedRadio.BufferNeedsToBeGenerated
+  fullName: AshConsoleGraphics.Interactive.TuiFramedRadio.BufferNeedsToBeGenerated()
+  nameWithType: TuiFramedRadio.BufferNeedsToBeGenerated()
+- uid: AshConsoleGraphics.Interactive.TuiFramedRadio.BufferNeedsToBeGenerated*
+  name: BufferNeedsToBeGenerated
+  href: api/AshConsoleGraphics.Interactive.TuiFramedRadio.html#AshConsoleGraphics_Interactive_TuiFramedRadio_BufferNeedsToBeGenerated_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedRadio.BufferNeedsToBeGenerated
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiFramedRadio.BufferNeedsToBeGenerated
+  nameWithType: TuiFramedRadio.BufferNeedsToBeGenerated
 - uid: AshConsoleGraphics.Interactive.TuiFramedRadio.CheckFormat
   name: CheckFormat
   href: api/AshConsoleGraphics.Interactive.TuiFramedRadio.html#AshConsoleGraphics_Interactive_TuiFramedRadio_CheckFormat
@@ -997,42 +1059,42 @@ references:
   commentId: T:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox
   fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox
   nameWithType: TuiFramedScrollingTextBox
-- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiFramedScrollingTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, string, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.New(String, String, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiFramedScrollingTextBox.New(String, String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiFramedScrollingTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, string, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.New(String, String, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiFramedScrollingTextBox.New(String, String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiFramedScrollingTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.New(String, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiFramedScrollingTextBox.New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiFramedScrollingTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.New(String, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiFramedScrollingTextBox.New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiFramedScrollingTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.New(String, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiFramedScrollingTextBox.New(String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiFramedScrollingTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.New(String, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiFramedScrollingTextBox.New(String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiFramedScrollingTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, string, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.New(String, String, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiFramedScrollingTextBox.New(String, String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiFramedScrollingTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_System_String_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, string, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.New(String, String, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFramedScrollingTextBox.TuiFramedScrollingTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiFramedScrollingTextBox.New(String, String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
 - uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.#ctor*
   name: TuiFramedScrollingTextBox
   href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox__ctor_
@@ -1056,6 +1118,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BoxXsize
   nameWithType: TuiFramedScrollingTextBox.BoxXsize
+- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BufferNeedsToBeGenerated
+  name: BufferNeedsToBeGenerated()
+  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_BufferNeedsToBeGenerated
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BufferNeedsToBeGenerated
+  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BufferNeedsToBeGenerated()
+  nameWithType: TuiFramedScrollingTextBox.BufferNeedsToBeGenerated()
+- uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BufferNeedsToBeGenerated*
+  name: BufferNeedsToBeGenerated
+  href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_BufferNeedsToBeGenerated_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BufferNeedsToBeGenerated
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.BufferNeedsToBeGenerated
+  nameWithType: TuiFramedScrollingTextBox.BufferNeedsToBeGenerated
 - uid: AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.FrameChars
   name: FrameChars
   href: api/AshConsoleGraphics.Interactive.TuiFramedScrollingTextBox.html#AshConsoleGraphics_Interactive_TuiFramedScrollingTextBox_FrameChars
@@ -1153,42 +1228,42 @@ references:
   commentId: T:AshConsoleGraphics.Interactive.TuiFramedTextBox
   fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox
   nameWithType: TuiFramedTextBox
-- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiFramedTextBox(string, string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_String_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, String, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.TuiFramedTextBox(string, string, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedTextBox.New(String, String, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFramedTextBox.TuiFramedTextBox(string, string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiFramedTextBox.New(String, String, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiFramedTextBox(string, string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_String_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, String, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.TuiFramedTextBox(string, string, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedTextBox.New(String, String, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFramedTextBox.TuiFramedTextBox(string, string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiFramedTextBox.New(String, String, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiFramedTextBox(string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.TuiFramedTextBox(string, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedTextBox.New(String, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFramedTextBox.TuiFramedTextBox(string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiFramedTextBox.New(String, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiFramedTextBox(string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.TuiFramedTextBox(string, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedTextBox.New(String, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFramedTextBox.TuiFramedTextBox(string, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiFramedTextBox.New(String, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiFramedTextBox(string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.TuiFramedTextBox(string, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedTextBox.New(String, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFramedTextBox.TuiFramedTextBox(string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiFramedTextBox.New(String, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiFramedTextBox(string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.TuiFramedTextBox(string, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedTextBox.New(String, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFramedTextBox.TuiFramedTextBox(string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiFramedTextBox.New(String, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiFramedTextBox(string, string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, String, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.TuiFramedTextBox(string, string, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedTextBox.New(String, String, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFramedTextBox.TuiFramedTextBox(string, string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiFramedTextBox.New(String, String, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiFramedTextBox(string, string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_System_String_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor(System.String,System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, String, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.TuiFramedTextBox(string, string, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiFramedTextBox.New(String, String, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFramedTextBox.TuiFramedTextBox(string, string, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiFramedTextBox.New(String, String, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
 - uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.#ctor*
   name: TuiFramedTextBox
   href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox__ctor_
@@ -1199,6 +1274,19 @@ references:
   fullName.vb: AshConsoleGraphics.Interactive.TuiFramedTextBox.New
   nameWithType: TuiFramedTextBox.TuiFramedTextBox
   nameWithType.vb: TuiFramedTextBox.New
+- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.BufferNeedsToBeGenerated
+  name: BufferNeedsToBeGenerated()
+  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox_BufferNeedsToBeGenerated
+  commentId: M:AshConsoleGraphics.Interactive.TuiFramedTextBox.BufferNeedsToBeGenerated
+  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.BufferNeedsToBeGenerated()
+  nameWithType: TuiFramedTextBox.BufferNeedsToBeGenerated()
+- uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.BufferNeedsToBeGenerated*
+  name: BufferNeedsToBeGenerated
+  href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox_BufferNeedsToBeGenerated_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiFramedTextBox.BufferNeedsToBeGenerated
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiFramedTextBox.BufferNeedsToBeGenerated
+  nameWithType: TuiFramedTextBox.BufferNeedsToBeGenerated
 - uid: AshConsoleGraphics.Interactive.TuiFramedTextBox.FrameChars
   name: FrameChars
   href: api/AshConsoleGraphics.Interactive.TuiFramedTextBox.html#AshConsoleGraphics_Interactive_TuiFramedTextBox_FrameChars
@@ -1296,42 +1384,42 @@ references:
   commentId: T:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox
   fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox
   nameWithType: TuiMultiLineFramedTextBox
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, string, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.New(String, String, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiMultiLineFramedTextBox.New(String, String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, string, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.New(String, String, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiMultiLineFramedTextBox.New(String, String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.New(String, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiMultiLineFramedTextBox.New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.New(String, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiMultiLineFramedTextBox.New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiMultiLineFramedTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.New(String, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiMultiLineFramedTextBox.New(String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiMultiLineFramedTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.New(String, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiMultiLineFramedTextBox.New(String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiMultiLineFramedTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, string, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.New(String, String, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiMultiLineFramedTextBox.New(String, String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiMultiLineFramedTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_System_String_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, string, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.New(String, String, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiMultiLineFramedTextBox.TuiMultiLineFramedTextBox(string, string, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiMultiLineFramedTextBox.New(String, String, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
 - uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.#ctor*
   name: TuiMultiLineFramedTextBox
   href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox__ctor_
@@ -1368,6 +1456,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BoxYsize
   nameWithType: TuiMultiLineFramedTextBox.BoxYsize
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BufferNeedsToBeGenerated
+  name: BufferNeedsToBeGenerated()
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BufferNeedsToBeGenerated
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BufferNeedsToBeGenerated
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BufferNeedsToBeGenerated()
+  nameWithType: TuiMultiLineFramedTextBox.BufferNeedsToBeGenerated()
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BufferNeedsToBeGenerated*
+  name: BufferNeedsToBeGenerated
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_BufferNeedsToBeGenerated_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BufferNeedsToBeGenerated
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.BufferNeedsToBeGenerated
+  nameWithType: TuiMultiLineFramedTextBox.BufferNeedsToBeGenerated
 - uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.FrameChars
   name: FrameChars
   href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_FrameChars
@@ -1459,64 +1560,48 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.TextFormat
   nameWithType: TuiMultiLineFramedTextBox.TextFormat
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.WriteChar(System.Char)
-  name: WriteChar(char)
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_WriteChar_System_Char_
-  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.WriteChar(System.Char)
-  name.vb: WriteChar(Char)
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.WriteChar(char)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.WriteChar(Char)
-  nameWithType: TuiMultiLineFramedTextBox.WriteChar(char)
-  nameWithType.vb: TuiMultiLineFramedTextBox.WriteChar(Char)
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.WriteChar*
-  name: WriteChar
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineFramedTextBox_WriteChar_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.WriteChar
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineFramedTextBox.WriteChar
-  nameWithType: TuiMultiLineFramedTextBox.WriteChar
 - uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox
   name: TuiMultiLineScrollingFramedTextBox
   href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html
   commentId: T:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox
   fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox
   nameWithType: TuiMultiLineScrollingFramedTextBox
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiMultiLineScrollingFramedTextBox(string, string, uint, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, String, UInteger, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, string, uint, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.New(String, String, UInteger, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, string, uint, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiMultiLineScrollingFramedTextBox.New(String, String, UInteger, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiMultiLineScrollingFramedTextBox(string, string, uint, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox__ctor_System_String_System_String_System_UInt32_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.String,System.UInt32,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, String, UInteger, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, string, uint, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.New(String, String, UInteger, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, string, uint, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiMultiLineScrollingFramedTextBox.New(String, String, UInteger, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiMultiLineScrollingFramedTextBox(string, uint, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, uint, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.New(String, UInteger, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, uint, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiMultiLineScrollingFramedTextBox.New(String, UInteger, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
-- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiMultiLineScrollingFramedTextBox(string, uint, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox__ctor_System_String_System_UInt32_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.UInt32,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, uint, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.New(String, UInteger, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, uint, uint, uint, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiMultiLineScrollingFramedTextBox.New(String, UInteger, UInteger, UInteger, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiMultiLineScrollingFramedTextBox(string, int, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox__ctor_System_String_System_Int32_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, int, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.New(String, Integer, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, int, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiMultiLineScrollingFramedTextBox.New(String, Integer, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiMultiLineScrollingFramedTextBox(string, int, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox__ctor_System_String_System_Int32_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, int, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.New(String, Integer, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, int, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiMultiLineScrollingFramedTextBox.New(String, Integer, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiMultiLineScrollingFramedTextBox(string, string, int, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox__ctor_System_String_System_String_System_Int32_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, String, Integer, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, string, int, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.New(String, String, Integer, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, string, int, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiMultiLineScrollingFramedTextBox.New(String, String, Integer, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiMultiLineScrollingFramedTextBox(string, string, int, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox__ctor_System_String_System_String_System_Int32_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor(System.String,System.String,System.Int32,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(String, String, Integer, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, string, int, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.New(String, String, Integer, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiMultiLineScrollingFramedTextBox.TuiMultiLineScrollingFramedTextBox(string, string, int, int, int, Placement, int, int, CharFormat?, CharFormat?, CharFormat?, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiMultiLineScrollingFramedTextBox.New(String, String, Integer, Integer, Integer, Placement, Integer, Integer, CharFormat, CharFormat, CharFormat, CharFormat, CharFormat)
 - uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.#ctor*
   name: TuiMultiLineScrollingFramedTextBox
   href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox__ctor_
@@ -1553,6 +1638,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.BoxYsize
   nameWithType: TuiMultiLineScrollingFramedTextBox.BoxYsize
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.BufferNeedsToBeGenerated
+  name: BufferNeedsToBeGenerated()
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox_BufferNeedsToBeGenerated
+  commentId: M:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.BufferNeedsToBeGenerated
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.BufferNeedsToBeGenerated()
+  nameWithType: TuiMultiLineScrollingFramedTextBox.BufferNeedsToBeGenerated()
+- uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.BufferNeedsToBeGenerated*
+  name: BufferNeedsToBeGenerated
+  href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox_BufferNeedsToBeGenerated_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.BufferNeedsToBeGenerated
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.BufferNeedsToBeGenerated
+  nameWithType: TuiMultiLineScrollingFramedTextBox.BufferNeedsToBeGenerated
 - uid: AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.FrameChars
   name: FrameChars
   href: api/AshConsoleGraphics.Interactive.TuiMultiLineScrollingFramedTextBox.html#AshConsoleGraphics_Interactive_TuiMultiLineScrollingFramedTextBox_FrameChars
@@ -1950,24 +2048,24 @@ references:
   commentId: T:AshConsoleGraphics.Interactive.TuiScreenInteractive
   fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive
   nameWithType: TuiScreenInteractive
-- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name: TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
-  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
-  commentId: M:AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name.vb: New(UInteger, UInteger, TuiSelectable(,), UInteger, UInteger, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
-  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.TuiScreenInteractive(uint, uint, AshConsoleGraphics.Interactive.TuiSelectable[,], uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
-  fullName.vb: AshConsoleGraphics.Interactive.TuiScreenInteractive.New(UInteger, UInteger, AshConsoleGraphics.Interactive.TuiSelectable(,), UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
-  nameWithType: TuiScreenInteractive.TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
-  nameWithType.vb: TuiScreenInteractive.New(UInteger, UInteger, TuiSelectable(,), UInteger, UInteger, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
-- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name: TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, CharFormat?, params TuiElement[])
-  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
-  commentId: M:AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name.vb: New(UInteger, UInteger, TuiSelectable(,), UInteger, UInteger, CharFormat, ParamArray TuiElement())
-  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.TuiScreenInteractive(uint, uint, AshConsoleGraphics.Interactive.TuiSelectable[,], uint, uint, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
-  fullName.vb: AshConsoleGraphics.Interactive.TuiScreenInteractive.New(UInteger, UInteger, AshConsoleGraphics.Interactive.TuiSelectable(,), UInteger, UInteger, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
-  nameWithType: TuiScreenInteractive.TuiScreenInteractive(uint, uint, TuiSelectable[,], uint, uint, CharFormat?, params TuiElement[])
-  nameWithType.vb: TuiScreenInteractive.New(UInteger, UInteger, TuiSelectable(,), UInteger, UInteger, CharFormat, ParamArray TuiElement())
+- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name: TuiScreenInteractive(int, int, TuiSelectable[,], uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
+  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_Int32_System_Int32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
+  commentId: M:AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name.vb: New(Integer, Integer, TuiSelectable(,), UInteger, UInteger, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
+  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.TuiScreenInteractive(int, int, AshConsoleGraphics.Interactive.TuiSelectable[,], uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
+  fullName.vb: AshConsoleGraphics.Interactive.TuiScreenInteractive.New(Integer, Integer, AshConsoleGraphics.Interactive.TuiSelectable(,), UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
+  nameWithType: TuiScreenInteractive.TuiScreenInteractive(int, int, TuiSelectable[,], uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
+  nameWithType.vb: TuiScreenInteractive.New(Integer, Integer, TuiSelectable(,), UInteger, UInteger, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
+- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name: TuiScreenInteractive(int, int, TuiSelectable[,], uint, uint, CharFormat?, params TuiElement[])
+  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_System_Int32_System_Int32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
+  commentId: M:AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name.vb: New(Integer, Integer, TuiSelectable(,), UInteger, UInteger, CharFormat, ParamArray TuiElement())
+  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.TuiScreenInteractive(int, int, AshConsoleGraphics.Interactive.TuiSelectable[,], uint, uint, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
+  fullName.vb: AshConsoleGraphics.Interactive.TuiScreenInteractive.New(Integer, Integer, AshConsoleGraphics.Interactive.TuiSelectable(,), UInteger, UInteger, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
+  nameWithType: TuiScreenInteractive.TuiScreenInteractive(int, int, TuiSelectable[,], uint, uint, CharFormat?, params TuiElement[])
+  nameWithType.vb: TuiScreenInteractive.New(Integer, Integer, TuiSelectable(,), UInteger, UInteger, CharFormat, ParamArray TuiElement())
 - uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.#ctor*
   name: TuiScreenInteractive
   href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive__ctor_
@@ -2017,6 +2115,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.HandleKey
   nameWithType: TuiScreenInteractive.HandleKey
+- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.KeyFunctions
+  name: KeyFunctions
+  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive_KeyFunctions
+  commentId: P:AshConsoleGraphics.Interactive.TuiScreenInteractive.KeyFunctions
+  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.KeyFunctions
+  nameWithType: TuiScreenInteractive.KeyFunctions
+- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.KeyFunctions*
+  name: KeyFunctions
+  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive_KeyFunctions_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiScreenInteractive.KeyFunctions
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.KeyFunctions
+  nameWithType: TuiScreenInteractive.KeyFunctions
 - uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.MatrixPointerX
   name: MatrixPointerX
   href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive_MatrixPointerX
@@ -2204,12 +2315,105 @@ references:
   commentId: F:AshConsoleGraphics.Interactive.TuiScreenInteractive.WaitForKey
   fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.WaitForKey
   nameWithType: TuiScreenInteractive.WaitForKey
-- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.keyFunctions
-  name: keyFunctions
-  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive_keyFunctions
-  commentId: F:AshConsoleGraphics.Interactive.TuiScreenInteractive.keyFunctions
-  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.keyFunctions
-  nameWithType: TuiScreenInteractive.keyFunctions
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive
+  name: TuiScrollingScreenInteractive
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html
+  commentId: T:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive
+  nameWithType: TuiScrollingScreenInteractive
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name: TuiScrollingScreenInteractive(int, int, TuiSelectable[,], uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive__ctor_System_Int32_System_Int32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
+  commentId: M:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name.vb: New(Integer, Integer, TuiSelectable(,), UInteger, UInteger, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.TuiScrollingScreenInteractive(int, int, AshConsoleGraphics.Interactive.TuiSelectable[,], uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
+  fullName.vb: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.New(Integer, Integer, AshConsoleGraphics.Interactive.TuiSelectable(,), UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
+  nameWithType: TuiScrollingScreenInteractive.TuiScrollingScreenInteractive(int, int, TuiSelectable[,], uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
+  nameWithType.vb: TuiScrollingScreenInteractive.New(Integer, Integer, TuiSelectable(,), UInteger, UInteger, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name: TuiScrollingScreenInteractive(int, int, TuiSelectable[,], uint, uint, CharFormat?, params TuiElement[])
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive__ctor_System_Int32_System_Int32_AshConsoleGraphics_Interactive_TuiSelectable_0__0___System_UInt32_System_UInt32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
+  commentId: M:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Interactive.TuiSelectable[0:,0:],System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name.vb: New(Integer, Integer, TuiSelectable(,), UInteger, UInteger, CharFormat, ParamArray TuiElement())
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.TuiScrollingScreenInteractive(int, int, AshConsoleGraphics.Interactive.TuiSelectable[,], uint, uint, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
+  fullName.vb: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.New(Integer, Integer, AshConsoleGraphics.Interactive.TuiSelectable(,), UInteger, UInteger, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
+  nameWithType: TuiScrollingScreenInteractive.TuiScrollingScreenInteractive(int, int, TuiSelectable[,], uint, uint, CharFormat?, params TuiElement[])
+  nameWithType.vb: TuiScrollingScreenInteractive.New(Integer, Integer, TuiSelectable(,), UInteger, UInteger, CharFormat, ParamArray TuiElement())
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.#ctor*
+  name: TuiScrollingScreenInteractive
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive__ctor_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.TuiScrollingScreenInteractive
+  fullName.vb: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.New
+  nameWithType: TuiScrollingScreenInteractive.TuiScrollingScreenInteractive
+  nameWithType.vb: TuiScrollingScreenInteractive.New
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.GenerateBuffer
+  name: GenerateBuffer()
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_GenerateBuffer
+  commentId: M:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.GenerateBuffer
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.GenerateBuffer()
+  nameWithType: TuiScrollingScreenInteractive.GenerateBuffer()
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.GenerateBuffer*
+  name: GenerateBuffer
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_GenerateBuffer_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.GenerateBuffer
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.GenerateBuffer
+  nameWithType: TuiScrollingScreenInteractive.GenerateBuffer
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerX
+  name: MatrixPointerX
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_MatrixPointerX
+  commentId: P:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerX
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerX
+  nameWithType: TuiScrollingScreenInteractive.MatrixPointerX
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerX*
+  name: MatrixPointerX
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_MatrixPointerX_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerX
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerX
+  nameWithType: TuiScrollingScreenInteractive.MatrixPointerX
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerY
+  name: MatrixPointerY
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_MatrixPointerY
+  commentId: P:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerY
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerY
+  nameWithType: TuiScrollingScreenInteractive.MatrixPointerY
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerY*
+  name: MatrixPointerY
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_MatrixPointerY_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerY
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.MatrixPointerY
+  nameWithType: TuiScrollingScreenInteractive.MatrixPointerY
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollX
+  name: ScrollX
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_ScrollX
+  commentId: P:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollX
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollX
+  nameWithType: TuiScrollingScreenInteractive.ScrollX
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollX*
+  name: ScrollX
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_ScrollX_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollX
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollX
+  nameWithType: TuiScrollingScreenInteractive.ScrollX
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollY
+  name: ScrollY
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_ScrollY
+  commentId: P:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollY
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollY
+  nameWithType: TuiScrollingScreenInteractive.ScrollY
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollY*
+  name: ScrollY
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_ScrollY_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollY
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.ScrollY
+  nameWithType: TuiScrollingScreenInteractive.ScrollY
 - uid: AshConsoleGraphics.Interactive.TuiSelectable
   name: TuiSelectable
   href: api/AshConsoleGraphics.Interactive.TuiSelectable.html
@@ -2261,6 +2465,25 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiSelectable.HandleKey
   nameWithType: TuiSelectable.HandleKey
+- uid: AshConsoleGraphics.Interactive.TuiSelectable.KeyFunctions
+  name: KeyFunctions
+  href: api/AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_KeyFunctions
+  commentId: P:AshConsoleGraphics.Interactive.TuiSelectable.KeyFunctions
+  fullName: AshConsoleGraphics.Interactive.TuiSelectable.KeyFunctions
+  nameWithType: TuiSelectable.KeyFunctions
+- uid: AshConsoleGraphics.Interactive.TuiSelectable.KeyFunctions*
+  name: KeyFunctions
+  href: api/AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_KeyFunctions_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiSelectable.KeyFunctions
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiSelectable.KeyFunctions
+  nameWithType: TuiSelectable.KeyFunctions
+- uid: AshConsoleGraphics.Interactive.TuiSelectable.OnSelection
+  name: OnSelection
+  href: api/AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_OnSelection
+  commentId: E:AshConsoleGraphics.Interactive.TuiSelectable.OnSelection
+  fullName: AshConsoleGraphics.Interactive.TuiSelectable.OnSelection
+  nameWithType: TuiSelectable.OnSelection
 - uid: AshConsoleGraphics.Interactive.TuiSelectable.Selected
   name: Selected
   href: api/AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_Selected
@@ -2299,34 +2522,21 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiSelectable.SubKeyEvent
   nameWithType: TuiSelectable.SubKeyEvent
-- uid: AshConsoleGraphics.Interactive.TuiSelectable.keyFunctions
-  name: keyFunctions
-  href: api/AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_keyFunctions
-  commentId: P:AshConsoleGraphics.Interactive.TuiSelectable.keyFunctions
-  fullName: AshConsoleGraphics.Interactive.TuiSelectable.keyFunctions
-  nameWithType: TuiSelectable.keyFunctions
-- uid: AshConsoleGraphics.Interactive.TuiSelectable.keyFunctions*
-  name: keyFunctions
-  href: api/AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_keyFunctions_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiSelectable.keyFunctions
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiSelectable.keyFunctions
-  nameWithType: TuiSelectable.keyFunctions
 - uid: AshConsoleGraphics.Interactive.TuiWritable
   name: TuiWritable
   href: api/AshConsoleGraphics.Interactive.TuiWritable.html
   commentId: T:AshConsoleGraphics.Interactive.TuiWritable
   fullName: AshConsoleGraphics.Interactive.TuiWritable
   nameWithType: TuiWritable
-- uid: AshConsoleGraphics.Interactive.TuiWritable.#ctor(System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32)
-  name: TuiWritable(string, uint, Placement, int, int)
-  href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable__ctor_System_String_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_
-  commentId: M:AshConsoleGraphics.Interactive.TuiWritable.#ctor(System.String,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32)
-  name.vb: New(String, UInteger, Placement, Integer, Integer)
-  fullName: AshConsoleGraphics.Interactive.TuiWritable.TuiWritable(string, uint, AshConsoleGraphics.Placement, int, int)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiWritable.New(String, UInteger, AshConsoleGraphics.Placement, Integer, Integer)
-  nameWithType: TuiWritable.TuiWritable(string, uint, Placement, int, int)
-  nameWithType.vb: TuiWritable.New(String, UInteger, Placement, Integer, Integer)
+- uid: AshConsoleGraphics.Interactive.TuiWritable.#ctor(System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32)
+  name: TuiWritable(string, int, Placement, int, int)
+  href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable__ctor_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_
+  commentId: M:AshConsoleGraphics.Interactive.TuiWritable.#ctor(System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32)
+  name.vb: New(String, Integer, Placement, Integer, Integer)
+  fullName: AshConsoleGraphics.Interactive.TuiWritable.TuiWritable(string, int, AshConsoleGraphics.Placement, int, int)
+  fullName.vb: AshConsoleGraphics.Interactive.TuiWritable.New(String, Integer, AshConsoleGraphics.Placement, Integer, Integer)
+  nameWithType: TuiWritable.TuiWritable(string, int, Placement, int, int)
+  nameWithType.vb: TuiWritable.New(String, Integer, Placement, Integer, Integer)
 - uid: AshConsoleGraphics.Interactive.TuiWritable.#ctor*
   name: TuiWritable
   href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable__ctor_
@@ -2337,6 +2547,19 @@ references:
   fullName.vb: AshConsoleGraphics.Interactive.TuiWritable.New
   nameWithType: TuiWritable.TuiWritable
   nameWithType.vb: TuiWritable.New
+- uid: AshConsoleGraphics.Interactive.TuiWritable.CanWriteChar
+  name: CanWriteChar
+  href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_CanWriteChar
+  commentId: P:AshConsoleGraphics.Interactive.TuiWritable.CanWriteChar
+  fullName: AshConsoleGraphics.Interactive.TuiWritable.CanWriteChar
+  nameWithType: TuiWritable.CanWriteChar
+- uid: AshConsoleGraphics.Interactive.TuiWritable.CanWriteChar*
+  name: CanWriteChar
+  href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_CanWriteChar_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiWritable.CanWriteChar
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiWritable.CanWriteChar
+  nameWithType: TuiWritable.CanWriteChar
 - uid: AshConsoleGraphics.Interactive.TuiWritable.DelChar
   name: DelChar()
   href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_DelChar
@@ -2376,6 +2599,12 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiWritable.Length
   nameWithType: TuiWritable.Length
+- uid: AshConsoleGraphics.Interactive.TuiWritable.OnLengthChange
+  name: OnLengthChange
+  href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_OnLengthChange
+  commentId: E:AshConsoleGraphics.Interactive.TuiWritable.OnLengthChange
+  fullName: AshConsoleGraphics.Interactive.TuiWritable.OnLengthChange
+  nameWithType: TuiWritable.OnLengthChange
 - uid: AshConsoleGraphics.Interactive.TuiWritable.Text
   name: Text
   href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_Text
@@ -2389,22 +2618,6 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiWritable.Text
   nameWithType: TuiWritable.Text
-- uid: AshConsoleGraphics.Interactive.TuiWritable.WriteChar(System.Char)
-  name: WriteChar(char)
-  href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_WriteChar_System_Char_
-  commentId: M:AshConsoleGraphics.Interactive.TuiWritable.WriteChar(System.Char)
-  name.vb: WriteChar(Char)
-  fullName: AshConsoleGraphics.Interactive.TuiWritable.WriteChar(char)
-  fullName.vb: AshConsoleGraphics.Interactive.TuiWritable.WriteChar(Char)
-  nameWithType: TuiWritable.WriteChar(char)
-  nameWithType.vb: TuiWritable.WriteChar(Char)
-- uid: AshConsoleGraphics.Interactive.TuiWritable.WriteChar*
-  name: WriteChar
-  href: api/AshConsoleGraphics.Interactive.TuiWritable.html#AshConsoleGraphics_Interactive_TuiWritable_WriteChar_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiWritable.WriteChar
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiWritable.WriteChar
-  nameWithType: TuiWritable.WriteChar
 - uid: AshConsoleGraphics.Placement
   name: Placement
   href: api/AshConsoleGraphics.Placement.html
@@ -2465,48 +2678,85 @@ references:
   commentId: F:AshConsoleGraphics.Placement.TopRight
   fullName: AshConsoleGraphics.Placement.TopRight
   nameWithType: Placement.TopRight
+- uid: AshConsoleGraphics.ResizeArgs
+  name: ResizeArgs
+  href: api/AshConsoleGraphics.ResizeArgs.html
+  commentId: T:AshConsoleGraphics.ResizeArgs
+  fullName: AshConsoleGraphics.ResizeArgs
+  nameWithType: ResizeArgs
+- uid: AshConsoleGraphics.ResizeArgs.#ctor(System.Int32,System.Int32)
+  name: ResizeArgs(int, int)
+  href: api/AshConsoleGraphics.ResizeArgs.html#AshConsoleGraphics_ResizeArgs__ctor_System_Int32_System_Int32_
+  commentId: M:AshConsoleGraphics.ResizeArgs.#ctor(System.Int32,System.Int32)
+  name.vb: New(Integer, Integer)
+  fullName: AshConsoleGraphics.ResizeArgs.ResizeArgs(int, int)
+  fullName.vb: AshConsoleGraphics.ResizeArgs.New(Integer, Integer)
+  nameWithType: ResizeArgs.ResizeArgs(int, int)
+  nameWithType.vb: ResizeArgs.New(Integer, Integer)
+- uid: AshConsoleGraphics.ResizeArgs.#ctor*
+  name: ResizeArgs
+  href: api/AshConsoleGraphics.ResizeArgs.html#AshConsoleGraphics_ResizeArgs__ctor_
+  commentId: Overload:AshConsoleGraphics.ResizeArgs.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AshConsoleGraphics.ResizeArgs.ResizeArgs
+  fullName.vb: AshConsoleGraphics.ResizeArgs.New
+  nameWithType: ResizeArgs.ResizeArgs
+  nameWithType.vb: ResizeArgs.New
+- uid: AshConsoleGraphics.ResizeArgs.X
+  name: X
+  href: api/AshConsoleGraphics.ResizeArgs.html#AshConsoleGraphics_ResizeArgs_X
+  commentId: F:AshConsoleGraphics.ResizeArgs.X
+  fullName: AshConsoleGraphics.ResizeArgs.X
+  nameWithType: ResizeArgs.X
+- uid: AshConsoleGraphics.ResizeArgs.Y
+  name: Y
+  href: api/AshConsoleGraphics.ResizeArgs.html#AshConsoleGraphics_ResizeArgs_Y
+  commentId: F:AshConsoleGraphics.ResizeArgs.Y
+  fullName: AshConsoleGraphics.ResizeArgs.Y
+  nameWithType: ResizeArgs.Y
 - uid: AshConsoleGraphics.TuiConnectedLinesScreen
   name: TuiConnectedLinesScreen
   href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html
   commentId: T:AshConsoleGraphics.TuiConnectedLinesScreen
   fullName: AshConsoleGraphics.TuiConnectedLinesScreen
   nameWithType: TuiConnectedLinesScreen
-- uid: AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiConnectedLinesScreen(string, uint, uint, IEnumerable<ILineElement>, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html#AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_String_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, UInteger, IEnumerable(Of ILineElement), Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiConnectedLinesScreen.TuiConnectedLinesScreen(string, uint, uint, System.Collections.Generic.IEnumerable<AshConsoleGraphics.ILineElement>, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiConnectedLinesScreen.New(String, UInteger, UInteger, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.ILineElement), AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiConnectedLinesScreen.TuiConnectedLinesScreen(string, uint, uint, IEnumerable<ILineElement>, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiConnectedLinesScreen.New(String, UInteger, UInteger, IEnumerable(Of ILineElement), Placement, Integer, Integer, CharFormat)
-- uid: AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)
-  name: TuiConnectedLinesScreen(string, uint, uint, IEnumerable<ILineElement>, CharFormat?)
-  href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html#AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_String_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, UInteger, IEnumerable(Of ILineElement), CharFormat)
-  fullName: AshConsoleGraphics.TuiConnectedLinesScreen.TuiConnectedLinesScreen(string, uint, uint, System.Collections.Generic.IEnumerable<AshConsoleGraphics.ILineElement>, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiConnectedLinesScreen.New(String, UInteger, UInteger, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.ILineElement), AshLib.Formatting.CharFormat)
-  nameWithType: TuiConnectedLinesScreen.TuiConnectedLinesScreen(string, uint, uint, IEnumerable<ILineElement>, CharFormat?)
-  nameWithType.vb: TuiConnectedLinesScreen.New(String, UInteger, UInteger, IEnumerable(Of ILineElement), CharFormat)
-- uid: AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiConnectedLinesScreen(uint, uint, IEnumerable<ILineElement>, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html#AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(UInteger, UInteger, IEnumerable(Of ILineElement), Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiConnectedLinesScreen.TuiConnectedLinesScreen(uint, uint, System.Collections.Generic.IEnumerable<AshConsoleGraphics.ILineElement>, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiConnectedLinesScreen.New(UInteger, UInteger, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.ILineElement), AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiConnectedLinesScreen.TuiConnectedLinesScreen(uint, uint, IEnumerable<ILineElement>, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiConnectedLinesScreen.New(UInteger, UInteger, IEnumerable(Of ILineElement), Placement, Integer, Integer, CharFormat)
-- uid: AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)
-  name: TuiConnectedLinesScreen(uint, uint, IEnumerable<ILineElement>, CharFormat?)
-  href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html#AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_UInt32_System_UInt32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.UInt32,System.UInt32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)
-  name.vb: New(UInteger, UInteger, IEnumerable(Of ILineElement), CharFormat)
-  fullName: AshConsoleGraphics.TuiConnectedLinesScreen.TuiConnectedLinesScreen(uint, uint, System.Collections.Generic.IEnumerable<AshConsoleGraphics.ILineElement>, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiConnectedLinesScreen.New(UInteger, UInteger, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.ILineElement), AshLib.Formatting.CharFormat)
-  nameWithType: TuiConnectedLinesScreen.TuiConnectedLinesScreen(uint, uint, IEnumerable<ILineElement>, CharFormat?)
-  nameWithType.vb: TuiConnectedLinesScreen.New(UInteger, UInteger, IEnumerable(Of ILineElement), CharFormat)
+- uid: AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiConnectedLinesScreen(int, int, IEnumerable<ILineElement>, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html#AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_Int32_System_Int32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(Integer, Integer, IEnumerable(Of ILineElement), Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiConnectedLinesScreen.TuiConnectedLinesScreen(int, int, System.Collections.Generic.IEnumerable<AshConsoleGraphics.ILineElement>, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiConnectedLinesScreen.New(Integer, Integer, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.ILineElement), AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiConnectedLinesScreen.TuiConnectedLinesScreen(int, int, IEnumerable<ILineElement>, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiConnectedLinesScreen.New(Integer, Integer, IEnumerable(Of ILineElement), Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)
+  name: TuiConnectedLinesScreen(int, int, IEnumerable<ILineElement>, CharFormat?)
+  href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html#AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_Int32_System_Int32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)
+  name.vb: New(Integer, Integer, IEnumerable(Of ILineElement), CharFormat)
+  fullName: AshConsoleGraphics.TuiConnectedLinesScreen.TuiConnectedLinesScreen(int, int, System.Collections.Generic.IEnumerable<AshConsoleGraphics.ILineElement>, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiConnectedLinesScreen.New(Integer, Integer, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.ILineElement), AshLib.Formatting.CharFormat)
+  nameWithType: TuiConnectedLinesScreen.TuiConnectedLinesScreen(int, int, IEnumerable<ILineElement>, CharFormat?)
+  nameWithType.vb: TuiConnectedLinesScreen.New(Integer, Integer, IEnumerable(Of ILineElement), CharFormat)
+- uid: AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiConnectedLinesScreen(string, int, int, IEnumerable<ILineElement>, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html#AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_String_System_Int32_System_Int32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Integer, IEnumerable(Of ILineElement), Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiConnectedLinesScreen.TuiConnectedLinesScreen(string, int, int, System.Collections.Generic.IEnumerable<AshConsoleGraphics.ILineElement>, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiConnectedLinesScreen.New(String, Integer, Integer, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.ILineElement), AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiConnectedLinesScreen.TuiConnectedLinesScreen(string, int, int, IEnumerable<ILineElement>, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiConnectedLinesScreen.New(String, Integer, Integer, IEnumerable(Of ILineElement), Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)
+  name: TuiConnectedLinesScreen(string, int, int, IEnumerable<ILineElement>, CharFormat?)
+  href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html#AshConsoleGraphics_TuiConnectedLinesScreen__ctor_System_String_System_Int32_System_Int32_System_Collections_Generic_IEnumerable_AshConsoleGraphics_ILineElement__AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiConnectedLinesScreen.#ctor(System.String,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshConsoleGraphics.ILineElement},AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Integer, IEnumerable(Of ILineElement), CharFormat)
+  fullName: AshConsoleGraphics.TuiConnectedLinesScreen.TuiConnectedLinesScreen(string, int, int, System.Collections.Generic.IEnumerable<AshConsoleGraphics.ILineElement>, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiConnectedLinesScreen.New(String, Integer, Integer, System.Collections.Generic.IEnumerable(Of AshConsoleGraphics.ILineElement), AshLib.Formatting.CharFormat)
+  nameWithType: TuiConnectedLinesScreen.TuiConnectedLinesScreen(string, int, int, IEnumerable<ILineElement>, CharFormat?)
+  nameWithType.vb: TuiConnectedLinesScreen.New(String, Integer, Integer, IEnumerable(Of ILineElement), CharFormat)
 - uid: AshConsoleGraphics.TuiConnectedLinesScreen.#ctor*
   name: TuiConnectedLinesScreen
   href: api/AshConsoleGraphics.TuiConnectedLinesScreen.html#AshConsoleGraphics_TuiConnectedLinesScreen__ctor_
@@ -2607,6 +2857,22 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiElement.GenerateBuffer
   nameWithType: TuiElement.GenerateBuffer
+- uid: AshConsoleGraphics.TuiElement.GetTopLeftPosition(System.Int32,System.Int32)
+  name: GetTopLeftPosition(int, int)
+  href: api/AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_GetTopLeftPosition_System_Int32_System_Int32_
+  commentId: M:AshConsoleGraphics.TuiElement.GetTopLeftPosition(System.Int32,System.Int32)
+  name.vb: GetTopLeftPosition(Integer, Integer)
+  fullName: AshConsoleGraphics.TuiElement.GetTopLeftPosition(int, int)
+  fullName.vb: AshConsoleGraphics.TuiElement.GetTopLeftPosition(Integer, Integer)
+  nameWithType: TuiElement.GetTopLeftPosition(int, int)
+  nameWithType.vb: TuiElement.GetTopLeftPosition(Integer, Integer)
+- uid: AshConsoleGraphics.TuiElement.GetTopLeftPosition*
+  name: GetTopLeftPosition
+  href: api/AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_GetTopLeftPosition_
+  commentId: Overload:AshConsoleGraphics.TuiElement.GetTopLeftPosition
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiElement.GetTopLeftPosition
+  nameWithType: TuiElement.GetTopLeftPosition
 - uid: AshConsoleGraphics.TuiElement.OffsetX
   name: OffsetX
   href: api/AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OffsetX
@@ -2636,14 +2902,7 @@ references:
 - uid: AshConsoleGraphics.TuiElement.OnParentResize
   name: OnParentResize
   href: api/AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OnParentResize
-  commentId: P:AshConsoleGraphics.TuiElement.OnParentResize
-  fullName: AshConsoleGraphics.TuiElement.OnParentResize
-  nameWithType: TuiElement.OnParentResize
-- uid: AshConsoleGraphics.TuiElement.OnParentResize*
-  name: OnParentResize
-  href: api/AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_OnParentResize_
-  commentId: Overload:AshConsoleGraphics.TuiElement.OnParentResize
-  isSpec: "True"
+  commentId: E:AshConsoleGraphics.TuiElement.OnParentResize
   fullName: AshConsoleGraphics.TuiElement.OnParentResize
   nameWithType: TuiElement.OnParentResize
 - uid: AshConsoleGraphics.TuiElement.Placement
@@ -2659,6 +2918,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiElement.Placement
   nameWithType: TuiElement.Placement
+- uid: AshConsoleGraphics.TuiElement.TriggerUpdate
+  name: TriggerUpdate()
+  href: api/AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_TriggerUpdate
+  commentId: M:AshConsoleGraphics.TuiElement.TriggerUpdate
+  fullName: AshConsoleGraphics.TuiElement.TriggerUpdate()
+  nameWithType: TuiElement.TriggerUpdate()
+- uid: AshConsoleGraphics.TuiElement.TriggerUpdate*
+  name: TriggerUpdate
+  href: api/AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_TriggerUpdate_
+  commentId: Overload:AshConsoleGraphics.TuiElement.TriggerUpdate
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiElement.TriggerUpdate
+  nameWithType: TuiElement.TriggerUpdate
 - uid: AshConsoleGraphics.TuiElement.needToGenBuffer
   name: needToGenBuffer
   href: api/AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_needToGenBuffer
@@ -2678,24 +2950,24 @@ references:
   commentId: T:AshConsoleGraphics.TuiFrame
   fullName: AshConsoleGraphics.TuiFrame
   nameWithType: TuiFrame
-- uid: AshConsoleGraphics.TuiFrame.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiFrame(string, uint, uint, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiFrame.html#AshConsoleGraphics_TuiFrame__ctor_System_String_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiFrame.#ctor(System.String,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiFrame.TuiFrame(string, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiFrame.New(String, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFrame.TuiFrame(string, uint, uint, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiFrame.New(String, UInteger, UInteger, Placement, Integer, Integer, CharFormat)
-- uid: AshConsoleGraphics.TuiFrame.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiFrame(uint, uint, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiFrame.html#AshConsoleGraphics_TuiFrame__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiFrame.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(UInteger, UInteger, Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiFrame.TuiFrame(uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiFrame.New(UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiFrame.TuiFrame(uint, uint, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiFrame.New(UInteger, UInteger, Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiFrame.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiFrame(int, int, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiFrame.html#AshConsoleGraphics_TuiFrame__ctor_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiFrame.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(Integer, Integer, Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiFrame.TuiFrame(int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiFrame.New(Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFrame.TuiFrame(int, int, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiFrame.New(Integer, Integer, Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiFrame.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiFrame(string, int, int, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiFrame.html#AshConsoleGraphics_TuiFrame__ctor_System_String_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiFrame.#ctor(System.String,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(String, Integer, Integer, Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiFrame.TuiFrame(string, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiFrame.New(String, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFrame.TuiFrame(string, int, int, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiFrame.New(String, Integer, Integer, Placement, Integer, Integer, CharFormat)
 - uid: AshConsoleGraphics.TuiFrame.#ctor*
   name: TuiFrame
   href: api/AshConsoleGraphics.TuiFrame.html#AshConsoleGraphics_TuiFrame__ctor_
@@ -2790,15 +3062,15 @@ references:
   commentId: T:AshConsoleGraphics.TuiHorizontalLine
   fullName: AshConsoleGraphics.TuiHorizontalLine
   nameWithType: TuiHorizontalLine
-- uid: AshConsoleGraphics.TuiHorizontalLine.#ctor(System.UInt32,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiHorizontalLine(uint, char, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiHorizontalLine.html#AshConsoleGraphics_TuiHorizontalLine__ctor_System_UInt32_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiHorizontalLine.#ctor(System.UInt32,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(UInteger, Char, Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiHorizontalLine.TuiHorizontalLine(uint, char, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiHorizontalLine.New(UInteger, Char, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiHorizontalLine.TuiHorizontalLine(uint, char, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiHorizontalLine.New(UInteger, Char, Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiHorizontalLine.#ctor(System.Int32,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiHorizontalLine(int, char, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiHorizontalLine.html#AshConsoleGraphics_TuiHorizontalLine__ctor_System_Int32_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiHorizontalLine.#ctor(System.Int32,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(Integer, Char, Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiHorizontalLine.TuiHorizontalLine(int, char, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiHorizontalLine.New(Integer, Char, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiHorizontalLine.TuiHorizontalLine(int, char, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiHorizontalLine.New(Integer, Char, Placement, Integer, Integer, CharFormat)
 - uid: AshConsoleGraphics.TuiHorizontalLine.#ctor*
   name: TuiHorizontalLine
   href: api/AshConsoleGraphics.TuiHorizontalLine.html#AshConsoleGraphics_TuiHorizontalLine__ctor_
@@ -2944,15 +3216,15 @@ references:
   commentId: T:AshConsoleGraphics.TuiLog
   fullName: AshConsoleGraphics.TuiLog
   nameWithType: TuiLog
-- uid: AshConsoleGraphics.TuiLog.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiLog(uint, uint, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiLog.html#AshConsoleGraphics_TuiLog__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiLog.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(UInteger, UInteger, Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiLog.TuiLog(uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiLog.New(UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiLog.TuiLog(uint, uint, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiLog.New(UInteger, UInteger, Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiLog.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiLog(int, int, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiLog.html#AshConsoleGraphics_TuiLog__ctor_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiLog.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(Integer, Integer, Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiLog.TuiLog(int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiLog.New(Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiLog.TuiLog(int, int, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiLog.New(Integer, Integer, Placement, Integer, Integer, CharFormat)
 - uid: AshConsoleGraphics.TuiLog.#ctor*
   name: TuiLog
   href: api/AshConsoleGraphics.TuiLog.html#AshConsoleGraphics_TuiLog__ctor_
@@ -3021,6 +3293,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiLog.GenerateBuffer
   nameWithType: TuiLog.GenerateBuffer
+- uid: AshConsoleGraphics.TuiLog.Scroll
+  name: Scroll
+  href: api/AshConsoleGraphics.TuiLog.html#AshConsoleGraphics_TuiLog_Scroll
+  commentId: P:AshConsoleGraphics.TuiLog.Scroll
+  fullName: AshConsoleGraphics.TuiLog.Scroll
+  nameWithType: TuiLog.Scroll
+- uid: AshConsoleGraphics.TuiLog.Scroll*
+  name: Scroll
+  href: api/AshConsoleGraphics.TuiLog.html#AshConsoleGraphics_TuiLog_Scroll_
+  commentId: Overload:AshConsoleGraphics.TuiLog.Scroll
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiLog.Scroll
+  nameWithType: TuiLog.Scroll
 - uid: AshConsoleGraphics.TuiLog.Text
   name: Text
   href: api/AshConsoleGraphics.TuiLog.html#AshConsoleGraphics_TuiLog_Text
@@ -3060,30 +3345,145 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiLog.Ysize
   nameWithType: TuiLog.Ysize
+- uid: AshConsoleGraphics.TuiMultipleLabels
+  name: TuiMultipleLabels
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html
+  commentId: T:AshConsoleGraphics.TuiMultipleLabels
+  fullName: AshConsoleGraphics.TuiMultipleLabels
+  nameWithType: TuiMultipleLabels
+- uid: AshConsoleGraphics.TuiMultipleLabels.#ctor(System.Collections.Generic.IEnumerable{System.String},AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshLib.Formatting.CharFormat})
+  name: TuiMultipleLabels(IEnumerable<string>, Placement, int, int, IEnumerable<CharFormat?>)
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels__ctor_System_Collections_Generic_IEnumerable_System_String__AshConsoleGraphics_Placement_System_Int32_System_Int32_System_Collections_Generic_IEnumerable_AshLib_Formatting_CharFormat__
+  commentId: M:AshConsoleGraphics.TuiMultipleLabels.#ctor(System.Collections.Generic.IEnumerable{System.String},AshConsoleGraphics.Placement,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{AshLib.Formatting.CharFormat})
+  name.vb: New(IEnumerable(Of String), Placement, Integer, Integer, IEnumerable(Of CharFormat))
+  fullName: AshConsoleGraphics.TuiMultipleLabels.TuiMultipleLabels(System.Collections.Generic.IEnumerable<string>, AshConsoleGraphics.Placement, int, int, System.Collections.Generic.IEnumerable<AshLib.Formatting.CharFormat?>)
+  fullName.vb: AshConsoleGraphics.TuiMultipleLabels.New(System.Collections.Generic.IEnumerable(Of String), AshConsoleGraphics.Placement, Integer, Integer, System.Collections.Generic.IEnumerable(Of AshLib.Formatting.CharFormat))
+  nameWithType: TuiMultipleLabels.TuiMultipleLabels(IEnumerable<string>, Placement, int, int, IEnumerable<CharFormat?>)
+  nameWithType.vb: TuiMultipleLabels.New(IEnumerable(Of String), Placement, Integer, Integer, IEnumerable(Of CharFormat))
+- uid: AshConsoleGraphics.TuiMultipleLabels.#ctor*
+  name: TuiMultipleLabels
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels__ctor_
+  commentId: Overload:AshConsoleGraphics.TuiMultipleLabels.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AshConsoleGraphics.TuiMultipleLabels.TuiMultipleLabels
+  fullName.vb: AshConsoleGraphics.TuiMultipleLabels.New
+  nameWithType: TuiMultipleLabels.TuiMultipleLabels
+  nameWithType.vb: TuiMultipleLabels.New
+- uid: AshConsoleGraphics.TuiMultipleLabels.GenerateBuffer
+  name: GenerateBuffer()
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_GenerateBuffer
+  commentId: M:AshConsoleGraphics.TuiMultipleLabels.GenerateBuffer
+  fullName: AshConsoleGraphics.TuiMultipleLabels.GenerateBuffer()
+  nameWithType: TuiMultipleLabels.GenerateBuffer()
+- uid: AshConsoleGraphics.TuiMultipleLabels.GenerateBuffer*
+  name: GenerateBuffer
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_GenerateBuffer_
+  commentId: Overload:AshConsoleGraphics.TuiMultipleLabels.GenerateBuffer
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiMultipleLabels.GenerateBuffer
+  nameWithType: TuiMultipleLabels.GenerateBuffer
+- uid: AshConsoleGraphics.TuiMultipleLabels.GetFormat(System.Int32)
+  name: GetFormat(int)
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_GetFormat_System_Int32_
+  commentId: M:AshConsoleGraphics.TuiMultipleLabels.GetFormat(System.Int32)
+  name.vb: GetFormat(Integer)
+  fullName: AshConsoleGraphics.TuiMultipleLabels.GetFormat(int)
+  fullName.vb: AshConsoleGraphics.TuiMultipleLabels.GetFormat(Integer)
+  nameWithType: TuiMultipleLabels.GetFormat(int)
+  nameWithType.vb: TuiMultipleLabels.GetFormat(Integer)
+- uid: AshConsoleGraphics.TuiMultipleLabels.GetFormat*
+  name: GetFormat
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_GetFormat_
+  commentId: Overload:AshConsoleGraphics.TuiMultipleLabels.GetFormat
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiMultipleLabels.GetFormat
+  nameWithType: TuiMultipleLabels.GetFormat
+- uid: AshConsoleGraphics.TuiMultipleLabels.GetText(System.Int32)
+  name: GetText(int)
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_GetText_System_Int32_
+  commentId: M:AshConsoleGraphics.TuiMultipleLabels.GetText(System.Int32)
+  name.vb: GetText(Integer)
+  fullName: AshConsoleGraphics.TuiMultipleLabels.GetText(int)
+  fullName.vb: AshConsoleGraphics.TuiMultipleLabels.GetText(Integer)
+  nameWithType: TuiMultipleLabels.GetText(int)
+  nameWithType.vb: TuiMultipleLabels.GetText(Integer)
+- uid: AshConsoleGraphics.TuiMultipleLabels.GetText*
+  name: GetText
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_GetText_
+  commentId: Overload:AshConsoleGraphics.TuiMultipleLabels.GetText
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiMultipleLabels.GetText
+  nameWithType: TuiMultipleLabels.GetText
+- uid: AshConsoleGraphics.TuiMultipleLabels.NumberOfLabels
+  name: NumberOfLabels
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_NumberOfLabels
+  commentId: P:AshConsoleGraphics.TuiMultipleLabels.NumberOfLabels
+  fullName: AshConsoleGraphics.TuiMultipleLabels.NumberOfLabels
+  nameWithType: TuiMultipleLabels.NumberOfLabels
+- uid: AshConsoleGraphics.TuiMultipleLabels.NumberOfLabels*
+  name: NumberOfLabels
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_NumberOfLabels_
+  commentId: Overload:AshConsoleGraphics.TuiMultipleLabels.NumberOfLabels
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiMultipleLabels.NumberOfLabels
+  nameWithType: TuiMultipleLabels.NumberOfLabels
+- uid: AshConsoleGraphics.TuiMultipleLabels.SetFormat(System.Int32,AshLib.Formatting.CharFormat)
+  name: SetFormat(int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_SetFormat_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiMultipleLabels.SetFormat(System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: SetFormat(Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiMultipleLabels.SetFormat(int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiMultipleLabels.SetFormat(Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiMultipleLabels.SetFormat(int, CharFormat?)
+  nameWithType.vb: TuiMultipleLabels.SetFormat(Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiMultipleLabels.SetFormat*
+  name: SetFormat
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_SetFormat_
+  commentId: Overload:AshConsoleGraphics.TuiMultipleLabels.SetFormat
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiMultipleLabels.SetFormat
+  nameWithType: TuiMultipleLabels.SetFormat
+- uid: AshConsoleGraphics.TuiMultipleLabels.SetText(System.Int32,System.String)
+  name: SetText(int, string)
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_SetText_System_Int32_System_String_
+  commentId: M:AshConsoleGraphics.TuiMultipleLabels.SetText(System.Int32,System.String)
+  name.vb: SetText(Integer, String)
+  fullName: AshConsoleGraphics.TuiMultipleLabels.SetText(int, string)
+  fullName.vb: AshConsoleGraphics.TuiMultipleLabels.SetText(Integer, String)
+  nameWithType: TuiMultipleLabels.SetText(int, string)
+  nameWithType.vb: TuiMultipleLabels.SetText(Integer, String)
+- uid: AshConsoleGraphics.TuiMultipleLabels.SetText*
+  name: SetText
+  href: api/AshConsoleGraphics.TuiMultipleLabels.html#AshConsoleGraphics_TuiMultipleLabels_SetText_
+  commentId: Overload:AshConsoleGraphics.TuiMultipleLabels.SetText
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiMultipleLabels.SetText
+  nameWithType: TuiMultipleLabels.SetText
 - uid: AshConsoleGraphics.TuiProgressBar
   name: TuiProgressBar
   href: api/AshConsoleGraphics.TuiProgressBar.html
   commentId: T:AshConsoleGraphics.TuiProgressBar
   fullName: AshConsoleGraphics.TuiProgressBar
   nameWithType: TuiProgressBar
-- uid: AshConsoleGraphics.TuiProgressBar.#ctor(System.UInt32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiProgressBar(uint, char, char, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar__ctor_System_UInt32_System_Char_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiProgressBar.#ctor(System.UInt32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(UInteger, Char, Char, Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiProgressBar.TuiProgressBar(uint, char, char, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiProgressBar.New(UInteger, Char, Char, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiProgressBar.TuiProgressBar(uint, char, char, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiProgressBar.New(UInteger, Char, Char, Placement, Integer, Integer, CharFormat)
-- uid: AshConsoleGraphics.TuiProgressBar.#ctor(System.UInt32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name: TuiProgressBar(uint, char, char, Placement, int, int, CharFormat?, CharFormat?)
-  href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar__ctor_System_UInt32_System_Char_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiProgressBar.#ctor(System.UInt32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
-  name.vb: New(UInteger, Char, Char, Placement, Integer, Integer, CharFormat, CharFormat)
-  fullName: AshConsoleGraphics.TuiProgressBar.TuiProgressBar(uint, char, char, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiProgressBar.New(UInteger, Char, Char, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
-  nameWithType: TuiProgressBar.TuiProgressBar(uint, char, char, Placement, int, int, CharFormat?, CharFormat?)
-  nameWithType.vb: TuiProgressBar.New(UInteger, Char, Char, Placement, Integer, Integer, CharFormat, CharFormat)
+- uid: AshConsoleGraphics.TuiProgressBar.#ctor(System.Int32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiProgressBar(int, char, char, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar__ctor_System_Int32_System_Char_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiProgressBar.#ctor(System.Int32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(Integer, Char, Char, Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiProgressBar.TuiProgressBar(int, char, char, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiProgressBar.New(Integer, Char, Char, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiProgressBar.TuiProgressBar(int, char, char, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiProgressBar.New(Integer, Char, Char, Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiProgressBar.#ctor(System.Int32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name: TuiProgressBar(int, char, char, Placement, int, int, CharFormat?, CharFormat?)
+  href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar__ctor_System_Int32_System_Char_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiProgressBar.#ctor(System.Int32,System.Char,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)
+  name.vb: New(Integer, Char, Char, Placement, Integer, Integer, CharFormat, CharFormat)
+  fullName: AshConsoleGraphics.TuiProgressBar.TuiProgressBar(int, char, char, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiProgressBar.New(Integer, Char, Char, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, AshLib.Formatting.CharFormat)
+  nameWithType: TuiProgressBar.TuiProgressBar(int, char, char, Placement, int, int, CharFormat?, CharFormat?)
+  nameWithType.vb: TuiProgressBar.New(Integer, Char, Char, Placement, Integer, Integer, CharFormat, CharFormat)
 - uid: AshConsoleGraphics.TuiProgressBar.#ctor*
   name: TuiProgressBar
   href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar__ctor_
@@ -3191,15 +3591,15 @@ references:
   commentId: T:AshConsoleGraphics.TuiRectangle
   fullName: AshConsoleGraphics.TuiRectangle
   nameWithType: TuiRectangle
-- uid: AshConsoleGraphics.TuiRectangle.#ctor(System.Char,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiRectangle(char, uint, uint, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiRectangle.html#AshConsoleGraphics_TuiRectangle__ctor_System_Char_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiRectangle.#ctor(System.Char,System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(Char, UInteger, UInteger, Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiRectangle.TuiRectangle(char, uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiRectangle.New(Char, UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiRectangle.TuiRectangle(char, uint, uint, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiRectangle.New(Char, UInteger, UInteger, Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiRectangle.#ctor(System.Char,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiRectangle(char, int, int, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiRectangle.html#AshConsoleGraphics_TuiRectangle__ctor_System_Char_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiRectangle.#ctor(System.Char,System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(Char, Integer, Integer, Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiRectangle.TuiRectangle(char, int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiRectangle.New(Char, Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiRectangle.TuiRectangle(char, int, int, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiRectangle.New(Char, Integer, Integer, Placement, Integer, Integer, CharFormat)
 - uid: AshConsoleGraphics.TuiRectangle.#ctor*
   name: TuiRectangle
   href: api/AshConsoleGraphics.TuiRectangle.html#AshConsoleGraphics_TuiRectangle__ctor_
@@ -3281,24 +3681,24 @@ references:
   commentId: T:AshConsoleGraphics.TuiScreen
   fullName: AshConsoleGraphics.TuiScreen
   nameWithType: TuiScreen
-- uid: AshConsoleGraphics.TuiScreen.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name: TuiScreen(uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
-  href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen__ctor_System_UInt32_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
-  commentId: M:AshConsoleGraphics.TuiScreen.#ctor(System.UInt32,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name.vb: New(UInteger, UInteger, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
-  fullName: AshConsoleGraphics.TuiScreen.TuiScreen(uint, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
-  fullName.vb: AshConsoleGraphics.TuiScreen.New(UInteger, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
-  nameWithType: TuiScreen.TuiScreen(uint, uint, Placement, int, int, CharFormat?, params TuiElement[])
-  nameWithType.vb: TuiScreen.New(UInteger, UInteger, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
-- uid: AshConsoleGraphics.TuiScreen.#ctor(System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name: TuiScreen(uint, uint, CharFormat?, params TuiElement[])
-  href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen__ctor_System_UInt32_System_UInt32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
-  commentId: M:AshConsoleGraphics.TuiScreen.#ctor(System.UInt32,System.UInt32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
-  name.vb: New(UInteger, UInteger, CharFormat, ParamArray TuiElement())
-  fullName: AshConsoleGraphics.TuiScreen.TuiScreen(uint, uint, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
-  fullName.vb: AshConsoleGraphics.TuiScreen.New(UInteger, UInteger, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
-  nameWithType: TuiScreen.TuiScreen(uint, uint, CharFormat?, params TuiElement[])
-  nameWithType.vb: TuiScreen.New(UInteger, UInteger, CharFormat, ParamArray TuiElement())
+- uid: AshConsoleGraphics.TuiScreen.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name: TuiScreen(int, int, Placement, int, int, CharFormat?, params TuiElement[])
+  href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen__ctor_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
+  commentId: M:AshConsoleGraphics.TuiScreen.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name.vb: New(Integer, Integer, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
+  fullName: AshConsoleGraphics.TuiScreen.TuiScreen(int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
+  fullName.vb: AshConsoleGraphics.TuiScreen.New(Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
+  nameWithType: TuiScreen.TuiScreen(int, int, Placement, int, int, CharFormat?, params TuiElement[])
+  nameWithType.vb: TuiScreen.New(Integer, Integer, Placement, Integer, Integer, CharFormat, ParamArray TuiElement())
+- uid: AshConsoleGraphics.TuiScreen.#ctor(System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name: TuiScreen(int, int, CharFormat?, params TuiElement[])
+  href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen__ctor_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshConsoleGraphics_TuiElement___
+  commentId: M:AshConsoleGraphics.TuiScreen.#ctor(System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshConsoleGraphics.TuiElement[])
+  name.vb: New(Integer, Integer, CharFormat, ParamArray TuiElement())
+  fullName: AshConsoleGraphics.TuiScreen.TuiScreen(int, int, AshLib.Formatting.CharFormat?, params AshConsoleGraphics.TuiElement[])
+  fullName.vb: AshConsoleGraphics.TuiScreen.New(Integer, Integer, AshLib.Formatting.CharFormat, ParamArray AshConsoleGraphics.TuiElement())
+  nameWithType: TuiScreen.TuiScreen(int, int, CharFormat?, params TuiElement[])
+  nameWithType.vb: TuiScreen.New(Integer, Integer, CharFormat, ParamArray TuiElement())
 - uid: AshConsoleGraphics.TuiScreen.#ctor*
   name: TuiScreen
   href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen__ctor_
@@ -3390,14 +3790,7 @@ references:
 - uid: AshConsoleGraphics.TuiScreen.OnResize
   name: OnResize
   href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_OnResize
-  commentId: P:AshConsoleGraphics.TuiScreen.OnResize
-  fullName: AshConsoleGraphics.TuiScreen.OnResize
-  nameWithType: TuiScreen.OnResize
-- uid: AshConsoleGraphics.TuiScreen.OnResize*
-  name: OnResize
-  href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_OnResize_
-  commentId: Overload:AshConsoleGraphics.TuiScreen.OnResize
-  isSpec: "True"
+  commentId: E:AshConsoleGraphics.TuiScreen.OnResize
   fullName: AshConsoleGraphics.TuiScreen.OnResize
   nameWithType: TuiScreen.OnResize
 - uid: AshConsoleGraphics.TuiScreen.Print
@@ -3413,6 +3806,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiScreen.Print
   nameWithType: TuiScreen.Print
+- uid: AshConsoleGraphics.TuiScreen.SetAllNoNeedGenerateBuffer
+  name: SetAllNoNeedGenerateBuffer()
+  href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_SetAllNoNeedGenerateBuffer
+  commentId: M:AshConsoleGraphics.TuiScreen.SetAllNoNeedGenerateBuffer
+  fullName: AshConsoleGraphics.TuiScreen.SetAllNoNeedGenerateBuffer()
+  nameWithType: TuiScreen.SetAllNoNeedGenerateBuffer()
+- uid: AshConsoleGraphics.TuiScreen.SetAllNoNeedGenerateBuffer*
+  name: SetAllNoNeedGenerateBuffer
+  href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_SetAllNoNeedGenerateBuffer_
+  commentId: Overload:AshConsoleGraphics.TuiScreen.SetAllNoNeedGenerateBuffer
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiScreen.SetAllNoNeedGenerateBuffer
+  nameWithType: TuiScreen.SetAllNoNeedGenerateBuffer
 - uid: AshConsoleGraphics.TuiScreen.Xsize
   name: Xsize
   href: api/AshConsoleGraphics.TuiScreen.html#AshConsoleGraphics_TuiScreen_Xsize
@@ -3445,15 +3851,15 @@ references:
   commentId: T:AshConsoleGraphics.TuiSquare
   fullName: AshConsoleGraphics.TuiSquare
   nameWithType: TuiSquare
-- uid: AshConsoleGraphics.TuiSquare.#ctor(System.Char,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiSquare(char, uint, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiSquare.html#AshConsoleGraphics_TuiSquare__ctor_System_Char_System_UInt32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiSquare.#ctor(System.Char,System.UInt32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(Char, UInteger, Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiSquare.TuiSquare(char, uint, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiSquare.New(Char, UInteger, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiSquare.TuiSquare(char, uint, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiSquare.New(Char, UInteger, Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiSquare.#ctor(System.Char,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiSquare(char, int, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiSquare.html#AshConsoleGraphics_TuiSquare__ctor_System_Char_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiSquare.#ctor(System.Char,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(Char, Integer, Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiSquare.TuiSquare(char, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiSquare.New(Char, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiSquare.TuiSquare(char, int, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiSquare.New(Char, Integer, Placement, Integer, Integer, CharFormat)
 - uid: AshConsoleGraphics.TuiSquare.#ctor*
   name: TuiSquare
   href: api/AshConsoleGraphics.TuiSquare.html#AshConsoleGraphics_TuiSquare__ctor_
@@ -3560,15 +3966,15 @@ references:
   commentId: T:AshConsoleGraphics.TuiVerticalLine
   fullName: AshConsoleGraphics.TuiVerticalLine
   nameWithType: TuiVerticalLine
-- uid: AshConsoleGraphics.TuiVerticalLine.#ctor(System.UInt32,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name: TuiVerticalLine(uint, char, Placement, int, int, CharFormat?)
-  href: api/AshConsoleGraphics.TuiVerticalLine.html#AshConsoleGraphics_TuiVerticalLine__ctor_System_UInt32_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
-  commentId: M:AshConsoleGraphics.TuiVerticalLine.#ctor(System.UInt32,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
-  name.vb: New(UInteger, Char, Placement, Integer, Integer, CharFormat)
-  fullName: AshConsoleGraphics.TuiVerticalLine.TuiVerticalLine(uint, char, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
-  fullName.vb: AshConsoleGraphics.TuiVerticalLine.New(UInteger, Char, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
-  nameWithType: TuiVerticalLine.TuiVerticalLine(uint, char, Placement, int, int, CharFormat?)
-  nameWithType.vb: TuiVerticalLine.New(UInteger, Char, Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiVerticalLine.#ctor(System.Int32,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiVerticalLine(int, char, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiVerticalLine.html#AshConsoleGraphics_TuiVerticalLine__ctor_System_Int32_System_Char_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiVerticalLine.#ctor(System.Int32,System.Char,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(Integer, Char, Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiVerticalLine.TuiVerticalLine(int, char, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiVerticalLine.New(Integer, Char, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiVerticalLine.TuiVerticalLine(int, char, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiVerticalLine.New(Integer, Char, Placement, Integer, Integer, CharFormat)
 - uid: AshConsoleGraphics.TuiVerticalLine.#ctor*
   name: TuiVerticalLine
   href: api/AshConsoleGraphics.TuiVerticalLine.html#AshConsoleGraphics_TuiVerticalLine__ctor_

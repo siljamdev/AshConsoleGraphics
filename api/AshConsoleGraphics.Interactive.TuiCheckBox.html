@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class TuiButton | AshConsoleGraphics </title>
+      <title>Class TuiCheckBox | AshConsoleGraphics </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class TuiButton | AshConsoleGraphics ">
+      <meta name="title" content="Class TuiCheckBox | AshConsoleGraphics ">
       
-      <meta name="description" content="A label pressable with enter">
+      <meta name="description" content="Checkbox (on/off)">
       <link rel="icon" href="../icon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/siljamdev/AshConsoleGraphics/new/main/apiSpec/new?filename=AshConsoleGraphics_Interactive_TuiButton.md&amp;value=---%0Auid%3A%20AshConsoleGraphics.Interactive.TuiButton%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/siljamdev/AshConsoleGraphics/new/main/apiSpec/new?filename=AshConsoleGraphics_Interactive_TuiCheckBox.md&amp;value=---%0Auid%3A%20AshConsoleGraphics.Interactive.TuiCheckBox%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,12 +84,12 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="AshConsoleGraphics.Interactive.TuiButton">
+        <article data-uid="AshConsoleGraphics.Interactive.TuiCheckBox">
 
 
 
-  <h1 id="AshConsoleGraphics_Interactive_TuiButton" data-uid="AshConsoleGraphics.Interactive.TuiButton" class="text-break">
-Class TuiButton  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <h1 id="AshConsoleGraphics_Interactive_TuiCheckBox" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox" class="text-break">
+Class TuiCheckBox  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L392"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,12 +97,12 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
   <dl><dt>Assembly</dt><dd>AshConsoleGraphics.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>A label pressable with enter</p>
+  <div class="markdown summary"><p>Checkbox (on/off)</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TuiButton : TuiSelectable</code></pre>
+    <pre><code class="lang-csharp hljs">public class TuiCheckBox : TuiSelectable</code></pre>
   </div>
 
 
@@ -114,11 +114,17 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
       <div><a class="xref" href="AshConsoleGraphics.TuiElement.html">TuiElement</a></div>
       <div><a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html">TuiSelectable</a></div>
-      <div><span class="xref">TuiButton</span></div>
+      <div><span class="xref">TuiCheckBox</span></div>
     </dd>
   </dl>
 
 
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="AshConsoleGraphics.Interactive.TuiFramedCheckBox.html">TuiFramedCheckBox</a></div>
+    </dd>
+  </dl>
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
@@ -203,25 +209,31 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
 </h2>
 
 
-  <a id="AshConsoleGraphics_Interactive_TuiButton__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiButton.#ctor*"></a>
+  <a id="AshConsoleGraphics_Interactive_TuiCheckBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiButton__ctor_System_String_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiButton.#ctor(System.String,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiButton(string, Placement, int, int, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiCheckBox__ctor_System_Char_System_Char_System_Boolean_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.#ctor(System.Char,System.Char,System.Boolean,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiCheckBox(char, char, bool, Placement, int, int, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L476"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new button with the same text color when selected and when not</p>
+  <div class="markdown level1 summary"><p>Initializes a new framed checkbox with the same colors when selected and not selected</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiButton(string t, Placement p, int x, int y, CharFormat? f = null, CharFormat? pf = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiCheckBox(char u, char c, bool b, Placement p, int x, int y, CharFormat? cf = null, CharFormat? pf = null)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Text to display</p>
+    <dt><code>u</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>Unchecked char</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>Checked char</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If the checkbox is initially checked or not</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
     <dd></dd>
@@ -229,8 +241,8 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
-    <dd><p>Text format</p>
+    <dt><code>cf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Check format</p>
 </dd>
     <dt><code>pf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
     <dd><p>Selector format</p>
@@ -248,25 +260,31 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
 
 
 
-  <a id="AshConsoleGraphics_Interactive_TuiButton__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiButton.#ctor*"></a>
+  <a id="AshConsoleGraphics_Interactive_TuiCheckBox__ctor_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.#ctor*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiButton__ctor_System_String_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiButton.#ctor(System.String,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
-  TuiButton(string, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiCheckBox__ctor_System_Char_System_Char_System_Boolean_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_AshLib_Formatting_CharFormat_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.#ctor(System.Char,System.Char,System.Boolean,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat,AshLib.Formatting.CharFormat)">
+  TuiCheckBox(char, char, bool, Placement, int, int, CharFormat?, CharFormat?, CharFormat?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L456"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new button with all colors</p>
+  <div class="markdown level1 summary"><p>Initializes a new framed checkbox</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiButton(string t, Placement p, int x, int y, CharFormat? f, CharFormat? sf, CharFormat? pf)</code></pre>
+    <pre><code class="lang-csharp hljs">public TuiCheckBox(char u, char c, bool b, Placement p, int x, int y, CharFormat? cf, CharFormat? scf, CharFormat? pf)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>Text to display</p>
+    <dt><code>u</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>Unchecked char</p>
+</dd>
+    <dt><code>c</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd><p>Checked char</p>
+</dd>
+    <dt><code>b</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If the checkbox is initially checked or not</p>
 </dd>
     <dt><code>p</code> <a class="xref" href="AshConsoleGraphics.Placement.html">Placement</a></dt>
     <dd></dd>
@@ -274,11 +292,11 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
     <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>f</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
-    <dd><p>Not selected text format</p>
+    <dt><code>cf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Not selected check format</p>
 </dd>
-    <dt><code>sf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
-    <dd><p>Selected text format</p>
+    <dt><code>scf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd><p>Selected check format</p>
 </dd>
     <dt><code>pf</code> <a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
     <dd><p>Selector format</p>
@@ -300,19 +318,19 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
 </h2>
 
 
-  <a id="AshConsoleGraphics_Interactive_TuiButton_SelectedTextFormat_" data-uid="AshConsoleGraphics.Interactive.TuiButton.SelectedTextFormat*"></a>
+  <a id="AshConsoleGraphics_Interactive_TuiCheckBox_CheckFormat_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.CheckFormat*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiButton_SelectedTextFormat" data-uid="AshConsoleGraphics.Interactive.TuiButton.SelectedTextFormat">
-  SelectedTextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiCheckBox_CheckFormat" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.CheckFormat">
+  CheckFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L405"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Selected text charachter format</p>
+  <div class="markdown level1 summary"><p>Not selected check charachter format</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CharFormat? SelectedTextFormat { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public CharFormat? CheckFormat { get; set; }</code></pre>
   </div>
 
 
@@ -332,11 +350,107 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
 
 
 
-  <a id="AshConsoleGraphics_Interactive_TuiButton_SelectorFormat_" data-uid="AshConsoleGraphics.Interactive.TuiButton.SelectorFormat*"></a>
+  <a id="AshConsoleGraphics_Interactive_TuiCheckBox_Checked_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.Checked*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiButton_SelectorFormat" data-uid="AshConsoleGraphics.Interactive.TuiButton.SelectorFormat">
+  <h3 id="AshConsoleGraphics_Interactive_TuiCheckBox_Checked" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.Checked">
+  Checked
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L396"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If its checked or not</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Checked { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiCheckBox_CheckedChar_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.CheckedChar*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiCheckBox_CheckedChar" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.CheckedChar">
+  CheckedChar
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L441"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Check carachter when the checkbox is checked</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public char CheckedChar { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiCheckBox_SelectedCheckFormat_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.SelectedCheckFormat*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiCheckBox_SelectedCheckFormat" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.SelectedCheckFormat">
+  SelectedCheckFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L414"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selected check charachter format</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CharFormat? SelectedCheckFormat { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AshConsoleGraphics_Interactive_TuiCheckBox_SelectorFormat_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.SelectorFormat*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiCheckBox_SelectorFormat" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.SelectorFormat">
   SelectorFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L423"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Format of the selector pads '&gt;' '&lt;' that surround the element when selcted</p>
@@ -364,19 +478,19 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
 
 
 
-  <a id="AshConsoleGraphics_Interactive_TuiButton_Text_" data-uid="AshConsoleGraphics.Interactive.TuiButton.Text*"></a>
+  <a id="AshConsoleGraphics_Interactive_TuiCheckBox_UnCheckedChar_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.UnCheckedChar*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiButton_Text" data-uid="AshConsoleGraphics.Interactive.TuiButton.Text">
-  Text
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AshConsoleGraphics_Interactive_TuiCheckBox_UnCheckedChar" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.UnCheckedChar">
+  UnCheckedChar
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L432"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Text to show</p>
+  <div class="markdown level1 summary"><p>Check carachter when the checkbox is unchecked</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Text { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public char UnCheckedChar { get; set; }</code></pre>
   </div>
 
 
@@ -385,39 +499,7 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiButton_TextFormat_" data-uid="AshConsoleGraphics.Interactive.TuiButton.TextFormat*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiButton_TextFormat" data-uid="AshConsoleGraphics.Interactive.TuiButton.TextFormat">
-  TextFormat
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L25"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Not selected text charachter format</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CharFormat? TextFormat { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://github.com/siljamdev/AshLib/blob/main/documentation/AshLibReferenceDocumentation.pdf">CharFormat</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
     <dd></dd>
   </dl>
 
@@ -432,11 +514,11 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
 </h2>
 
 
-  <a id="AshConsoleGraphics_Interactive_TuiButton_GenerateBuffer_" data-uid="AshConsoleGraphics.Interactive.TuiButton.GenerateBuffer*"></a>
+  <a id="AshConsoleGraphics_Interactive_TuiCheckBox_GenerateBuffer_" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.GenerateBuffer*"></a>
 
-  <h3 id="AshConsoleGraphics_Interactive_TuiButton_GenerateBuffer" data-uid="AshConsoleGraphics.Interactive.TuiButton.GenerateBuffer">
+  <h3 id="AshConsoleGraphics_Interactive_TuiCheckBox_GenerateBuffer" data-uid="AshConsoleGraphics.Interactive.TuiCheckBox.GenerateBuffer">
   GenerateBuffer()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L479"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The method that generates the element's buffer</p>
@@ -451,44 +533,6 @@ Class TuiButton  <a class="header-action link-secondary" title="View source" hre
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="AshConsoleGraphics.Buffer.html">Buffer</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AshConsoleGraphics_Interactive_TuiButton_SetAction_" data-uid="AshConsoleGraphics.Interactive.TuiButton.SetAction*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_TuiButton_SetAction_System_Action_AshConsoleGraphics_Interactive_TuiSelectable_System_ConsoleKeyInfo__" data-uid="AshConsoleGraphics.Interactive.TuiButton.SetAction(System.Action{AshConsoleGraphics.Interactive.TuiSelectable,System.ConsoleKeyInfo})">
-  SetAction(Action&lt;TuiSelectable, ConsoleKeyInfo&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/Selectables.cs/#L75"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Sets the enter action of the button</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TuiButton SetAction(Action&lt;TuiSelectable, ConsoleKeyInfo&gt; a)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>a</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html">TuiSelectable</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a>&gt;</dt>
-    <dd><p>Action</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="AshConsoleGraphics.Interactive.TuiButton.html">TuiButton</a></dt>
     <dd></dd>
   </dl>
 
