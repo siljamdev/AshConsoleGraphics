@@ -24,6 +24,16 @@ internal static class FastConsole{
 	lock (str) str.Flush(); }
 }
 
+public class ResizeArgs : EventArgs{
+	public readonly int X;
+	public readonly int Y;
+	
+	public ResizeArgs(int x, int y){
+		X = x;
+		Y = y;
+	}
+}
+
 /// <summary>
 /// Elements that can work as connected lines
 /// </summary>

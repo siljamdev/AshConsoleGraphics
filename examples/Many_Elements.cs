@@ -34,8 +34,8 @@ class Program{
 			if(Console.KeyAvailable){
 				ConsoleKey k = Console.ReadKey(true).Key;
 				if(k == ConsoleKey.A){
-					SmallScreen.Xsize = (uint) (1 + rand.Next(90)); //Randomize internal screen size
-					SmallScreen.Ysize = (uint) (1 + rand.Next(16));
+					SmallScreen.Xsize = (1 + rand.Next(90)); //Randomize internal screen size
+					SmallScreen.Ysize = (1 + rand.Next(16));
 					//Add another element
 					BigScreen.Elements.Add(new AshConsoleGraphics.TuiLabel("bbb", Placement.TopLeft, rand.Next(100), 1 + rand.Next(19), new CharFormat(new Color3((byte) rand.Next(256), (byte) rand.Next(256), (byte) rand.Next(256)))));
 				}else if(k == ConsoleKey.Escape){

@@ -4,96 +4,6 @@ using AshLib.Formatting;
 
 namespace AshConsoleGraphics;
 
-//Graphic elements
-
-/// <summary>
-/// Element of a screen
-/// </summary>
-public abstract class TuiElement{
-	/// <summary>
-	/// Offset in the X coordinate from its relative position
-	/// </summary>
-	public int OffsetX {get;
-	set{
-		field = value;
-		needToGenScreenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Offset in the Y coordinate from its relative position
-	/// </summary>
-	public int OffsetY {get;
-	set{
-		field = value;
-		needToGenScreenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Relative placement to its parent screen
-	/// </summary>
-	public Placement Placement {get;
-	set{
-		field = value;
-		needToGenScreenBuffer = true;
-	}}
-	
-	private Buffer _buffer;
-	public Buffer Buffer{
-	get{
-		if(BufferNeedsToBeGenerated()){
-			_buffer = GenerateBuffer();
-			needToGenBuffer = false;
-		}
-		return _buffer;
-	}}
-	
-	/// <summary>
-	/// Set this to true when the buffer needs to be regenerated
-	/// </summary>
-	protected bool needToGenBuffer {get;
-	set{
-		field = value;
-		if(needToGenBuffer){
-			needToGenScreenBuffer = true;
-		}
-	}} = true;
-	
-	internal bool needToGenScreenBuffer = true;
-	
-	/// <summary>
-	/// Will be called when parent screen resizes
-	/// </summary>
-	public Action<TuiScreen>? OnParentResize {internal get; set;}
-	
-	/// <summary>
-	/// Initializes a new element
-	/// </summary>
-	/// <param name="p">The relative placement method</param>
-	/// <param name="x">The relative x offset</param>
-	/// <param name="y">The relative x offset</param>
-	protected TuiElement(Placement p, int x, int y){
-		Placement = p;
-		OffsetX = x;
-		OffsetY = y;
-	}
-	
-	/// <summary>
-	/// The method that generates the element's buffer
-	/// </summary>
-	abstract protected Buffer GenerateBuffer();
-	
-	/// <summary>
-	/// In most cases, the base implementation is enough
-	/// </summary>
-	virtual protected bool BufferNeedsToBeGenerated(){
-		return needToGenBuffer;
-	}
-	
-	virtual internal bool ScreenNeedsToBeGenerated(){
-		return needToGenScreenBuffer;
-	}
-}
-
 /// <summary>
 /// Just some text
 /// </summary>
@@ -149,7 +59,7 @@ public class TuiTwoLabels : TuiElement{
 	}}
 	
 	/// <summary>
-	/// Left label format format
+	/// Left label format
 	/// </summary>
 	public CharFormat? LeftFormat {get;
 	set{
@@ -158,7 +68,7 @@ public class TuiTwoLabels : TuiElement{
 	}}
 	
 	/// <summary>
-	/// Right label format format
+	/// Right label format
 	/// </summary>
 	public CharFormat? RightFormat {get;
 	set{
@@ -191,17 +101,107 @@ public class TuiTwoLabels : TuiElement{
 }
 
 /// <summary>
+/// Two labels side by side, left and right text
+/// </summary>
+public class TuiMultipleLabels : TuiElement{
+	string[] Texts;
+	
+	CharFormat?[] Formats;
+	
+	/// <summary>
+	/// Count of labels
+	/// </summary>
+	public int NumberOfLabels{
+		get{
+			return Texts.Length;
+		}
+	}
+	
+	/// <summary>
+	/// Initializes a new label
+	/// </summary>
+	/// <param name="text">The text</param>
+	/// <param name="f">The format</param>
+	public TuiMultipleLabels(IEnumerable<string> ts, Placement p, int x, int y, IEnumerable<CharFormat?> f = null) : base(p, x, y){
+		if(ts == null){
+			throw new ArgumentNullException(nameof(ts));
+		}
+		
+		Texts = ts.ToArray();
+		f ??= new CharFormat?[Texts.Length];
+		Formats = f.ToArray();
+		
+		if(Texts.Length != Formats.Length){
+			throw new Exception("Texts and format enumerations must be of the same length");
+		}
+	}
+	
+	public bool SetText(int index, string text){
+		if(index < 0 || index >= Texts.Length){
+			return false;
+		}
+		
+		Texts[index] = text;
+		needToGenBuffer = true;
+		return true;
+	}
+	
+	public string GetText(int index){
+		if(index < 0 || index >= Texts.Length){
+			return null;
+		}
+		
+		return Texts[index];
+	}
+	
+	public bool SetFormat(int index, CharFormat? format){
+		if(index < 0 || index >= Formats.Length){
+			return false;
+		}
+		
+		Formats[index] = format;
+		needToGenBuffer = true;
+		return true;
+	}
+	
+	public CharFormat? GetFormat(int index){
+		if(index < 0 || index >= Formats.Length){
+			return null;
+		}
+		
+		return Formats[index];
+	}
+	
+	override protected Buffer GenerateBuffer(){
+		Buffer b = new Buffer(Texts.Sum(s => s?.Length ?? 0), 1);
+		int c = 0;
+		for(int i = 0; i < Texts.Length; i++){
+			for(int j = 0; j < Texts[i].Length; j++, c++){
+				b.SetChar(c, 0, Texts[i][j], Formats[i]);
+			}
+		}
+		return b;
+	}
+}
+
+/// <summary>
 /// A solid rectangle of a single charachter
 /// </summary>
 public class TuiRectangle : TuiElement{
-	public uint Xsize {get;
+	public int Xsize {get;
 	set{
+		if(value < 0){
+			return;
+		}
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
-	public uint Ysize {get;
+	public int Ysize {get;
 	set{
+		if(value < 0){
+			return;
+		}
 		field = value;
 		needToGenBuffer = true;
 	}}
@@ -231,7 +231,7 @@ public class TuiRectangle : TuiElement{
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
 	/// <param name="f">The format</param>
-	public TuiRectangle(char c, uint xs, uint ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+	public TuiRectangle(char c, int xs, int ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
 		Format = f;
 		Char = c;
 		Xsize = xs;
@@ -257,21 +257,27 @@ public class TuiSquare : TuiRectangle{
 	/// Initializes a new square
 	/// </summary>
 	/// <param name="s">The x and y size</param>
-	public TuiSquare(char c, uint s, Placement p, int x, int y, CharFormat? f = null) : base(c, s, s, p, x, y, f){}
+	public TuiSquare(char c, int s, Placement p, int x, int y, CharFormat? f = null) : base(c, s, s, p, x, y, f){}
 }
 
 /// <summary>
 /// An empty on the inside frame with 8 different charachters
 /// </summary>
 public class TuiFrame : TuiElement, ILineElement{
-	public uint Xsize {get;
+	public int Xsize {get;
 	set{
+		if(value < 0){
+			return;
+		}
 		field = value;
 		needToGenBuffer = true;
 	}}
 	
-	public uint Ysize {get;
+	public int Ysize {get;
 	set{
+		if(value < 0){
+			return;
+		}
 		field = value;
 		needToGenBuffer = true;
 	}}
@@ -304,7 +310,7 @@ public class TuiFrame : TuiElement, ILineElement{
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
 	/// <param name="f">The format</param>
-	public TuiFrame(string chars, uint xs, uint ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+	public TuiFrame(string chars, int xs, int ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
 		if(chars == null || chars.Length != 8){
 			chars = "┌┐└┘──││";
 		}
@@ -322,25 +328,25 @@ public class TuiFrame : TuiElement, ILineElement{
 	/// <param name="xs">The x size</param>
 	/// <param name="ys">The y size</param>
 	/// <param name="f">The format</param>
-	public TuiFrame(uint xs, uint ys, Placement p, int x, int y, CharFormat? f = null) : this(null, xs, ys, p, x, y, f){}
+	public TuiFrame(int xs, int ys, Placement p, int x, int y, CharFormat? f = null) : this(null, xs, ys, p, x, y, f){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, Ysize);
 		
 		for(int i = 1; i < Xsize - 1; i++){
 			b.SetChar(i, 0, Chars[4], Format);
-			b.SetChar(i, (int) Ysize - 1, Chars[5], Format);
+			b.SetChar(i, Ysize - 1, Chars[5], Format);
 		}
 		
 		for(int i = 1; i < Ysize - 1; i++){
 			b.SetChar(0, i, Chars[6], Format);
-			b.SetChar((int) Xsize - 1, i, Chars[7], Format);
+			b.SetChar(Xsize - 1, i, Chars[7], Format);
 		}
 		
 		b.SetChar(0, 0, Chars[0], Format);
-		b.SetChar((int) Xsize - 1, 0, Chars[1], Format);
-		b.SetChar(0, (int) Ysize - 1, Chars[2], Format);
-		b.SetChar((int) Xsize - 1, (int) Ysize - 1, Chars[3], Format);
+		b.SetChar(Xsize - 1, 0, Chars[1], Format);
+		b.SetChar(0, Ysize - 1, Chars[2], Format);
+		b.SetChar(Xsize - 1, Ysize - 1, Chars[3], Format);
 		
 		return b;
 	}
@@ -350,12 +356,12 @@ public class TuiFrame : TuiElement, ILineElement{
 		
 		for(int i = 0; i < Xsize; i++){
 			b.SetBit(i, 0, true);
-			b.SetBit(i, (int) Ysize - 1, true);
+			b.SetBit(i, Ysize - 1, true);
 		}
 		
 		for(int i = 0; i < Ysize; i++){
 			b.SetBit(0, i, true);
-			b.SetBit((int) Xsize - 1, i, true);
+			b.SetBit(Xsize - 1, i, true);
 		}
 		
 		return b;
@@ -366,8 +372,11 @@ public class TuiFrame : TuiElement, ILineElement{
 /// Straight horizontal line
 /// </summary>
 public class TuiHorizontalLine : TuiElement, ILineElement{
-	public uint Xsize {get;
+	public int Xsize {get;
 	set{
+		if(value < 0){
+			return;
+		}
 		field = value;
 		needToGenBuffer = true;
 	}}
@@ -396,7 +405,7 @@ public class TuiHorizontalLine : TuiElement, ILineElement{
 	/// <param name="xs">The x size</param>
 	/// <param name="c">The char</param>
 	/// <param name="f">The format</param>
-	public TuiHorizontalLine(uint xs, char c, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+	public TuiHorizontalLine(int xs, char c, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
 		Format = f;
 		Xsize = xs;
 		Char = c;
@@ -419,8 +428,11 @@ public class TuiHorizontalLine : TuiElement, ILineElement{
 /// Straight vertical line
 /// </summary>
 public class TuiVerticalLine : TuiElement, ILineElement{
-	public uint Ysize {get;
+	public int Ysize {get;
 	set{
+		if(value < 0){
+			return;
+		}
 		field = value;
 		needToGenBuffer = true;
 	}}
@@ -449,7 +461,7 @@ public class TuiVerticalLine : TuiElement, ILineElement{
 	/// <param name="ys">The y size</param>
 	/// <param name="c">The char</param>
 	/// <param name="f">The format</param>
-	public TuiVerticalLine(uint ys, char c, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+	public TuiVerticalLine(int ys, char c, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
 		Format = f;
 		Ysize = ys;
 		Char = c;
@@ -472,8 +484,11 @@ public class TuiVerticalLine : TuiElement, ILineElement{
 /// A progress bar with a percentage of filled
 /// </summary>
 public class TuiProgressBar : TuiElement{
-	public uint Xsize {get;
+	public int Xsize {get;
 	set{
+		if(value < 0){
+			return;
+		}
 		field = value;
 		needToGenBuffer = true;
 	}}
@@ -501,10 +516,7 @@ public class TuiProgressBar : TuiElement{
 	/// </summary>
 	public int Percentage {get;
 	set{
-		if(value < 0 || value > 100){
-			return;
-		}
-		field = value;
+		field = Math.Clamp(value, 0, 100);
 		needToGenBuffer = true;
 	}}
 	
@@ -534,7 +546,7 @@ public class TuiProgressBar : TuiElement{
 	/// <param name="u">The not filled char</param>
 	/// <param name="cf">The filled char format</param>
 	/// <param name="uf">The not filled char format</param>
-	public TuiProgressBar(uint xs, char c, char u, Placement p, int x, int y, CharFormat? cf, CharFormat? uf) : base(p, x, y){
+	public TuiProgressBar(int xs, char c, char u, Placement p, int x, int y, CharFormat? cf, CharFormat? uf) : base(p, x, y){
 		CompleteFormat = cf;
 		IncompleteFormat = uf;
 		
@@ -550,12 +562,12 @@ public class TuiProgressBar : TuiElement{
 	/// <param name="c">The filled char</param>
 	/// <param name="u">The not filled char</param>
 	/// <param name="f">The format</param>
-	public TuiProgressBar(uint xs, char c, char u, Placement p, int x, int y, CharFormat? f = null) : this(xs, c, u, p, x, y, f, f){}
+	public TuiProgressBar(int xs, char c, char u, Placement p, int x, int y, CharFormat? f = null) : this(xs, c, u, p, x, y, f, f){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, 1);
 		
-		int completeChars = Percentage * (int) Xsize / 100;
+		int completeChars = Percentage * Xsize / 100;
 		
 		for(int i = 0; i < completeChars; i++){
 			b.SetChar(i, 0, CompleteChar, CompleteFormat);
@@ -568,29 +580,43 @@ public class TuiProgressBar : TuiElement{
 }
 
 /// <summary>
-/// A rectangle for words that separates words into different lines and shows the last lines
+/// A rectangle for words that separates words into different lines
 /// </summary>
 public class TuiLog : TuiElement{
-	public uint Xsize {get;
+	public int Xsize {get;
 	set{
+		if(value < 0){
+			return;
+		}
 		field = value;
 		needToGenBuffer = true;
+		generateLines();
 	}}
 	
-	public uint Ysize {get;
+	public int Ysize {get;
 	set{
+		if(value < 0){
+			return;
+		}
 		field = value;
 		needToGenBuffer = true;
+		generateLines();
 	}}
+	
+	private string _text = "";
 	
 	/// <summary>
 	/// The whole text
 	/// </summary>
-	public string Text {get;
-	set{
-		field = value;
+	public string Text {get{
+		return _text;
+	} set{
+		_text = value;
 		needToGenBuffer = true;
+		generateLines();
 	}}
+	
+	private List<string> lines;
 	
 	/// <summary>
 	/// Charachter format
@@ -602,9 +628,21 @@ public class TuiLog : TuiElement{
 	}}
 	
 	/// <summary>
+	/// How much the text is scrolled
+	/// </summary>
+	public int Scroll {get;
+	set{
+		if(value < 0){
+			return;
+		}
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
 	/// Initializes a new log
 	/// </summary>
-	public TuiLog(uint xs, uint ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+	public TuiLog(int xs, int ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
 		Format = f;
 		
 		Xsize = xs;
@@ -617,28 +655,50 @@ public class TuiLog : TuiElement{
 	/// Appends some text. Analog of Console.Write
 	/// </summary>
 	public void Append(string s){
-		Text += s;
+		string[] pars = s.Split(new string[]{"\r\n", "\n", "\r"}, StringSplitOptions.None);
+		
+		//Console.WriteLine(s);
+		//Console.WriteLine(pars.Length);
+		//Console.WriteLine(DivideLines("", 30).Length);
+		
+		if(pars.Length == 1){
+			string t = lines[^1] + pars[0];
+			lines.RemoveAt(lines.Count - 1);
+			lines.AddRange(DivideLines(t, Xsize));
+		}else if(pars.Length > 1){
+			string t = lines[^1] + pars[0];
+			lines.RemoveAt(lines.Count - 1);
+			lines.AddRange(DivideLines(t, Xsize));
+			
+			foreach(string l in pars.Skip(1)){
+				lines.AddRange(DivideLines(l, Xsize));
+			}
+		}
+		
+		//Console.ReadKey();
+		
+		_text += s;
+		
+		needToGenBuffer = true;
 	}
 	
 	/// <summary>
 	/// Appends some text and ends the line. Analog of Console.WriteLine
 	/// </summary>
 	public void AppendLine(string s){
-		Text += s + Environment.NewLine;
+		Append(s + Environment.NewLine);
 	}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, Ysize);
 		
-		string[] pars = Text.Split(new string[]{"\r\n", "\n", "\r"}, StringSplitOptions.None);
+		string[] pars;
 		
-		List<string> lines = new List<string>();
-		
-		foreach(string l in pars){
-			lines.AddRange(DivideLines(l, (int) Xsize));
+		if(lines.Count > Ysize){
+			pars = lines.GetRange(Math.Max(0, lines.Count - Ysize - Scroll), Ysize).ToArray();
+		}else{
+			pars = lines.ToArray();
 		}
-		
-		pars = lines.TakeLast((int) Ysize).ToArray();
 		
 		for(int i = 0; i < Xsize; i++){
 			for(int j = 0; j < Ysize; j++){
@@ -655,9 +715,28 @@ public class TuiLog : TuiElement{
 		return b;
 	}
 	
+	internal void generateLines(){
+		string[] pars = _text.Split(new string[]{"\r\n", "\n", "\r"}, StringSplitOptions.None);
+		
+		List<string> ls = new List<string>();
+		
+		foreach(string l in pars){
+			ls.AddRange(DivideLines(l, Xsize));
+		}
+		
+		if(ls.Count == 0){
+			ls.Add("");
+		}
+		
+		lines = ls;
+	}
+	
 	static string[] DivideLines(string input, int maxCharsPerLine){
+		if(input.Length == 0){
+			return new string[]{""};
+		}
         List<string> lines = new List<string>();
-        string[] words = input.Split(new string[]{" ", "\n", "\r"}, StringSplitOptions.None);
+        string[] words = input.Split(new string[]{" ", "\t"}, StringSplitOptions.None);	
         string currentLine = "";
 
         foreach(string word in words){
@@ -695,3 +774,230 @@ public class TuiLog : TuiElement{
         return lines.ToArray();
     }
 }
+
+/* /// <summary>
+/// A rectangle for words that separates words into different lines and has format
+/// </summary>
+public class TuiFormatLog : TuiElement{
+	public int Xsize {get;
+	set{
+		if(value < 0){
+			return;
+		}
+		field = value;
+		needToGenBuffer = true;
+		generateLines();
+	}}
+	
+	public int Ysize {get;
+	set{
+		if(value < 0){
+			return;
+		}
+		field = value;
+		needToGenBuffer = true;
+		generateLines();
+	}}
+	
+	private FormatString _text = new FormatString();
+	
+	/// <summary>
+	/// The whole text
+	/// </summary>
+	public FormatString Text {get{
+		return _text;
+	} set{
+		_text = value;
+		needToGenBuffer = true;
+		generateLines();
+	}}
+	
+	private List<FormatString> lines;
+	
+	/// <summary>
+	/// Default format
+	/// </summary>
+	public CharFormat? DefFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// How much the text is scrolled
+	/// </summary>
+	public int Scroll {get;
+	set{
+		if(value < 0){
+			return;
+		}
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Initializes a new log
+	/// </summary>
+	public TuiFormatLog(int xs, int ys, Placement p, int x, int y, CharFormat? f = null) : base(p, x, y){
+		DefFormat = f;
+		
+		Xsize = xs;
+		Ysize = ys;
+		
+		Text = "";
+	}
+	
+	/// <summary>
+	/// Appends some text. Analog of Console.Write
+	/// </summary>
+	public void Append(string s, CharFormat? f){
+		string[] pars = s.Split(new string[]{"\r\n", "\n", "\r"}, StringSplitOptions.None);
+		
+		//Console.WriteLine(s);
+		//Console.WriteLine(pars.Length);
+		//Console.WriteLine(DivideLines("", 30).Length);
+		
+		if(pars.Length == 1){
+			FormatString t = FormatString.Clone(lines[^1]);
+			t.Append(pars[0], f);
+			lines.RemoveAt(lines.Count - 1);
+			lines.AddRange(DivideLines(t, Xsize));
+		}else if(pars.Length > 1){
+			FormatString t = FormatString.Clone(lines[^1]);
+			t.Append(pars[0], f);
+			lines.RemoveAt(lines.Count - 1);
+			lines.AddRange(DivideLines(t, Xsize));
+			
+			foreach(string l in pars.Skip(1)){
+				lines.AddRange(DivideLines(new FormatString(l, f), Xsize));
+			}
+		}
+		
+		//Console.ReadKey();
+		
+		_text.Append(s, f);
+		
+		needToGenBuffer = true;
+	}
+	
+	/// <summary>
+	/// Appends some text and ends the line. Analog of Console.WriteLine
+	/// </summary>
+	public void AppendLine(string s, CharFormat? f){
+		Append(s + Environment.NewLine, f);
+	}
+	
+	override protected Buffer GenerateBuffer(){
+		Buffer b = new Buffer(Xsize, Ysize);
+		
+		FormatString[] pars;
+		
+		if(lines.Count > Ysize){
+			pars = lines.GetRange(Math.Max(0, lines.Count - Ysize - Scroll), Ysize).ToArray();
+		}else{
+			pars = lines.ToArray();
+		}
+		
+		for(int i = 0; i < Xsize; i++){
+			for(int j = 0; j < Ysize; j++){
+				b.SetChar(i, j, null, DefFormat);
+			}
+		}
+		
+		for(int i = 0; i < pars.Length; i++){
+			int j = 0;
+			foreach((char c, CharFormat? f) in pars[i]){
+				b.SetChar(j, i, c, combine(f, DefFormat));
+				j++;
+			}
+		}
+		
+		return b;
+	}
+	
+	internal void generateLines(){
+		FormatString[] pars = _text.SplitIntoLines();
+		
+		List<FormatString> ls = new List<FormatString>();
+		
+		foreach(FormatString l in pars){
+			ls.AddRange(DivideLines(l, Xsize));
+		}
+		
+		if(ls.Count == 0){
+			ls.Add("");
+		}
+		
+		lines = ls;
+	}
+	
+	static FormatString[] DivideLines(FormatString input, int maxCharsPerLine){
+		if(input.Length == 0){
+			return new FormatString[]{""};
+		}
+        List<FormatString> lines = new List<FormatString>();
+        FormatString[] words = splitWords(input);	
+        FormatString currentLine = new FormatString();
+
+        foreach(FormatString word in words){
+            if(word.Length > maxCharsPerLine){
+                // Break up long words if they exceed maxCharsPerLine
+                if(currentLine.Length > 0){
+                    lines.Add(currentLine);
+                    currentLine = new FormatString();
+                }
+
+                for(int i = 0; i < word.Length; i += maxCharsPerLine){
+                    int length = Math.Min(maxCharsPerLine, word.Length - i);
+                    lines.Add(word.Substring(i, length));
+                }
+            }else if(currentLine.Length + word.Length + 1 <= maxCharsPerLine){
+                // Add the word to the current line if it fits
+                if(currentLine.Length > 0){
+                    currentLine.Append(" ", (CharFormat?) null);
+                }
+                currentLine.Append(word);
+            }else{
+                // Start a new line if the word doesn't fit
+                if(currentLine.Length > 0){
+                    lines.Add(currentLine);
+                }
+                currentLine = word;
+            }
+        }
+
+        // Add the last line if not empty
+        if(currentLine.Length > 0){
+            lines.Add(currentLine);
+        }
+
+        return lines.ToArray();
+    }
+	
+	static FormatString[] splitWords(FormatString s){
+		List<FormatString> words = new();
+		FormatString current = new FormatString();
+		foreach((char c, CharFormat? f) in s){
+			if(c == ' ' || c == '\t'){
+				words.Add(current);
+				current = new FormatString();
+			}else{
+				current.Append(c, f);
+			}
+		}
+		words.Add(current);
+		
+		return words.ToArray();
+	}
+	
+	static CharFormat? combine(CharFormat? a, CharFormat? b){
+		if(a == null){
+			return b;
+		}
+		if(b == null){
+			return a;
+		}
+		
+		return new CharFormat(a.density ?? b.density, a.italic ?? b.italic, a.underline ?? b.underline, a.strikeThrough ?? b.strikeThrough, a.foreground ?? b.foreground, false, a.background ?? b.background, false);
+	}
+} */

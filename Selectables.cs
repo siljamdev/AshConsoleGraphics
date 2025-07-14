@@ -7,74 +7,6 @@ namespace AshConsoleGraphics.Interactive;
 //Classes for interactive screens
 
 /// <summary>
-/// An interactive element that can be selected and does things
-/// </summary>
-public abstract class TuiSelectable : TuiElement{
-	/// <summary>
-	/// If it is selected or not
-	/// </summary>
-	public bool Selected {get;
-	internal set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Keybinds and their actions
-	/// </summary>
-	protected Dictionary<(ConsoleKey, ConsoleModifiers), Action<TuiSelectable, ConsoleKeyInfo>> keyFunctions {get; private set;}
-	
-	/// <summary>
-	/// Initializes a new selectable element
-	/// </summary>
-	/// <param name="p">The relative placement method</param>
-	/// <param name="x">The relative x offset</param>
-	/// <param name="y">The relative x offset</param>
-	protected TuiSelectable(Placement p, int x, int y) : base(p, x, y){
-		keyFunctions = new Dictionary<(ConsoleKey, ConsoleModifiers), Action<TuiSelectable, ConsoleKeyInfo>>();
-	}
-	
-	/// <summary>
-	/// Subscribes a new key event
-	/// </summary>
-	/// <param name="k">The key pressed</param>
-	/// <param name="m">The key modifiers (cntrl, shift)</param>
-	/// <param name="keyFunction">The action to call</param>
-	public TuiSelectable SubKeyEvent(ConsoleKey k, ConsoleModifiers m, Action<TuiSelectable, ConsoleKeyInfo> keyFunction){
-		keyFunctions[(k, m)] = keyFunction;
-		return this;
-	}
-	
-	/// <summary>
-	/// Subscribes a new key event with no modifiers
-	/// </summary>
-	/// <param name="k">The key pressed</param>
-	/// <param name="keyFunction">The action to call</param>
-	public TuiSelectable SubKeyEvent(ConsoleKey k, Action<TuiSelectable, ConsoleKeyInfo> keyFunction){
-		keyFunctions[(k, ConsoleModifiers.None)] = keyFunction;
-		return this;
-	}
-	
-	/// <summary>
-	/// Deletes all key events
-	/// </summary>
-	public void DeleteAllKeyEvents(){
-		this.keyFunctions.Clear();
-	}
-	
-	/// <summary>
-	/// Handles a key press
-	/// </summary>
-	public virtual bool HandleKey(ConsoleKeyInfo keyInfo){
-		if(keyFunctions.ContainsKey((keyInfo.Key, keyInfo.Modifiers))){
-			keyFunctions[(keyInfo.Key, keyInfo.Modifiers)].Invoke(this, keyInfo);
-			return true;
-		}
-		return false;
-	}
-}
-
-/// <summary>
 /// A label pressable with enter
 /// </summary>
 public class TuiButton : TuiSelectable{
@@ -455,32 +387,13 @@ public class TuiNumberPicker : TuiSelectable{
 }
 
 /// <summary>
-/// Checkbox (on/off) with a frame
+/// Checkbox (on/off)
 /// </summary>
-public class TuiFramedCheckBox : TuiSelectable{
-	
+public class TuiCheckBox : TuiSelectable{	
 	/// <summary>
 	/// If its checked or not
 	/// </summary>
 	public bool Checked {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Not selected frame charachter format
-	/// </summary>
-	public CharFormat? FrameFormat {get;
-	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Selected frame charachter format
-	/// </summary>
-	public CharFormat? SelectedFrameFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -514,18 +427,6 @@ public class TuiFramedCheckBox : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Frame charachters. An example would be '┌┐└┘──││'
-	/// </summary>
-	public char[] FrameChars {get;
-	set{
-		if(value == null || value.Length != 8){
-			return;
-		}
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
 	/// Check carachter when the checkbox is unchecked
 	/// </summary>
 	public char UnCheckedChar {get;
@@ -546,6 +447,97 @@ public class TuiFramedCheckBox : TuiSelectable{
 	/// <summary>
 	/// Initializes a new framed checkbox
 	/// </summary>
+	/// <param name="u">Unchecked char</param>
+	/// <param name="c">Checked char</param>
+	/// <param name="b">If the checkbox is initially checked or not</param>
+	/// <param name="cf">Not selected check format</param>
+	/// <param name="scf">Selected check format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiCheckBox(char u, char c, bool b, Placement p, int x, int y, CharFormat? cf, CharFormat? scf, CharFormat? pf) : base(p, x, y){
+		CheckFormat = cf;
+		SelectedCheckFormat = scf;
+		SelectorFormat = pf;
+		
+		UnCheckedChar = u;
+		CheckedChar = c;
+		Checked = b;
+		
+		SubKeyEvent(ConsoleKey.Enter, (s, ck) => {Checked = !Checked;});
+	}
+	
+	/// <summary>
+	/// Initializes a new framed checkbox with the same colors when selected and not selected
+	/// </summary>
+	/// <param name="u">Unchecked char</param>
+	/// <param name="c">Checked char</param>
+	/// <param name="b">If the checkbox is initially checked or not</param>
+	/// <param name="cf">Check format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiCheckBox(char u, char c, bool b, Placement p, int x, int y, CharFormat? cf = null, CharFormat? pf = null)
+							: this(u, c, b, p, x, y, cf, cf, pf){}
+	
+	override protected Buffer GenerateBuffer(){
+		Buffer b;
+		
+		if(Selected){
+			b = new Buffer(3, 1);
+			
+			b.SetChar(0, 1, '>', SelectorFormat);
+			b.SetChar((int) 4, 1, '<', SelectorFormat);
+			
+			b.SetChar(1, 0, Checked ? CheckedChar : UnCheckedChar, SelectedCheckFormat);
+		}else{
+			b = new Buffer(1, 1);
+			
+			b.SetChar(0, 0, Checked ? CheckedChar : UnCheckedChar, CheckFormat);
+		}
+		
+		return b;
+	}
+}
+
+/// <summary>
+/// Checkbox (on/off) with a frame
+/// </summary>
+public class TuiFramedCheckBox : TuiCheckBox{
+	
+	private TuiFrame frame; //frame
+	
+	/// <summary>
+	/// Not selected frame charachter format
+	/// </summary>
+	public CharFormat? FrameFormat {get;
+	set{
+		field = value;
+		if(!Selected){
+			frame.Format = value;
+		}
+	}}
+	
+	/// <summary>
+	/// Selected frame charachter format
+	/// </summary>
+	public CharFormat? SelectedFrameFormat {get;
+	set{
+		field = value;
+		if(Selected){
+			frame.Format = value;
+		}
+	}}
+	
+	/// <summary>
+	/// Frame charachters. An example would be '┌┐└┘──││'
+	/// </summary>
+	public char[] FrameChars {get{
+		return frame.Chars;
+	}
+	set{
+		frame.Chars = value;
+	}}
+	
+	/// <summary>
+	/// Initializes a new framed checkbox
+	/// </summary>
 	/// <param name="chars">Frame charchters</param>
 	/// <param name="u">Unchecked char</param>
 	/// <param name="c">Checked char</param>
@@ -555,24 +547,20 @@ public class TuiFramedCheckBox : TuiSelectable{
 	/// <param name="cf">Not selected check format</param>
 	/// <param name="scf">Selected check format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiFramedCheckBox(string chars, char u, char c, bool b, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? cf, CharFormat? scf, CharFormat? pf) : base(p, x, y){
-		if(chars == null || chars.Length != 8){
-			chars = "┌┐└┘──││";
-		}
+	public TuiFramedCheckBox(string chars, char u, char c, bool b, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? cf, CharFormat? scf, CharFormat? pf)
+		: base(u, c, b, p, x, y, cf, scf, pf){
+		frame = new TuiFrame(chars, 3, 3, Placement.TopLeft, 0, 0, ff);
 		
 		FrameFormat = ff;
 		SelectedFrameFormat = sff;
-		CheckFormat = cf;
-		SelectedCheckFormat = scf;
-		SelectorFormat = pf;
 		
-		UnCheckedChar = u;
-		CheckedChar = c;
-		Checked = b;
-		
-		FrameChars = chars.ToCharArray();
-		
-		SubKeyEvent(ConsoleKey.Enter, (s, ck) => {Checked = !Checked;});
+		OnSelection += (s, a) => {
+			if(Selected){
+				frame.Format = SelectedFrameFormat;
+			}else{
+				frame.Format = FrameFormat;
+			}
+		};
 	}
 	
 	/// <summary>
@@ -618,38 +606,32 @@ public class TuiFramedCheckBox : TuiSelectable{
 		Buffer b;
 		if(Selected){
 			b = new Buffer(5, 3);
+			
+			b.AddBuffer(1, 0, frame.Buffer);
+			
 			b.SetChar(0, 1, '>', SelectorFormat);
 			b.SetChar((int) 4, 1, '<', SelectorFormat);
-			
-			b.SetChar(2, 0, FrameChars[4], SelectedFrameFormat);
-			b.SetChar(2, 2, FrameChars[5], SelectedFrameFormat);
-			
-			b.SetChar(1, 1, FrameChars[6], SelectedFrameFormat);
-			b.SetChar((int) 3, 1, FrameChars[7], SelectedFrameFormat);
-			
-			b.SetChar(1, 0, FrameChars[0], SelectedFrameFormat);
-			b.SetChar((int) 3, 0, FrameChars[1], SelectedFrameFormat);
-			b.SetChar(1, 2, FrameChars[2], SelectedFrameFormat);
-			b.SetChar((int) 3, 2, FrameChars[3], SelectedFrameFormat);
 			
 			b.SetChar(2, 1, Checked ? CheckedChar : UnCheckedChar, SelectedCheckFormat);
 		}else{
 			b = new Buffer(3, 3);
 			
-			b.SetChar(1, 0, FrameChars[4], FrameFormat);
-			b.SetChar(1, 2, FrameChars[5], FrameFormat);
-			
-			b.SetChar(0, 1, FrameChars[6], FrameFormat);
-			b.SetChar((int) 2, 1, FrameChars[7], FrameFormat);
-			
-			b.SetChar(0, 0, FrameChars[0], FrameFormat);
-			b.SetChar((int) 2, 0, FrameChars[1], FrameFormat);
-			b.SetChar(0, 2, FrameChars[2], FrameFormat);
-			b.SetChar((int) 2, 2, FrameChars[3], FrameFormat);
+			b.AddBuffer(0, 0, frame.Buffer);
 			
 			b.SetChar(1, 1, Checked ? CheckedChar : UnCheckedChar, CheckFormat);
 		}
+		
+		frame.needToGenScreenBuffer = false;
+		
 		return b;
+	}
+	
+	override protected bool BufferNeedsToBeGenerated(){
+		return base.BufferNeedsToBeGenerated() || frame.ScreenNeedsToBeGenerated();
+	}
+	
+	override internal bool ScreenNeedsToBeGenerated(){
+		return base.ScreenNeedsToBeGenerated() || frame.ScreenNeedsToBeGenerated();
 	}
 }
 
@@ -657,6 +639,9 @@ public class TuiFramedCheckBox : TuiSelectable{
 /// Radio button: two options, either one or the other
 /// </summary>
 public class TuiFramedRadio : TuiSelectable{
+	
+	private TuiFrame frame;
+	
 	/// <summary>
 	/// If the right option is checked(true) or the left one(false)
 	/// </summary>
@@ -672,7 +657,9 @@ public class TuiFramedRadio : TuiSelectable{
 	public CharFormat? FrameFormat {get;
 	set{
 		field = value;
-		needToGenBuffer = true;
+		if(!Selected){
+			frame.Format = value;
+		}
 	}}
 	
 	/// <summary>
@@ -681,7 +668,19 @@ public class TuiFramedRadio : TuiSelectable{
 	public CharFormat? SelectedFrameFormat {get;
 	set{
 		field = value;
-		needToGenBuffer = true;
+		if(Selected){
+			frame.Format = value;
+		}
+	}}
+	
+	/// <summary>
+	/// Frame charachters. An example would be '┌┐└┘──││'
+	/// </summary>
+	public char[] FrameChars {get{
+		return frame.Chars;
+	}
+	set{
+		frame.Chars = value;
 	}}
 	
 	/// <summary>
@@ -725,18 +724,6 @@ public class TuiFramedRadio : TuiSelectable{
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
 	set{
-		field = value;
-		needToGenBuffer = true;
-	}}
-	
-	/// <summary>
-	/// Frame charachters. An example would be '┌┐└┘──││'
-	/// </summary>
-	public char[] FrameChars {get;
-	set{
-		if(value == null || value.Length != 8){
-			return;
-		}
 		field = value;
 		needToGenBuffer = true;
 	}}
@@ -795,9 +782,9 @@ public class TuiFramedRadio : TuiSelectable{
 	public TuiFramedRadio(string chars, char u, char c, string lo, string ro, Placement p, int x, int y,
 							CharFormat? ff, CharFormat? sff, CharFormat? cf, CharFormat? scf, CharFormat? tf, CharFormat? stf, CharFormat? pf)
 							: base(p, x, y){
-		if(chars == null || chars.Length != 8){
-			chars = "┌┐└┘──││";
-		}
+		
+		frame = new TuiFrame(chars, 3, 3, Placement.TopLeft, 0, 0, ff);
+		
 		FrameFormat = ff;
 		SelectedFrameFormat = sff;
 		CheckFormat = cf;
@@ -812,9 +799,15 @@ public class TuiFramedRadio : TuiSelectable{
 		LeftOption = lo;
 		RightOption = ro;
 		
-		FrameChars = chars.ToCharArray();
-		
 		SubKeyEvent(ConsoleKey.Enter, (s, ck) => {RightOptionChecked = !RightOptionChecked;});
+		
+		OnSelection += (s, a) => {
+			if(Selected){
+				frame.Format = SelectedFrameFormat;
+			}else{
+				frame.Format = FrameFormat;
+			}
+		};
 	}
 	
 	/// <summary>
@@ -868,6 +861,7 @@ public class TuiFramedRadio : TuiSelectable{
 		Buffer b;
 		if(Selected){
 			b = new Buffer(9 + LeftOption.Length + RightOption.Length, 3);
+			
 			b.SetChar(0, 1, '>', SelectorFormat);
 			b.SetChar((int) b.Xsize - 1, 1, '<', SelectorFormat);
 			
@@ -876,48 +870,19 @@ public class TuiFramedRadio : TuiSelectable{
 				b.SetChar(i, 1, LeftOption[i - 1], SelectedTextFormat);
 			}
 			
-			b.SetChar(i, 1, FrameChars[6], SelectedFrameFormat); //Left edge
-			b.SetChar(i, 0, FrameChars[0], SelectedFrameFormat);
-			b.SetChar(i, 2, FrameChars[2], SelectedFrameFormat);
+			b.AddBuffer(i, 0, frame.Buffer);
 			
-			i++;
+			b.SetChar(i + 1, 1, RightOptionChecked ? UnCheckedChar : CheckedChar, SelectedCheckFormat);
 			
-			b.SetChar(i, 0, FrameChars[4], SelectedFrameFormat); //Upper and lower edges
-			b.SetChar(i, 2, FrameChars[5], SelectedFrameFormat);
-			
-			b.SetChar(i, 1, RightOptionChecked ? UnCheckedChar : CheckedChar, SelectedCheckFormat);
-			
-			i++;
-			
-			b.SetChar(i, 1, FrameChars[7], SelectedFrameFormat); //Right edge
-			
-			b.SetChar(i, 0, FrameChars[1], SelectedFrameFormat);
-			b.SetChar(i, 2, FrameChars[3], SelectedFrameFormat);
-			
-			i++;
-			i++;
+			i += 4;
 			
 			for(int j = 0; j < RightOption.Length; j++, i++){
 				b.SetChar(i, 1, RightOption[j], SelectedTextFormat);
 			}
 			
-			b.SetChar(i, 1, FrameChars[6], SelectedFrameFormat); //Left edge
-			b.SetChar(i, 0, FrameChars[0], SelectedFrameFormat);
-			b.SetChar(i, 2, FrameChars[2], SelectedFrameFormat);
+			b.AddBuffer(i, 0, frame.Buffer);
 			
-			i++;
-			
-			b.SetChar(i, 0, FrameChars[4], SelectedFrameFormat); //Upper and lower edges
-			b.SetChar(i, 2, FrameChars[5], SelectedFrameFormat);
-			
-			b.SetChar(i, 1, RightOptionChecked ? CheckedChar : UnCheckedChar, SelectedCheckFormat);
-			
-			i++;
-			
-			b.SetChar(i, 1, FrameChars[7], SelectedFrameFormat); //Right edge
-			
-			b.SetChar(i, 0, FrameChars[1], SelectedFrameFormat);
-			b.SetChar(i, 2, FrameChars[3], SelectedFrameFormat);
+			b.SetChar(i + 1, 1, RightOptionChecked ? CheckedChar : UnCheckedChar, SelectedCheckFormat);
 		}else{
 			b = new Buffer(7 + LeftOption.Length + RightOption.Length, 3);
 			
@@ -926,49 +891,28 @@ public class TuiFramedRadio : TuiSelectable{
 				b.SetChar(i, 1, LeftOption[i], TextFormat);
 			}
 			
-			b.SetChar(i, 1, FrameChars[6], FrameFormat); //Left edge
-			b.SetChar(i, 0, FrameChars[0], FrameFormat);
-			b.SetChar(i, 2, FrameChars[2], FrameFormat);
+			b.AddBuffer(i, 0, frame.Buffer);
 			
-			i++;
+			b.SetChar(i + 1, 1, RightOptionChecked ? UnCheckedChar : CheckedChar, CheckFormat);
 			
-			b.SetChar(i, 0, FrameChars[4], FrameFormat); //Upper and lower edges
-			b.SetChar(i, 2, FrameChars[5], FrameFormat);
-			
-			b.SetChar(i, 1, RightOptionChecked ? UnCheckedChar : CheckedChar, CheckFormat);
-			
-			i++;
-			
-			b.SetChar(i, 1, FrameChars[7], FrameFormat); //Right edge
-			
-			b.SetChar(i, 0, FrameChars[1], FrameFormat);
-			b.SetChar(i, 2, FrameChars[3], FrameFormat);
-			
-			i++;
-			i++;
+			i += 4;
 			
 			for(int j = 0; j < RightOption.Length; j++, i++){
 				b.SetChar(i, 1, RightOption[j], TextFormat);
 			}
 			
-			b.SetChar(i, 1, FrameChars[6], FrameFormat); //Left edge
-			b.SetChar(i, 0, FrameChars[0], FrameFormat);
-			b.SetChar(i, 2, FrameChars[2], FrameFormat);
+			b.AddBuffer(i, 0, frame.Buffer);
 			
-			i++;
-			
-			b.SetChar(i, 0, FrameChars[4], FrameFormat); //Upper and lower edges
-			b.SetChar(i, 2, FrameChars[5], FrameFormat);
-			
-			b.SetChar(i, 1, RightOptionChecked ? CheckedChar : UnCheckedChar, CheckFormat);
-			
-			i++;
-			
-			b.SetChar(i, 1, FrameChars[7], FrameFormat); //Right edge
-			
-			b.SetChar(i, 0, FrameChars[1], FrameFormat);
-			b.SetChar(i, 2, FrameChars[3], FrameFormat);
+			b.SetChar(i + 1, 1, RightOptionChecked ? CheckedChar : UnCheckedChar, CheckFormat);
 		}
 		return b;
+	}
+	
+	override protected bool BufferNeedsToBeGenerated(){
+		return base.BufferNeedsToBeGenerated() || frame.ScreenNeedsToBeGenerated();
+	}
+	
+	override internal bool ScreenNeedsToBeGenerated(){
+		return base.ScreenNeedsToBeGenerated() || frame.ScreenNeedsToBeGenerated();
 	}
 }

@@ -38,8 +38,8 @@ public class Buffer{
 	/// </summary>
 	public static bool NoFormat = false;
 	
-	public uint Xsize{get; private set;}
-	public uint Ysize{get; private set;}
+	public int Xsize{get; private init;}
+	public int Ysize{get; private init;}
 	
 	char?[] charBuffer;
 	public CharFormat?[] formatBuffer;
@@ -51,14 +51,12 @@ public class Buffer{
 	/// <summary>
 	/// Initializes a new empty buffer with its size
 	/// </summary>
-	public Buffer(uint x, uint y){
-		Xsize = x;
-		Ysize = y;
+	public Buffer(int x, int y){
+		Xsize = Math.Max(x, 0);
+		Ysize = Math.Max(y, 0);
 		charBuffer = new char?[Xsize * Ysize];
 		formatBuffer = new CharFormat?[Xsize * Ysize];
 	}
-	
-	public Buffer(int x, int y) : this((uint) x, (uint) y){}
 	
 	/// <summary>
 	/// Sets a char
@@ -94,7 +92,7 @@ public class Buffer{
 			return;
 		}
 		
-		int i = y * (int) Xsize + x;
+		int i = y * Xsize + x;
 		charBuffer[i] = c;
 		formatBuffer[i] = null;
 		needToBuild = true;
@@ -109,8 +107,30 @@ public class Buffer{
 	public void AddBuffer(int x, int y, Buffer b){
 		int i = 0;
 		for(int yr = 0; yr < b.Ysize; yr++){
+			if(y + yr < 0){
+				i += b.Xsize;
+				continue;
+			}
+			if(y + yr >= Ysize){
+				break;
+			}
 			for(int xr = 0; xr < b.Xsize; xr++, i++){
-				SetChar(x + xr, y + yr, b.charBuffer[i], b.formatBuffer[i]);
+				if(x + xr < 0){
+					continue;
+				}
+				if(x + xr >= Xsize){
+					continue;
+				}
+				//SetChar(x + xr, y + yr, b.charBuffer[i], b.formatBuffer[i]);
+				
+				int i2 = (y + yr) * (int) Xsize + (x + xr);
+				
+				if(b.charBuffer[i] != null){
+					charBuffer[i2] = b.charBuffer[i];
+				}
+				if(b.formatBuffer[i] != null){
+					formatBuffer[i2] = b.formatBuffer[i];
+				}
 			}
 		}
 		needToBuild = true;
@@ -186,21 +206,19 @@ public class Buffer{
 /// Buffer for elements that are connected lines
 /// </summary>
 public class BitBuffer{
-	public uint Xsize{get; private set;}
-	public uint Ysize{get; private set;}
+	public int Xsize{get; private init;}
+	public int Ysize{get; private init;}
 	
 	BitArray buffer;
 	
 	/// <summary>
 	/// Initializes a new empty buffer with its size
 	/// </summary>
-	public BitBuffer(uint x, uint y){
-		Xsize = x;
-		Ysize = y;
-		buffer = new BitArray((int) Xsize * (int) Ysize);
+	public BitBuffer(int x, int y){
+		Xsize = Math.Max(x, 0);
+		Ysize = Math.Max(y, 0);
+		buffer = new BitArray(Xsize * Ysize);
 	}
-	
-	public BitBuffer(int x, int y) : this((uint) x, (uint) y){}
 	
 	/// <summary>
 	/// Sets the whole buffer to true and returns itself
@@ -224,7 +242,7 @@ public class BitBuffer{
 			return;
 		}
 		
-		int i = y * (int) Xsize + x;
+		int i = y * Xsize + x;
 		
 		buffer[i] = b;
 	}
@@ -251,7 +269,7 @@ public class BitBuffer{
 			return false;
 		}
 		
-		int i = y * (int) Xsize + x;
+		int i = y * Xsize + x;
 		
 		return buffer[i];
 	}
