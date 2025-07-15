@@ -75,13 +75,19 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 		if(x < 0){
 			ScrollX -= x;
 		}else if(x + Selected.Buffer.Xsize > Xsize){
-			ScrollX -= x + Selected.Buffer.Xsize - Xsize;
+			int n = x + Selected.Buffer.Xsize - Xsize;
+			if(x + ScrollX - n >= 0){
+				ScrollX -= n;
+			}
 		}
 		
 		if(y < 0){
 			ScrollY -= y;
 		}else if(y + Selected.Buffer.Ysize > Ysize){
-			ScrollY -= y + Selected.Buffer.Ysize - Ysize;
+			int n = y + Selected.Buffer.Ysize - Ysize;
+			if(y + ScrollY - n >= 0){
+				ScrollY -= n;
+			}
 		}
 	}
 	
