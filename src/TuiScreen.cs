@@ -39,7 +39,7 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 	}}
 	
 	/// <summary>
-	/// Action that takes place when the screen resizes
+	/// Event called when the screen resizes
 	/// </summary>
 	public event EventHandler<ResizeArgs> OnResize;
 	

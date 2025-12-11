@@ -1,5 +1,6 @@
 using System;
 using AshLib;
+using AshLib.Lists;
 using AshLib.Formatting;
 
 namespace AshConsoleGraphics.Interactive;
@@ -28,6 +29,10 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 	
 	public int ScrollY {get; private set;}
 	
+	/// <summary>
+	/// List of child elements that will not be affected by scroll
+	/// </summary>
+	public ReactiveList<TuiElement> FixedElements {get; private set;}
 	
 	/// <summary>
 	/// Initializes a new interactive screen
@@ -43,6 +48,12 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 								: base(xs, ys, sm, startX, startY, p, x, y, f, e){
 		OnResize += (s, args) => {
 			updateScroll();
+		};
+		
+		FixedElements = new();
+		
+		FixedElements.OnChanged = () => {
+			needToGenBuffer = true;
 		};
 	}
 	
@@ -61,6 +72,12 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 		OnResize += (s, args) => {
 			updateScroll();
 		};
+		
+		FixedElements = new();
+		
+		FixedElements.OnChanged = () => {
+			needToGenBuffer = true;
+		};
 	}
 	
 	void updateScroll(){
@@ -76,7 +93,7 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 			ScrollX -= x;
 		}else if(x + Selected.Buffer.Xsize > Xsize){
 			int n = x + Selected.Buffer.Xsize - Xsize;
-			if(x + ScrollX - n >= 0){
+			if(x - n >= 0){
 				ScrollX -= n;
 			}
 		}
@@ -85,7 +102,7 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 			ScrollY -= y;
 		}else if(y + Selected.Buffer.Ysize > Ysize){
 			int n = y + Selected.Buffer.Ysize - Ysize;
-			if(y + ScrollY - n >= 0){
+			if(y - n >= 0){
 				ScrollY -= n;
 			}
 		}
@@ -95,8 +112,10 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 		Buffer b = new Buffer(Xsize, Ysize);
 		foreach(TuiElement e in Elements){
 			(int x, int y) = e.GetTopLeftPosition(Xsize, Ysize);
-			x += ScrollX;
-			y += ScrollY;
+			if(!FixedElements.Contains(e)){
+				x += ScrollX;
+				y += ScrollY;
+			}
 		
 			b.AddBuffer(x, y, e.Buffer);
 		}

@@ -73,9 +73,9 @@ public class TuiScreenInteractive : TuiScreen{
 	public bool WaitForKey = false;
 	
 	/// <summary>
-	/// Action called at the end of each play cycle
+	/// Event called at the end of each play cycle
 	/// </summary>
-	public Action<TuiScreenInteractive>? FinishPlayCycleEvent {internal get; set;}
+	public event EventHandler OnFinishPlayCycle;
 	
 	/// <summary>
 	/// Initializes a new interactive screen
@@ -216,9 +216,7 @@ public class TuiScreenInteractive : TuiScreen{
 	}
 	
 	internal void CallFinishCycleEvent(){
-		if(FinishPlayCycleEvent != null){
-			FinishPlayCycleEvent.Invoke(this);
-		}
+		OnFinishPlayCycle?.Invoke(this, EventArgs.Empty);
 	}
 	
 	/// <summary>

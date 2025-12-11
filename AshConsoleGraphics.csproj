@@ -9,13 +9,13 @@
 	<LangVersion>preview</LangVersion>
 	
 	<PackageId>ashConsoleGraphics</PackageId>
-    <Version>2.2.1</Version>
+    <Version>2.2.2</Version>
     <Authors>siljam</Authors>
     <Company>AshProject</Company>
 	
 	<PackageTags>console ui graphic interactive terminal ansi NO_COLOR</PackageTags>
 	<PackageDescription>UIs and interfaces in your console</PackageDescription>
-	<PackageReleaseNotes>2.2.1 Fixed bug</PackageReleaseNotes>
+	<PackageReleaseNotes>2.2.2 Added fixed elements + bugfixes</PackageReleaseNotes>
 	
     <RepositoryUrl>https://github.com/siljamdev/AshConsoleGraphics</RepositoryUrl>
 	<PackageProjectUrl>https://github.com/siljamdev/AshConsoleGraphics</PackageProjectUrl>
