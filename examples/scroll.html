@@ -104,7 +104,13 @@ class Program{
             temp[i, 0] = new TuiButton(i.ToString(), Placement.TopLeft, 0, i);
         }
         
-        TuiScrollingScreenInteractive screen = new TuiScrollingScreenInteractive(100, 20, temp, 0, 0, null, new TuiLabel(&quot;Hello&quot;, Placement.Center, 0, 0));
+        //Create a fixed label
+        TuiLabel fixd = new TuiLabel(&quot;Fixed label&quot;, Placement.Center, 0, 1);
+        
+        TuiScrollingScreenInteractive screen = new TuiScrollingScreenInteractive(100, 20, temp, 0, 0, null, new TuiLabel(&quot;Hello&quot;, Placement.Center, 0, 0), fixd);
+        
+        //Add the fixed label to the fixed elements list
+        screen.FixedElements.Add(fixd);
         
         screen.AutoResize = true; //If the console window resizes, so will the screen to fit all
         

@@ -2089,19 +2089,6 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.DeleteAllKeyEvents
   nameWithType: TuiScreenInteractive.DeleteAllKeyEvents
-- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.FinishPlayCycleEvent
-  name: FinishPlayCycleEvent
-  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive_FinishPlayCycleEvent
-  commentId: P:AshConsoleGraphics.Interactive.TuiScreenInteractive.FinishPlayCycleEvent
-  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.FinishPlayCycleEvent
-  nameWithType: TuiScreenInteractive.FinishPlayCycleEvent
-- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.FinishPlayCycleEvent*
-  name: FinishPlayCycleEvent
-  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive_FinishPlayCycleEvent_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiScreenInteractive.FinishPlayCycleEvent
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.FinishPlayCycleEvent
-  nameWithType: TuiScreenInteractive.FinishPlayCycleEvent
 - uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.HandleKey(System.ConsoleKeyInfo)
   name: HandleKey(ConsoleKeyInfo)
   href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive_HandleKey_System_ConsoleKeyInfo_
@@ -2206,6 +2193,12 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.MoveUp
   nameWithType: TuiScreenInteractive.MoveUp
+- uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.OnFinishPlayCycle
+  name: OnFinishPlayCycle
+  href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive_OnFinishPlayCycle
+  commentId: E:AshConsoleGraphics.Interactive.TuiScreenInteractive.OnFinishPlayCycle
+  fullName: AshConsoleGraphics.Interactive.TuiScreenInteractive.OnFinishPlayCycle
+  nameWithType: TuiScreenInteractive.OnFinishPlayCycle
 - uid: AshConsoleGraphics.Interactive.TuiScreenInteractive.Play
   name: Play()
   href: api/AshConsoleGraphics.Interactive.TuiScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScreenInteractive_Play
@@ -2349,6 +2342,19 @@ references:
   fullName.vb: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.New
   nameWithType: TuiScrollingScreenInteractive.TuiScrollingScreenInteractive
   nameWithType.vb: TuiScrollingScreenInteractive.New
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.FixedElements
+  name: FixedElements
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_FixedElements
+  commentId: P:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.FixedElements
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.FixedElements
+  nameWithType: TuiScrollingScreenInteractive.FixedElements
+- uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.FixedElements*
+  name: FixedElements
+  href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_FixedElements_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.FixedElements
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.FixedElements
+  nameWithType: TuiScrollingScreenInteractive.FixedElements
 - uid: AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.GenerateBuffer
   name: GenerateBuffer()
   href: api/AshConsoleGraphics.Interactive.TuiScrollingScreenInteractive.html#AshConsoleGraphics_Interactive_TuiScrollingScreenInteractive_GenerateBuffer
