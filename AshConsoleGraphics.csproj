@@ -9,13 +9,13 @@
 	<LangVersion>preview</LangVersion>
 	
 	<PackageId>ashConsoleGraphics</PackageId>
-    <Version>2.2.2</Version>
+    <Version>2.2.3</Version>
     <Authors>siljam</Authors>
     <Company>AshProject</Company>
 	
 	<PackageTags>console ui graphic interactive terminal ansi NO_COLOR</PackageTags>
 	<PackageDescription>UIs and interfaces in your console</PackageDescription>
-	<PackageReleaseNotes>2.2.2 Added fixed elements + bugfixes</PackageReleaseNotes>
+	<PackageReleaseNotes>2.2.3 Fixed MultipleTuiScreenInteractives</PackageReleaseNotes>
 	
     <RepositoryUrl>https://github.com/siljamdev/AshConsoleGraphics</RepositoryUrl>
 	<PackageProjectUrl>https://github.com/siljamdev/AshConsoleGraphics</PackageProjectUrl>
@@ -26,7 +26,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AshLib" Version="3.4.0" />
+    <PackageReference Include="AshLib" Version="3.5.0" />
 	<Compile Remove="examples/**" />
 	<Compile Remove="Program.cs" />
 	<None Include="res\icon.png" Pack="true" PackagePath="res/" />

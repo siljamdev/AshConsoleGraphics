@@ -45,9 +45,9 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 	public bool WaitForKey = false;
 	
 	/// <summary>
-	/// Action called at the end of each play cycle
+	/// Event called at the end of each play cycle
 	/// </summary>
-	public Action<MultipleTuiScreenInteractive>? FinishPlayCycleEvent {internal get; set;}
+	public EventHandler OnFinishPlayCycle;
 	
 	/// <summary>
 	/// Initializes a new instance of a MultipleTuiScreenInteractive screen. Note that it starts with no selected screen
@@ -162,10 +162,6 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 				if(!WaitForKey && !Console.KeyAvailable){
 					CallFinishCycleEvent();
 					
-					foreach(TuiScreenInteractive sb in ScreenList){
-						sb.CallFinishCycleEvent();
-					}
-					
 					continue;
 				}
 			}catch(Exception e){}
@@ -179,28 +175,34 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 				keyInfo = new ConsoleKeyInfo(c, (ConsoleKey)Enum.Parse(typeof(ConsoleKey), c.ToString(), true), false, false, false);
 			}
 			
-			if(SelectedScreen != null){
-				if(!SelectedScreen.HandleKey(keyInfo) && KeyFunctions.ContainsKey((keyInfo.Key, keyInfo.Modifiers))){
-					Action<MultipleTuiScreenInteractive, ConsoleKeyInfo> keyFunction = KeyFunctions[(keyInfo.Key, keyInfo.Modifiers)];
-					keyFunction.Invoke(this, keyInfo);
-				}
-			}else if(KeyFunctions.ContainsKey((keyInfo.Key, keyInfo.Modifiers))){
-				Action<MultipleTuiScreenInteractive, ConsoleKeyInfo> keyFunction = KeyFunctions[(keyInfo.Key, keyInfo.Modifiers)];
-				keyFunction.Invoke(this, keyInfo);
-			}
-			
-			foreach(TuiScreenInteractive sb in ScreenList){
-				sb.CallFinishCycleEvent();
-			}
+			HandleKey(keyInfo);
 			
 			CallFinishCycleEvent();
 		}
 	}
 	
-	internal void CallFinishCycleEvent(){
-		if(FinishPlayCycleEvent != null){
-			FinishPlayCycleEvent.Invoke(this);
+	/// <summary>
+	/// Handle a key press
+	/// </summary>
+	public bool HandleKey(ConsoleKeyInfo keyInfo){
+		if(SelectedScreen != null && SelectedScreen.HandleKey(keyInfo)){
+			return true;
+		}else if(KeyFunctions.ContainsKey((keyInfo.Key, keyInfo.Modifiers))){
+			Action<MultipleTuiScreenInteractive, ConsoleKeyInfo> keyFunction = KeyFunctions[(keyInfo.Key, keyInfo.Modifiers)];
+			keyFunction.Invoke(this, keyInfo);
+			
+			return true;
 		}
+		
+		return false;
+	}
+	
+	internal void CallFinishCycleEvent(){
+		foreach(TuiScreenInteractive sb in ScreenList){
+			sb.CallFinishCycleEvent();
+		}
+		
+		OnFinishPlayCycle?.Invoke(this, EventArgs.Empty);
 	}
 	
 	/// <summary>
