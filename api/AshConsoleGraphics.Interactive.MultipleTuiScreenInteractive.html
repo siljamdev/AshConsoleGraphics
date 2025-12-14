@@ -320,6 +320,37 @@ Class MultipleTuiScreenInteractive  <a class="header-action link-secondary" titl
 
 
 
+  <h3 id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_OnFinishPlayCycle" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.OnFinishPlayCycle">
+  OnFinishPlayCycle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/MultipleTuiScreenInteractive.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event called at the end of each play cycle</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EventHandler OnFinishPlayCycle</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_WaitForKey" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.WaitForKey">
   WaitForKey
   <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/MultipleTuiScreenInteractive.cs/#L45"><i class="bi bi-code-slash"></i></a>
@@ -352,38 +383,6 @@ Class MultipleTuiScreenInteractive  <a class="header-action link-secondary" titl
 
   <h2 class="section" id="properties">Properties
 </h2>
-
-
-  <a id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_FinishPlayCycleEvent_" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.FinishPlayCycleEvent*"></a>
-
-  <h3 id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_FinishPlayCycleEvent" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.FinishPlayCycleEvent">
-  FinishPlayCycleEvent
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/MultipleTuiScreenInteractive.cs/#L50"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Action called at the end of each play cycle</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;MultipleTuiScreenInteractive&gt;? FinishPlayCycleEvent { set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html">MultipleTuiScreenInteractive</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
 
 
   <a id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_KeyFunctions_" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.KeyFunctions*"></a>
@@ -550,6 +549,43 @@ Class MultipleTuiScreenInteractive  <a class="header-action link-secondary" titl
 
 
 
+  <a id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_HandleKey_" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.HandleKey*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_HandleKey_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.HandleKey(System.ConsoleKeyInfo)">
+  HandleKey(ConsoleKeyInfo)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/MultipleTuiScreenInteractive.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Handle a key press</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HandleKey(ConsoleKeyInfo keyInfo)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>keyInfo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.consolekeyinfo">ConsoleKeyInfo</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_Play_" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.Play*"></a>
 
   <h3 id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_Play" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.Play">
@@ -581,7 +617,7 @@ Class MultipleTuiScreenInteractive  <a class="header-action link-secondary" titl
 
   <h3 id="AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_StopPlaying_AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.StopPlaying(AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive,System.ConsoleKeyInfo)">
   StopPlaying(MultipleTuiScreenInteractive, ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/MultipleTuiScreenInteractive.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/MultipleTuiScreenInteractive.cs/#L211"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stop a screen playing</p>

@@ -327,19 +327,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.DeleteAllKeyEvents
   nameWithType: MultipleTuiScreenInteractive.DeleteAllKeyEvents
-- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.FinishPlayCycleEvent
-  name: FinishPlayCycleEvent
-  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_FinishPlayCycleEvent
-  commentId: P:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.FinishPlayCycleEvent
-  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.FinishPlayCycleEvent
-  nameWithType: MultipleTuiScreenInteractive.FinishPlayCycleEvent
-- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.FinishPlayCycleEvent*
-  name: FinishPlayCycleEvent
-  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_FinishPlayCycleEvent_
-  commentId: Overload:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.FinishPlayCycleEvent
+- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.HandleKey(System.ConsoleKeyInfo)
+  name: HandleKey(ConsoleKeyInfo)
+  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_HandleKey_System_ConsoleKeyInfo_
+  commentId: M:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.HandleKey(System.ConsoleKeyInfo)
+  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.HandleKey(System.ConsoleKeyInfo)
+  nameWithType: MultipleTuiScreenInteractive.HandleKey(ConsoleKeyInfo)
+- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.HandleKey*
+  name: HandleKey
+  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_HandleKey_
+  commentId: Overload:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.HandleKey
   isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.FinishPlayCycleEvent
-  nameWithType: MultipleTuiScreenInteractive.FinishPlayCycleEvent
+  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.HandleKey
+  nameWithType: MultipleTuiScreenInteractive.HandleKey
 - uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.KeyFunctions
   name: KeyFunctions
   href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_KeyFunctions
@@ -353,6 +353,12 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.KeyFunctions
   nameWithType: MultipleTuiScreenInteractive.KeyFunctions
+- uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.OnFinishPlayCycle
+  name: OnFinishPlayCycle
+  href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_OnFinishPlayCycle
+  commentId: F:AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.OnFinishPlayCycle
+  fullName: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.OnFinishPlayCycle
+  nameWithType: MultipleTuiScreenInteractive.OnFinishPlayCycle
 - uid: AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.Play
   name: Play()
   href: api/AshConsoleGraphics.Interactive.MultipleTuiScreenInteractive.html#AshConsoleGraphics_Interactive_MultipleTuiScreenInteractive_Play
