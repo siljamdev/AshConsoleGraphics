@@ -2956,6 +2956,153 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiElement.needToGenBuffer
   nameWithType: TuiElement.needToGenBuffer
+- uid: AshConsoleGraphics.TuiFormatLog
+  name: TuiFormatLog
+  href: api/AshConsoleGraphics.TuiFormatLog.html
+  commentId: T:AshConsoleGraphics.TuiFormatLog
+  fullName: AshConsoleGraphics.TuiFormatLog
+  nameWithType: TuiFormatLog
+- uid: AshConsoleGraphics.TuiFormatLog.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name: TuiFormatLog(int, int, Placement, int, int, CharFormat?)
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog__ctor_System_Int32_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiFormatLog.#ctor(System.Int32,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32,AshLib.Formatting.CharFormat)
+  name.vb: New(Integer, Integer, Placement, Integer, Integer, CharFormat)
+  fullName: AshConsoleGraphics.TuiFormatLog.TuiFormatLog(int, int, AshConsoleGraphics.Placement, int, int, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiFormatLog.New(Integer, Integer, AshConsoleGraphics.Placement, Integer, Integer, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFormatLog.TuiFormatLog(int, int, Placement, int, int, CharFormat?)
+  nameWithType.vb: TuiFormatLog.New(Integer, Integer, Placement, Integer, Integer, CharFormat)
+- uid: AshConsoleGraphics.TuiFormatLog.#ctor*
+  name: TuiFormatLog
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog__ctor_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AshConsoleGraphics.TuiFormatLog.TuiFormatLog
+  fullName.vb: AshConsoleGraphics.TuiFormatLog.New
+  nameWithType: TuiFormatLog.TuiFormatLog
+  nameWithType.vb: TuiFormatLog.New
+- uid: AshConsoleGraphics.TuiFormatLog.Append(AshLib.Formatting.FormatString)
+  name: Append(FormatString)
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Append_AshLib_Formatting_FormatString_
+  commentId: M:AshConsoleGraphics.TuiFormatLog.Append(AshLib.Formatting.FormatString)
+  fullName: AshConsoleGraphics.TuiFormatLog.Append(AshLib.Formatting.FormatString)
+  nameWithType: TuiFormatLog.Append(FormatString)
+- uid: AshConsoleGraphics.TuiFormatLog.Append(System.String,AshLib.Formatting.CharFormat)
+  name: Append(string, CharFormat?)
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Append_System_String_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiFormatLog.Append(System.String,AshLib.Formatting.CharFormat)
+  name.vb: Append(String, CharFormat)
+  fullName: AshConsoleGraphics.TuiFormatLog.Append(string, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiFormatLog.Append(String, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFormatLog.Append(string, CharFormat?)
+  nameWithType.vb: TuiFormatLog.Append(String, CharFormat)
+- uid: AshConsoleGraphics.TuiFormatLog.Append*
+  name: Append
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Append_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.Append
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiFormatLog.Append
+  nameWithType: TuiFormatLog.Append
+- uid: AshConsoleGraphics.TuiFormatLog.AppendLine(AshLib.Formatting.FormatString)
+  name: AppendLine(FormatString)
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_AppendLine_AshLib_Formatting_FormatString_
+  commentId: M:AshConsoleGraphics.TuiFormatLog.AppendLine(AshLib.Formatting.FormatString)
+  fullName: AshConsoleGraphics.TuiFormatLog.AppendLine(AshLib.Formatting.FormatString)
+  nameWithType: TuiFormatLog.AppendLine(FormatString)
+- uid: AshConsoleGraphics.TuiFormatLog.AppendLine(System.String,AshLib.Formatting.CharFormat)
+  name: AppendLine(string, CharFormat?)
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_AppendLine_System_String_AshLib_Formatting_CharFormat_
+  commentId: M:AshConsoleGraphics.TuiFormatLog.AppendLine(System.String,AshLib.Formatting.CharFormat)
+  name.vb: AppendLine(String, CharFormat)
+  fullName: AshConsoleGraphics.TuiFormatLog.AppendLine(string, AshLib.Formatting.CharFormat?)
+  fullName.vb: AshConsoleGraphics.TuiFormatLog.AppendLine(String, AshLib.Formatting.CharFormat)
+  nameWithType: TuiFormatLog.AppendLine(string, CharFormat?)
+  nameWithType.vb: TuiFormatLog.AppendLine(String, CharFormat)
+- uid: AshConsoleGraphics.TuiFormatLog.AppendLine*
+  name: AppendLine
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_AppendLine_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.AppendLine
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiFormatLog.AppendLine
+  nameWithType: TuiFormatLog.AppendLine
+- uid: AshConsoleGraphics.TuiFormatLog.DefFormat
+  name: DefFormat
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_DefFormat
+  commentId: P:AshConsoleGraphics.TuiFormatLog.DefFormat
+  fullName: AshConsoleGraphics.TuiFormatLog.DefFormat
+  nameWithType: TuiFormatLog.DefFormat
+- uid: AshConsoleGraphics.TuiFormatLog.DefFormat*
+  name: DefFormat
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_DefFormat_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.DefFormat
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiFormatLog.DefFormat
+  nameWithType: TuiFormatLog.DefFormat
+- uid: AshConsoleGraphics.TuiFormatLog.GenerateBuffer
+  name: GenerateBuffer()
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_GenerateBuffer
+  commentId: M:AshConsoleGraphics.TuiFormatLog.GenerateBuffer
+  fullName: AshConsoleGraphics.TuiFormatLog.GenerateBuffer()
+  nameWithType: TuiFormatLog.GenerateBuffer()
+- uid: AshConsoleGraphics.TuiFormatLog.GenerateBuffer*
+  name: GenerateBuffer
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_GenerateBuffer_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.GenerateBuffer
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiFormatLog.GenerateBuffer
+  nameWithType: TuiFormatLog.GenerateBuffer
+- uid: AshConsoleGraphics.TuiFormatLog.Scroll
+  name: Scroll
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Scroll
+  commentId: P:AshConsoleGraphics.TuiFormatLog.Scroll
+  fullName: AshConsoleGraphics.TuiFormatLog.Scroll
+  nameWithType: TuiFormatLog.Scroll
+- uid: AshConsoleGraphics.TuiFormatLog.Scroll*
+  name: Scroll
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Scroll_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.Scroll
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiFormatLog.Scroll
+  nameWithType: TuiFormatLog.Scroll
+- uid: AshConsoleGraphics.TuiFormatLog.Text
+  name: Text
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Text
+  commentId: P:AshConsoleGraphics.TuiFormatLog.Text
+  fullName: AshConsoleGraphics.TuiFormatLog.Text
+  nameWithType: TuiFormatLog.Text
+- uid: AshConsoleGraphics.TuiFormatLog.Text*
+  name: Text
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Text_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.Text
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiFormatLog.Text
+  nameWithType: TuiFormatLog.Text
+- uid: AshConsoleGraphics.TuiFormatLog.Xsize
+  name: Xsize
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Xsize
+  commentId: P:AshConsoleGraphics.TuiFormatLog.Xsize
+  fullName: AshConsoleGraphics.TuiFormatLog.Xsize
+  nameWithType: TuiFormatLog.Xsize
+- uid: AshConsoleGraphics.TuiFormatLog.Xsize*
+  name: Xsize
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Xsize_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.Xsize
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiFormatLog.Xsize
+  nameWithType: TuiFormatLog.Xsize
+- uid: AshConsoleGraphics.TuiFormatLog.Ysize
+  name: Ysize
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Ysize
+  commentId: P:AshConsoleGraphics.TuiFormatLog.Ysize
+  fullName: AshConsoleGraphics.TuiFormatLog.Ysize
+  nameWithType: TuiFormatLog.Ysize
+- uid: AshConsoleGraphics.TuiFormatLog.Ysize*
+  name: Ysize
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Ysize_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.Ysize
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiFormatLog.Ysize
+  nameWithType: TuiFormatLog.Ysize
 - uid: AshConsoleGraphics.TuiFrame
   name: TuiFrame
   href: api/AshConsoleGraphics.TuiFrame.html

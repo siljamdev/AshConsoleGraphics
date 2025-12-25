@@ -194,7 +194,7 @@ class Program{
         int c = 0;
         
         //Add words to the log
-        BigScreen.FinishPlayCycleEvent = (sb) =&gt; {
+        BigScreen.OnFinishPlayCycle = (sb, a) =&gt; {
             if(((TuiFramedCheckBox) RightElements[3,0]).Checked){
                 return;
             }

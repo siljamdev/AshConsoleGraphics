@@ -354,6 +354,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AshConsoleGraphics.TuiFormatLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AshConsoleGraphics.TuiFormatLog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "AshConsoleGraphics.TuiFormatLog",
+      "Summary": "<p sourcefile=\"api/AshConsoleGraphics.TuiFormatLog.yml\" sourcestartlinenumber=\"1\">A rectangle for words that separates words into different lines and has format</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AshConsoleGraphics.TuiFrame.yml",
       "output": {
         ".html": {
