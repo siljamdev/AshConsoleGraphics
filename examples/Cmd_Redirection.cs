@@ -27,15 +27,15 @@ class Program{
 		screen.AutoResize = true; //If the console window resizes, so will the screen to fit all
 		
 		//This will be called on resize
-		screen.OnResize = (gs) => {
+		screen.OnResize += (gs, a) => {
 			Console.CursorVisible = false; //When window resizes, cursor pops back up
 			
 			//Adjust sizes
 			
-			input.BoxXsize = gs.Xsize - 4;
+			input.BoxXsize = screen.Xsize - 4;
 			
-			output.Xsize = gs.Xsize - 6;
-			output.Ysize = gs.Ysize - 6;
+			output.Xsize = screen.Xsize - 6;
+			output.Ysize = screen.Ysize - 6;
 		};
 		
 		//The cmd process

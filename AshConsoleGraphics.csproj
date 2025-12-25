@@ -1,21 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!-- <OutputType>Exe</OutputType> -->
-	
     <TargetFramework>net9.0</TargetFramework>
 	<ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<LangVersion>preview</LangVersion>
 	
 	<PackageId>ashConsoleGraphics</PackageId>
-    <Version>2.2.3</Version>
+    <Version>2.2.4</Version>
     <Authors>siljam</Authors>
     <Company>AshProject</Company>
 	
 	<PackageTags>console ui graphic interactive terminal ansi NO_COLOR</PackageTags>
 	<PackageDescription>UIs and interfaces in your console</PackageDescription>
-	<PackageReleaseNotes>2.2.3 Fixed MultipleTuiScreenInteractives</PackageReleaseNotes>
+	<PackageReleaseNotes>2.2.4 Linux support (UTF8) and FormatLog</PackageReleaseNotes>
 	
     <RepositoryUrl>https://github.com/siljamdev/AshConsoleGraphics</RepositoryUrl>
 	<PackageProjectUrl>https://github.com/siljamdev/AshConsoleGraphics</PackageProjectUrl>
@@ -28,7 +26,7 @@
   <ItemGroup>
     <PackageReference Include="AshLib" Version="3.5.0" />
 	<Compile Remove="examples/**" />
-	<Compile Remove="Program.cs" />
+	<Compile Remove="exec/**" />
 	<None Include="res\icon.png" Pack="true" PackagePath="res/" />
   </ItemGroup>
 

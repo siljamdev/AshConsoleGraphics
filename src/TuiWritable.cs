@@ -19,7 +19,11 @@ public abstract class TuiWritable : TuiSelectable{
 		if(value.Length > Length){
 			field = value.Substring(0, Length);
 		}else{
-			field = value;
+			if(value == null){
+				field = "";
+			}else{
+				field = value;
+			}
 			needToGenBuffer = true;
 		}
 	}}

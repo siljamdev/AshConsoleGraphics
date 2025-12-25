@@ -74,6 +74,7 @@ public class Buffer{
 		
 		if(c != null){
 			charBuffer[i] = c;
+			formatBuffer[i] = f;
 		}
 		if(f != null){
 			formatBuffer[i] = f;
@@ -127,10 +128,12 @@ public class Buffer{
 				
 				if(b.charBuffer[i] != null){
 					charBuffer[i2] = b.charBuffer[i];
+					formatBuffer[i2] = b.formatBuffer[i];
 				}
 				if(b.formatBuffer[i] != null){
 					formatBuffer[i2] = b.formatBuffer[i];
 				}
+				//formatBuffer[i2] = combine(formatBuffer[i2], b.formatBuffer[i]);
 			}
 		}
 		needToBuild = true;

@@ -16,12 +16,12 @@ class Program{
 		MatrixScreen.AutoResize = true;
 		
 		//On resize, generate all elements again
-		MatrixScreen.OnResize = ((gs) => {
+		MatrixScreen.OnResize += (gs, a) => {
 			MatrixScreen.Elements.Clear();
-		});
+		};
 		
 		//Each loop, move each charachter down and if some pass, delete them. Then, add a new row at the top
-		MatrixScreen.FinishPlayCycleEvent = ((gs) => {
+		MatrixScreen.OnFinishPlayCycle += (gs, a) => {
 			for(int i = 0; i < MatrixScreen.Elements.Count; i++){
 				TuiLabel l = (TuiLabel) MatrixScreen.Elements[i];
 				l.OffsetY++;
@@ -36,7 +36,7 @@ class Program{
 					MatrixScreen.Elements.Add(new TuiLabel(RandomChar(), Placement.TopLeft, i, 0, new CharFormat(new Color3(0, (byte) (100 + random.Next(155)), 0))));
 				}
 			}
-		});
+		};
 		
 		//Play the screen, this is for allowing escape
 		MatrixScreen.Play();

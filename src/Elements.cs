@@ -611,7 +611,11 @@ public class TuiLog : TuiElement{
 	public string Text {get{
 		return _text;
 	} set{
-		_text = value;
+		if(value == null){
+			_text = "";
+		}else{
+			_text = value;	
+		}
 		needToGenBuffer = true;
 		generateLines();
 	}}
@@ -715,7 +719,7 @@ public class TuiLog : TuiElement{
 		return b;
 	}
 	
-	internal void generateLines(){
+	void generateLines(){
 		string[] pars = _text.Split(new string[]{"\r\n", "\n", "\r"}, StringSplitOptions.None);
 		
 		List<string> ls = new List<string>();
@@ -775,7 +779,7 @@ public class TuiLog : TuiElement{
     }
 }
 
-/* /// <summary>
+/// <summary>
 /// A rectangle for words that separates words into different lines and has format
 /// </summary>
 public class TuiFormatLog : TuiElement{
@@ -807,7 +811,11 @@ public class TuiFormatLog : TuiElement{
 	public FormatString Text {get{
 		return _text;
 	} set{
-		_text = value;
+		if(value == null){
+			_text = new FormatString();
+		}else{
+			_text = value;	
+		}
 		needToGenBuffer = true;
 		generateLines();
 	}}
@@ -853,19 +861,17 @@ public class TuiFormatLog : TuiElement{
 	public void Append(string s, CharFormat? f){
 		string[] pars = s.Split(new string[]{"\r\n", "\n", "\r"}, StringSplitOptions.None);
 		
-		//Console.WriteLine(s);
-		//Console.WriteLine(pars.Length);
-		//Console.WriteLine(DivideLines("", 30).Length);
-		
 		if(pars.Length == 1){
 			FormatString t = FormatString.Clone(lines[^1]);
-			t.Append(pars[0], f);
 			lines.RemoveAt(lines.Count - 1);
+			
+			t.Append(pars[0], f);
 			lines.AddRange(DivideLines(t, Xsize));
 		}else if(pars.Length > 1){
 			FormatString t = FormatString.Clone(lines[^1]);
-			t.Append(pars[0], f);
 			lines.RemoveAt(lines.Count - 1);
+			
+			t.Append(pars[0], f);
 			lines.AddRange(DivideLines(t, Xsize));
 			
 			foreach(string l in pars.Skip(1)){
@@ -873,9 +879,36 @@ public class TuiFormatLog : TuiElement{
 			}
 		}
 		
-		//Console.ReadKey();
-		
 		_text.Append(s, f);
+		
+		needToGenBuffer = true;
+	}
+	
+	/// <summary>
+	/// Appends some text. Analog of Console.Write
+	/// </summary>
+	public void Append(FormatString s){
+		FormatString[] pars = s.SplitIntoLines();
+		
+		if(pars.Length == 1){
+			FormatString t = FormatString.Clone(lines[^1]);
+			lines.RemoveAt(lines.Count - 1);
+			
+			t.Append(pars[0]);
+			lines.AddRange(DivideLines(t, Xsize));
+		}else if(pars.Length > 1){
+			FormatString t = FormatString.Clone(lines[^1]);
+			lines.RemoveAt(lines.Count - 1);
+			
+			t.Append(pars[0]);
+			lines.AddRange(DivideLines(t, Xsize));
+			
+			foreach(FormatString l in pars.Skip(1)){
+				lines.AddRange(DivideLines(l, Xsize));
+			}
+		}
+		
+		_text.Append(s);
 		
 		needToGenBuffer = true;
 	}
@@ -885,6 +918,13 @@ public class TuiFormatLog : TuiElement{
 	/// </summary>
 	public void AppendLine(string s, CharFormat? f){
 		Append(s + Environment.NewLine, f);
+	}
+	
+	/// <summary>
+	/// Appends some text and ends the line. Analog of Console.WriteLine
+	/// </summary>
+	public void AppendLine(FormatString s){
+		Append(s + Environment.NewLine);
 	}
 	
 	override protected Buffer GenerateBuffer(){
@@ -925,7 +965,7 @@ public class TuiFormatLog : TuiElement{
 		}
 		
 		if(ls.Count == 0){
-			ls.Add("");
+			ls.Add(new FormatString());
 		}
 		
 		lines = ls;
@@ -935,6 +975,7 @@ public class TuiFormatLog : TuiElement{
 		if(input.Length == 0){
 			return new FormatString[]{""};
 		}
+		
         List<FormatString> lines = new List<FormatString>();
         FormatString[] words = splitWords(input);	
         FormatString currentLine = new FormatString();
@@ -951,7 +992,7 @@ public class TuiFormatLog : TuiElement{
                     int length = Math.Min(maxCharsPerLine, word.Length - i);
                     lines.Add(word.Substring(i, length));
                 }
-            }else if(currentLine.Length + word.Length + 1 <= maxCharsPerLine){
+            }else if(currentLine.Length + word.Length < maxCharsPerLine){
                 // Add the word to the current line if it fits
                 if(currentLine.Length > 0){
                     currentLine.Append(" ", (CharFormat?) null);
@@ -974,17 +1015,20 @@ public class TuiFormatLog : TuiElement{
         return lines.ToArray();
     }
 	
+	//No idea how or why it works
 	static FormatString[] splitWords(FormatString s){
 		List<FormatString> words = new();
 		FormatString current = new FormatString();
+		
 		foreach((char c, CharFormat? f) in s){
-			if(c == ' ' || c == '\t'){
+			if(char.IsWhiteSpace(c) && current.Length > 0){
 				words.Add(current);
 				current = new FormatString();
 			}else{
 				current.Append(c, f);
 			}
 		}
+		
 		words.Add(current);
 		
 		return words.ToArray();
@@ -1000,4 +1044,4 @@ public class TuiFormatLog : TuiElement{
 		
 		return new CharFormat(a.density ?? b.density, a.italic ?? b.italic, a.underline ?? b.underline, a.strikeThrough ?? b.strikeThrough, a.foreground ?? b.foreground, false, a.background ?? b.background, false);
 	}
-} */
+}

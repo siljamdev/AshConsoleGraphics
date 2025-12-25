@@ -257,6 +257,9 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 		return frame.Xsize - 2;
 	}
 	set{
+		if(value < 0){
+			return;
+		}
 		frame.Xsize = value + 2;
 	}}
 	
@@ -452,6 +455,9 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 		return frame.Xsize - 2;
 	}
 	set{
+		if(value < 0){
+			return;
+		}
 		frame.Xsize = value + 2;
 		Length = BoxXsize * BoxYsize;
 	}}
@@ -463,6 +469,9 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 		return frame.Ysize - 2;
 	}
 	set{
+		if(value < 0){
+			return;
+		}
 		frame.Ysize = value + 2;
 		Length = BoxXsize * BoxYsize;
 	}}
@@ -682,6 +691,9 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 		return frame.Xsize - 2;
 	}
 	set{
+		if(value < 0){
+			return;
+		}
 		frame.Xsize = value + 2;
 	}}
 	
@@ -692,6 +704,9 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 		return frame.Ysize - 2;
 	}
 	set{
+		if(value < 0){
+			return;
+		}
 		frame.Ysize = value + 2;
 	}}
 	

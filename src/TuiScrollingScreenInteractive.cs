@@ -45,15 +45,15 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 	/// <param name="f">The default format</param>
 	/// <param name="e">Additional elements</param>
 	public TuiScrollingScreenInteractive(int xs, int ys, TuiSelectable[,] sm, uint startX, uint startY, Placement p, int x, int y, CharFormat? f, params TuiElement[] e)
-								: base(xs, ys, sm, startX, startY, p, x, y, f, e){
-		OnResize += (s, args) => {
-			updateScroll();
-		};
-		
+								: base(xs, ys, sm, startX, startY, p, x, y, f, e){		
 		FixedElements = new();
 		
 		FixedElements.OnChanged = () => {
 			needToGenBuffer = true;
+		};
+		
+		OnResize += (s, args) => {
+			updateScroll();
 		};
 	}
 	
@@ -68,20 +68,25 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 	/// <param name="f">The default format</param>
 	/// <param name="e">Additional elements</param>
 	public TuiScrollingScreenInteractive(int xs, int ys, TuiSelectable[,] sm, uint startX, uint startY, CharFormat? f, params TuiElement[] e)
-								: base(xs, ys, sm, startX, startY, f, e){
-		OnResize += (s, args) => {
-			updateScroll();
-		};
-		
+								: base(xs, ys, sm, startX, startY, f, e){		
 		FixedElements = new();
 		
 		FixedElements.OnChanged = () => {
 			needToGenBuffer = true;
 		};
+		
+		OnResize += (s, args) => {
+			updateScroll();
+		};
 	}
 	
 	void updateScroll(){
 		if(Selected == null){
+			return;
+		}
+		
+		//In fixed elements scroll doesnt change
+		if(FixedElements != null && FixedElements.Contains(Selected)){
 			return;
 		}
 		
@@ -109,16 +114,29 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 	}
 	
 	override protected Buffer GenerateBuffer(){
+		List<TuiElement> fix = new(FixedElements.Count);
+		
 		Buffer b = new Buffer(Xsize, Ysize);
+		
 		foreach(TuiElement e in Elements){
-			(int x, int y) = e.GetTopLeftPosition(Xsize, Ysize);
-			if(!FixedElements.Contains(e)){
-				x += ScrollX;
-				y += ScrollY;
+			if(FixedElements.Contains(e)){
+				fix.Add(e);
+				continue;
 			}
+			
+			(int x, int y) = e.GetTopLeftPosition(Xsize, Ysize);
+			x += ScrollX;
+			y += ScrollY;
 		
 			b.AddBuffer(x, y, e.Buffer);
 		}
+		
+		foreach(TuiElement e in fix){
+			(int x, int y) = e.GetTopLeftPosition(Xsize, Ysize);
+			
+			b.AddBuffer(x, y, e.Buffer);
+		}
+		
 		b.ReplaceNull(DefFormat);
 		SetAllNoNeedGenerateBuffer();
 		return b;
