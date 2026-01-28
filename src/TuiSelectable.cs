@@ -10,6 +10,17 @@ namespace AshConsoleGraphics.Interactive;
 /// An interactive element that can be selected and does things
 /// </summary>
 public abstract class TuiSelectable : TuiElement{
+	
+	/// <summary>
+	/// Global left selector char for all included Selectables
+	/// </summary>
+	public static char? LeftSelector = '>';
+	
+	/// <summary>
+	/// Global right selector char for all included Selectables
+	/// </summary>
+	public static char? RightSelector = '<';
+	
 	/// <summary>
 	/// If it is selected or not
 	/// </summary>

@@ -25,9 +25,15 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 		updateScroll();
 	}}
 	
-	public int ScrollX {get; private set;}
+	public int ScrollX {get; set{
+		field = value;
+		needToGenBuffer = true;
+	}}
 	
-	public int ScrollY {get; private set;}
+	public int ScrollY {get; set{
+		field = value;
+		needToGenBuffer = true;
+	}}
 	
 	/// <summary>
 	/// List of child elements that will not be affected by scroll
@@ -55,6 +61,8 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 		OnResize += (s, args) => {
 			updateScroll();
 		};
+		
+		SetDefaultKeys();
 	}
 	
 	/// <summary>
@@ -78,6 +86,8 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 		OnResize += (s, args) => {
 			updateScroll();
 		};
+		
+		SetDefaultKeys();
 	}
 	
 	void updateScroll(){
@@ -118,7 +128,7 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 		
 		Buffer b = new Buffer(Xsize, Ysize);
 		
-		foreach(TuiElement e in Elements){
+		foreach(TuiElement e in Elements.ToArray()){
 			if(FixedElements.Contains(e)){
 				fix.Add(e);
 				continue;
@@ -140,5 +150,18 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 		b.ReplaceNull(DefFormat);
 		SetAllNoNeedGenerateBuffer();
 		return b;
+	}
+	
+	public static void ScrollUp(TuiScreenInteractive s, ConsoleKeyInfo ck){
+		((TuiScrollingScreenInteractive) s).ScrollY++;
+	}
+	
+	public static void ScrollDown(TuiScreenInteractive s, ConsoleKeyInfo ck){
+		((TuiScrollingScreenInteractive) s).ScrollY--;
+	}
+	
+	void SetDefaultKeys(){
+		SubKeyEvent(ConsoleKey.PageUp, ScrollUp);
+		SubKeyEvent(ConsoleKey.PageDown, ScrollDown);
 	}
 }

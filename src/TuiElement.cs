@@ -58,7 +58,10 @@ public abstract class TuiElement{
 		}
 	}} = true;
 	
-	internal bool needToGenScreenBuffer = true;
+	internal virtual bool needToGenScreenBuffer {get;
+	set{
+		field = value;
+	}} = true;
 	
 	/// <summary>
 	/// Will be called when parent screen resizes

@@ -12,6 +12,9 @@ class Program{
 	static void Main(){
 
 		Console.CursorVisible = false;
+		
+		TuiSelectable.LeftSelector = '[';
+		TuiSelectable.RightSelector = ']';
 
 		string[] words = { //Some words for random generation
 			"hello", "never", "no", "yes", "bacon", "pig", "gloria", "order", "emperor", "hierarchy", "path", "file", "folder",
@@ -31,7 +34,7 @@ class Program{
 		
 		TuiSelectable[,] LeftElements = null;
 		LeftElements = new TuiSelectable[,]{
-			{new TuiFramedTextBox("", 16, Placement.Center, 0, -3, null, null, null, new CharFormat(null, null, 1, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
+			{new TuiFramedTextBox("", 16, Placement.Center, 0, -3, null, null, null, new CharFormat(null, null, 0, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow), new CharFormat(Color3.Yellow))},
 			{new TuiButton("Set color", Placement.Center, 0, 1, null, selected, new CharFormat(Color3.Yellow)).SetAction(setColor)},
 			{new TuiButton("Change screen", Placement.Center, 0, 4, null, selected, new CharFormat(Color3.Yellow)).SetAction(goToOther2)}
 		};
@@ -41,8 +44,8 @@ class Program{
 			{new TuiButton("Change screen", Placement.Center, 0, 1, null, selected, new CharFormat(Color3.Yellow)).SetAction(goToOther)},
 			{new TuiButton("Change to another", Placement.Center, 0, 2, null, selected, new CharFormat(Color3.Yellow)).SetAction(goToAlternate)},
 			{new TuiButton("Useless button that does nothing", Placement.Center, 0, 4, null, selected, new CharFormat(Color3.Yellow)).SetAction(joke)},
-			{new TuiFramedCheckBox(' ', 'X', false, Placement.Center, 8, 7, null, null, null, new CharFormat(null, null, 1, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
-			{new TuiFramedRadio(' ', 'X', "Left: ", "Right: ", Placement.Center, 0, 10, null, null, null, new CharFormat(null, null, 1, null, Color3.Yellow, false, null, false), null, null, new CharFormat(Color3.Yellow))},
+			{new TuiFramedCheckBox(' ', 'X', false, Placement.Center, 8, 7, null, null, null, new CharFormat(null, null, 0, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
+			{new TuiSlider(16, '—', '@', 4f, 50f, Placement.Center, 0, 11, null, null, null, new CharFormat(null, null, 0, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
 		};
 		
 		TuiSelectable[,] AlternateElements = null;
@@ -57,13 +60,17 @@ class Program{
 		
 		//Populate the matrix
 		for(int i = 0; i < 143; i++){
-			AlternateElements[1 + i / 12, i % 12] = new TuiFramedCheckBox(' ', 'X', rand.Next(7) != 1, Placement.TopLeft, 6 * (i % 12), 20 + 4 * (i / 12), null, null, null, new CharFormat(null, null, 1, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow));
+			AlternateElements[1 + i / 12, i % 12] = new TuiFramedCheckBox(' ', 'X', rand.Next(7) != 1, Placement.TopLeft, 6 * (i % 12), 20 + 4 * (i / 12), null, null, null, new CharFormat(null, null, 0, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow));
 		}
 		
-		LeftScreen = new TuiScreenInteractive(50,20, LeftElements, 0, 1, new CharFormat(new Color3(255, 100, 0), new Color3(30, 0, 0)), new TuiLabel("Enter color:", Placement.Center, -2, -5, null));
+		LeftScreen = new TuiScreenInteractive(50,20, LeftElements, 0, 1, new CharFormat(new Color3(255, 100, 0), new Color3(30, 0, 0)),
+			new TuiLabel("Enter color:", Placement.Center, -2, -5, null)
+		);
 		RightScreen = new TuiScreenInteractive(50,20, RightElements, 0, 0, Placement.TopRight, 0, 0, new CharFormat(new Color3(150, 0, 255), new Color3(0, 0, 30)),
-												new TuiLog(48, 9, Placement.TopCenter, 0, 1, new CharFormat(Color3.White, Color3.Black)),
-												new TuiLabel("Stop generating:", Placement.Center, -2, 7, null));
+			new TuiFormatLog(48, 9, Placement.TopCenter, 0, 1, new CharFormat(Color3.White, Color3.Black)),
+			new TuiLabel("Stop generating:", Placement.Center, -2, 7, null),
+			new TuiLabel("Generation speed:", Placement.Center, 0, 10, null)
+		);
 		AlternateScreen = new TuiScrollingScreenInteractive(50,20, AlternateElements, 0, 0, Placement.TopRight, 0, 0, new CharFormat(new Color3(0, 255, 0), new Color3(0, 30, 0)));
 		
 		BigScreen = new MultipleTuiScreenInteractive(101, 20, new TuiScreenInteractive[]{RightScreen, LeftScreen}, null, null, new TuiVerticalLine(20, '│', Placement.TopCenter, 0, 0, new CharFormat(Color3.Yellow)));
@@ -85,51 +92,64 @@ class Program{
 			AlternateScreen.Xsize = args.X / 2 - 1;
 			AlternateScreen.Ysize = args.Y;
 			
-			((TuiLog) RightScreen.Elements[0]).Xsize = RightScreen.Xsize - 4;
-			((TuiLog) RightScreen.Elements[0]).Ysize = RightScreen.Ysize / 2 - 1;
+			((TuiFormatLog) RightScreen.Elements[0]).Xsize = RightScreen.Xsize - 4;
+			((TuiFormatLog) RightScreen.Elements[0]).Ysize = RightScreen.Ysize / 2 - 1;
 			
 			((TuiVerticalLine) BigScreen.Elements[0]).Ysize = BigScreen.Ysize;
 		};
 		
-		BigScreen.SubKeyEvent(ConsoleKey.W, (s, ck) => {
-			((TuiLog) RightScreen.Elements[0]).Scroll++;
+		RightScreen.SubKeyEvent(ConsoleKey.W, (s, ck) => {
+			((TuiFormatLog) RightScreen.Elements[0]).Scroll++;
 		});
 		
-		BigScreen.SubKeyEvent(ConsoleKey.S, (s, ck) => {
-			((TuiLog) RightScreen.Elements[0]).Scroll--;
+		RightScreen.SubKeyEvent(ConsoleKey.S, (s, ck) => {
+			((TuiFormatLog) RightScreen.Elements[0]).Scroll--;
 		});
 		
 		int j = 0;
+		
+		int d = 0;
 		
 		int c = 0;
 		
 		//Add words to the log
 		BigScreen.OnFinishPlayCycle = (sb, a) => {
+			//Blinking cursor effect
+			d++;
+			if(d >= 100){
+				if(TuiWritable.Cursor == '_'){
+					TuiWritable.Cursor = ' ';
+				}else{
+					TuiWritable.Cursor = '_';
+				}
+				d = 0;
+			}
+			
+			if(c != 143){ //Do it only once
+				//Count how many are checked
+				for(int i = 0; i < 143; i++){
+					if(((TuiFramedCheckBox)AlternateElements[1 + i / 12, i % 12]).Checked){
+						c++;
+					}
+				}
+				
+				if(c == 143){
+					((TuiWritable) LeftElements[0,0]).Text = "Good job!";
+				}else{
+					c = 0;
+				}
+			}
+			
+			//Dont generate
 			if(((TuiFramedCheckBox) RightElements[3,0]).Checked){
 				return;
 			}
 			
+			//Limit speed of generation
 			j++;
-			if(j == 10){
+			if(j >= 110 - ((TuiSlider) RightElements[4,0]).Percentage){
 				j = 0;
-				((TuiLog) RightScreen.Elements[0]).Append(generateContent(rand));
-			}
-			
-			if(c == 143){
-				return; //Do it only once
-			}
-			
-			//Count how many are checked
-			for(int i = 0; i < 143; i++){
-				if(((TuiFramedCheckBox)AlternateElements[1 + i / 12, i % 12]).Checked){
-					c++;
-				}
-			}
-			
-			if(c == 143){
-				((TuiWritable) LeftElements[0,0]).Text = "Good job!";
-			}else{
-				c = 0;
+				((TuiFormatLog) RightScreen.Elements[0]).Append(generateContent(rand), new CharFormat(new Color3((byte) rand.Next(255), (byte) rand.Next(255), (byte) rand.Next(255))));
 			}
 		};
 		
@@ -139,11 +159,12 @@ class Program{
 			string t = ((TuiWritable) LeftElements[0,0]).Text;
 			dynamic g = e;
 			if(t == "random"){
-				g.TextFormat = new CharFormat(new Color3((byte) rand.Next(256), (byte) rand.Next(256), (byte) rand.Next(256)));
-				g.SelectedTextFormat = g.TextFormat;
+				Color3 coll = new Color3((byte) rand.Next(256), (byte) rand.Next(256), (byte) rand.Next(256));
+				g.TextFormat = new CharFormat(coll);
+				g.SelectedTextFormat = new CharFormat(null, null, 1, null, coll, false, null, false);
 			}else if(Color3.TryParse(t, out Color3 c)){
 				g.TextFormat = new CharFormat(c);
-				g.SelectedTextFormat = g.TextFormat;
+				g.SelectedTextFormat = new CharFormat(null, null, 1, null, c, false, null, false);
 			}
 		}
 		

@@ -7,13 +7,13 @@
 	<LangVersion>preview</LangVersion>
 	
 	<PackageId>ashConsoleGraphics</PackageId>
-    <Version>2.2.4</Version>
+    <Version>2.2.5</Version>
     <Authors>siljam</Authors>
     <Company>AshProject</Company>
 	
 	<PackageTags>console ui graphic interactive terminal ansi NO_COLOR</PackageTags>
 	<PackageDescription>UIs and interfaces in your console</PackageDescription>
-	<PackageReleaseNotes>2.2.4 Linux support (UTF8) and FormatLog</PackageReleaseNotes>
+	<PackageReleaseNotes>2.2.5 global selectors, cursor, more elements</PackageReleaseNotes>
 	
     <RepositoryUrl>https://github.com/siljamdev/AshConsoleGraphics</RepositoryUrl>
 	<PackageProjectUrl>https://github.com/siljamdev/AshConsoleGraphics</PackageProjectUrl>

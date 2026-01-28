@@ -64,9 +64,18 @@ public class TuiFramedTextBox : TuiWritable{
 	}}
 	
 	/// <summary>
-	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
+	/// Format of the selectors that surround the element when selcted
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Format of the cursor
+	/// </summary>
+	public CharFormat? CursorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -82,8 +91,9 @@ public class TuiFramedTextBox : TuiWritable{
 	/// <param name="sff">Selected frame format</param>
 	/// <param name="tf">Not selected text format</param>
 	/// <param name="stf">Selected text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiFramedTextBox(string chars, string t, int l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
+	public TuiFramedTextBox(string chars, string t, int l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? curfor, CharFormat? pf)
 							: base(t, l, p, x, y){
 		frame = new TuiFrame(chars, l + 2, 3, Placement.TopLeft, 0, 0, ff);
 		
@@ -92,6 +102,7 @@ public class TuiFramedTextBox : TuiWritable{
 		TextFormat = tf;
 		SelectedTextFormat = stf;
 		SelectorFormat = pf;
+		CursorFormat = curfor;
 		
 		OnLengthChange += (s, a) => {
 			frame.Xsize = Length + 2;
@@ -114,9 +125,10 @@ public class TuiFramedTextBox : TuiWritable{
 	/// <param name="l">Textbox length</param>
 	/// <param name="ff">Frame format</param>
 	/// <param name="tf">Text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiFramedTextBox(string chars, string t, int l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
-							: this(chars, t, l, p, x, y, ff, ff, tf, tf, pf){}
+	public TuiFramedTextBox(string chars, string t, int l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? curfor = null, CharFormat? pf = null)
+							: this(chars, t, l, p, x, y, ff, ff, tf, tf, curfor, pf){}
 	
 	/// <summary>
 	/// Initializes a new textbox with default frame chars ('┌┐└┘──││')
@@ -127,9 +139,10 @@ public class TuiFramedTextBox : TuiWritable{
 	/// <param name="sff">Selected frame format</param>
 	/// <param name="tf">Not selected text format</param>
 	/// <param name="stf">Selected text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiFramedTextBox(string t, int l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
-							: this(null, t, l, p, x, y, ff, sff, tf, stf, pf){}
+	public TuiFramedTextBox(string t, int l, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? curfor, CharFormat? pf)
+							: this(null, t, l, p, x, y, ff, sff, tf, stf, curfor, pf){}
 	
 	/// <summary>
 	/// Initializes a new textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected
@@ -138,9 +151,10 @@ public class TuiFramedTextBox : TuiWritable{
 	/// <param name="l">Textbox length</param>
 	/// <param name="ff">Frame format</param>
 	/// <param name="tf">Text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiFramedTextBox(string t, int l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
-							: this(t, l, p, x, y, ff,ff, tf, tf, pf){}
+	public TuiFramedTextBox(string t, int l, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? curfor = null, CharFormat? pf = null)
+							: this(t, l, p, x, y, ff,ff, tf, tf, curfor, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
@@ -149,8 +163,8 @@ public class TuiFramedTextBox : TuiWritable{
 			
 			b.AddBuffer(1, 0, frame.Buffer);
 			
-			b.SetChar(0, 1, '>', SelectorFormat);
-			b.SetChar(Length + 3, 1, '<', SelectorFormat);
+			b.SetChar(0, 1, LeftSelector, SelectorFormat);
+			b.SetChar(Length + 3, 1, RightSelector, SelectorFormat);
 			
 			for(int i = 0; i < Text.Length; i++){
 				b.SetChar(2 + i, 1, Text[i], SelectedTextFormat);
@@ -158,6 +172,10 @@ public class TuiFramedTextBox : TuiWritable{
 			
 			for(int i = Text.Length; i < Length; i++){
 				b.SetChar(2 + i, 1, ' ', SelectedTextFormat);
+			}
+			
+			if(Text.Length < Length){
+				b.SetChar(Text.Length + 2, 1, Cursor, CursorFormat);
 			}
 		}else{
 			b = new Buffer(Length + 2, 3);
@@ -242,9 +260,18 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 	}}
 	
 	/// <summary>
-	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
+	/// Format of the selectors that surround the element when selcted
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Format of the cursor
+	/// </summary>
+	public CharFormat? CursorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -274,8 +301,9 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 	/// <param name="sff">Selected frame format</param>
 	/// <param name="tf">Not selected text format</param>
 	/// <param name="stf">Selected text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiFramedScrollingTextBox(string chars, string t, int l, int bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf) : base(t, l, p, x, y){
+	public TuiFramedScrollingTextBox(string chars, string t, int l, int bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? curfor, CharFormat? pf) : base(t, l, p, x, y){
 		frame = new TuiFrame(chars, bl + 2, 3, Placement.TopLeft, 0, 0, ff);
 		
 		FrameFormat = ff;
@@ -283,6 +311,7 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 		TextFormat = tf;
 		SelectedTextFormat = stf;
 		SelectorFormat = pf;
+		CursorFormat = curfor;
 		
 		OnSelection += (s, a) => {
 			if(Selected){
@@ -302,9 +331,10 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 	/// <param name="bl">Visible textbox length</param>
 	/// <param name="ff">Frame format</param>
 	/// <param name="tf">Text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiFramedScrollingTextBox(string chars, string t, int l, int bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
-							: this(chars, t, l, bl, p, x, y, ff, ff, tf, tf, pf){}
+	public TuiFramedScrollingTextBox(string chars, string t, int l, int bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? curfor = null, CharFormat? pf = null)
+							: this(chars, t, l, bl, p, x, y, ff, ff, tf, tf, curfor, pf){}
 	
 	/// <summary>
 	/// Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││')
@@ -316,9 +346,10 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 	/// <param name="sff">Selected frame format</param>
 	/// <param name="tf">Not selected text format</param>
 	/// <param name="stf">Selected text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiFramedScrollingTextBox(string t, int l, int bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
-							: this(null, t, l, bl, p, x, y, ff, sff, tf, stf, pf){}
+	public TuiFramedScrollingTextBox(string t, int l, int bl, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? curfor, CharFormat? pf)
+							: this(null, t, l, bl, p, x, y, ff, sff, tf, stf, curfor, pf){}
 	
 	/// <summary>
 	/// Initializes a new scrolling textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected
@@ -328,30 +359,36 @@ public class TuiFramedScrollingTextBox : TuiWritable{
 	/// <param name="bl">Visible textbox length</param>
 	/// <param name="ff">Frame format</param>
 	/// <param name="tf">Text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiFramedScrollingTextBox(string t, int l, int bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
-							: this(t, l, bl, p, x, y, ff, ff, tf, tf, pf){}
+	public TuiFramedScrollingTextBox(string t, int l, int bl, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? curfor = null, CharFormat? pf = null)
+							: this(t, l, bl, p, x, y, ff, ff, tf, tf, curfor, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
 		
 		string te;
-		if(Text.Length > BoxXsize){
-			te = "…" + Text.Substring(Text.Length - BoxXsize + 1);
+		bool showCursor = Selected && Text.Length < Length;
+		if(Text.Length > BoxXsize - (showCursor ? 1 : 0)){
+			te = "…" + Text.Substring(Text.Length - BoxXsize + (showCursor ? 2 : 1)) + (showCursor ? Cursor : "");
 		}else{
-			te = Text;
+			te = Text + (showCursor ? Cursor : "");
 		}
 		
 		if(Selected){
 			b = new Buffer(BoxXsize + 4, 3);
 			
-			b.SetChar(0, 1, '>', SelectorFormat);
-			b.SetChar(BoxXsize + 3, 1, '<', SelectorFormat);
+			b.SetChar(0, 1, LeftSelector, SelectorFormat);
+			b.SetChar(BoxXsize + 3, 1, RightSelector, SelectorFormat);
 			
 			b.AddBuffer(1, 0, frame.Buffer);
 			
 			for(int i = 0; i < te.Length; i++){
-				b.SetChar(2 + i, 1, te[i], SelectedTextFormat);
+				if(showCursor && i == te.Length - 1){
+					b.SetChar(2 + i, 1, te[i], CursorFormat);
+				}else{
+					b.SetChar(2 + i, 1, te[i], SelectedTextFormat);
+				}
 			}
 			
 			for(int i = te.Length; i < BoxXsize; i++){
@@ -440,9 +477,18 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 	}}
 	
 	/// <summary>
-	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
+	/// Format of the selectors that surround the element when selected
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Format of the cursor
+	/// </summary>
+	public CharFormat? CursorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -487,8 +533,9 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 	/// <param name="sff">Selected frame format</param>
 	/// <param name="tf">Not selected text format</param>
 	/// <param name="stf">Selected text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiMultiLineFramedTextBox(string chars, string t, int xs, int ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf) : base(t, xs * ys, p, x, y){
+	public TuiMultiLineFramedTextBox(string chars, string t, int xs, int ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? curfor, CharFormat? pf) : base(t, xs * ys, p, x, y){
 		frame = new TuiFrame(chars, xs + 2, ys + 2, Placement.TopLeft, 0, 0, ff);
 		
 		FrameFormat = ff;
@@ -496,6 +543,7 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 		TextFormat = tf;
 		SelectedTextFormat = stf;
 		SelectorFormat = pf;
+		CursorFormat = curfor;
 		
 		Text = t;
 		
@@ -540,9 +588,10 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 	/// <param name="ys">Box Y size</param>
 	/// <param name="ff">Frame format</param>
 	/// <param name="tf">Text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiMultiLineFramedTextBox(string chars, string t, int xs, int ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
-							: this(chars, t, xs, ys, p, x, y, ff, ff, tf, tf, pf){}
+	public TuiMultiLineFramedTextBox(string chars, string t, int xs, int ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? curfor = null, CharFormat? pf = null)
+							: this(chars, t, xs, ys, p, x, y, ff, ff, tf, tf, curfor, pf){}
 	
 	/// <summary>
 	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││')
@@ -554,9 +603,10 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 	/// <param name="sff">Selected frame format</param>
 	/// <param name="tf">Not selected text format</param>
 	/// <param name="stf">Selected text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiMultiLineFramedTextBox(string t, int xs, int ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
-							: this(null, t, xs, ys, p, x, y, ff, sff, tf, stf, pf){}
+	public TuiMultiLineFramedTextBox(string t, int xs, int ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? curfor, CharFormat? pf)
+							: this(null, t, xs, ys, p, x, y, ff, sff, tf, stf, curfor, pf){}
 	
 	/// <summary>
 	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected
@@ -566,17 +616,18 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 	/// <param name="ys">Box Y size</param>
 	/// <param name="ff">Frame format</param>
 	/// <param name="tf">Text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiMultiLineFramedTextBox(string t, int xs, int ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
-							: this(t, xs, ys, p, x, y, ff, ff, tf, tf, pf){}
+	public TuiMultiLineFramedTextBox(string t, int xs, int ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? curfor = null, CharFormat? pf = null)
+							: this(t, xs, ys, p, x, y, ff, ff, tf, tf, curfor, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
 		if(Selected){
 			b = new Buffer(BoxXsize + 4, BoxYsize + 2);
 			
-			b.SetChar(0, 1 + BoxYsize / 2, '>', SelectorFormat);
-			b.SetChar(BoxXsize + 3, 1 + BoxYsize / 2, '<', SelectorFormat);
+			b.SetChar(0, 1 + BoxYsize / 2, LeftSelector, SelectorFormat);
+			b.SetChar(BoxXsize + 3, 1 + BoxYsize / 2, RightSelector, SelectorFormat);
 			
 			b.AddBuffer(1, 0, frame.Buffer);
 			
@@ -588,6 +639,10 @@ public class TuiMultiLineFramedTextBox : TuiWritable{
 			
 			for(int i = 0; i < Text.Length; i++){
 				b.SetChar(2 + (i % BoxXsize), 1 + (i / BoxXsize), Text[i], SelectedTextFormat);
+			}
+			
+			if(Text.Length < Length){
+				b.SetChar(2 + (Text.Length % BoxXsize), 1 + (Text.Length / BoxXsize), Cursor, CursorFormat);
 			}
 		}else{
 			b = new Buffer(BoxXsize + 2, BoxYsize + 2);
@@ -676,9 +731,18 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	}}
 	
 	/// <summary>
-	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
+	/// Format of the selectors that surround the element when selcted
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Format of the cursor
+	/// </summary>
+	public CharFormat? CursorFormat {get;
 	set{
 		field = value;
 		needToGenBuffer = true;
@@ -721,8 +785,9 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	/// <param name="sff">Selected frame format</param>
 	/// <param name="tf">Not selected text format</param>
 	/// <param name="stf">Selected text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiMultiLineScrollingFramedTextBox(string chars, string t, int l, int xs, int ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
+	public TuiMultiLineScrollingFramedTextBox(string chars, string t, int l, int xs, int ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? curfor, CharFormat? pf)
 											: base(t, l, p, x, y){
 		frame = new TuiFrame(chars, xs + 2, ys + 2, Placement.TopLeft, 0, 0, ff);
 		
@@ -731,6 +796,7 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 		TextFormat = tf;
 		SelectedTextFormat = stf;
 		SelectorFormat = pf;
+		CursorFormat = curfor;
 		
 		Length = l;
 		
@@ -755,8 +821,8 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	/// <param name="ff">Frame format</param>
 	/// <param name="tf">Text format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiMultiLineScrollingFramedTextBox(string chars, string t, int l, int xs, int ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
-							: this(chars, t, l, xs, ys, p, x, y, ff, ff, tf, tf, pf){}
+	public TuiMultiLineScrollingFramedTextBox(string chars, string t, int l, int xs, int ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? curfor = null, CharFormat? pf = null)
+							: this(chars, t, l, xs, ys, p, x, y, ff, ff, tf, tf, curfor, pf){}
 	
 	/// <summary>
 	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││')
@@ -768,9 +834,10 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	/// <param name="sff">Selected frame format</param>
 	/// <param name="tf">Not selected text format</param>
 	/// <param name="stf">Selected text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiMultiLineScrollingFramedTextBox(string t, int l, int xs, int ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? pf)
-							: this(null, t, l, xs, ys, p, x, y, ff, sff, tf, stf, pf){}
+	public TuiMultiLineScrollingFramedTextBox(string t, int l, int xs, int ys, Placement p, int x, int y, CharFormat? ff, CharFormat? sff, CharFormat? tf, CharFormat? stf, CharFormat? curfor, CharFormat? pf)
+							: this(null, t, l, xs, ys, p, x, y, ff, sff, tf, stf, curfor, pf){}
 	
 	/// <summary>
 	/// Initializes a new multiline textbox with default frame chars ('┌┐└┘──││') and same colors for selected and not selected
@@ -780,24 +847,26 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 	/// <param name="ys">Box Y size</param>
 	/// <param name="ff">Frame format</param>
 	/// <param name="tf">Text format</param>
+	/// <param name="curfor">Cursor format</param>
 	/// <param name="pf">Selector format</param>
-	public TuiMultiLineScrollingFramedTextBox(string t, int l, int xs, int ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? pf = null)
-							: this(t, l, xs, ys, p, x, y, ff, ff, tf, tf, pf){}
+	public TuiMultiLineScrollingFramedTextBox(string t, int l, int xs, int ys, Placement p, int x, int y, CharFormat? ff = null, CharFormat? tf = null, CharFormat? curfor = null, CharFormat? pf = null)
+							: this(t, l, xs, ys, p, x, y, ff, ff, tf, tf, curfor, pf){}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
 		
 		string te;
-		if(Text.Length > BoxXsize * BoxYsize){
-			te = "…" + Text.Substring(Text.Length - (BoxXsize * BoxYsize) + 1);
+		bool showCursor = Selected && Text.Length < Length;
+		if(Text.Length > BoxXsize * BoxYsize - (showCursor ? 1 : 0)){
+			te = "…" + Text.Substring(Text.Length - (BoxXsize * BoxYsize) + (showCursor ? 2 : 1)) + (showCursor ? Cursor : "");
 		}else{
-			te = Text;
+			te = Text + (showCursor ? Cursor : "");
 		}
 		
 		if(Selected){
 			b = new Buffer(BoxXsize + 4, BoxYsize + 2);
-			b.SetChar(0, 1 + BoxYsize / 2, '>', SelectorFormat);
-			b.SetChar(BoxXsize + 3, 1 + BoxYsize / 2, '<', SelectorFormat);
+			b.SetChar(0, 1 + BoxYsize / 2, LeftSelector, SelectorFormat);
+			b.SetChar(BoxXsize + 3, 1 + BoxYsize / 2, RightSelector, SelectorFormat);
 			
 			b.AddBuffer(1, 0, frame.Buffer);
 			
@@ -808,7 +877,11 @@ public class TuiMultiLineScrollingFramedTextBox : TuiWritable{
 			}
 			
 			for(int i = 0; i < te.Length; i++){
-				b.SetChar(2 + (i % BoxXsize), 1 + (i / BoxXsize), te[i], SelectedTextFormat);
+				if(showCursor && i == te.Length - 1){
+					b.SetChar(2 + (i % BoxXsize), 1 + (i / BoxXsize), te[i], CursorFormat);
+				}else{
+					b.SetChar(2 + (i % BoxXsize), 1 + (i / BoxXsize), te[i], SelectedTextFormat);
+				}
 			}
 		}else{
 			b = new Buffer(BoxXsize + 2, BoxYsize + 2);

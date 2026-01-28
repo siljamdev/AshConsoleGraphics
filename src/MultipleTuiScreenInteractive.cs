@@ -68,7 +68,7 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 		ScreenList.OnChanged = () => {
 			ScreenList.RemoveAll(x => x == null);
 			
-			foreach(TuiScreenInteractive sb in ScreenList){
+			foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
 				sb.SetSelected(false);
 			}
 			
@@ -79,7 +79,7 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 			}
 		};
 		
-		foreach(TuiScreenInteractive sb in ScreenList){
+		foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
 			sb.SetSelected(false);
 		}
 		
@@ -105,7 +105,7 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 		ScreenList.OnChanged = () => {
 			ScreenList.RemoveAll(x => x == null);
 			
-			foreach(TuiScreenInteractive sb in ScreenList){
+			foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
 				sb.SetSelected(false);
 			}
 			
@@ -116,7 +116,7 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 			}
 		};
 		
-		foreach(TuiScreenInteractive sb in ScreenList){
+		foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
 			sb.SetSelected(false);
 		}
 		
@@ -198,7 +198,7 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 	}
 	
 	internal void CallFinishCycleEvent(){
-		foreach(TuiScreenInteractive sb in ScreenList){
+		foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
 			sb.CallFinishCycleEvent();
 		}
 		

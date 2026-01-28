@@ -5,6 +5,10 @@ using System.Runtime.InteropServices;
 using AshLib;
 using AshLib.Formatting;
 
+#if MOUSE_SUPPORT
+using AshConsoleGraphics.Interactive;
+#endif
+
 namespace AshConsoleGraphics;
 
 /// <summary>
@@ -319,3 +323,78 @@ public class BitBuffer{
 		return b;
 	}
 }
+
+#if MOUSE_SUPPORT
+/// <summary>
+/// Buffer for checking for hits (clicks)
+/// </summary>
+public class HitTestBuffer{
+	public int Xsize{get; private init;}
+	public int Ysize{get; private init;}
+	
+	TuiSelectable[] buffer;
+	
+	/// <summary>
+	/// Initializes a new empty buffer with its size
+	/// </summary>
+	public HitTestBuffer(int x, int y){
+		Xsize = Math.Max(x, 0);
+		Ysize = Math.Max(y, 0);
+		buffer = new TuiSelectable[Xsize * Ysize];
+	}
+	
+	/// <summary>
+	/// Sets the whole buffer to a target and returns itself
+	/// </summary>
+	public HitTestBuffer SetAll(TuiSelectable s){
+		for(int i = 0; i < buffer.Length; i++){
+			buffer[i] = s;
+		}
+		
+		return this;
+	}
+	
+	/// <summary>
+	/// Sets a hit target
+	/// </summary>
+	/// <param name="x">The x position</param>
+	/// <param name="y">The y position</param>
+	/// <param name="s">The target</param>
+	public void Set(int x, int y, TuiSelectable s){
+		if(x >= Xsize || x < 0 || y >= Ysize || y < 0){
+			return;
+		}
+		
+		int i = y * Xsize + x;
+		
+		buffer[i] = s;
+	}
+	
+	/// <summary>
+	/// Adds a whole buffer
+	/// </summary>
+	/// <param name="x">The x position of the buffer, top left corner</param>
+	/// <param name="y">The y position of the buffer, top left corner</param>
+	/// <param name="b">The other buffer</param>
+	public void AddBuffer(int x, int y, HitTestBuffer b){
+		int i = 0;
+		for(int yr = 0; yr < b.Ysize; yr++){
+			for(int xr = 0; xr < b.Xsize; xr++, i++){
+				if(b.buffer[i] != null){
+					Set(x + xr, y + yr, b.buffer[i]);
+				}
+			}
+		}
+	}
+	
+	public TuiSelectable GetTarget(int x, int y){
+		if(x >= Xsize || x < 0 || y >= Ysize || y < 0){
+			return null;
+		}
+		
+		int i = y * Xsize + x;
+		
+		return buffer[i];
+	}
+}
+#endif

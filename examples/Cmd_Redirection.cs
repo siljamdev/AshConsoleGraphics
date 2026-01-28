@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Text;
 using System.IO;
 using AshLib; //For colors
 using AshLib.Formatting; //For CharFormat
@@ -11,7 +12,7 @@ class Program{
 		Console.CursorVisible = false; //That way we wont see the cursor flashing
 		
 		//The input box
-		TuiFramedScrollingTextBox input = new TuiFramedScrollingTextBox("", 256, 32, Placement.BottomCenter, 0, 1, new CharFormat(new Color3(255, 100, 0)), new CharFormat(new Color3(255, 100, 0)), new CharFormat(new Color3(255, 100, 0)), new CharFormat(Color3.Yellow), new CharFormat(Color3.Yellow));
+		TuiFramedScrollingTextBox input = new TuiFramedScrollingTextBox("", 256, 32, Placement.BottomCenter, 0, 1, new CharFormat(new Color3(255, 100, 0)), new CharFormat(new Color3(255, 100, 0)), new CharFormat(new Color3(255, 100, 0)), new CharFormat(Color3.Yellow), new CharFormat(Color3.Yellow), new CharFormat(Color3.Yellow));
 		
 		//The output log
 		TuiLog output = new TuiLog(98, 9, Placement.TopCenter, 0, 1, new CharFormat(new Color3(255, 100, 0), Color3.Black));
@@ -46,7 +47,10 @@ class Program{
 				RedirectStandardOutput = true,
 				RedirectStandardError = true,
 				UseShellExecute = false,
-				CreateNoWindow = true
+				CreateNoWindow = true,
+				
+				StandardOutputEncoding = Encoding.UTF8,
+				StandardErrorEncoding = Encoding.UTF8
 			}
 		};
 		

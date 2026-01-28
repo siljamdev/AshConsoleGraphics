@@ -514,10 +514,12 @@ public class TuiProgressBar : TuiElement{
 	/// <summary>
 	/// The percentage of the bar that is filled
 	/// </summary>
-	public int Percentage {get;
+	public float Percentage {get;
 	set{
-		field = Math.Clamp(value, 0, 100);
-		needToGenBuffer = true;
+		if(getCompleteChars(Math.Clamp(value, 0f, 100f)) != getCompleteChars(field)){
+			needToGenBuffer = true;
+		}
+		field = Math.Clamp(value, 0f, 100f);
 	}}
 	
 	/// <summary>
@@ -564,10 +566,14 @@ public class TuiProgressBar : TuiElement{
 	/// <param name="f">The format</param>
 	public TuiProgressBar(int xs, char c, char u, Placement p, int x, int y, CharFormat? f = null) : this(xs, c, u, p, x, y, f, f){}
 	
+	int getCompleteChars(float per){
+		return (int) (per * Xsize / 100f);
+	}
+	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, 1);
 		
-		int completeChars = Percentage * Xsize / 100;
+		int completeChars = getCompleteChars(Percentage);
 		
 		for(int i = 0; i < completeChars; i++){
 			b.SetChar(i, 0, CompleteChar, CompleteFormat);

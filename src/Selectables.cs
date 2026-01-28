@@ -38,7 +38,7 @@ public class TuiButton : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
+	/// Format of the selectors that surround the element when selcted
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
 	set{
@@ -81,8 +81,8 @@ public class TuiButton : TuiSelectable{
 		Buffer b;
 		if(Selected){
 			b = new Buffer(Text.Length + 2, 1);
-			b.SetChar(0, 0, '>', SelectorFormat);
-			b.SetChar(Text.Length + 1, 0, '<', SelectorFormat);
+			b.SetChar(0, 0, LeftSelector, SelectorFormat);
+			b.SetChar(Text.Length + 1, 0, RightSelector, SelectorFormat);
 			for(int i = 0; i < Text.Length; i++){
 				b.SetChar(1 + i, 0, Text[i], SelectedTextFormat);
 			}
@@ -143,7 +143,7 @@ public class TuiOptionPicker : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
+	/// Format of the selectors that surround the element when selcted
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
 	set{
@@ -303,7 +303,7 @@ public class TuiNumberPicker : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
+	/// Format of the selectors that surround the element when selcted
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
 	set{
@@ -387,6 +387,189 @@ public class TuiNumberPicker : TuiSelectable{
 }
 
 /// <summary>
+/// Visual slider, lets you pick with arrows
+/// </summary>
+public class TuiSlider : TuiSelectable{
+	public int Xsize {get;
+	set{
+		if(value < 0){
+			return;
+		}
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// The char of the background part
+	/// </summary>
+	public char BackgroundChar {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// The char of the slider part
+	/// </summary>
+	public char SliderChar {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// The percentage of the bar that is filled
+	/// </summary>
+	public float Percentage {get;
+	set{
+		if(getSliderPos(Math.Clamp(value, 0f, 100f)) != getSliderPos(field)){
+			needToGenBuffer = true;
+		}
+		field = Math.Clamp(value, 0f, 100f);
+	}}
+	
+	/// <summary>
+	/// What the percentage will be incremented/decremented each time an arrow is pressed
+	/// </summary>
+	public float Interval;
+	
+	/// <summary>
+	/// Not selected background charachters format
+	/// </summary>
+	public CharFormat? BackgroundFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Selected background charachters format
+	/// </summary>
+	public CharFormat? SelectedBackgroundFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Not selected slider charachter format
+	/// </summary>
+	public CharFormat? SliderFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Selected slider charachter format
+	/// </summary>
+	public CharFormat? SelectedSliderFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Format of the selectors that surround the element when selected
+	/// </summary>
+	public CharFormat? SelectorFormat {get;
+	set{
+		field = value;
+		needToGenBuffer = true;
+	}}
+	
+	/// <summary>
+	/// Initializes a new slider with all colors
+	/// </summary>
+	/// <param name="xs">Xsize</param>
+	/// <param name="b">Background char</param>
+	/// <param name="s">Slider char</param>
+	/// <param name="num">Initial percentage</param>
+	/// <param name="bf">Not selected background format</param>
+	/// <param name="sbf">Selected background format</param>
+	/// <param name="sf">Not selected slider format</param>
+	/// <param name="ssf">Selected slider format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiSlider(int xs, char b, char s, float interval, float num, Placement p, int x, int y, CharFormat? bf, CharFormat? sbf, CharFormat? sf, CharFormat? ssf, CharFormat? pf) : base(p, x, y){
+		Xsize = xs;
+		BackgroundChar = b;
+		SliderChar = s;
+		
+		BackgroundFormat = bf;
+		SelectedBackgroundFormat = sbf;
+		SliderFormat = sf;
+		SelectedSliderFormat = ssf;
+		SelectorFormat = pf;
+		
+		Interval = interval;
+		Percentage = num;
+		
+		SubKeyEvent(ConsoleKey.LeftArrow, SliderLeft);
+		SubKeyEvent(ConsoleKey.RightArrow, SliderRight);
+	}
+	
+	/// <summary>
+	/// Initializes a new slider with the same text color when selected and when not
+	/// </summary>
+	/// <param name="xs">Xsize</param>
+	/// <param name="b">Background char</param>
+	/// <param name="s">Slider char</param>
+	/// <param name="num">Initial percentage</param>
+	/// <param name="bf">Background format</param>
+	/// <param name="sf">Slider format</param>
+	/// <param name="pf">Selector format</param>
+	public TuiSlider(int xs, char b, char s, float interval, float num, Placement p, int x, int y, CharFormat? bf = null, CharFormat? sf = null, CharFormat? pf = null)
+						: this(xs, b, s, interval, num, p, x, y, bf, bf, sf, sf, pf){}
+	
+	int getSliderPos(float per){
+		return (int) (per * (Xsize - 1) / 100f);
+	}
+	
+	/// <summary>
+	/// Moves slider to the left by the interval ammount
+	/// </summary>
+	public void SliderLeft(TuiSelectable s, ConsoleKeyInfo ck){
+		Percentage -= Interval;
+	}
+	
+	/// <summary>
+	/// Moves slider to the right by the interval ammount
+	/// </summary>
+	public void SliderRight(TuiSelectable s, ConsoleKeyInfo ck){
+		Percentage += Interval;
+	}
+	
+	override protected Buffer GenerateBuffer(){
+		Buffer b;
+		
+		int sliderPos = getSliderPos(Percentage);
+		
+		if(Selected){
+			b = new Buffer(Xsize + 2, 1);
+			b.SetChar(0, 0, '<', SelectorFormat);
+			b.SetChar(Xsize + 1, 0, '>', SelectorFormat);
+			for(int i = 0; i < Xsize; i++){
+				if(i == sliderPos){
+					b.SetChar(1 + i, 0, SliderChar, SelectedSliderFormat);
+				}else{
+					b.SetChar(1 + i, 0, BackgroundChar, SelectedBackgroundFormat);
+				}
+			}
+		}else{
+			b = new Buffer(Xsize, 1);
+			for(int i = 0; i < Xsize; i++){
+				if(i == sliderPos){
+					b.SetChar(i, 0, SliderChar, SliderFormat);
+				}else{
+					b.SetChar(i, 0, BackgroundChar, BackgroundFormat);
+				}
+			}
+		}
+		return b;
+	}
+}
+
+/// <summary>
 /// Checkbox (on/off)
 /// </summary>
 public class TuiCheckBox : TuiSelectable{	
@@ -418,7 +601,7 @@ public class TuiCheckBox : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
+	/// Format of the selectors that surround the element when selcted
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
 	set{
@@ -482,8 +665,8 @@ public class TuiCheckBox : TuiSelectable{
 		if(Selected){
 			b = new Buffer(3, 1);
 			
-			b.SetChar(0, 1, '>', SelectorFormat);
-			b.SetChar((int) 4, 1, '<', SelectorFormat);
+			b.SetChar(0, 1, LeftSelector, SelectorFormat);
+			b.SetChar((int) 4, 1, RightSelector, SelectorFormat);
 			
 			b.SetChar(1, 0, Checked ? CheckedChar : UnCheckedChar, SelectedCheckFormat);
 		}else{
@@ -609,8 +792,8 @@ public class TuiFramedCheckBox : TuiCheckBox{
 			
 			b.AddBuffer(1, 0, frame.Buffer);
 			
-			b.SetChar(0, 1, '>', SelectorFormat);
-			b.SetChar((int) 4, 1, '<', SelectorFormat);
+			b.SetChar(0, 1, LeftSelector, SelectorFormat);
+			b.SetChar((int) 4, 1, RightSelector, SelectorFormat);
 			
 			b.SetChar(2, 1, Checked ? CheckedChar : UnCheckedChar, SelectedCheckFormat);
 		}else{
@@ -720,7 +903,7 @@ public class TuiFramedRadio : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// Format of the selector pads '&gt;' '&lt;' that surround the element when selcted
+	/// Format of the selectors that surround the element when selcted
 	/// </summary>
 	public CharFormat? SelectorFormat {get;
 	set{
@@ -862,8 +1045,8 @@ public class TuiFramedRadio : TuiSelectable{
 		if(Selected){
 			b = new Buffer(9 + LeftOption.Length + RightOption.Length, 3);
 			
-			b.SetChar(0, 1, '>', SelectorFormat);
-			b.SetChar((int) b.Xsize - 1, 1, '<', SelectorFormat);
+			b.SetChar(0, 1, LeftSelector, SelectorFormat);
+			b.SetChar((int) b.Xsize - 1, 1, RightSelector, SelectorFormat);
 			
 			int i;
 			for(i = 1; i < LeftOption.Length + 1; i++){

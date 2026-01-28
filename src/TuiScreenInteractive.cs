@@ -9,8 +9,7 @@ namespace AshConsoleGraphics.Interactive;
 /// <summary>
 /// Interactive screen with selectables and key actions
 /// </summary>
-public class TuiScreenInteractive : TuiScreen{
-	
+public class TuiScreenInteractive : TuiScreen{	
 	/// <summary>
 	/// 2d matrix of the elements, ordered and positioned in the way it is wanted
 	/// </summary>
@@ -181,6 +180,7 @@ public class TuiScreenInteractive : TuiScreen{
 			try{ //Sometimes in non interactive terminals Console.KeyAvailable gets error
 				if(!WaitForKey && !Console.KeyAvailable){
 					CallFinishCycleEvent();
+					
 					continue;
 				}
 			}catch(Exception e){}

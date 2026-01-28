@@ -12,6 +12,11 @@ namespace AshConsoleGraphics.Interactive;
 public abstract class TuiWritable : TuiSelectable{
 	
 	/// <summary>
+	/// Global cursor char for all included Writables
+	/// </summary>
+	public static char? Cursor = '_';
+	
+	/// <summary>
 	/// The written text
 	/// </summary>
 	public string Text {get;
@@ -53,6 +58,8 @@ public abstract class TuiWritable : TuiSelectable{
 	/// Will be called when length changes
 	/// </summary>
 	public event EventHandler OnLengthChange;
+	
+	char? recordedCursor;
 	
 	/// <summary>
 	/// Base constructor
@@ -117,5 +124,12 @@ public abstract class TuiWritable : TuiSelectable{
 			return true;
 		}
 		return true;
+	}
+	
+	//Ensure it also updates when cursor changes
+	protected override bool BufferNeedsToBeGenerated(){
+		bool b = recordedCursor != Cursor;
+		recordedCursor = Cursor;
+		return needToGenBuffer || b;
 	}
 }

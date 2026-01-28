@@ -38,6 +38,14 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 		DoResize();
 	}}
 	
+	internal override bool needToGenScreenBuffer {get;
+	set{
+		field = value;
+		if(!value){
+			SetAllNoNeedGenerateBuffer();
+		}
+	}} = true;
+	
 	/// <summary>
 	/// Event called when the screen resizes
 	/// </summary>
@@ -96,7 +104,7 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, Ysize);
-		foreach(TuiElement e in Elements){
+		foreach(TuiElement e in Elements.ToArray()){
 			(int x, int y) = e.GetTopLeftPosition(Xsize, Ysize);
 			b.AddBuffer(x, y, e.Buffer);
 		}
@@ -143,7 +151,7 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 			return true;
 		}
 		
-		foreach(TuiElement e in Elements){
+		foreach(TuiElement e in Elements.ToArray()){
 			if(e.ScreenNeedsToBeGenerated()){
 				return true;
 			}
@@ -156,7 +164,7 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 			return true;
 		}
 		
-		foreach(TuiElement e in Elements){
+		foreach(TuiElement e in Elements.ToArray()){
 			if(e.ScreenNeedsToBeGenerated()){
 				needToGenBuffer = true;
 				return true;
@@ -168,17 +176,17 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 	void DoResize(){
 		OnResize?.Invoke(this, new ResizeArgs(this.Xsize, this.Ysize));
 		
-		foreach(TuiElement e in Elements){
+		foreach(TuiElement e in Elements.ToArray()){
 			e.RaiseParentResize(this, new ResizeArgs(this.Xsize, this.Ysize));
 		}
 	}
 	
-	protected internal void SetAllNoNeedGenerateBuffer(){
-		foreach(TuiElement e in Elements){
+	protected void SetAllNoNeedGenerateBuffer(){
+		foreach(TuiElement e in Elements.ToArray()){
 			e.needToGenScreenBuffer = false;
-			if(e is TuiScreen gs){
+			/* if(e is TuiScreen gs){
 				gs.SetAllNoNeedGenerateBuffer();
-			}
+			} */
 		}
 	}
 }
