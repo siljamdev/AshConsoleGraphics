@@ -3,7 +3,7 @@
 UIs and user interfaces in your console!
 
 ## Installation
-To add it to your project, do `dotnet add package ashConsoleGraphics --version 2.2.0`
+To add it to your project, do `dotnet add package ashConsoleGraphics --version 2.2.5`
 
 ## Usage
 There are Elements that have a graphical buffer, and screens hold these elements and display them. Screens are elements too, allowing for nesting.  
