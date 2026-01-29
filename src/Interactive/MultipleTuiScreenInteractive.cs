@@ -59,25 +59,46 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 	/// <param name="e">Additional elements</param>
 	public MultipleTuiScreenInteractive(int xs, int ys, IEnumerable<TuiScreenInteractive> ss, Placement p, int x, int y, CharFormat? f, params TuiElement[] e)
 										: base(xs, ys, p, x, y, f, (e != null ? (ss != null ? e.Concat(ss).ToArray() : e) : (ss != null ? ss.ToArray() : e))){
+		bool b = false; //Prevent calling it twice because its expensive
 		if(ss == null){
-			ScreenList = new ReactiveList<TuiScreenInteractive>();
+			ScreenList = new ReactiveList<TuiScreenInteractive>(() => {
+				if(b){
+					return;
+				}
+				b = true;
+				ScreenList.RemoveAll(x => x == null);
+				b = false;
+				
+				foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
+					sb.SetSelected(false);
+				}
+				
+				if(!ScreenList.Contains(SelectedScreen)){
+					SelectedScreen = null;
+				}else{
+					SelectedScreen.SetSelected(true);
+				}
+			});
 		}else{
-			ScreenList = new ReactiveList<TuiScreenInteractive>(ss.Where(x => x != null).Distinct());
+			ScreenList = new ReactiveList<TuiScreenInteractive>(ss.Where(x => x != null).Distinct(), () => {
+				if(b){
+					return;
+				}
+				b = true;
+				ScreenList.RemoveAll(x => x == null);
+				b = false;
+				
+				foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
+					sb.SetSelected(false);
+				}
+				
+				if(!ScreenList.Contains(SelectedScreen)){
+					SelectedScreen = null;
+				}else{
+					SelectedScreen.SetSelected(true);
+				}
+			});
 		}
-		
-		ScreenList.OnChanged = () => {
-			ScreenList.RemoveAll(x => x == null);
-			
-			foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
-				sb.SetSelected(false);
-			}
-			
-			if(!ScreenList.Contains(SelectedScreen)){
-				SelectedScreen = null;
-			}else{
-				SelectedScreen.SetSelected(true);
-			}
-		};
 		
 		foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
 			sb.SetSelected(false);
@@ -96,25 +117,46 @@ public class MultipleTuiScreenInteractive : TuiScreen{
 	/// <param name="e">Additional elements</param>
 	public MultipleTuiScreenInteractive(int xs, int ys, IEnumerable<TuiScreenInteractive> ss, CharFormat? f, params TuiElement[] e)
 										: base(xs, ys, f, (e != null ? (ss != null ? e.Concat(ss).ToArray() : e) : (ss != null ? ss.ToArray() : e))){
+		bool b = false; //Prevent calling it twice because its expensive
 		if(ss == null){
-			ScreenList = new ReactiveList<TuiScreenInteractive>();
+			ScreenList = new ReactiveList<TuiScreenInteractive>(() => {
+				if(b){
+					return;
+				}
+				b = true;
+				ScreenList.RemoveAll(x => x == null);
+				b = false;
+				
+				foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
+					sb.SetSelected(false);
+				}
+				
+				if(!ScreenList.Contains(SelectedScreen)){
+					SelectedScreen = null;
+				}else{
+					SelectedScreen.SetSelected(true);
+				}
+			});
 		}else{
-			ScreenList = new ReactiveList<TuiScreenInteractive>(ss.Where(x => x != null).Distinct());
+			ScreenList = new ReactiveList<TuiScreenInteractive>(ss.Where(x => x != null).Distinct(), () => {
+				if(b){
+					return;
+				}
+				b = true;
+				ScreenList.RemoveAll(x => x == null);
+				b = false;
+				
+				foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
+					sb.SetSelected(false);
+				}
+				
+				if(!ScreenList.Contains(SelectedScreen)){
+					SelectedScreen = null;
+				}else{
+					SelectedScreen.SetSelected(true);
+				}
+			});
 		}
-		
-		ScreenList.OnChanged = () => {
-			ScreenList.RemoveAll(x => x == null);
-			
-			foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
-				sb.SetSelected(false);
-			}
-			
-			if(!ScreenList.Contains(SelectedScreen)){
-				SelectedScreen = null;
-			}else{
-				SelectedScreen.SetSelected(true);
-			}
-		};
 		
 		foreach(TuiScreenInteractive sb in ScreenList.ToArray()){
 			sb.SetSelected(false);

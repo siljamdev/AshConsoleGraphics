@@ -23,8 +23,6 @@ public class TuiConnectedLinesScreen : TuiScreen{
 		needToGenBuffer = true;
 	}}
 	
-	List<ILineElement> LinedElements;
-	
 	/// <summary>
 	/// Initializes a new line screen
 	/// </summary>
@@ -34,13 +32,11 @@ public class TuiConnectedLinesScreen : TuiScreen{
 	/// <param name="f">The default format</param>
 	/// <param name="i">The lined elements</param>
 	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 16 chars long</exception>
-	public TuiConnectedLinesScreen(string chars, int xs, int ys, IEnumerable<ILineElement> i, Placement p, int x, int y, CharFormat? f)
-		: base(xs, ys, p, x, y, f, i.Cast<TuiElement>().ToArray()){
+	public TuiConnectedLinesScreen(string chars, int xs, int ys, Placement p, int x, int y, CharFormat? f, params ILineElement[] i)
+		: base(xs, ys, p, x, y, f, i.OfType<TuiElement>().ToArray()){
 		if(chars == null || chars.Length != 16){
 			throw new ArgumentException("String must be 16 chars long");
 		}
-		
-		LinedElements = new List<ILineElement>(i);
 		
 		Chars = chars.ToCharArray();
 	}
@@ -54,12 +50,10 @@ public class TuiConnectedLinesScreen : TuiScreen{
 	/// <param name="f">The default format</param>
 	/// <param name="i">The lined elements</param>
 	/// <exception cref="System.ArgumentException">Thrown when chars is null or it is not 16 chars long</exception>
-	public TuiConnectedLinesScreen(string chars, int xs, int ys, IEnumerable<ILineElement> i, CharFormat? f) : base(xs, ys, f, i.Cast<TuiElement>().ToArray()){
+	public TuiConnectedLinesScreen(string chars, int xs, int ys, CharFormat? f, params ILineElement[] i) : base(xs, ys, f, i.OfType<TuiElement>().ToArray()){
 		if(chars == null || chars.Length != 16){
 			throw new ArgumentException("String must be 16 chars long");
 		}
-		
-		LinedElements = new List<ILineElement>(i);
 		
 		Chars = chars.ToCharArray();
 	}
@@ -71,9 +65,7 @@ public class TuiConnectedLinesScreen : TuiScreen{
 	/// <param name="ys">The y size</param>
 	/// <param name="f">The default format</param>
 	/// <param name="i">The lined elements</param>
-	public TuiConnectedLinesScreen(int xs, int ys, IEnumerable<ILineElement> i, Placement p, int x, int y, CharFormat? f) : base(xs, ys, p, x, y, f, i.Cast<TuiElement>().ToArray()){
-		LinedElements = new List<ILineElement>(i);
-		
+	public TuiConnectedLinesScreen(int xs, int ys, Placement p, int x, int y, CharFormat? f, params ILineElement[] i) : base(xs, ys, p, x, y, f, i.OfType<TuiElement>().ToArray()){
 		Chars = "·───│┌┐┬│└┘┴│├┤┼".ToCharArray();
 	}
 	
@@ -84,60 +76,59 @@ public class TuiConnectedLinesScreen : TuiScreen{
 	/// <param name="ys">The y size</param>
 	/// <param name="f">The default format</param>
 	/// <param name="i">The lined elements</param>
-	public TuiConnectedLinesScreen(int xs, int ys, IEnumerable<ILineElement> i, CharFormat? f) : base(xs, ys, f, i.Cast<TuiElement>().ToArray()){
-		LinedElements = new List<ILineElement>(i);
-		
+	public TuiConnectedLinesScreen(int xs, int ys, CharFormat? f, params ILineElement[] i) : base(xs, ys, f, i.OfType<TuiElement>().ToArray()){
 		Chars = "·───│┌┐┬│└┘┴│├┤┼".ToCharArray();
 	}
 	
 	override protected Buffer GenerateBuffer(){
 		BitBuffer b = new BitBuffer(Xsize, Ysize);
 		
-		foreach(ILineElement i in LinedElements){
-			int x = 0;
-			int y = 0;
-			BitBuffer eb = i.GenerateBitBuffer();
-			TuiElement e = (TuiElement) i;
-			switch(e.Placement){
-				default:
-				case Placement.TopLeft:
-					x = e.OffsetX;
-					y = e.OffsetY;
-					break;
-				case Placement.TopRight:
-					x = Xsize - eb.Xsize - e.OffsetX;
-					y = e.OffsetY;
-					break;
-				case Placement.BottomLeft:
-					x = e.OffsetX;
-					y = Ysize - eb.Ysize - e.OffsetY;
-					break;
-				case Placement.BottomRight:
-					x = Xsize - eb.Xsize - e.OffsetX;
-					y = Ysize - eb.Ysize - e.OffsetY;
-					break;
-				case Placement.Center:
-					x = Xsize / 2 - eb.Xsize / 2 + e.OffsetX;
-					y = Ysize / 2 - eb.Ysize / 2 + e.OffsetY;
-					break;
-				case Placement.CenterLeft:
-					x = e.OffsetX;
-					y = Ysize / 2 - eb.Ysize / 2 + e.OffsetY;
-					break;
-				case Placement.CenterRight:
-					x = Xsize - eb.Xsize - e.OffsetX;
-					y = Ysize / 2 - eb.Ysize / 2 + e.OffsetY;
-					break;
-				case Placement.TopCenter:
-					x = Xsize / 2 - eb.Xsize / 2 + e.OffsetX;
-					y = e.OffsetY;
-					break;
-				case Placement.BottomCenter:
-					x = Xsize / 2 - eb.Xsize / 2 + e.OffsetX;
-					y = Ysize - eb.Ysize - e.OffsetY;
-					break;
+		foreach(TuiElement e in Elements){
+			if(e is ILineElement i){
+				int x = 0;
+				int y = 0;
+				BitBuffer eb = i.GenerateBitBuffer();
+				switch(e.Placement){
+					default:
+					case Placement.TopLeft:
+						x = e.OffsetX;
+						y = e.OffsetY;
+						break;
+					case Placement.TopRight:
+						x = Xsize - eb.Xsize - e.OffsetX;
+						y = e.OffsetY;
+						break;
+					case Placement.BottomLeft:
+						x = e.OffsetX;
+						y = Ysize - eb.Ysize - e.OffsetY;
+						break;
+					case Placement.BottomRight:
+						x = Xsize - eb.Xsize - e.OffsetX;
+						y = Ysize - eb.Ysize - e.OffsetY;
+						break;
+					case Placement.Center:
+						x = Xsize / 2 - eb.Xsize / 2 + e.OffsetX;
+						y = Ysize / 2 - eb.Ysize / 2 + e.OffsetY;
+						break;
+					case Placement.CenterLeft:
+						x = e.OffsetX;
+						y = Ysize / 2 - eb.Ysize / 2 + e.OffsetY;
+						break;
+					case Placement.CenterRight:
+						x = Xsize - eb.Xsize - e.OffsetX;
+						y = Ysize / 2 - eb.Ysize / 2 + e.OffsetY;
+						break;
+					case Placement.TopCenter:
+						x = Xsize / 2 - eb.Xsize / 2 + e.OffsetX;
+						y = e.OffsetY;
+						break;
+					case Placement.BottomCenter:
+						x = Xsize / 2 - eb.Xsize / 2 + e.OffsetX;
+						y = Ysize - eb.Ysize - e.OffsetY;
+						break;
+				}
+				b.AddBuffer(x, y, eb);
 			}
-			b.AddBuffer(x, y, eb);
 		}
 		
 		return b.ToBuffer(Chars, DefFormat);

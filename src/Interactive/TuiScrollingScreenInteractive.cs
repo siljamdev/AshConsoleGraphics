@@ -52,11 +52,9 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 	/// <param name="e">Additional elements</param>
 	public TuiScrollingScreenInteractive(int xs, int ys, TuiSelectable[,] sm, uint startX, uint startY, Placement p, int x, int y, CharFormat? f, params TuiElement[] e)
 								: base(xs, ys, sm, startX, startY, p, x, y, f, e){		
-		FixedElements = new();
-		
-		FixedElements.OnChanged = () => {
+		FixedElements = new ReactiveList<TuiElement>(() => {
 			needToGenBuffer = true;
-		};
+		});
 		
 		OnResize += (s, args) => {
 			updateScroll();
@@ -77,11 +75,9 @@ public class TuiScrollingScreenInteractive : TuiScreenInteractive{
 	/// <param name="e">Additional elements</param>
 	public TuiScrollingScreenInteractive(int xs, int ys, TuiSelectable[,] sm, uint startX, uint startY, CharFormat? f, params TuiElement[] e)
 								: base(xs, ys, sm, startX, startY, f, e){		
-		FixedElements = new();
-		
-		FixedElements.OnChanged = () => {
+		FixedElements = new ReactiveList<TuiElement>(() => {
 			needToGenBuffer = true;
-		};
+		});
 		
 		OnResize += (s, args) => {
 			updateScroll();

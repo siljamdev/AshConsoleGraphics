@@ -77,15 +77,16 @@ public class TuiScreen : TuiElement, IEnumerable<TuiElement>{
 	/// <param name="e">The elements</param>
     public TuiScreen(int xs, int ys, Placement p, int x, int y, CharFormat? f, params TuiElement[] e) : base(p, x, y){
 		if(e == null){
-			Elements = new ReactiveList<TuiElement>();
+			Elements = new ReactiveList<TuiElement>(() => {
+				Elements.RemoveAll(e => e == null); //No null elements ever
+				needToGenBuffer = true;
+			});
 		}else{
-			Elements = new ReactiveList<TuiElement>(e.Where(x => x != null).Distinct());
+			Elements = new ReactiveList<TuiElement>(e.Where(x => x != null).Distinct(), () => {
+				Elements.RemoveAll(e => e == null); //No null elements ever
+				needToGenBuffer = true;
+			});
 		}
-		
-		Elements.OnChanged = () => {
-			Elements.RemoveAll(e => e == null); //No null elements ever
-			needToGenBuffer = true;
-		};
 		
 		DefFormat = f;
 		
