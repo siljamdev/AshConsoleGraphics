@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_Interactive_TuiSelectable" data-uid="AshConsoleGraphics.Interactive.TuiSelectable" class="text-break">
-Class TuiSelectable  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiSelectable.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class TuiSelectable  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -126,6 +126,7 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
       <div><a class="xref" href="AshConsoleGraphics.Interactive.TuiFramedRadio.html">TuiFramedRadio</a></div>
       <div><a class="xref" href="AshConsoleGraphics.Interactive.TuiNumberPicker.html">TuiNumberPicker</a></div>
       <div><a class="xref" href="AshConsoleGraphics.Interactive.TuiOptionPicker.html">TuiOptionPicker</a></div>
+      <div><a class="xref" href="AshConsoleGraphics.Interactive.TuiSlider.html">TuiSlider</a></div>
       <div><a class="xref" href="AshConsoleGraphics.Interactive.TuiWritable.html">TuiWritable</a></div>
     </dd>
   </dl>
@@ -199,7 +200,7 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
 
   <h3 id="AshConsoleGraphics_Interactive_TuiSelectable__ctor_AshConsoleGraphics_Placement_System_Int32_System_Int32_" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.#ctor(AshConsoleGraphics.Placement,System.Int32,System.Int32)">
   TuiSelectable(Placement, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiSelectable.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new selectable element</p>
@@ -234,6 +235,72 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
 
 
 
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiSelectable_LeftSelector" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.LeftSelector">
+  LeftSelector
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Global left selector char for all included Selectables</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static char? LeftSelector</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiSelectable_RightSelector" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.RightSelector">
+  RightSelector
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Global right selector char for all included Selectables</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static char? RightSelector</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="properties">Properties
 </h2>
 
@@ -242,7 +309,7 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
 
   <h3 id="AshConsoleGraphics_Interactive_TuiSelectable_KeyFunctions" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.KeyFunctions">
   KeyFunctions
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiSelectable.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Keybinds and their actions</p>
@@ -274,7 +341,7 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
 
   <h3 id="AshConsoleGraphics_Interactive_TuiSelectable_Selected" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.Selected">
   Selected
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiSelectable.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If it is selected or not</p>
@@ -310,7 +377,7 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
 
   <h3 id="AshConsoleGraphics_Interactive_TuiSelectable_DeleteAllKeyEvents" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.DeleteAllKeyEvents">
   DeleteAllKeyEvents()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiSelectable.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes all key events</p>
@@ -342,7 +409,7 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
 
   <h3 id="AshConsoleGraphics_Interactive_TuiSelectable_HandleKey_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.HandleKey(System.ConsoleKeyInfo)">
   HandleKey(ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiSelectable.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L83"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Handles a key press</p>
@@ -379,7 +446,7 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
 
   <h3 id="AshConsoleGraphics_Interactive_TuiSelectable_SubKeyEvent_System_ConsoleKey_System_Action_AshConsoleGraphics_Interactive_TuiSelectable_System_ConsoleKeyInfo__" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.SubKeyEvent(System.ConsoleKey,System.Action{AshConsoleGraphics.Interactive.TuiSelectable,System.ConsoleKeyInfo})">
   SubKeyEvent(ConsoleKey, Action&lt;TuiSelectable, ConsoleKeyInfo&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiSelectable.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Subscribes a new key event with no modifiers</p>
@@ -420,7 +487,7 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
 
   <h3 id="AshConsoleGraphics_Interactive_TuiSelectable_SubKeyEvent_System_ConsoleKey_System_ConsoleModifiers_System_Action_AshConsoleGraphics_Interactive_TuiSelectable_System_ConsoleKeyInfo__" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.SubKeyEvent(System.ConsoleKey,System.ConsoleModifiers,System.Action{AshConsoleGraphics.Interactive.TuiSelectable,System.ConsoleKeyInfo})">
   SubKeyEvent(ConsoleKey, ConsoleModifiers, Action&lt;TuiSelectable, ConsoleKeyInfo&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiSelectable.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L57"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Subscribes a new key event</p>
@@ -467,7 +534,7 @@ Class TuiSelectable  <a class="header-action link-secondary" title="View source"
 
   <h3 id="AshConsoleGraphics_Interactive_TuiSelectable_OnSelection" data-uid="AshConsoleGraphics.Interactive.TuiSelectable.OnSelection">
   OnSelection
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiSelectable.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiSelectable.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>

@@ -89,7 +89,7 @@
 
 
   <h1 id="AshConsoleGraphics_Interactive_TuiWritable" data-uid="AshConsoleGraphics.Interactive.TuiWritable" class="text-break">
-Class TuiWritable  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiWritable.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class TuiWritable  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -133,6 +133,12 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_LeftSelector">TuiSelectable.LeftSelector</a>
+    </div>
+    <div>
+      <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_RightSelector">TuiSelectable.RightSelector</a>
+    </div>
+    <div>
       <a class="xref" href="AshConsoleGraphics.Interactive.TuiSelectable.html#AshConsoleGraphics_Interactive_TuiSelectable_Selected">TuiSelectable.Selected</a>
     </div>
     <div>
@@ -175,9 +181,6 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_TriggerUpdate">TuiElement.TriggerUpdate()</a>
     </div>
     <div>
-      <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_BufferNeedsToBeGenerated">TuiElement.BufferNeedsToBeGenerated()</a>
-    </div>
-    <div>
       <a class="xref" href="AshConsoleGraphics.TuiElement.html#AshConsoleGraphics_TuiElement_GetTopLeftPosition_System_Int32_System_Int32_">TuiElement.GetTopLeftPosition(int, int)</a>
     </div>
     <div>
@@ -216,7 +219,7 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="AshConsoleGraphics_Interactive_TuiWritable__ctor_System_String_System_Int32_AshConsoleGraphics_Placement_System_Int32_System_Int32_" data-uid="AshConsoleGraphics.Interactive.TuiWritable.#ctor(System.String,System.Int32,AshConsoleGraphics.Placement,System.Int32,System.Int32)">
   TuiWritable(string, int, Placement, int, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiWritable.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L69"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Base constructor</p>
@@ -254,6 +257,41 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiWritable_Cursor" data-uid="AshConsoleGraphics.Interactive.TuiWritable.Cursor">
+  Cursor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Global cursor char for all included Writables</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static char? Cursor</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="properties">Properties
 </h2>
 
@@ -262,7 +300,7 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="AshConsoleGraphics_Interactive_TuiWritable_CanWriteChar" data-uid="AshConsoleGraphics.Interactive.TuiWritable.CanWriteChar">
   CanWriteChar
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiWritable.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines if a char can be written, and returns the string to add to text if possible, null otherwise</p>
@@ -294,7 +332,7 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="AshConsoleGraphics_Interactive_TuiWritable_Length" data-uid="AshConsoleGraphics.Interactive.TuiWritable.Length">
   Length
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiWritable.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The maximum length you can write</p>
@@ -326,7 +364,7 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="AshConsoleGraphics_Interactive_TuiWritable_Text" data-uid="AshConsoleGraphics.Interactive.TuiWritable.Text">
   Text
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiWritable.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The written text</p>
@@ -358,11 +396,43 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
 </h2>
 
 
+  <a id="AshConsoleGraphics_Interactive_TuiWritable_BufferNeedsToBeGenerated_" data-uid="AshConsoleGraphics.Interactive.TuiWritable.BufferNeedsToBeGenerated*"></a>
+
+  <h3 id="AshConsoleGraphics_Interactive_TuiWritable_BufferNeedsToBeGenerated" data-uid="AshConsoleGraphics.Interactive.TuiWritable.BufferNeedsToBeGenerated">
+  BufferNeedsToBeGenerated()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>In most cases, the base implementation is enough</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool BufferNeedsToBeGenerated()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AshConsoleGraphics_Interactive_TuiWritable_DelChar_" data-uid="AshConsoleGraphics.Interactive.TuiWritable.DelChar*"></a>
 
   <h3 id="AshConsoleGraphics_Interactive_TuiWritable_DelChar" data-uid="AshConsoleGraphics.Interactive.TuiWritable.DelChar">
   DelChar()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiWritable.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L121"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Attempts to delete a char from the end of the text</p>
@@ -395,7 +465,7 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="AshConsoleGraphics_Interactive_TuiWritable_HandleKey_System_ConsoleKeyInfo_" data-uid="AshConsoleGraphics.Interactive.TuiWritable.HandleKey(System.ConsoleKeyInfo)">
   HandleKey(ConsoleKeyInfo)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiWritable.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Handles a key press</p>
@@ -435,7 +505,7 @@ Class TuiWritable  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="AshConsoleGraphics_Interactive_TuiWritable_OnLengthChange" data-uid="AshConsoleGraphics.Interactive.TuiWritable.OnLengthChange">
   OnLengthChange
-  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/TuiWritable.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/siljamdev/AshConsoleGraphics/blob/main/src/Interactive/TuiWritable.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Will be called when length changes</p>
