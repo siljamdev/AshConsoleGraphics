@@ -418,18 +418,18 @@ public class TuiSlider : TuiSelectable{
 	}}
 	
 	/// <summary>
-	/// The percentage of the bar that is filled
+	/// The amount of the bar that is filled. Ranges from 0 to 1
 	/// </summary>
-	public float Percentage {get;
+	public float Filled {get;
 	set{
-		if(getSliderPos(Math.Clamp(value, 0f, 100f)) != getSliderPos(field)){
+		if(getSliderPos(Math.Clamp(value, 0f, 1f)) != getSliderPos(field)){
 			needToGenBuffer = true;
 		}
-		field = Math.Clamp(value, 0f, 100f);
+		field = Math.Clamp(value, 0f, 1f);
 	}}
 	
 	/// <summary>
-	/// What the percentage will be incremented/decremented each time an arrow is pressed
+	/// What the filled amount will be incremented/decremented each time an arrow is pressed
 	/// </summary>
 	public float Interval;
 	
@@ -484,7 +484,7 @@ public class TuiSlider : TuiSelectable{
 	/// <param name="xs">Xsize</param>
 	/// <param name="b">Background char</param>
 	/// <param name="s">Slider char</param>
-	/// <param name="num">Initial percentage</param>
+	/// <param name="num">Initial filled</param>
 	/// <param name="bf">Not selected background format</param>
 	/// <param name="sbf">Selected background format</param>
 	/// <param name="sf">Not selected slider format</param>
@@ -502,7 +502,7 @@ public class TuiSlider : TuiSelectable{
 		SelectorFormat = pf;
 		
 		Interval = interval;
-		Percentage = num;
+		Filled = num;
 		
 		SubKeyEvent(ConsoleKey.LeftArrow, SliderLeft);
 		SubKeyEvent(ConsoleKey.RightArrow, SliderRight);
@@ -514,7 +514,7 @@ public class TuiSlider : TuiSelectable{
 	/// <param name="xs">Xsize</param>
 	/// <param name="b">Background char</param>
 	/// <param name="s">Slider char</param>
-	/// <param name="num">Initial percentage</param>
+	/// <param name="num">Initial filled</param>
 	/// <param name="bf">Background format</param>
 	/// <param name="sf">Slider format</param>
 	/// <param name="pf">Selector format</param>
@@ -522,27 +522,27 @@ public class TuiSlider : TuiSelectable{
 						: this(xs, b, s, interval, num, p, x, y, bf, bf, sf, sf, pf){}
 	
 	int getSliderPos(float per){
-		return (int) (per * (Xsize - 1) / 100f);
+		return (int) (per * (Xsize - 1));
 	}
 	
 	/// <summary>
 	/// Moves slider to the left by the interval ammount
 	/// </summary>
 	public void SliderLeft(TuiSelectable s, ConsoleKeyInfo ck){
-		Percentage -= Interval;
+		Filled -= Interval;
 	}
 	
 	/// <summary>
 	/// Moves slider to the right by the interval ammount
 	/// </summary>
 	public void SliderRight(TuiSelectable s, ConsoleKeyInfo ck){
-		Percentage += Interval;
+		Filled += Interval;
 	}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b;
 		
-		int sliderPos = getSliderPos(Percentage);
+		int sliderPos = getSliderPos(Filled);
 		
 		if(Selected){
 			b = new Buffer(Xsize + 2, 1);

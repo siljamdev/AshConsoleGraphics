@@ -7,14 +7,14 @@
 	<LangVersion>preview</LangVersion>
 	
 	<PackageId>ashConsoleGraphics</PackageId>
-    <Version>2.2.6</Version>
-	<PackageVersion>2.2.6</PackageVersion>
+    <Version>2.2.7</Version>
+	<PackageVersion>2.2.7</PackageVersion>
     <Authors>siljam</Authors>
     <Company>AshProject</Company>
 	
 	<PackageTags>console ui graphic interactive terminal ansi NO_COLOR</PackageTags>
 	<PackageDescription>UIs and interfaces in your console</PackageDescription>
-	<PackageReleaseNotes>2.2.6 updated AshLib</PackageReleaseNotes>
+	<PackageReleaseNotes>2.2.7 improvements</PackageReleaseNotes>
 	
     <RepositoryUrl>https://github.com/siljamdev/AshConsoleGraphics</RepositoryUrl>
 	<RepositoryType>git</RepositoryType>
@@ -28,7 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AshLib" Version="3.5.1" />
+    <PackageReference Include="AshLib" Version="3.5.2" />
 	<Compile Remove="examples/**" />
 	<Compile Remove="exec/**" />
 	<None Include="res/icon.png" Pack="true" PackagePath="res/" />

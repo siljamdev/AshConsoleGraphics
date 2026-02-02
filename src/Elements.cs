@@ -512,14 +512,14 @@ public class TuiProgressBar : TuiElement{
 	}}
 	
 	/// <summary>
-	/// The percentage of the bar that is filled
+	/// The amount of the bar that is filled. Ranges from 0 to 1
 	/// </summary>
-	public float Percentage {get;
+	public float Filled {get;
 	set{
-		if(getCompleteChars(Math.Clamp(value, 0f, 100f)) != getCompleteChars(field)){
+		if(getCompleteChars(Math.Clamp(value, 0f, 1f)) != getCompleteChars(field)){
 			needToGenBuffer = true;
 		}
-		field = Math.Clamp(value, 0f, 100f);
+		field = Math.Clamp(value, 0f, 1f);
 	}}
 	
 	/// <summary>
@@ -567,13 +567,13 @@ public class TuiProgressBar : TuiElement{
 	public TuiProgressBar(int xs, char c, char u, Placement p, int x, int y, CharFormat? f = null) : this(xs, c, u, p, x, y, f, f){}
 	
 	int getCompleteChars(float per){
-		return (int) (per * Xsize / 100f);
+		return (int) (per * Xsize);
 	}
 	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, 1);
 		
-		int completeChars = getCompleteChars(Percentage);
+		int completeChars = getCompleteChars(Filled);
 		
 		for(int i = 0; i < completeChars; i++){
 			b.SetChar(i, 0, CompleteChar, CompleteFormat);
@@ -642,7 +642,7 @@ public class TuiLog : TuiElement{
 	/// </summary>
 	public int Scroll {get;
 	set{
-		if(value < 0){
+		if(value < 0 || value > lines.Count - Ysize){
 			return;
 		}
 		field = value;
@@ -697,6 +697,13 @@ public class TuiLog : TuiElement{
 	/// </summary>
 	public void AppendLine(string s){
 		Append(s + Environment.NewLine);
+	}
+	
+	/// <summary>
+	/// Scrolls to the very top
+	/// </summary>
+	public void ScrollToTop(){
+		Scroll = lines.Count - Ysize;
 	}
 	
 	override protected Buffer GenerateBuffer(){
@@ -842,7 +849,7 @@ public class TuiFormatLog : TuiElement{
 	/// </summary>
 	public int Scroll {get;
 	set{
-		if(value < 0){
+		if(value < 0 || value > lines.Count - Ysize){
 			return;
 		}
 		field = value;
@@ -933,6 +940,13 @@ public class TuiFormatLog : TuiElement{
 		Append(s + Environment.NewLine);
 	}
 	
+	/// <summary>
+	/// Scrolls to the very top
+	/// </summary>
+	public void ScrollToTop(){
+		Scroll = lines.Count - Ysize;
+	}
+	
 	override protected Buffer GenerateBuffer(){
 		Buffer b = new Buffer(Xsize, Ysize);
 		
@@ -961,7 +975,7 @@ public class TuiFormatLog : TuiElement{
 		return b;
 	}
 	
-	internal void generateLines(){
+	void generateLines(){
 		FormatString[] pars = _text.SplitIntoLines();
 		
 		List<FormatString> ls = new List<FormatString>();
@@ -1027,9 +1041,11 @@ public class TuiFormatLog : TuiElement{
 		FormatString current = new FormatString();
 		
 		foreach((char c, CharFormat? f) in s){
-			if(char.IsWhiteSpace(c) && current.Length > 0){
-				words.Add(current);
-				current = new FormatString();
+			if(char.IsWhiteSpace(c)){
+				if(current.Length > 0){
+					words.Add(current);
+					current = new FormatString();
+				}
 			}else{
 				current.Append(c, f);
 			}

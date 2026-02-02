@@ -9,8 +9,7 @@ class Program{
 	
 	static Random rand = new Random();
 	
-	static void Main(){
-
+	static void Main(){		
 		Console.CursorVisible = false;
 		
 		TuiSelectable.LeftSelector = '[';
@@ -45,7 +44,7 @@ class Program{
 			{new TuiButton("Change to another", Placement.Center, 0, 2, null, selected, new CharFormat(Color3.Yellow)).SetAction(goToAlternate)},
 			{new TuiButton("Useless button that does nothing", Placement.Center, 0, 4, null, selected, new CharFormat(Color3.Yellow)).SetAction(joke)},
 			{new TuiFramedCheckBox(' ', 'X', false, Placement.Center, 8, 7, null, null, null, new CharFormat(null, null, 0, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
-			{new TuiSlider(16, '—', '@', 4f, 50f, Placement.Center, 0, 11, null, null, null, new CharFormat(null, null, 0, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
+			{new TuiSlider(16, '—', '@', 0.04f, 0.5f, Placement.Center, 0, 11, null, null, null, new CharFormat(null, null, 0, null, Color3.Yellow, false, null, false), new CharFormat(Color3.Yellow))},
 		};
 		
 		TuiSelectable[,] AlternateElements = null;
@@ -106,6 +105,10 @@ class Program{
 			((TuiFormatLog) RightScreen.Elements[0]).Scroll--;
 		});
 		
+		RightScreen.SubKeyEvent(ConsoleKey.Spacebar, (s, ck) => {
+			((TuiFormatLog) RightScreen.Elements[0]).ScrollToTop();
+		});
+		
 		int j = 0;
 		
 		int d = 0;
@@ -147,7 +150,7 @@ class Program{
 			
 			//Limit speed of generation
 			j++;
-			if(j >= 110 - ((TuiSlider) RightElements[4,0]).Percentage){
+			if(j >= (int) (150f - 145f*((TuiSlider) RightElements[4,0]).Filled)){
 				j = 0;
 				((TuiFormatLog) RightScreen.Elements[0]).Append(generateContent(rand), new CharFormat(new Color3((byte) rand.Next(255), (byte) rand.Next(255), (byte) rand.Next(255))));
 			}
@@ -206,7 +209,7 @@ class Program{
 			int m = 1;
 			for(int i = 0; i < m; i++){
 				sb.Append(words[ran.Next(words.Length)]);
-				int h = ran.Next(18);
+				int h = ran.Next(20);
 				if(h == 0){
 					sb.Append(Environment.NewLine);
 					continue;
@@ -216,9 +219,11 @@ class Program{
 				}else if(h == 2){
 					sb.Append(". ");
 					continue;
-				}
-				else if(h == 3){
+				}else if(h == 3){
 					sb.Append("." + Environment.NewLine);
+					continue;
+				}else if(h == 4){
+					sb.Append("." + Environment.NewLine + Environment.NewLine);
 					continue;
 				}
 				sb.Append(" ");
