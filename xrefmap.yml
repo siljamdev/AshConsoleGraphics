@@ -2684,6 +2684,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.Interactive.TuiSlider.BackgroundFormat
   nameWithType: TuiSlider.BackgroundFormat
+- uid: AshConsoleGraphics.Interactive.TuiSlider.Filled
+  name: Filled
+  href: api/AshConsoleGraphics.Interactive.TuiSlider.html#AshConsoleGraphics_Interactive_TuiSlider_Filled
+  commentId: P:AshConsoleGraphics.Interactive.TuiSlider.Filled
+  fullName: AshConsoleGraphics.Interactive.TuiSlider.Filled
+  nameWithType: TuiSlider.Filled
+- uid: AshConsoleGraphics.Interactive.TuiSlider.Filled*
+  name: Filled
+  href: api/AshConsoleGraphics.Interactive.TuiSlider.html#AshConsoleGraphics_Interactive_TuiSlider_Filled_
+  commentId: Overload:AshConsoleGraphics.Interactive.TuiSlider.Filled
+  isSpec: "True"
+  fullName: AshConsoleGraphics.Interactive.TuiSlider.Filled
+  nameWithType: TuiSlider.Filled
 - uid: AshConsoleGraphics.Interactive.TuiSlider.GenerateBuffer
   name: GenerateBuffer()
   href: api/AshConsoleGraphics.Interactive.TuiSlider.html#AshConsoleGraphics_Interactive_TuiSlider_GenerateBuffer
@@ -2703,19 +2716,6 @@ references:
   commentId: F:AshConsoleGraphics.Interactive.TuiSlider.Interval
   fullName: AshConsoleGraphics.Interactive.TuiSlider.Interval
   nameWithType: TuiSlider.Interval
-- uid: AshConsoleGraphics.Interactive.TuiSlider.Percentage
-  name: Percentage
-  href: api/AshConsoleGraphics.Interactive.TuiSlider.html#AshConsoleGraphics_Interactive_TuiSlider_Percentage
-  commentId: P:AshConsoleGraphics.Interactive.TuiSlider.Percentage
-  fullName: AshConsoleGraphics.Interactive.TuiSlider.Percentage
-  nameWithType: TuiSlider.Percentage
-- uid: AshConsoleGraphics.Interactive.TuiSlider.Percentage*
-  name: Percentage
-  href: api/AshConsoleGraphics.Interactive.TuiSlider.html#AshConsoleGraphics_Interactive_TuiSlider_Percentage_
-  commentId: Overload:AshConsoleGraphics.Interactive.TuiSlider.Percentage
-  isSpec: "True"
-  fullName: AshConsoleGraphics.Interactive.TuiSlider.Percentage
-  nameWithType: TuiSlider.Percentage
 - uid: AshConsoleGraphics.Interactive.TuiSlider.SelectedBackgroundFormat
   name: SelectedBackgroundFormat
   href: api/AshConsoleGraphics.Interactive.TuiSlider.html#AshConsoleGraphics_Interactive_TuiSlider_SelectedBackgroundFormat
@@ -3369,6 +3369,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiFormatLog.Scroll
   nameWithType: TuiFormatLog.Scroll
+- uid: AshConsoleGraphics.TuiFormatLog.ScrollToTop
+  name: ScrollToTop()
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_ScrollToTop
+  commentId: M:AshConsoleGraphics.TuiFormatLog.ScrollToTop
+  fullName: AshConsoleGraphics.TuiFormatLog.ScrollToTop()
+  nameWithType: TuiFormatLog.ScrollToTop()
+- uid: AshConsoleGraphics.TuiFormatLog.ScrollToTop*
+  name: ScrollToTop
+  href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_ScrollToTop_
+  commentId: Overload:AshConsoleGraphics.TuiFormatLog.ScrollToTop
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiFormatLog.ScrollToTop
+  nameWithType: TuiFormatLog.ScrollToTop
 - uid: AshConsoleGraphics.TuiFormatLog.Text
   name: Text
   href: api/AshConsoleGraphics.TuiFormatLog.html#AshConsoleGraphics_TuiFormatLog_Text
@@ -3770,6 +3783,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiLog.Scroll
   nameWithType: TuiLog.Scroll
+- uid: AshConsoleGraphics.TuiLog.ScrollToTop
+  name: ScrollToTop()
+  href: api/AshConsoleGraphics.TuiLog.html#AshConsoleGraphics_TuiLog_ScrollToTop
+  commentId: M:AshConsoleGraphics.TuiLog.ScrollToTop
+  fullName: AshConsoleGraphics.TuiLog.ScrollToTop()
+  nameWithType: TuiLog.ScrollToTop()
+- uid: AshConsoleGraphics.TuiLog.ScrollToTop*
+  name: ScrollToTop
+  href: api/AshConsoleGraphics.TuiLog.html#AshConsoleGraphics_TuiLog_ScrollToTop_
+  commentId: Overload:AshConsoleGraphics.TuiLog.ScrollToTop
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiLog.ScrollToTop
+  nameWithType: TuiLog.ScrollToTop
 - uid: AshConsoleGraphics.TuiLog.Text
   name: Text
   href: api/AshConsoleGraphics.TuiLog.html#AshConsoleGraphics_TuiLog_Text
@@ -3984,6 +4010,19 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiProgressBar.CompleteFormat
   nameWithType: TuiProgressBar.CompleteFormat
+- uid: AshConsoleGraphics.TuiProgressBar.Filled
+  name: Filled
+  href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar_Filled
+  commentId: P:AshConsoleGraphics.TuiProgressBar.Filled
+  fullName: AshConsoleGraphics.TuiProgressBar.Filled
+  nameWithType: TuiProgressBar.Filled
+- uid: AshConsoleGraphics.TuiProgressBar.Filled*
+  name: Filled
+  href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar_Filled_
+  commentId: Overload:AshConsoleGraphics.TuiProgressBar.Filled
+  isSpec: "True"
+  fullName: AshConsoleGraphics.TuiProgressBar.Filled
+  nameWithType: TuiProgressBar.Filled
 - uid: AshConsoleGraphics.TuiProgressBar.GenerateBuffer
   name: GenerateBuffer()
   href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar_GenerateBuffer
@@ -4023,19 +4062,6 @@ references:
   isSpec: "True"
   fullName: AshConsoleGraphics.TuiProgressBar.IncompleteFormat
   nameWithType: TuiProgressBar.IncompleteFormat
-- uid: AshConsoleGraphics.TuiProgressBar.Percentage
-  name: Percentage
-  href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar_Percentage
-  commentId: P:AshConsoleGraphics.TuiProgressBar.Percentage
-  fullName: AshConsoleGraphics.TuiProgressBar.Percentage
-  nameWithType: TuiProgressBar.Percentage
-- uid: AshConsoleGraphics.TuiProgressBar.Percentage*
-  name: Percentage
-  href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar_Percentage_
-  commentId: Overload:AshConsoleGraphics.TuiProgressBar.Percentage
-  isSpec: "True"
-  fullName: AshConsoleGraphics.TuiProgressBar.Percentage
-  nameWithType: TuiProgressBar.Percentage
 - uid: AshConsoleGraphics.TuiProgressBar.Xsize
   name: Xsize
   href: api/AshConsoleGraphics.TuiProgressBar.html#AshConsoleGraphics_TuiProgressBar_Xsize
